@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/login.js" defer></script>
+</head>
+<body id="body-login">
+    <header id="header-login">
+        <nav class="df cxy" id="nav-login">
+            <a href="../index.html">
+                <svg viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.939279 10.9393C0.353492 11.5251 0.353492 12.4749 0.939279 13.0607L10.4852 22.6066C11.071 23.1924 12.0208 23.1924 12.6065 22.6066C13.1923 22.0208 13.1923 21.0711 12.6065 20.4853L4.12126 12L12.6065 3.51472C13.1923 2.92893 13.1923 1.97918 12.6065 1.3934C12.0208 0.807612 11.071 0.807612 10.4852 1.3934L0.939279 10.9393ZM26.9999 10.5L1.99994 10.5V13.5L26.9999 13.5V10.5Z" fill="#1E222F"/>
+                </svg>
+            </a>
+            <div class="logo-login df cxy">
+                <img src="../img/escudo.png" alt="Escudo Colegio Rafael Uribe Uribe">
+                <h3 class="di" >RUU</h3>
+            </div>
+        </nav>
+    </header>
+    <main id="main-login" class="df cxy">
+        <section class="section-login">
+            <h3 class="h3-login">Inicia Sesión</h3>
+            <div class="emailInvalid">
+                <h5>El usuario <b>juanca@gmail.com</b>, no esta registrado</h5>
+            </div>
+            <div class="emailInvalid">
+                <h5>La contraseña que ingresaste, es incorrecta</h5>
+            </div>
+            <form class="form-login">
+                <div class="correo-in">
+                    <label>Correo</label>
+                    <input type="email" id="inputEmail" name="correo" placeholder="Ingresa tu correo" required>
+                </div>
+                <div class="pass-in">
+                    <label>Contraseña</label>
+                    <div class="pass-btn df">
+                        <input type="password" id="inputPass" name="pass" placeholder="••••••••••••••" required>
+                        <button type="button" id="btnPass">
+                            <svg class="visible" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                            width="20px" height="20px" fill="#fff" viewBox="0 0 497.25 497.25" style="enable-background:new 0 0 497.25 497.25;"
+	                            xml:space="preserve">
+                                <g>
+                                	<g>
+                                		<circle cx="248.625" cy="248.625" r="19.125"/>
+                                		<path d="M248.625,172.125c-42.075,0-76.5,34.425-76.5,76.5s34.425,76.5,76.5,76.5s76.5-34.425,76.5-76.5
+                                			S290.7,172.125,248.625,172.125z M248.625,306c-32.513,0-57.375-24.862-57.375-57.375s24.862-57.375,57.375-57.375
+                                			S306,216.112,306,248.625S281.138,306,248.625,306z"/>
+                                		<path d="M248.625,114.75C76.5,114.75,0,248.625,0,248.625S76.5,382.5,248.625,382.5S497.25,248.625,497.25,248.625
+                                			S420.75,114.75,248.625,114.75z M248.625,363.375c-153,0-225.675-114.75-225.675-114.75s72.675-114.75,225.675-114.75
+                                			S474.3,248.625,474.3,248.625S401.625,363.375,248.625,363.375z"/>
+                                	</g>
+                                </g>
+                            </svg>
+                            <svg class="hidden" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                            width="20px" height="20px" fill="#fff" viewBox="0 0 497.301 497.301" style="enable-background:new 0 0 497.301 497.301;"
+	                            xml:space="preserve">
+                                <g>
+                                	<path d="M97.5,342.351C30.6,302.15,0,248.65,0,248.65s76.5-133.9,248.6-133.9c24.9,0,47.8,1.9,68.8,7.6l-15.301,15.3
+                                		c-17.199-1.9-34.4-3.8-53.5-3.8c-153,0-225.7,114.8-225.7,114.8s28.7,45.9,88,80.3L97.5,342.351z M172.1,248.65
+                                		c0,5.7,0,11.5,1.9,17.2l17.2-17.2c0-15.3,5.7-28.7,17.2-40.2s26.8-17.2,40.2-17.2l17.201-17.2c-5.701-1.9-11.5-1.9-17.201-1.9
+                                		C206.5,172.15,172.1,206.55,172.1,248.65z M399.699,154.95l-13.398,13.4c59.299,34.4,88,80.3,88,80.3S401.6,363.45,248.6,363.45
+                                		c-19.1,0-36.3-1.899-53.5-3.8l-15.3,15.3c21,5.7,44,7.601,68.9,7.601c172.101,0,248.601-133.9,248.601-133.9
+                                		S466.6,195.15,399.699,154.95z M401.4,76.95L76.9,401.45l18.9,18.9l324.6-324.6L401.4,76.95z M288.801,288.851
+                                		c-11.5,11.5-24.9,17.2-40.201,17.2l-17.2,17.199c5.7,1.9,11.5,1.9,17.2,1.9c42.099,0,76.5-34.4,76.5-76.5c0-5.7,0-11.5-1.9-17.2
+                                		L306,248.65C306,263.95,300.199,277.351,288.801,288.851z"/>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="add-in df cxy">
+                    <a href="./recucode.html">¿Has olvidado tu contraseña?</a>
+                </div>
+                <div class="ingresar-in">
+                    <button id="btnSubmitLogin" type="submit">Ingresar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

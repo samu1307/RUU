@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Anek D";
+  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-ExtraBold.ttf);
+  font-style: normal;
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Anek D";
+  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Bold.ttf);
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Anek D";
+  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-SemiBold.ttf);
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Anek D";
+  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Medium.ttf);
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Anek D";
+  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Anek D";
+  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Light.ttf);
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Anek D";
+  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-ExtraLight.ttf);
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Anek D";
+  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Thin.ttf);
+  font-style: normal;
+  font-weight: 100;
+}
+
+/*# sourceMappingURL=fonts.css.map */
