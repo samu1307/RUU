@@ -20,22 +20,34 @@
                     </svg>
                 </div>
                 <a href="#" class="btn-home df cxy">
-                    <img src="./img/escudo.png" alt="Escudo Colegio Rafael Uribe Uribe">
+                    <img class="lazy-load" src="./img/escudo.png" alt="Escudo Colegio Rafael Uribe Uribe">
                     <h3 class="di" >RUU</h3>
                 </a>
                 <a class="btn-login df cxy" href="./views/login.html">Ingresar</a>
             </div>
-            <div class="menu-header-close" id="menu-slider-header">
-                <a href="#header-index" class="a-sections">Inicio</a>
-                <a href="#section-1-index" class="a-sections">Ubicación</a>
-                <a href="#section-2-index" class="a-sections">Acerca de</a>
-                <a href="#form-contact" class="a-sections">Contactar</a>
+            <div class="menu-slider-header">
+                <a href="#header-index" id="home" class="a-sections">
+                    <img class="lazy-load" src="img/iconhome.svg" alt="">
+                    <span>Inicio</span>
+                </a>
+                <a href="#section-1-index" id="ubi" class="a-sections">
+                    <img class="lazy-load" src="img/iconubicacion.svg" alt="">
+                    <span>Ubicación</span>
+                </a>
+                <a href="#section-2-index" id="about" class="a-sections">
+                    <img class="lazy-load" src="img/iconacercade.svg" alt="">
+                    <span>Nosotros</span>
+                </a>
+                <a href="#form-contact" id="contact" class="a-sections">
+                    <img class="lazy-load" src="img/iconcontact.svg" alt="">
+                    <span>Contactar</span>
+                </a>
             </div>
         </nav>  
         
         <div class="main-head" >
             <div class="main-img">
-                <img src="./img/escudobg.svg" alt=".">
+                <img class="lazy-load" loading="none" src="./img/escudobg.svg" alt=".">
             </div>
             <div class="main-p">
                 <h1>Porque la <span>nutrición</span> es <br> importante</h1>
@@ -50,19 +62,19 @@
     <main id="main-index">
         <section class="section-1-index" id="section-1-index">
             <div class="map">
-                <iframe class="mapIframe" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.261302140725!2d-74.15205568570643!3d4.5469303442389215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa1dfc765d443%3A0x755db7df8764399e!2sIED%20Colegio%20Rafael%20Uribe%20Uribe%20Localidad%2019!5e0!3m2!1ses!2sco!4v1669464605207!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe class="mapIframe lazy-load" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.261302140725!2d-74.15205568570643!3d4.5469303442389215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa1dfc765d443%3A0x755db7df8764399e!2sIED%20Colegio%20Rafael%20Uribe%20Uribe%20Localidad%2019!5e0!3m2!1ses!2sco!4v1669464605207!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="main-slider">
                 <div class="main-img-slider">
                     <div class="img-slider df">
                         <div class="df cxy">
-                            <img src="./img/imgslider1.jpg" data-spy="scroll" data-img="1" alt="">
+                            <img class="lazy-load" src="./img/imgslider1.jpg" data-spy="scroll" data-img="1" alt="">
                         </div>
                         <div class="df cxy" id="vertical">
-                            <img src="./img/imgslider2.jpg" data-spy="scroll" data-img="2" alt="">
+                            <img class="lazy-load" src="./img/imgslider2.jpg" data-spy="scroll" data-img="2" alt="">
                         </div>
                         <div class="df cxy">
-                            <img src="./img/imgslider3.jpg" data-spy="scroll" data-img="3" alt="">
+                            <img class="lazy-load" src="./img/imgslider3.jpg" data-spy="scroll" data-img="3" alt="">
                         </div>
                     </div>
                 </div>
@@ -90,13 +102,13 @@
             </div>
         </section>
         <section class="section-2-index" id="section-2-index">
-            <!-- <div class="video-yt"><iframe class="videoIframe" width="560" height="315" src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div> -->
+            <div class="video-yt"><iframe class="videoIframe lazy-load" width="560" height="315" src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
             <div class="about">
                 <h4>¿Quiénes Somos?</h4>
                 <p> <b>RUU</b> inicio en septiembre de 2022 como una idea para gestionar, mas rapida y adecuadamente, los distintos refrigerios que llegan al Colegio Rafael Uribe Uribe mediante una plataforma web. <b>RUU</b> tiene como meta, desarrollar una plataforma que sea adaptable para todos los colegios de Bogota D.C.</p>
             </div>
             <div class="lema">
-                <div class="lema-img"><img src="./img/escudo.png" alt=""></div>
+                <div class="lema-img"><img class="lazy-load" src="./img/escudo.png" alt=""></div>
                 <h4>“ Buscamos la calidad con amor y exigencia ”</h4>
             </div>
         </section>
