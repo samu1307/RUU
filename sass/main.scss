@@ -5,6 +5,34 @@
 
 /* * * * * * ROOT * * * * * */
 
+:root{
+
+    //Para animación
+    --top: 0;
+    --left: 0;
+    --zIndex: 0;
+    --topA: 0;
+    --leftA: 0;
+    --ZindexA: 0;
+
+    //Para abrir menu
+    --pTop: 0;
+    --pLeft: 0;  
+    --pIndex: 0;
+    --uTop: 0;
+    --uLeft: 0;  
+    --uIndex: 0;
+    --cTop: 0;
+    --cLeft: 0;  
+    --cIndex: 0;
+    --sTop: 0;
+    --sLeft: 0;  
+    --sIndex: 0;
+    --rTop: 0;
+    --rLeft: 0;  
+    --rIndex: 0;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -816,213 +844,47 @@ html{
     z-index: 20;
 }
 
-// * * .Users Active * * //
 
 .body-view-menu-users{
-    top: 24vh;
-    left: 67vw;
+    top:  var(--uTop);
+    left: var(--uLeft) ;
+    z-index: var(--uIndex);
     height: 100vh;
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-courses{
-    top: 21vh;
-    left: 62vw;
+    top:  var(--cTop);
+    left: var(--cLeft) ;
+    z-index: var(--cIndex);
     height: 100vh;
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-snacks{
-    top: 18vh;
-    left: 57vw;
+    top:  var(--sTop);
+    left: var(--sLeft) ;
+    z-index: var(--sIndex);
     height: 100vh;
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-profile{
-    top: 15vh;
-    left: 52vw;
+    top:  var(--pTop);
+    left: var(--pLeft) ;
+    z-index: var(--pIndex);
     height: 100vh;
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-report{
-    top: 12vh;
-    left: 47vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-// * * .Courses Active * * //
-
-.body-view-menu-users1{
-    top: 21vh;
-    left: 62vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-    z-index: 50;
-}
-
-.body-view-menu-courses1{
-    top: 24vh;
-    left: 67vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-    z-index: 60;
-}
-
-.body-view-menu-snacks1{
-    top: 18vh;
-    left: 57vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-profile1{
-    top: 15vh;
-    left: 52vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-report1{
-    top: 12vh;
-    left: 47vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-// * * .Snacks Active * * //
-
-.body-view-menu-users2{
-    top: 24vh;
-    left: 67vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-courses2{
-    top: 21vh;
-    left: 62vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-snacks2{
-    top: 18vh;
-    left: 57vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-profile2{
-    top: 15vh;
-    left: 52vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-report2{
-    top: 12vh;
-    left: 47vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-// * * .Profile Active * * //
-
-.body-view-menu-users3{
-    top: 24vh;
-    left: 67vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-courses3{
-    top: 21vh;
-    left: 62vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-snacks3{
-    top: 18vh;
-    left: 57vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-profile3{
-    top: 15vh;
-    left: 52vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-report3{
-    top: 12vh;
-    left: 47vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-// * * .Report Active * * //
-
-.body-view-menu-users4{
-    top: 24vh;
-    left: 67vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-courses4{
-    top: 21vh;
-    left: 62vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-snacks4{
-    top: 18vh;
-    left: 57vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-profile4{
-    top: 15vh;
-    left: 52vw;
-    height: 100vh;
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-report4{
-    top: 12vh;
-    left: 47vw;
+    top:  var(--rTop);
+    left: var(--rLeft) ;
+    z-index: var(--rIndex);
     height: 100vh;
     position: absolute;
     border-radius: 20px 20px 0 0;
@@ -1034,18 +896,15 @@ html{
 
 @keyframes load-profile {
     0%{
-        top: 16vh;
-        left: 57vw;
-        z-index: 50;
+        top: var(--top);
+        left: var(--left);
+        z-index: var(--zIndex);
         border-radius: 20px 20px 0 0;
-    }50%{
-        top: -16vh;
-        left: -40vw;
-    }80%{
-        top: 0;
-        left: 0;
+    }35%{
+        top: var(--topA);
+        left: var(--leftA);
     }100%{
-        z-index: 70;
+        z-index: 80;
         top: 0;
         left: 0;
         border-radius: 0;
@@ -1060,10 +919,11 @@ html{
     padding: 5% 5%;
     position: absolute;
     background-color: $bluedark;
-    div[id=menu-icon]{
-        height: 20%;
+    div[id=menu-icon-div]{
+        height: 15%;
         svg{
             cursor: pointer;
+            stroke: $white;
         }
     }
     div[id=search]{
@@ -1071,7 +931,7 @@ html{
         height: 85%;
         flex-direction: column;
         h3{
-            color: $gray;
+            color: $white;
             line-height: 100%;
             margin-bottom: 3%;
             font-size: calc(12vw - 1rem);
