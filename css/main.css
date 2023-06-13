@@ -1315,5 +1315,162 @@ html::-webkit-scrollbar-track:hover, html::-webkit-scrollbar-track:active {
     min-width: 100%;
   }
 }
+@media screen and (min-width: 1024px) {
+  #header-index {
+    height: 90vh;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #nav-index {
+    width: 94%;
+    position: static;
+    overflow: none;
+    padding: 2vh 0;
+  }
+  .nav-nav-index {
+    padding: 0;
+    overflow: none;
+  }
+  .menu-slider-header {
+    display: none;
+  }
+  .btn-menu {
+    display: none;
+  }
+  .btn-home img {
+    width: 4vw;
+  }
+  .btn-home h3 {
+    padding-top: 1vh;
+    height: auto;
+    font-size: calc(3vw - 1rem);
+  }
+  .n-n-msh {
+    height: 100%;
+    padding: 0 2vw;
+  }
+  .n-n-msh ul {
+    transform: translateY(4px);
+    flex-direction: row;
+  }
+  .n-n-msh ul li {
+    list-style: none;
+    margin: 0 1.5vw;
+    position: relative;
+  }
+  .n-n-msh ul li a {
+    font-weight: 500;
+    cursor: pointer;
+    font-size: calc(0.6em + 0.6vw);
+    font-family: "Anek D", sans-serif;
+    transition: all 0.3s;
+    line-height: 100%;
+    color: #1E222F;
+  }
+  .n-n-msh ul li a::after {
+    content: "";
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    position: absolute;
+    border-radius: 12px;
+    transition: all 0.3s;
+    background: #1E222F;
+  }
+  .n-n-msh ul li a:hover {
+    font-weight: 700;
+    scale: 1.1;
+  }
+  .n-n-msh ul li a:hover::after {
+    width: 1.8vw;
+  }
+  .btn-login {
+    border: #1E222F solid 2px;
+    padding: 0.7em 2em 0.6em;
+    font-size: calc(0.5em + 0.5vw);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    transition: all 0.3s;
+  }
+  .btn-login:hover {
+    background: #E5E9F6;
+    color: #1E222F;
+  }
+  .main-head {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 10vh;
+  }
+  .main-img {
+    margin: 0;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-img img {
+    max-width: 96%;
+  }
+  .main-main {
+    width: 50%;
+    padding: 0 3%;
+  }
+  .main-date {
+    position: relative;
+    flex-direction: row;
+    margin-bottom: 3vw;
+    align-items: flex-end;
+  }
+  .main-date svg {
+    width: calc(3.5vw - 1rem);
+  }
+  .main-date div {
+    font-family: Calibri, sans-serif;
+    font-weight: 300;
+    font-size: calc(3vw - 1rem);
+    padding-left: 0.5vw;
+  }
+  .main-p h1 {
+    font-weight: 600;
+    font-size: calc(9vw - 1rem);
+    line-height: 0.8em;
+    text-align: left;
+    letter-spacing: -0.3vw;
+  }
+  .main-p h1 span {
+    letter-spacing: 1px;
+  }
+  .main-p h1 div {
+    margin-top: 0.3vw;
+  }
+  .main-line {
+    width: 100%;
+  }
+  .main-btn {
+    display: flex;
+    flex-direction: row;
+  }
+  .main-btn a {
+    border-radius: 12px;
+    margin: 0 2%;
+    padding: 1vw 1.7vw;
+    font-size: calc(3vw - 1em);
+    transition: all 0.3s;
+  }
+  .main-btn a[id=ingresar]:hover {
+    background-color: #E5E9F6;
+    color: #1E222F;
+    box-shadow: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .main-btn a[id=contacto]:hover {
+    background-color: #4AA163;
+    color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
 
 /*# sourceMappingURL=main.css.map */

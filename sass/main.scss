@@ -1317,3 +1317,183 @@ html{
     }
 
 }
+
+
+
+@media screen and (min-width: 1024px ){
+
+    #header-index{
+        height: 90vh;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #nav-index{
+        width: 94%;
+        position: static;
+        overflow: none;
+        padding: 2vh 0;
+    }
+
+    .nav-nav-index{
+        padding: 0;
+        overflow: none;
+    }
+    
+    .menu-slider-header{
+        display: none;
+    }
+
+    .btn-menu{
+        display: none;
+    }
+
+    .btn-home{
+        img{
+            width: 4vw;
+        }h3{
+            padding-top: 1vh;
+            height: auto;
+            font-size: calc(3vw - 1rem);
+        }
+    }
+
+    .n-n-msh{
+        height: 100%;
+        padding: 0 2vw;
+        ul{
+            transform: translateY(4px);
+            flex-direction: row;
+            li{ 
+                list-style: none;
+                margin: 0 1.5vw;
+                position: relative;
+                a{
+                    font-weight: 500;
+                    cursor: pointer;
+                    font-size: calc(.6em + .6vw);
+                    font-family: 'Anek D', sans-serif;
+                    transition: all .3s;
+                    line-height: 100%;
+                    color: $bluedark;
+                    
+                    &::after{
+                        content: "";
+                        left: 0;
+                        bottom: 0;
+                        height: 2px;
+                        width: 0;
+                        position: absolute;
+                        border-radius: 12px;
+                        transition: all .3s;
+                        background: $bluedark;
+                    }
+                    
+                    &:hover{
+                        font-weight: 700;
+                        scale: 1.1;
+                        &::after{
+                            width: 1.8vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .btn-login{
+        border: $bluedark solid 2px;
+        padding: .7em 2em .6em;
+        font-size: calc(.5em + .5vw);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        transition: all .3s;
+        &:hover{
+            background: $gray;
+            color: $bluedark;
+        }
+    }
+
+    .main-head{
+        display: flex;
+        flex-direction: row-reverse;
+        padding-top: 10vh;
+    }
+
+    .main-img{
+        margin: 0;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            max-width: 96%;
+        }
+    }
+    
+    .main-main{
+        width: 50%;
+        padding: 0 3%;
+    }
+
+    .main-date{
+        position: relative;
+        flex-direction: row;
+        margin-bottom: 3vw;
+        align-items: flex-end;
+        svg{
+            width: calc(3.5vw - 1rem);
+        }
+        div{
+            font-family: Calibri, sans-serif;
+            font-weight: 300;
+            font-size: calc(3vw - 1rem);
+            padding-left: .5vw;
+        }
+    }
+
+    .main-p{
+        h1{
+            font-weight: 600;
+            font-size: calc(9vw - 1rem);
+            line-height: .8em;
+            text-align: left;
+            letter-spacing: -.3vw;
+            span{
+                letter-spacing: 1px;
+            }
+            div{
+                margin-top: .3vw;
+            }
+        }
+    }
+
+    .main-line{
+        width: 100%;
+    }
+
+    .main-btn{
+        display: flex;
+        flex-direction: row;
+        a{
+            border-radius: 12px;
+            margin: 0 2%;
+            padding: 1vw 1.7vw;
+            font-size: calc(3vw - 1em);
+            transition: all .3s;
+        }
+        a[id=ingresar]:hover{
+            background-color: $gray;
+            color: $bluedark;
+            box-shadow: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }a[id=contacto]:hover{
+            background-color: $green;
+            color: $white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+}

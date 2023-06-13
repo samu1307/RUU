@@ -16,8 +16,22 @@ const imgSlider = d.querySelectorAll('img[data-spy="scroll"]')
 const btnL = d.querySelector('#row-btn-l');
 const btnR = d.querySelector('#row-btn-r');
 const divSlider = d.querySelector('.img-slider');
-const videoI = d.querySelector('.videoIframe')
-const mapI = d.querySelector('.mapIframe')
+const videoI = d.querySelector('.videoIframe');
+const mapI = d.querySelector('.mapIframe');
+const dateH4 = d.querySelector('#main-date');
+
+//Creación de arrays para fecha
+
+    //Mes
+    let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+
+    //Dia
+    const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
+
+//Colocar fecha index
+const date = new Date();
+let dateToday = date.toDateString();
+dateH4.innerHTML = `${days[date.getDay() - 1]}, ${date.getDate()} de ${months[date.getMonth()]} de ${date.getUTCFullYear()}`
 
 lazyLoad.forEach(e=>{
     console.log(e.loading)
@@ -73,17 +87,19 @@ const menuIndex = ()=>{
 }
 
 const navAnimated = ()=>{
-    document.addEventListener('scroll', ()=>{
-        if(scrollY < 20){
-            navNavIndex.style.boxShadow = ''
-            navNavIndex.style.padding = '5% 5% 2.5%'
-            btnLogin.style.padding = '3vw 4vw'
-        }else{
-            navNavIndex.style.boxShadow = '0 2px 15px rgba(0, 0, 0, .3)'
-            navNavIndex.style.padding = '2.5% 5%'
-            btnLogin.style.padding = '2.5vw 3.5vw'
-        }
-    })
+    if(innerWidth <= 480){
+        document.addEventListener('scroll', ()=>{
+            if(scrollY < 20){
+                navNavIndex.style.boxShadow = ''
+                navNavIndex.style.padding = '5% 5% 2.5%'
+                btnLogin.style.padding = '3vw 4vw'
+            }else{
+                navNavIndex.style.boxShadow = '0 2px 15px rgba(0, 0, 0, .3)'
+                navNavIndex.style.padding = '2.5% 5%'
+                btnLogin.style.padding = '2.5vw 3.5vw'
+            }
+        })
+    }
 }
 
 const sliderL = ()=>{
