@@ -3,6 +3,7 @@ const head = d.querySelector('.main-head');
 const main = d.querySelector('main')
 const foot = d.querySelector('footer')
 const map = d.querySelector('.map')
+const btnNight = d.querySelector('#btn-night');
 const lazyLoad = d.querySelectorAll('.lazy-load')
 const btnMenu = d.querySelector('.btn-menu');
 const menuHeader = d.querySelector('.menu-slider-header');
@@ -19,6 +20,19 @@ const divSlider = d.querySelector('.img-slider');
 const videoI = d.querySelector('.videoIframe');
 const mapI = d.querySelector('.mapIframe');
 const dateH4 = d.querySelector('#main-date');
+
+
+(function (){
+    btnNight.addEventListener('click', ()=>{
+        if(btnNight.style.marginLeft != '50%'){
+            btnNight.style.marginLeft = '50%'
+        }else btnNight.style.marginLeft = '0'
+    })
+})()
+
+console.log(window.window)
+
+
 
 //Creación de arrays para fecha
 

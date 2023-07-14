@@ -1,3 +1,8 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "synthwave84.brightness": 1,
+    "vscode_custom_css.imports": [
+        "file:///C:/users/usuario/Desktop/synthwave84.css"
+    ],
+    "files.autoSave": "off",
 }

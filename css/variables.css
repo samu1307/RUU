@@ -1,3 +1,22 @@
-
+@font-face {
+  font-family: "Signika-Light";
+  src: url("../fonts/Signika/SignikaLight.ttf");
+}
+@font-face {
+  font-family: "Signika-Regular";
+  src: url("../fonts/Signika/SignikaSemiBold.ttf");
+}
+@font-face {
+  font-family: "Signika-Medium";
+  src: url("../fonts/Signika/SignikaRegular.ttf");
+}
+@font-face {
+  font-family: "Signika-SemiBold";
+  src: url("../fonts/Signika/SignikaMedium.ttf");
+}
+@font-face {
+  font-family: "Signika-Bold";
+  src: url("../fonts/Signika/SignikaBold.ttf");
+}
 
 /*# sourceMappingURL=variables.css.map */

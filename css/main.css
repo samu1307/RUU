@@ -1,51 +1,24 @@
+@charset "UTF-8";
 /* * * * * * IMPORTS * * * * * */
 @font-face {
-  font-family: "Anek D";
-  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-ExtraBold.ttf);
-  font-style: normal;
-  font-weight: 800;
+  font-family: "Signika-Light";
+  src: url("../fonts/Signika/SignikaLight.ttf");
 }
 @font-face {
-  font-family: "Anek D";
-  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Bold.ttf);
-  font-style: normal;
-  font-weight: 700;
+  font-family: "Signika-Regular";
+  src: url("../fonts/Signika/SignikaSemiBold.ttf");
 }
 @font-face {
-  font-family: "Anek D";
-  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-SemiBold.ttf);
-  font-style: normal;
-  font-weight: 600;
+  font-family: "Signika-Medium";
+  src: url("../fonts/Signika/SignikaRegular.ttf");
 }
 @font-face {
-  font-family: "Anek D";
-  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Medium.ttf);
-  font-style: normal;
-  font-weight: 500;
+  font-family: "Signika-SemiBold";
+  src: url("../fonts/Signika/SignikaMedium.ttf");
 }
 @font-face {
-  font-family: "Anek D";
-  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Regular.ttf);
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Anek D";
-  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Light.ttf);
-  font-style: normal;
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Anek D";
-  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-ExtraLight.ttf);
-  font-style: normal;
-  font-weight: 200;
-}
-@font-face {
-  font-family: "Anek D";
-  src: url(../fonts/static/AnekDevanagari/AnekDevanagari-Thin.ttf);
-  font-style: normal;
-  font-weight: 100;
+  font-family: "Signika-Bold";
+  src: url("../fonts/Signika/SignikaBold.ttf");
 }
 /* * * * * * ROOT * * * * * */
 :root {
@@ -1317,21 +1290,24 @@ html::-webkit-scrollbar-track:hover, html::-webkit-scrollbar-track:active {
 }
 @media screen and (min-width: 1024px) {
   #header-index {
-    height: 90vh;
-    padding: 3%;
+    height: 100vh;
+    padding: 3.5% 3%;
     display: flex;
+    background-color: #F2E63C;
     flex-direction: column;
     align-items: center;
+    background: hsl(56, 87%, 68%);
+    background: radial-gradient(circle, hsl(56, 87%, 68%) 0%, hsl(56, 80%, 52%) 100%);
   }
   #nav-index {
     width: 94%;
+    height: 6vh;
     position: static;
-    overflow: none;
-    padding: 2vh 0;
   }
   .nav-nav-index {
     padding: 0;
-    overflow: none;
+    height: 100%;
+    background: none;
   }
   .menu-slider-header {
     display: none;
@@ -1339,64 +1315,107 @@ html::-webkit-scrollbar-track:hover, html::-webkit-scrollbar-track:active {
   .btn-menu {
     display: none;
   }
+  .btn-home {
+    height: 100%;
+  }
   .btn-home img {
-    width: 4vw;
+    width: auto;
+    height: 90%;
   }
   .btn-home h3 {
-    padding-top: 1vh;
+    font-family: "Segoe UI";
     height: auto;
-    font-size: calc(3vw - 1rem);
+    font-size: 1rem;
+    letter-spacing: 0;
   }
   .n-n-msh {
     height: 100%;
-    padding: 0 2vw;
   }
   .n-n-msh ul {
-    transform: translateY(4px);
     flex-direction: row;
+  }
+  .n-n-msh ul li:nth-child(1) a::after {
+    content: "Inicio";
+  }
+  .n-n-msh ul li:nth-child(2) a::after {
+    content: "Ubicación";
+  }
+  .n-n-msh ul li:nth-child(3) a::after {
+    content: "Nosotros";
+  }
+  .n-n-msh ul li:nth-child(4) a::after {
+    content: "Contactar";
   }
   .n-n-msh ul li {
     list-style: none;
-    margin: 0 1.5vw;
     position: relative;
+    margin: 0 1.5vw;
   }
   .n-n-msh ul li a {
+    display: inline-block;
     font-weight: 500;
     cursor: pointer;
     font-size: calc(0.6em + 0.6vw);
-    font-family: "Anek D", sans-serif;
-    transition: all 0.3s;
+    font-family: Calibri;
     line-height: 100%;
     color: #1E222F;
+    position: relative;
+    transition: all 0.3s;
+    transform-style: preserve-3d;
   }
   .n-n-msh ul li a::after {
-    content: "";
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0;
     position: absolute;
-    border-radius: 12px;
-    transition: all 0.3s;
-    background: #1E222F;
+    top: -100%;
+    left: 0px;
+    width: 100%;
+    transform-origin: left bottom;
+    transform: rotateX(90deg);
+    font-weight: 600;
   }
   .n-n-msh ul li a:hover {
-    font-weight: 700;
-    scale: 1.1;
+    transform-origin: center bottom;
+    transform: rotateX(-90deg) translateY(100%);
   }
-  .n-n-msh ul li a:hover::after {
-    width: 1.8vw;
+  .btns {
+    width: 18%;
+    height: 80%;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .btns .night {
+    width: 46%;
+    height: 100%;
+    position: relative;
+    border-radius: 12px;
+    background: #1E222F;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .btns .night div {
+    top: 0;
+    left: 0;
+    width: 50%;
+    right: auto;
+    height: 100%;
+    bottom: auto;
+    cursor: pointer;
+    background: #FFFFFF;
+    position: absolute;
+    transition: all 0.5s;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   .btn-login {
+    width: 46%;
+    height: 100%;
+    padding: 0;
     border: #1E222F solid 2px;
-    padding: 0.7em 2em 0.6em;
     font-size: calc(0.5em + 0.5vw);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     transition: all 0.3s;
   }
   .btn-login:hover {
-    background: #E5E9F6;
+    background: none;
     color: #1E222F;
   }
   .main-head {
@@ -1410,9 +1429,21 @@ html::-webkit-scrollbar-track:hover, html::-webkit-scrollbar-track:active {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   .main-img img {
     max-width: 96%;
+  }
+  .main-img::after {
+    content: "";
+    bottom: 10px;
+    left: auto;
+    width: 80%;
+    border-radius: 50%;
+    height: 50px;
+    position: absolute;
+    filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.4);
   }
   .main-main {
     width: 50%;
@@ -1434,11 +1465,12 @@ html::-webkit-scrollbar-track:hover, html::-webkit-scrollbar-track:active {
     padding-left: 0.5vw;
   }
   .main-p h1 {
-    font-weight: 600;
-    font-size: calc(9vw - 1rem);
+    font-family: "Segoe UI";
+    font-weight: bold;
+    font-size: calc(7vw - 1rem);
     line-height: 0.8em;
-    text-align: left;
-    letter-spacing: -0.3vw;
+    text-align: start;
+    letter-spacing: -0.2vw;
   }
   .main-p h1 span {
     letter-spacing: 1px;
@@ -1454,14 +1486,14 @@ html::-webkit-scrollbar-track:hover, html::-webkit-scrollbar-track:active {
     flex-direction: row;
   }
   .main-btn a {
-    border-radius: 12px;
+    border-radius: 0 -12px;
     margin: 0 2%;
     padding: 1vw 1.7vw;
     font-size: calc(3vw - 1em);
     transition: all 0.3s;
   }
   .main-btn a[id=ingresar]:hover {
-    background-color: #E5E9F6;
+    background: none;
     color: #1E222F;
     box-shadow: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

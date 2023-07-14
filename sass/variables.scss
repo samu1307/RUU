@@ -1,6 +1,23 @@
-$gray: #E5E9F6;
-$green: #4AA163;
-$bluedark: #1E222F;
-$red: #FF5959;
-$yellow: #F2E63C;
-$white: #FFFFFF;
+@import './fonts.scss';
+
+//Colors
+    $gray: #E5E9F6;
+    $green: #4AA163;
+    //48AD7E
+    $bluedark: #1E222F;
+    $red: #FF5959;
+    $yellow: #F2E63C;
+    $white: #FFFFFF;
+
+//Fonts
+    $Calibri: Calibri;
+    $Segoe: 'Segoe UI';
+    $SignikaL: 'Signika-Light';
+    $SignikaR: 'Signika-Regular';
+    $SignikaM: 'Signika-Medium';
+    $SignikaS: 'Signika-SemiBold';
+    $SignikaB: 'Signika-Bold';
+
+//Names Class
+    $hl: 'header-left';
+    $hr: 'header-right';

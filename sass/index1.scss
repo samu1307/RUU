@@ -1,0 +1,452 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    width: 100vw;
+    height: 100%;
+}
+
+/* * * HEADER  * * */
+
+header{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.header__#{$hl}, .header__#{$hr}{
+    @include div(50%, 100%, 0, 0, flex)
+}
+
+
+/* * * HEAD__LEFT * * */
+
+/* * HEAD * */
+
+.header__#{$hl}{
+    background: $yellow;
+    flex-direction: column;
+}
+
+.#{$hl}__head{
+    @include div (
+        calc(100% - 8vw), 5%, 
+        4vh 2.5vw 4vh 5.5vw, 
+        0, flex
+    );
+    justify-content: space-between;
+    align-items: center;
+}
+
+.#{$hl}__head-logo{
+    @include div(
+        auto, 100%, 
+        0, 0, flex
+    );
+    justify-content: space-between;
+    align-items: center ;
+
+    img{
+        width: auto;
+        height: 100%;
+        margin-right: 5px;
+    }
+
+    h4{
+        font: {
+            family: $SignikaL, sans-serif;
+            size: 1.5vw;
+            weight: 100;
+        }
+        color: $bluedark;
+    }
+}
+
+.#{$hl}__head-btn{
+    @include btnDashed(
+        23%,25%,100%, 
+        0,0, 
+        .1vw dashed $bluedark, 
+        $bluedark, $Segoe, 
+        1.3vw,2vw
+    );
+}
+
+/* * BODY * */
+
+.#{$hl}__main{
+    @include div(
+        calc(100% - 8vw),
+        calc(75% - 8vh),
+        4vh 2.5vw 4vh 5.5vw,
+        0, flex
+    );
+}
+
+.#{$hl}__main{
+    @include div(
+        calc(100% - 8vw),
+        calc(70% - 4vh),
+        0 2.5vw 4vh 5.5vw,
+        0, flex
+    );
+    flex-direction: column;
+}
+
+.#{$hl}__main-head{
+    @include div(
+        100%,5%,
+        0,0,flex
+    );
+    justify-content: end
+}
+
+.#{$hl}_main-head-btn{
+    @include div(
+        10%,100%,
+        0,0,flex
+    );
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    button{
+        width: .8vw;
+        height: .8vw;
+        outline: none;
+        cursor: pointer;
+        background: none;
+        border-radius: .3vw;
+        transition: all .3s;
+        border: 1px solid $bluedark;
+        
+        &:hover{
+            scale: 1.2;
+        }
+    }
+}
+
+.main-head-btn-active{
+    background: $bluedark !important;
+}
+
+.#{$hl}__main-body{
+    @include div(
+        100%,95%,
+        0,0,flex
+    );
+    overflow: hidden;
+
+    div{
+        @include div(
+            100%,100%,
+            0,0,flex
+        );
+    }
+
+    p{
+        width: 45%;
+        font: {
+            family: $Segoe, sans-serif;
+            size: 1vw;
+        }
+    }
+}
+
+.#{$hl}__main-body-1{
+}
+
+/* * FOOTER * */
+
+.#{$hl}__footer{
+    @include div(
+        calc(100% - 8vw),
+        calc(15% - 5vh),
+        2vh 2.5vw 3vh 5.5vw,
+        0, flex
+    );
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.#{$hl}__footer-btn{
+    @include btnDashed(
+        4vw, 4vw, 4vw,
+        0, 0, .1vw dashed $bluedark,
+        $bluedark, $Segoe, 2.1vw, 50%
+    );
+}
+
+.#{$hl}__footer-slider{
+    @include div(
+        20%, auto, 
+        0,0, flex
+    );
+
+    border: none;
+    cursor: pointer;
+    background: none;
+    
+    span{
+        transition: all .4s;
+        font: {
+            family: $SignikaL, $Segoe;
+            size: 1vw;
+        }
+        margin-right: 1.5vw;
+    }
+
+    &:hover svg{
+        transform: translateX(-40%);
+    }
+}
+
+.#{$hl}__footer-slider-btn{
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    border: .2vw solid $green;
+    background: rgba($color: $green, $alpha: .6);
+    
+    svg{
+        height: 30%;
+        transform: translateX(-65%);
+        transition: all .4s;
+        line, polyline{
+            fill: none;
+            stroke: $bluedark;
+            stroke-miterlimit: 10;
+        }
+        polyline{
+            fill-rule: evenodd;
+        }
+    }
+}
+
+
+
+/* * * HEAD__RIGHT * * */
+
+.header__#{$hr}{
+    background: $bluedark;
+    flex-direction: column;
+    &:hover{
+        .#{$hr}__head-sections{
+            height: 100%;
+        }
+    }
+}
+
+/* * HEAD * */
+
+.#{$hr}__head{
+    align-items: start;
+    width: calc(100% - 8vw);
+    height: calc(30% - 6vh);
+    padding: 4vh 5.5vw 2vh 2.5vw;
+    justify-content: space-between;
+}
+
+.#{$hr}__head-btn{
+    transition: all .4s;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div{
+        font-family: $Segoe;
+        line-height: 100%;
+    }
+    
+    div:first-child{
+        color: $gray;
+        font: {
+            weight: 600;
+            size: 1.5vw;
+        }
+    }div:nth-child(2n){
+        margin-top: .2vw;
+        color: rgba($color: $gray, $alpha: .5);
+        font: {
+            weight: 100;
+            size: 1.25vw;
+        }
+    }
+
+    &:hover{
+        scale: 1.05;
+    }
+}
+
+.#{$hr}__head-sections{
+    height: 3vw;
+    overflow: hidden;
+    transition: all .3s;
+    display: inline-block;
+
+    span{
+        transition: all .2s;
+        color: $gray;
+        letter-spacing: .1vw;
+        font: {
+            family: $SignikaL, sans-serif;
+            size: 1.4vw;
+            weight: 100;
+        }
+
+        &:first-child{
+            display: none;
+        }
+    }
+
+    li{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-top: .5vw;
+        &:hover{
+            span{
+                font: {
+                    size: 1.6vw;
+                    weight: bold;
+                }
+                
+                &:first-child{
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+.head-sections-active{
+    span{
+        font: {
+            size: 1.6vw;
+            weight: bold;
+        }
+
+        &:first-child{
+            display: inline;
+        }
+    }
+}
+
+/* * MAIN * */
+
+.#{$hr}__main{
+    @include div(
+        calc(100% - 8vw),
+        calc(50% - 4vh),
+        0 5.5vw 0 2.5vw,
+        0, flex
+    );
+    flex-direction: column;
+    div{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        span{
+            height: 100%;
+            text-align: end;
+            line-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+        }
+    }
+}
+
+.#{$hr}__main-tittle{
+    height: 60%;
+    span{
+        color: $yellow;      
+        font: {
+            family: $SignikaB;
+            size: 4.5vw;
+        }
+    }
+}
+
+.#{$hr}__main-school{
+    height: 40%;
+    span{
+        color: $gray;
+        font: {
+            weight: 700;
+            family: $Segoe;
+            size: 3.5vw;
+        }
+
+        word{
+            &:first-child{
+                translate: -1vw;
+            }
+            &:nth-child(2n){
+                translate: -.7vw;
+            }
+        }
+    }
+}
+
+/* * FOOTER * */
+.#{$hr}__foot{
+    width: 100%;
+    height: calc(100% - (85% - 11vh));
+}
+
+.#{$hr}__footer{
+    @include div(
+        calc(100% - 8vw),
+        calc(100% - 4vh),
+        2vh 5.5vw 2vh 2.5vw,
+        0,flex
+    )
+}
+
+
+/* * * HEAD__LOGO * * */
+
+.header-logo{
+    width: 35vw;
+    height: 50vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+
+    img{
+        width: auto;
+        height: 100%;
+        cursor: pointer;
+        transition: all .4s;
+
+        &:hover{
+            scale: 1.1;
+        }
+    }
+
+}
+
+
+/* * * * CLASES REPETIDAS * * * */
+
+.df{
+    display: flex;
+}
+
+.cxy{
+    align-items: center;
+    justify-content: center;
+}

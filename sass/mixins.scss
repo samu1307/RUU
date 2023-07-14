@@ -1,0 +1,93 @@
+@mixin div($w, $h, $p, $m, $d){
+    min-width: $w;
+    height: $h;
+    padding: $p;
+    margin: $m;
+    display: $d;
+}
+
+@mixin before ($cont, $top, $left, $w, $op, $zin, $h, $br, $ts, $c){
+    content: $cont;
+    top: $top;
+    left: $left;
+    width: $w;
+    opacity: $op;
+    z-index: $zin;
+    height: $h;
+    position: absolute;
+    border-radius: $br;
+    transition: all $ts ease-in;
+    background: $c;
+}
+
+@mixin after ($cont, $r, $b, $w, $op, $zin, $h, $br, $ts, $c){
+    content: $cont;
+    right: $r;
+    bottom: $b;
+    width: $w;
+    opacity: $op;
+    z-index: $zin;
+    height: $h;
+    position: absolute;
+    border-radius: $br;
+    transition: all $ts ease-in;
+    background: $c;
+}
+
+@mixin btnDashed ($minw, $maxw, $h, $p, $m, $b, $c, $ff, $fs, $br){
+    min-width: $minw;
+    max-width: $maxw;
+    height: $h;
+    padding: $p;
+    margin: $m;
+    border: $b;
+    color: $c;
+    font: {
+        family: $ff, sans-serif;
+        size: $fs;
+    }
+    border-radius: $br;
+    outline: none;
+    line-height: 150%;
+    transition: all .3s ease-in;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+    z-index: 10;
+    
+    span{
+        z-index: 20;
+    }
+    
+    &::before{
+        @include before(
+            '',0,0,0,1,
+            10,100%,
+            0,.3s,
+            $bluedark
+        );
+    }
+
+    &::after{
+        @include after(
+            '',0,0,0,1,
+            10,100%,
+            0,.3s,
+            $bluedark
+        );
+    }
+    
+    &:hover{
+        border-style: solid;
+        color: $gray;
+        &::before{
+            opacity: 1;
+            width: 50%;
+        }
+        &::after{
+            opacity: 1;
+            width: 50%;
+        }
+    }
+}
