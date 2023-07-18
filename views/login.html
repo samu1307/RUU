@@ -17,7 +17,7 @@
                 <h3>RUU</h3>
             </div>
             <div class="left__head-arrow">
-                <div class="df cxy"><span>&larr;</span></div>
+                <div class="df cxy"><a href="../index.html"><span>&larr;</span></a></div>
             </div>
         </div>
         <div class="left__text">
@@ -40,8 +40,8 @@
             </div>
         </div>
         <div class="left__body">
-            <div class="left__body-slider df">
-                <div class="left__body-slider-sec login-sec-active" id="login-coor">
+            <div class="left__body-slider df" style="margin-left: 0;">
+                <div class="left__body-slider-sec login-sec-active" data-slider="1">
                     <div class="left__slider-sec-text">
                         <p>
                             El Coordinador es una persona encargada
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="left__body-slider-sec" id="login-aux">
+                <div class="left__body-slider-sec" data-slider="2">
                     <div class="left__slider-sec-text">
                         <p>
                             El Auxiliar es un estudiante 
@@ -160,14 +160,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="left__body-slider-sec" id="login-refri">
+                <div class="left__body-slider-sec" data-slider="3">
                     <div class="left__slider-sec-text">
                         <p>
                             El tipo de refrigerio es la 
                             clasificación que se da por 
                             su tamaño, cantidad y componentes, 
                             los cuales varian dependiendo del
-                            ciclo de grado y la jornada.
+                            ciclo, del grado y de la jornada.
                         </p>
                     </div>
                     <div class="left__slider-sec-profile">
@@ -194,34 +194,59 @@
             </div>
             <div class="left__body-btn df cxy">
                 <div class="left__body-btn-div">
-                    <button class="login-btn-active" id=""></button>
-                    <button id=""></button>
-                    <button id=""></button>
+                    <button class="login-sec-btn login-btn-active" data-slider="1"></button>
+                    <button class="login-sec-btn" data-slider="2"></button>
+                    <button class="login-sec-btn" data-slider="3"></button>
                 </div>
             </div>
         </div>
     
-        </div>
     </div>
-    <div class="login-right">
-        <div class="right__head">
+    </div>
+    <div class="login-right cxy">
+        <div class="right__head df">
             <div class="left__head-logo">
-                <!-- <img src="../img/escudo.png"> -->
+                <img src="../img/escudo.png">
                 <h3>RUU</h3>
             </div>
             <div class="left__head-arrow">
-                <svg data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.94 9.71">
-                    <line y1="4.85" x2="25" y2="4.85"/>
-                    <polyline points="19.5 .85 26.03 4.89 19.5 8.85"/>
-                </svg>
+                <div class="df cxy"><a href="../index.html"><span>&larr;</span></a></div>
             </div>
         </div>
-        <div class="right__text">
-
+        <div class="right__text df">
+            <h1>Inicia Sesión</h1>
+            <p>
+                Si estas registrado en el sistema de información,
+                podrás iniciar sesión
+            </p>
         </div>
-        <div class="right__body">
-
-        </div>
+        <form class="right__body" action="#" method="GET">
+            <span>¿Cuál es tu rol?</span>
+            <button class="right__body-btn-coor df">
+                <div class="right__body-cont"><div></div></div>
+                <div>Coordinador</div>
+            </button>
+            <button class="right__body-btn-aux df">
+                <div class="right__body-cont"><div></div></div>
+                <div>Auxiliar<div>
+            </button>
+            <div class="right__body-div-email">
+                <span>Correo</span>
+                <input class="right__body-input" type="email" name="email" placeholder="Ingresa tu correo">
+            </div>
+            <div class="right__body-div-pass">
+                <span>Contraseña</span>
+                <input class="right__body-input" type="password" name="email" placeholder="•••••••••••••••">
+            </div>
+            <div class="right__body-record df">
+                <input type="checkbox" name="record">
+                <div>Recordar</div>
+            </div>
+            <div class="right__body-pass">
+                <a href="./recucorreo.html">¿Has olvidado tu contraseña?</a>
+            </div>
+            <input class="right__body-btn-send" type="submit" value="Ingresar">
+        </form>
     </div>
 </body>
 </html>
