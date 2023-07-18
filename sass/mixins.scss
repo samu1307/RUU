@@ -1,5 +1,5 @@
 @mixin div($w, $h, $p, $m, $d){
-    min-width: $w;
+    width: $w;
     height: $h;
     padding: $p;
     margin: $m;

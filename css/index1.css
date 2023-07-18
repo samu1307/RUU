@@ -38,7 +38,7 @@ header {
 }
 
 .header__header-left, .header__header-right {
-  min-width: 50%;
+  width: 50%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -53,7 +53,7 @@ header {
 }
 
 .header-left__head {
-  min-width: calc(100% - 8vw);
+  width: calc(100% - 8vw);
   height: 5%;
   padding: 4vh 2.5vw 4vh 5.5vw;
   margin: 0;
@@ -63,7 +63,7 @@ header {
 }
 
 .header-left__head-logo {
-  min-width: auto;
+  width: auto;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -147,7 +147,7 @@ header {
 
 /* * BODY * */
 .header-left__main {
-  min-width: calc(100% - 8vw);
+  width: calc(100% - 8vw);
   height: calc(75% - 8vh);
   padding: 4vh 2.5vw 4vh 5.5vw;
   margin: 0;
@@ -155,7 +155,7 @@ header {
 }
 
 .header-left__main {
-  min-width: calc(100% - 8vw);
+  width: calc(100% - 8vw);
   height: calc(70% - 4vh);
   padding: 0 2.5vw 4vh 5.5vw;
   margin: 0;
@@ -164,7 +164,7 @@ header {
 }
 
 .header-left__main-head {
-  min-width: 100%;
+  width: 100%;
   height: 5%;
   padding: 0;
   margin: 0;
@@ -173,7 +173,7 @@ header {
 }
 
 .header-left_main-head-btn {
-  min-width: 10%;
+  width: 10%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -201,7 +201,7 @@ header {
 }
 
 .header-left__main-body {
-  min-width: 100%;
+  width: 100%;
   height: 95%;
   padding: 0;
   margin: 0;
@@ -209,7 +209,7 @@ header {
   overflow: hidden;
 }
 .header-left__main-body div {
-  min-width: 100%;
+  width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -223,7 +223,7 @@ header {
 
 /* * FOOTER * */
 .header-left__footer {
-  min-width: calc(100% - 8vw);
+  width: calc(100% - 8vw);
   height: calc(15% - 5vh);
   padding: 2vh 2.5vw 3vh 5.5vw;
   margin: 0;
@@ -296,7 +296,7 @@ header {
 }
 
 .header-left__footer-slider {
-  min-width: 20%;
+  width: 20%;
   height: auto;
   padding: 0;
   margin: 0;
@@ -420,7 +420,7 @@ header {
 
 /* * MAIN * */
 .header-right__main {
-  min-width: calc(100% - 8vw);
+  width: calc(100% - 8vw);
   height: calc(50% - 4vh);
   padding: 0 5.5vw 0 2.5vw;
   margin: 0;
@@ -474,7 +474,7 @@ header {
 }
 
 .header-right__footer {
-  min-width: calc(100% - 8vw);
+  width: calc(100% - 8vw);
   height: calc(100% - 4vh);
   padding: 2vh 5.5vw 2vh 2.5vw;
   margin: 0;

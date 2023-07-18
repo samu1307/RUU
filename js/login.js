@@ -1,20 +1,23 @@
 const d = document;
-const inputPass = d.querySelector('#inputPass');
-const btnPass = d.querySelector('#btnPass');
-const hidden = d.querySelector('.hidden')
-const visible = d.querySelector('.visible')
+const bodySlider = d.querySelector('.left__body-slider');
 
-const viewPass = ()=>{
-    btnPass.addEventListener('click', ()=>{
-        hidden.style.opacity = '0'
-        visible.style.opacity = '1'
-        inputPass.type = 'text';
-        setTimeout(()=>{
-            hidden.style.opacity = '1'
-            visible.style.opacity = '0'
-            inputPass.type = 'password';
-        },2500)
-    })
-}
-
-viewPass();
+(function (){
+    let marginLeft = bodySlider.style.marginLeft;
+    console.log(bodySlider.style.marginLeft)
+    setInterval(()=>{
+        switch (marginLeft) {
+            case '':
+                console.log()   
+                marginLeft = '-100%'    
+                break;
+            case '-100%':
+                console.log(marginLeft)
+                marginLeft = '-200%'    
+                break;        
+            case '-200%':
+                console.log(marginLeft)
+                marginLeft = '0px'    
+                break;
+        }
+    }, 3000)
+})()
