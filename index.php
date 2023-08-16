@@ -35,7 +35,7 @@
                     <div class="night">
                         <div id="btn-night"></div>
                     </div>
-                    <a class="btn-login df cxy" href="./view/login.html">Ingresar</a>
+                    <a class="btn-login df cxy" href="./view/login.php">Ingresar</a>
                 </div>
             </div>
             <div class="menu-slider-header">
@@ -88,7 +88,7 @@
                 </div>
                 <div class="main-line"></div>
                 <div class="main-btn">
-                    <a class="main-btn-ingresar di" id="ingresar" href="./view/login.html">Ingresar</a>
+                    <a class="main-btn-ingresar di" id="ingresar" href="./view/login.php">Ingresar</a>
                     <a class="main-btn-contacto di" id="contacto" href="#">Contacto</a>
                 </div>
             </div>

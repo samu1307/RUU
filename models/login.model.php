@@ -1,48 +1,45 @@
 <?php
 
-    session_start();
+    require_once('connection.model.php');
 
-    require_once('connection.php');
+    class LoginModel{
 
-    class Login{
-
-        private $PDO;
+        private $pdo;
 
         public function __construct(){
 
             try {
-                $this->PDO = connection::connection();
+                $this->pdo = conex::connection();
             } catch (Exception $e) {
                 die($e->getMessage());
             }
 
         }
 
-        public function login($User, $Password){
-
-            $query = $this->PDO->prepare('SELECT * FROM usuario WHERE usuario = :User AND contrasenia = :Pass');
+        public function login($User, $Pass){
+            
+            $query = $this->pdo->prepare('SELECT * FROM usuario WHERE usuario = :User AND contrasenia = :Pass');
             $query->bindParam(':User', $User);
-            $query->bindParam(':Pass', $Password);
+            $query->bindParam(':Pass', $Pass);
             $query->execute();
-
-            echo $query->rowCount();
 
             if($query->rowCount() == 1){
 
                 $res = $query->fetch();
-                echo $res;
 
-                $_SESSION['Nombre'] = $res['Nombre'];
-                $_SESSION['id'] = $res['id'];
+                $_SESSION['Nombre'] = $res['usuario'];
+                $_SESSION['id'] = $res[0];
+                
+                return true;
 
-                return $res['id'];
-
-            }
-
-
+                
+            }else return false;
+            
         }
-
+        
+        
         public function validateSession(){
+            session_start();
             if($_SESSION['id'] == null) header('Location: login.php');
         }
 
