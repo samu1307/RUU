@@ -6,7 +6,7 @@ const map = d.querySelector('.map')
 const btnNight = d.querySelector('#btn-night');
 const lazyLoad = d.querySelectorAll('.lazy-load')
 const btnMenu = d.querySelector('.btn-menu');
-const menuHeader = d.querySelector('.menu-slider-header');
+const mH = d.querySelector('.menu-slider-header');
 const navIndex = d.querySelector('#nav-index');
 const navNavIndex = d.querySelector('.nav-nav-index');
 const btnLogin = d.querySelector('.btn-login')
@@ -21,6 +21,9 @@ const videoI = d.querySelector('.videoIframe');
 const mapI = d.querySelector('.mapIframe');
 const dateH4 = d.querySelector('#main-date');
 
+//Preparados
+const menuHeaderS = mH.style;
+const menuHeaderC = mH.classList;
 
 (function (){
     btnNight.addEventListener('click', ()=>{
@@ -29,10 +32,6 @@ const dateH4 = d.querySelector('#main-date');
         }else btnNight.style.marginLeft = '0'
     })
 })()
-
-console.log(window.window)
-
-
 
 //Creación de arrays para fecha
 
@@ -47,41 +46,43 @@ const date = new Date();
 let dateToday = date.toDateString();
 dateH4.innerHTML = `${days[date.getDay() - 1]}, ${date.getDate()} de ${months[date.getMonth()]} de ${date.getUTCFullYear()}`
 
-lazyLoad.forEach(e=>{
-    console.log(e.loading)
-})
 
 //Funcion para relacion cuadrada en elemento y en Div
 const cuadrado = ()=>{
     aSections.forEach(e=>{
-        if(menuHeader.classList.length == 2){
-            menuHeader.style.height = `${menuHeader.clientWidth}px`
-        }else{
-            menuHeader.style.height = '0'
-        }
-        e.style.height = `${e.clientWidth}px`
+        e.style.height = `${e.clientWidth}px`;
+        return e.clientWidth;
     })
 };
 
 //Designar alto de a-sections al redimencionar
-window.addEventListener('resize', cuadrado)
+window.addEventListener('resize', cuadrado);
 
-const menuIndex = ()=>{
+//
+let darkBg = ()=>{
+    head.classList.toggle('opacity-off');
+    main.classList.toggle('opacity-off');
+    foot.classList.toggle('opacity-off');
+}
+
+//
+(()=>{
     btnMenu.addEventListener('click', ()=>{
-        menuHeader.classList.toggle('menu-header-open')
-        head.classList.toggle('opacity-off')
-        main.classList.toggle('opacity-off')
-        foot.classList.toggle('opacity-off')
-        cuadrado();
+        let heighNav = navIndex.clientHeight + mH.clientWidth;
+        menuHeaderC.toggle('menu-header-open');
+        navIndex.style.height = `${heighNav}px`;
+        menuHeaderS.height = `${}px`;
+        darkBg();
     });
     
     aSections.forEach(i=>{
         i.addEventListener('click', ()=>{
-            head.classList.remove('opacity-off')
-            main.classList.remove('opacity-off')
-            foot.classList.remove('opacity-off')
+            console.log(i)
+            console.log('______')
+            darkBg();
             setTimeout(()=>{
                 aSections.forEach(e=>{
+                    console.log(e)
                     if(e.id != i.id){
                         e.style.opacity = '0.5'
                         e.style.scale = '1'
@@ -98,7 +99,7 @@ const menuIndex = ()=>{
             }, 1000)
         })
     });
-}
+})();
 
 const navAnimated = ()=>{
     if(innerWidth <= 480){
@@ -188,7 +189,6 @@ const lazyLoading = ()=>{
 scrollSpy();
 lazyLoading();
 navAnimated();
-menuIndex();
 sliderL();
 sliderR();
 
