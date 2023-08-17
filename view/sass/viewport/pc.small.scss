@@ -1,0 +1,558 @@
+/*  INDEX  */
+
+#header-index{
+    height: 100vh;
+    padding: 3.5% 3%;
+    display: flex;
+    background-color: $yellow;
+    flex-direction: column;
+    align-items: center;
+    background: hsla(56, 87%, 68%, 1);
+    background: radial-gradient(circle, hsla(56, 87%, 68%, 1) 0%, hsla(56, 80%, 52%, 1) 100%);
+}
+
+#nav-index{
+    width: 94%;
+    height: 6vh;
+    position: static;
+}
+
+.nav-nav-index{
+    padding: 0;
+    height: 100%;
+    background: none;
+}
+
+.menu-slider-header{
+    display: none;
+}
+
+.btn-menu{
+    display: none;
+}
+
+.btn-home{
+    height: 100%;
+    img{
+        width: auto;
+        height: 90%;
+    }h3{
+        font-family: $Segoe;
+        height: auto;
+        font-size: 1rem;
+        letter-spacing: 0;
+    }
+}
+
+.n-n-msh{
+    height: 100%;
+    ul{
+        // transform: translateY(4px);
+        flex-direction: row;
+        li:nth-child(1){
+            a{
+                &::after{
+                    content: "Inicio";
+                }
+            }
+        }li:nth-child(2){
+            a{
+                &::after{
+                    content: "Ubicación";
+                }
+            }
+        }li:nth-child(3){
+            a{
+                &::after{
+                    content: "Nosotros";
+                }
+            }
+        }li:nth-child(4){
+            a{
+                &::after{
+                    content: "Contactar";
+                }
+            }
+        }
+        li{ 
+            list-style: none;
+            position: relative;
+            margin: 0 1.5vw;
+            a{
+                display: inline-block;
+                font-weight: 500;
+                cursor: pointer;
+                font-size: calc(.6em + .6vw);
+                font-family: $Calibri;
+                line-height: 100%;
+                color: $bluedark;
+                position: relative;
+                transition: all .3s;
+                transform-style: preserve-3d;
+                
+                &::after{
+                    position: absolute;
+                    top: -100%;
+                    left: 0px;
+                    width: 100%;
+                    transform-origin: left bottom;
+                    transform: rotateX(90deg);
+                    font-weight: 600;
+                }
+                
+                &:hover{
+                    transform-origin: center bottom;
+                    transform: rotateX(-90deg) translateY(100%);
+                }
+            }
+        }
+    }
+}
+
+
+.btns{
+    width: 18%;
+    height: 80%;
+    justify-content: space-between;
+    flex-direction: row;
+    .night{
+        width: 46%;
+        height: 100%;
+        position: relative;
+        border-radius: 12px;
+        background: $bluedark;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    
+        div{
+            top: 0;
+            left: 0;
+            width: 50%;
+            right: auto;
+            height: 100%;
+            bottom: auto;
+            cursor: pointer;
+            background: $white;
+            position: absolute;
+            transition: all .5s;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.btn-login{
+    width: 46%;
+    height: 100%;
+    padding: 0;
+    border: $bluedark solid 2px;
+    font-size: calc(.5em + .5vw);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    transition: all .3s;
+    &:hover{
+        background: none;
+        color: $bluedark;
+    }
+}
+
+.main-head{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 10vh;
+}
+
+.main-img{
+    margin: 0;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    img{
+        max-width: 96%;
+    }
+    &::after{
+        content: '';
+        bottom: 10px;
+        left: auto;
+        width: 80%;
+        border-radius: 50%;
+        height: 50px;
+        position: absolute;
+        filter: blur(10px);
+        background-color: rgba(0,0,0,0.4);
+    }
+}
+
+.main-main{
+    width: 50%;
+    padding: 0 3%;
+}
+
+.main-date{
+    position: relative;
+    flex-direction: row;
+    margin-bottom: 3vw;
+    align-items: flex-end;
+    svg{
+        width: calc(3.5vw - 1rem);
+    }
+    div{
+        font-family: Calibri, sans-serif;
+        font-weight: 300;
+        font-size: calc(3vw - 1rem);
+        padding-left: .5vw;
+    }
+}
+
+.main-p{
+    h1{
+        // font-family: $Calibri;
+        font-family: $Segoe;
+        font-weight: bold;
+        font-size: calc(7vw - 1rem);
+        line-height: .8em;
+        text-align: start;
+        letter-spacing: -.2vw;
+        span{
+            letter-spacing: 1px;
+        }
+        div{
+            margin-top: .3vw;
+        }
+    }
+}
+
+.main-line{
+    width: 100%;
+}
+
+.main-btn{
+    display: flex;
+    flex-direction: row;
+    a{
+        border-radius: 0 -12px;
+        margin: 0 2%;
+        padding: 1vw 1.7vw;
+        font-size: calc(3vw - 1em);
+        transition: all .3s;
+    }
+    a[id=ingresar]:hover{
+        background: none;
+        color: $bluedark;
+        box-shadow: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }a[id=contacto]:hover{
+        background-color: $green;
+        color: $white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+/*  LOGIN  */
+
+#body-login{
+    height: 100vh;
+    display: flex;
+}
+
+.login-div-#{$l}, .login-#{$r}{
+    height: 100%;
+}
+
+.login-div-#{$l}{
+    width: 40%;
+    padding: .5vw;
+    display: inline-block;
+}
+
+.login-#{$l}{
+    @include div(
+        100%,100%,
+        5vh 4vw, 0, flex
+    );
+    background: $bluedark;
+    border-radius: .8vw;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+    .#{$l}__head-logo{
+        width: auto;
+        height: 100%; 
+        display: inline-flex;
+        align-items: center;
+
+        h3{
+            color: $gray;
+            font-size: 1.5vw;
+        }
+    }
+
+    .#{$l}__head-arrow{
+        div{
+            a{
+                color: $gray;
+                font-size: 2.5vw;
+                transition: all .4s ease-in-out;
+                &:hover{transform: translateX(-.5vw);}
+            }
+        }
+    }
+
+    .#{$l}__text{
+        width: 100%;
+        h1, p{
+            color: $gray;
+        }
+    }
+
+    .#{$l}__text-tittle{
+        width: 100%;
+        h1{
+            letter-spacing: 4px;
+            font: {
+                size: 2.5vw;
+                family: $SignikaL;
+            }
+        }
+    }
+
+    .#{$l}__text-parraf{
+        width: 100%;
+        padding-top: 5%;
+        p{
+            letter-spacing: 1px;
+            width: 90%;
+            font: {
+                size: 1.3vw;
+                family: $Segoe;
+                weight: 100;
+            }
+        }
+    }
+
+    .#{$l}__body{
+        width: 100%;
+    }
+
+    .#{$l}__body-slider{
+        width: 300%;
+        flex-direction: row;
+        transition: all .6s ease-in-out;
+        justify-content: space-around;
+        margin-left: var(--marginLeft);
+    }
+
+    .#{$l}__body-slider-sec{
+        width: 25%;
+        border-radius: 1vw;
+        text-align: justify;
+        background: $bluedarkBlack;
+        padding: 1.7vw 1.5vw 1.5vw;
+        transition: all .6s ease-in-out;
+    }
+
+    .login-sec-active{
+        scale: 1.1;
+        box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .#{$l}__slider-sec-text{
+        width: 100%;
+        p{
+            color: $gray;
+            font: {
+                size: 1vw;
+                family: $SignikaL;
+            }
+        }
+    }
+
+    .#{$l}__slider-sec-profile{
+        padding-top: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .#{$l}__sec-profile-img{
+        width: 3vw;
+        height: 3vw;
+        svg{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    .#{$l}__sec-profile-descrip{
+        padding-left: 3%;
+        h5, h6{
+            color: $gray;
+            font-family: $SignikaL;
+            letter-spacing: 1.5px;
+        }
+        h5{
+            font: {
+                size: 1vw;
+                family: $SignikaR;
+            }
+        }
+        h6{
+            font: {
+                size: .8vw;
+                family: $Segoe;
+                weight: 100;
+            }
+        }
+    }
+
+    .#{$l}__body-btn{
+        width: 100%;
+        padding-top: 5%;
+    }
+
+    .#{$l}__body-btn-div{
+        button{
+            width: .5vw;
+            height: .5vw;
+            border: none;
+            margin: 0 .1vw;
+            border-radius: 50%;
+            transition: all .3s;
+            background: rgba($color: $gray, $alpha: .5);
+        }
+    }
+
+    .login-btn-active{
+        scale: 1.3;
+        background-color: $white !important;
+    }
+
+
+    /* RIGHT */
+    .login-#{$r}{
+        @include div(
+            60%,100%,
+            4vh 14vw,
+            0,flex
+        );
+    }
+
+    .#{$r}__head{
+        display: none !important;
+    }
+
+    #headLeft{
+        display: none;
+    }
+
+    .#{$r}__text{
+        h1{font-size: 3vw;}
+        p{font-size: 1.5vw;}
+    }
+
+    .#{$r}__body{
+        span{
+            font: {size: 1.5vw; family: $SignikaL;}
+        }
+        button, input{
+            border-radius: 1vw;
+        }
+    }
+
+    #rol-btn-coor{
+        width: 54%;
+    }
+
+    #rol-btn-aux{
+        width: 44%;
+    }
+
+    .#{$r}__body-btn-rol{
+        font: {
+            size: 1.5vw;
+        }
+        &:hover{
+            color: $green;
+            border-color: $green;
+            font-family: $SignikaL;
+            border: 1px solid $green;
+            .#{$r}__body-cont{
+                border: 4px solid $green;
+            }
+        }
+    }
+
+    .#{$r}__body-cont{
+        width: 1.3vw;
+        height: 1.3vw;
+    }
+
+    .#{$r}__body-op-record{
+        input{scale: 1.2;}
+        font-size: 1.5vw;
+    }
+
+    .#{$r}__body-op-pass{
+        color: rgba($color: $bluedark, $alpha: .7);
+        font-size: 1.5vw;
+        &:hover{text-decoration: underline;}
+    }
+
+    .#{$r}__body-btn-send{
+        width: 45%;
+        border: none;
+        color: $white;
+        cursor: pointer;
+        transition: all .3s;
+        background: $bluedark;
+        font: {size: 100%; family: $SignikaL;}
+        &:hover{scale: 1.1;background: rgba($color: $bluedark, $alpha: .8);}
+    }
+
+    .normal{
+        border-color: rgba($color: $bluedark, $alpha: .5);
+        &:focus{
+            border-color: $green;
+            color: $green;
+            &::placeholder{color: $green;}
+        }
+        &::placeholder{color: rgba($color: $bluedark, $alpha: .5);}
+    }
+
+    .alert{
+        color: $redAlert;
+        border-color: $redAlert;
+        div{border-color: $redAlert;}
+        &:focus{
+            border-color: $redAlert;
+            color: $redAlert;
+            &::placeholder{color: $redAlert}
+        }
+        &::placeholder{color: $redAlert;}
+    }
+
+    .alertRol,
+    .alertUser,
+    .alertPass,
+    .alertLogin{
+        display: none;
+        margin: .3vw 0 0 .3vw;
+        color: $redAlert;
+        font: {
+            size: 1.3vw;
+            family: $SignikaM;
+        }
+    }
+
+    .alertLogin{
+        display: flex !important;
+        width: 100%;
+        height: 1.3vw;
+        font-size: 1.3vw;
+    }    

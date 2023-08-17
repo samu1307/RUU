@@ -16,9 +16,12 @@
 
         }
 
-        public function login($User, $Pass){
+        public function login($Rol, $User, $Pass){
             
-            $query = $this->pdo->prepare('SELECT * FROM usuario WHERE usuario = :User AND contrasenia = :Pass');
+            if($Rol == 'coor') $msg = 'SELECT * FROM v_usercoordinador WHERE user = :User AND pass = :Pass';
+            else $msg = 'SELECT * FROM v_userauxiliar WHERE user = :User AND pass = :Pass';
+
+            $query = $this->pdo->prepare($msg);
             $query->bindParam(':User', $User);
             $query->bindParam(':Pass', $Pass);
             $query->execute();
@@ -27,8 +30,13 @@
 
                 $res = $query->fetch();
 
-                $_SESSION['Nombre'] = $res['usuario'];
                 $_SESSION['id'] = $res[0];
+                $_SESSION['Nombre'] = $res['nombre'];
+                $_SESSION['Apellido'] = $res['apellido'];
+                $_SESSION['Telefono'] = $res['telefono'];
+                $_SESSION['Correo'] = $res['correo'];
+                $_SESSION['Usuario'] = $res['user'];
+                $_SESSION['Contrasenia'] = $res['pass'];
                 
                 return true;
 

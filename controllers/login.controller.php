@@ -7,13 +7,14 @@
 
     if(isset($_POST)){
         
+        $rol = $_POST['rol']; 
         $user = $_POST['user']; 
         $pass = $_POST['pass']; 
-        
-        $model = new LoginModel();
-        $entrada = $model->login($user, $pass);
 
-        if($entrada != false) echo 1;
+        $model = new LoginModel();
+        $entrada = $model->login($rol, $user, $pass);
+
+        if($entrada == true) echo 1;
         else echo 0;
    
     }

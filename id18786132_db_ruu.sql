@@ -643,14 +643,13 @@ DELIMITER ;
 -- Estructura Stand-in para la vista `v_auxiliares`
 -- (Véase abajo para la vista actual)
 --
-DROP VIEW IF EXISTS `v_auxiliares`;
-CREATE TABLE `v_auxiliares` (
-`idUsuario` int(11)
-,`usuario` varchar(40)
-,`contrasenia` varchar(20)
-,`rol` varchar(11)
-,`estado` varchar(1)
-);
+CREATE OR REPLACE VIEW v_userauxiliar AS
+    SELECT u.idUsuario AS id, LOWER(u.usuario) AS user,
+      LOWER(u.contrasenia) AS pass, LOWER(u.rol) AS rol,
+      u.estado, a.nombre, a.apellido, a.telefono, a.correo
+    FROM usuario AS u
+    INNER JOIN auxiliar AS a 
+    WHERE u.idUsuario = a.usuario;
 
 -- --------------------------------------------------------
 
@@ -658,14 +657,13 @@ CREATE TABLE `v_auxiliares` (
 -- Estructura Stand-in para la vista `v_coordinadores`
 -- (Véase abajo para la vista actual)
 --
-DROP VIEW IF EXISTS `v_coordinadores`;
-CREATE TABLE `v_coordinadores` (
-`idUsuario` int(11)
-,`usuario` varchar(40)
-,`contrasenia` varchar(20)
-,`rol` varchar(11)
-,`estado` varchar(1)
-);
+CREATE OR REPLACE VIEW v_usercoordinador AS
+    SELECT u.idUsuario AS id, LOWER(u.usuario) AS user,
+      LOWER(u.contrasenia) AS pass, LOWER(u.rol) AS rol,
+      u.estado, a.nombre, a.apellido, a.jornada, a.telefono, a.correo
+    FROM usuario AS u
+    INNER JOIN coordinador AS a 
+    WHERE u.idUsuario = a.usuario;
 
 -- --------------------------------------------------------
 

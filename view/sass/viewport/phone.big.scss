@@ -1,0 +1,76 @@
+/* * * * * Index * * * * */
+
+.btn-login{
+    padding: 2.5vw 3.5vw;
+    line-height: 100%;
+}
+
+.section-2-index{
+    height: 100vh;
+}
+
+.video-yt{
+    height: 40%;
+    margin: 0;
+    padding-bottom: 10%;
+}
+
+.about{
+    height: 25%;
+    margin: 0;
+    padding-bottom: 10%;
+    h4{
+        font-size: 6vw;
+        margin: 0;
+        padding-bottom: 2%;
+    }
+    p{
+        font-size: 3vw;
+    }
+}
+.lema{
+    height: 35%;
+}
+
+#form-contact{
+    button{
+        padding: 3% 0;
+        font-size: 3.5vw;
+    }
+}
+
+.main-contact{
+    div{
+        align-items: center;
+    }
+    svg{
+        transform: scale(1.1);
+    }
+    p{
+        font-size: 3.5vw;
+        line-height: 135%;
+        height: 16.5px;
+    }
+}
+
+/* * * * * Login * * * * */
+
+#header-login{
+    padding: 5% 10%;
+}
+
+#main-login{
+    width: 100%;
+    height: auto;
+}
+
+.section-login{
+    max-width: 710px;
+    width: 100%;
+}
+
+.img-slider{
+    div{
+        min-width: 100%;
+    }
+}

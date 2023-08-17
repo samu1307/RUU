@@ -1,4 +1,9 @@
 const d = document;
+
+/* Body */
+const body = d.getElementById('body-login');
+
+/* Body left */
 const bodySlider = d.querySelector('.left__body-slider');
 const bodyStyle = bodySlider.style;
 
@@ -7,6 +12,7 @@ const bodyStyle = bodySlider.style;
 const boxRols = d.querySelector('.alertRol').style;
 const boxUser = d.querySelector('.alertUser').style;
 const boxPass = d.querySelector('.alertPass').style;
+const boxLogin = d.querySelector('.alertLogin');
 
 /* Colors */
 let redAlert = "#ff5959bb";
@@ -182,14 +188,16 @@ setInterval(()=>{
         /* Get dates form */
         let data = new FormData(form);
 
+        
         /* Data */
         let formData = {
+            rol: (rolCoorClass.length == 3)? 'coor': 'aux',
             user: data.get('user'),
             pass: data.get('pass')
         }
-
+        console.log(formData)
         /* Submit */
-        if (i == 0) console.log(queryFetch(formData));
+        if (i == 0) queryFetch(formData);
     })
 })();
 
@@ -209,7 +217,22 @@ let queryFetch = (data)=>{
     fetch(url, op)
     .then(res=> res.text())
     .then(json=>{
-        json == true ? location.href = 'dashboard.php' : alert('Paila');
+        if(json == 1){
+            body.classList.add('bodyLoad')
+            setTimeout(() => {
+                location.href = 'dashboard.php'
+            }, 3000);
+        }
+        else {
+            boxLogin.innerHTML = "Usuario invalido";
+            user.classList.add('alert');
+            pass.classList.add('alert');
+            form.addEventListener('keydown', ()=>{
+                boxLogin.innerHTML = "";
+                user.classList.remove('alert');
+                pass.classList.remove('alert');
+            })
+        }
     })
     .catch(err=>console.error(err))
 }

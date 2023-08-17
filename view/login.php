@@ -202,14 +202,14 @@
             </div>
         </div>
     </div>
-    <div class="login-right cxy">
-        <div class="right__head df">
+    <div class="login-right">
+        <div class="left__head" id="headLeft">
             <div class="left__head-logo">
                 <img src="./img/escudo.png">
                 <h3>RUU</h3>
             </div>
             <div class="left__head-arrow">
-                <div class="df cxy"><a href="../index.html"><span>&larr;</span></a></div>
+                <div><a class="df cxy" href="../index.php">&larr;</a></div>
             </div>
         </div>
         <div class="right__text w100 df">
@@ -223,11 +223,11 @@
             <div class="right__body-btn w100">
                 <span>¿Cuál es tu rol?</span>
                 <div class="right__body-btn-rols w100">
-                    <button class="right__body-btn-rol off" id="rol-btn-coor" name="coor" type="button" value="coor">
+                    <button class="right__body-btn-rol off" id="rol-btn-coor" type="button" value="coor">
                         <div class="right__body-cont df cxy"></div>
                         <div>Coordinador</div>
                     </button>
-                    <button class="right__body-btn-rol off" id="rol-btn-aux" name="aux" type="button" value="aux">
+                    <button class="right__body-btn-rol off" id="rol-btn-aux" type="button" value="aux">
                         <div class="right__body-cont df cxy"></div>
                         <div>Auxiliar<div>
                     </button>
@@ -237,13 +237,14 @@
             <div class="right__body-div-email">
                 <span>Usuario</span>
                 <input class="normal w100" type="text" id="user" name="user" placeholder="Ingresa tu usuario">
-                <div class="alertUser"></div>
+                <div class="alertUser">Falta especificar el usuario</div>
             </div>
             <div class="right__body-div-pass">
                 <span>Contraseña</span>
                 <input class="normal w100" type="password" id="pass" name="pass" placeholder="•••••••••••••••">
                 <div class="alertPass">Falta especificar la contraseña</div>
             </div>
+            <div class="alertLogin w100 df cxy"></div>
             <div class="right__body-op df">
                 <div class="right__body-op-record df cxy">
                     <input type="checkbox" name="record">
@@ -251,7 +252,7 @@
                 </div>
                 <a class="right__body-op-pass" href="./recucorreo.php">¿Has olvidado tu contraseña?</a>
             </div>
-            <input class="right__body-btn-send t4s" id="btnSubmit" type="submit" value="Ingresar">
+            <input class="right__body-btn-send" id="btnSubmit" type="submit" value="Ingresar">
         </form>
     </div>
 </body>

@@ -10,8 +10,8 @@
 </head>
 <body id="body-index">
     <header id="header-index">
-        <nav class="df" id="nav-index">
-            <div class="nav-nav-index df ">
+        <nav class="df w100" id="nav-index">
+            <div class="nav-nav-index df w100">
                 <div class="btn-menu">
                     <svg viewBox="0 0 32 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line y1="1.5" x2="30" y2="1.5" stroke="#1E222F" stroke-width="3"/>
@@ -21,9 +21,9 @@
                 </div>
                 <a href="./index.html" class="btn-home df cxy">
                     <img class="lazy-load" src="./view/img/escudo.png" alt="Escudo Colegio Rafael Uribe Uribe">
-                    <h3 class="di" >RUU</h3>
+                    <h3 class="di">RUU</h3>
                 </a>
-                <div class="n-n-msh df cxy">
+                <div class="n-n-msh">
                     <ul class="df cxy">
                         <li><a href="#header-index">Inicio</a></li>
                         <li><a href="#section-1-index">Ubicación</a></li>
@@ -31,11 +31,11 @@
                         <li><a href="#form-contact">Contactar</a></li>
                     </ul>
                 </div>
-                <div class="btns df">
+                <div class="btns df h100">
                     <div class="night">
                         <div id="btn-night"></div>
                     </div>
-                    <a class="btn-login df cxy" href="./view/login.php">Ingresar</a>
+                    <a class="btn-login df cxy h100" href="./view/login.php">Ingresar</a>
                 </div>
             </div>
             <div class="menu-slider-header">
@@ -97,7 +97,7 @@
     <main id="main-index">
         <section class="section-1-index" id="section-1-index">
             <div class="map">
-                <iframe class="mapIframe lazy-load" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.261302140725!2d-74.15205568570643!3d4.5469303442389215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa1dfc765d443%3A0x755db7df8764399e!2sIED%20Colegio%20Rafael%20Uribe%20Uribe%20Localidad%2019!5e0!3m2!1ses!2sco!4v1669464605207!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- <iframe class="mapIframe lazy-load" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.261302140725!2d-74.15205568570643!3d4.5469303442389215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa1dfc765d443%3A0x755db7df8764399e!2sIED%20Colegio%20Rafael%20Uribe%20Uribe%20Localidad%2019!5e0!3m2!1ses!2sco!4v1669464605207!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
             </div>
             <div class="main-slider">
                 <div class="main-img-slider">
@@ -137,7 +137,7 @@
             </div>
         </section>
         <section class="section-2-index" id="section-2-index">
-            <div class="video-yt"><iframe class="videoIframe lazy-load" width="560" height="315" src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+            <!-- <div class="video-yt"><iframe class="videoIframe lazy-load" width="560" height="315" src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div> -->
             <div class="about">
                 <h4>¿Quiénes Somos?</h4>
                 <p> <b>RUU</b> inicio en septiembre de 2022 como una idea para gestionar, mas rapida y adecuadamente, los distintos refrigerios que llegan al Colegio Rafael Uribe Uribe mediante una plataforma web. <b>RUU</b> tiene como meta, desarrollar una plataforma que sea adaptable para todos los colegios de Bogota D.C.</p>
