@@ -8,7 +8,7 @@ const lazyLoad = d.querySelectorAll('.lazy-load')
 const btnMenu = d.querySelector('.btn-menu');
 const mH = d.querySelector('.menu-slider-header');
 const navIndex = d.querySelector('#nav-index');
-const navNavIndex = d.querySelector('.nav-nav-index');
+const nnIndex = d.querySelector('.nav-nav-index');
 const btnLogin = d.querySelector('.btn-login')
 const aSections = d.querySelectorAll('.a-sections')
 const mSlider = d.querySelector('.main-slider')
@@ -21,15 +21,35 @@ const videoI = d.querySelector('.videoIframe');
 const mapI = d.querySelector('.mapIframe');
 const dateH4 = d.querySelector('#main-date');
 
+/* Form */
+const nameF = d.getElementById('name');
+const emailF = d.getElementById('email');
+const numberF = d.getElementById('number');
+const matterF = d.getElementById('matter');
+const bodyF = d.getElementById('body');
+const contF = d.getElementById('form-contact');
+
+/* Send Mail */
+const contEmail = d.querySelector('.send-email');
+const byEmail = d.getElementById('by-email');
+const matterEmail = d.getElementById('matter-email');
+const bodyEmail = d.getElementById('body-email');
+const editBtn = d.getElementById('edit');
+const sendBtn = d.getElementById('send');
+
 //Preparados
 const menuHeaderS = mH.style;
 const menuHeaderC = mH.classList;
+const nIndexC = nnIndex.classList;
+let ifStyle = divSlider.style;
 
-(function (){
+
+(()=>{
+    let btn = btnNight.style;
     btnNight.addEventListener('click', ()=>{
-        if(btnNight.style.marginLeft != '50%'){
-            btnNight.style.marginLeft = '50%'
-        }else btnNight.style.marginLeft = '0'
+        if(btn.marginLeft != '50%'){
+            btn.marginLeft = '50%'
+        }else btn.marginLeft = '0'
     })
 })()
 
@@ -65,129 +85,212 @@ let darkBg = ()=>{
     foot.classList.toggle('opacity-off');
 }
 
+let sectionOnOff = (i)=>{
+    darkBg();
+    setTimeout(()=>{
+        aSections.forEach(e=>{
+            if(e.id != i.id){
+                e.classList.add('opacity-off');
+                e.classList.remove('opacity-on');
+            }
+            else i.classList.add('opacity-on')
+        })
+    },600)
+    setTimeout(()=>{menuHeaderC.remove('menu-header-open')}, 1000);
+}
+
 //
 (()=>{
     btnMenu.addEventListener('click', ()=>{
-        let heighNav = navIndex.clientHeight + mH.clientWidth;
         menuHeaderC.toggle('menu-header-open');
-        navIndex.style.height = `${heighNav}px`;
-        menuHeaderS.height = `${}px`;
         darkBg();
     });
     
     aSections.forEach(i=>{
-        i.addEventListener('click', ()=>{
-            console.log(i)
-            console.log('______')
-            darkBg();
-            setTimeout(()=>{
-                aSections.forEach(e=>{
-                    console.log(e)
-                    if(e.id != i.id){
-                        e.style.opacity = '0.5'
-                        e.style.scale = '1'
-                    } 
-                    else{
-                        i.style.opacity = '1'
-                        i.style.scale = '1.1'
-                    } 
-                })
-            },600)
-            setTimeout(()=>{
-                menuHeader.style.height = '0'
-                menuHeader.classList.remove('menu-header-open')
-            }, 1000)
-        })
+        i.addEventListener('click', ()=>{sectionOnOff(i)});
     });
 })();
 
 const navAnimated = ()=>{
-    if(innerWidth <= 480){
-        document.addEventListener('scroll', ()=>{
-            if(scrollY < 20){
-                navNavIndex.style.boxShadow = ''
-                navNavIndex.style.padding = '5% 5% 2.5%'
-                btnLogin.style.padding = '3vw 4vw'
-            }else{
-                navNavIndex.style.boxShadow = '0 2px 15px rgba(0, 0, 0, .3)'
-                navNavIndex.style.padding = '2.5% 5%'
-                btnLogin.style.padding = '2.5vw 3.5vw'
-            }
+    if(innerWidth <= 720){
+        d.addEventListener('scroll', ()=>{
+            if(scrollY < 20) nIndexC.remove('scrollOn');
+            else nIndexC.add('scrollOn');
         })
     }
 }
 
 const sliderL = ()=>{
     btnL.addEventListener('click', ()=>{
-        if(divSlider.style.marginLeft == ''){
-            divSlider.style.marginLeft = '-99%'
-        }else if(divSlider.style.marginLeft == '-99%'){
-            divSlider.style.marginLeft = '-48.5%'
-        }else if(divSlider.style.marginLeft == '-48.5%'){
-            divSlider.style.marginLeft = ''
-
+        switch (ifStyle.marginLeft) {
+            case '': ifStyle.marginLeft = '-99%'; break;
+            case '-99%': ifStyle.marginLeft = '-48.5%'; break;
+            case '-48.5%': ifStyle.marginLeft = ''; break;
         }
     })
 }
 
 const sliderR = ()=>{
     btnR.addEventListener('click', ()=>{
-        if(divSlider.style.marginLeft == ''){
-            divSlider.style.marginLeft = '-48.5%'
-        }else if(divSlider.style.marginLeft == '-48.5%'){
-            divSlider.style.marginLeft = '-99%'
-        }else if(divSlider.style.marginLeft == '-99%'){
-            divSlider.style.marginLeft = ''
+        switch (ifStyle.marginLeft) {
+            case '': ifStyle.marginLeft = '-48.5%'; break;
+            case '-48.5%': ifStyle.marginLeft = '-99%'; break;
+            case '-99%': ifStyle.marginLeft = ''; break;
         }
     })
 }
 
 const scrollSpy = ()=>{
 
-    const cb = (entries)=>{
-
+    let cb = (entries)=>{
         entries.forEach(i => {
             let di = i.target.dataset.img;
+            let elem = d.querySelector(`button[data-img="${di}"]`).classList;
             if(i.isIntersecting){
-                d.querySelector(`button[data-img="${di}"]`)
-                .classList.add('btn-active')
-                i.target.style.scale = '1.1'
+                elem.add('btn-active');
+                i.target.style.scale = '1.1';
             }else{
-                d.querySelector(`button[data-img="${di}"]`)
-                .classList.remove('btn-active')
-                i.target.style.scale = '1'
+                elem.remove('btn-active');
+                i.target.style.scale = '1';
             }
         })
     }
 
-    const observer = new IntersectionObserver(cb, {
-        threshold: 0.8
-    })
+    let observer = new IntersectionObserver(cb, {threshold: 0.8})
 
     imgSlider.forEach(e => observer.observe(e))
 }
 
-const lazyLoading = ()=>{
+(()=>{
+    contF.addEventListener('submit', e=>{
+        e.preventDefault();
 
-    const cb = (entrys)=>{
-        entrys.forEach(i=>{
-            if(i.isIntersecting){
-                console.log(i)
-            }
-        })
-    }
+        let i = 0;
 
-    const observe = new IntersectionObserver(cb, {
-        threshold: 0.1,
-        root: d
+        /* Logica */
+        let validateName = nameF.value.length != 0;
+        let validateEmail = emailF.value.length != 0;
+        let validateNumber = numberF.value.length != 0;
+        let validateMatter = matterF.value.length != 0;
+        let validateBody = bodyF.value.length != 0;
+
+        /* Validaciones */
+        
+        /* Name */
+        if(!validateName){
+            nameF.placeholder = "Falta el nombre";
+            nameF.classList.add('alert-index');
+            i++
+        }else{
+            nameF.placeholder = "Nombre";
+            nameF.classList.remove('alert-index');
+        }
+
+        /* Email */
+        if(!validateEmail){
+            emailF.placeholder = "Falta el correo";
+            emailF.classList.add('alert-index');
+            i++
+        }else{
+            emailF.placeholder = "Correo";
+            emailF.classList.remove('alert-index');
+        }
+
+        /* Number */
+        if(!validateNumber){
+            numberF.placeholder = "Falta el numero";
+            numberF.classList.add('alert-index');
+            i++
+        }else{
+            numberF.placeholder = "Telefono";
+            numberF.classList.remove('alert-index');
+        } 
+
+        /* Affair */
+        if(!validateMatter){
+            matterF.placeholder = "Falta el asunto";
+            matterF.classList.add('alert-index');
+            i++
+        }else{
+            matterF.placeholder = "Asunto";
+            matterF.classList.remove('alert-index');
+        } 
+
+        /* Bpdy */
+        if(!validateBody){
+            bodyF.placeholder = "Falta el mensaje";
+            bodyF.classList.add('alert-index');
+            i++
+        }else{
+            bodyF.placeholder = "Mensaje";
+            bodyF.classList.remove('alert-index');
+        } 
+        
+        /* Get dates form */
+        let data = new FormData(contF);
+
+        /* Mesage VAR */
+        let msg = `¡Buen dia! <br><br>
+        ${data.get('body')} <br><br>
+        ${data.get('name')} <br>
+        ${data.get('number')}`;
+
+        /* Data */
+        let formData = {
+            email: data.get('email'),
+            matter: data.get('matter'),
+            body: msg
+        }        
+
+        /* Submit */
+        if (i == 0){
+            byEmail.innerHTML = formData.email;
+            matterEmail.innerHTML = formData.matter;
+            bodyEmail.innerHTML = msg;
+            sendEmail(formData)
+        };
+    })
+})()
+
+const sendEmail = (formData)=>{
+
+    contEmail.classList.add('email-active');
+    darkBg();
+    
+    //Events for send email
+    editBtn.addEventListener('click', ()=>{
+        darkBg();
+        contEmail.classList.remove('email-active');
     })
 
-    lazyLoad.forEach(e=> observe.observe(e))
-
+    sendBtn.addEventListener('click', ()=>{
+        fetchSendEmail(formData)
+    })
 }
 
+//Query AJAX = Send email
+const fetchSendEmail = (data)=>{
+    let url = './controllers/var.controller.php';
+    let op = {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+
+    fetch(url, op)
+    .then(r=> r.text())
+    .then(res=>{
+        console.log(res);
+    }).catch(err=>{
+        alert(err)
+    })
+}
+
+
 scrollSpy();
-lazyLoading();
 navAnimated();
 sliderL();
 sliderR();

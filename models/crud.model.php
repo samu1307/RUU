@@ -32,7 +32,6 @@
             $reques = $this->pdo->prepare();
         }
 
-
     }
 
 ?>

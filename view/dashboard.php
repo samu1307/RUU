@@ -4,7 +4,8 @@
     require_once('../controllers/dashboard.controller.php');
 
     $query = new ControllerCRUD();
-    $userDates = $query->show("usuario");
+    $coorDates = $query->show("v_usercoordinador");
+    $auxDates = $query->show("v_userauxiliar");
     $snacksDates = $query->show("refrigerio");
     $coursesDates = $query->show("curso");
 
@@ -22,83 +23,143 @@
     <title>Panel de control</title>
     <link rel="stylesheet" href="./css/main.css">
     <script src="./js/dashboard.js" defer></script>
+    <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body id="body-dash">
     <div class="body-db-users body-db df cxy">
         <header id="header-db-users" class="header-db">
             <div id="menu-icon-div" class="df">
-                <svg id="users" class="menu-icon df" width="25px" height="25px" id="btn-menu-users" viewBox="0 0 32 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line y1="1.5" x2="30" y2="1.5" stroke-width="3"/>
-                    <line y1="7.5" x2="30" y2="7.5" stroke-width="3"/>
-                    <line y1="13.5" x2="30" y2="13.5" stroke-width="3"/>
-                </svg>
-                <a id="plus-icon-div" class="df" href="./views.dashboard/createusers.php">
-                    <svg id="users-plus" class="plus-icon df" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <style type="text/css">
-                            .st0{fill:#fff;}
-                        </style>
-                        <path class="st0" d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/>
-                    </svg>
+                <i class='menu-icon la la-bars c-white vw7' ></i>
+                <a id="plus-icon-div" class="df cxy" href="./views.dashboard/createusers.php">
+                    <i class="las la-plus c-white"></i>
                 </a>
             </div>
             <div id="search" class="head-users df cxy">
                 <h3>Usuarios</h3>
                 <div class="header-db-search df">
-                <input type="text" placeholder="Busca usuarios, refrigerios y cursos...">
-                <button class="df cxy">
-                    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="5.85508" cy="5.85508" r="4.85508" stroke="white" stroke-width="2"/>
-                        <line x1="9.56697" y1="9.24651" x2="13.7071" y2="13.3867" stroke="white" stroke-width="2"/>
-                    </svg>
-                </button>
+                    <input type="search" placeholder="Busca usuarios">
+                    <button class="df cxy h100">
+                        <i class="las la-search c-white vw6"></i>
+                    </button>
+                </div>   
             </div>   
         </header>
         <main id="main-db-users">
             <section class="section-user">
-                <?php if($userDates != false){
-                foreach ($userDates as $date) { ?>
-                    <div class="db-main-card df cxy">
-                        <div class="main-card-img">
-                            <img src="./img/iconuser1.png" alt="Iconos de usuario">
-                        </div>
-                        <div class="main-card-descri">
-                            <h3><?= $date["usuario"] ?></h3>
-                            <p><?= $date[3] ?></p>
-                        </div>
-                        <div class="switch-button" id="dn-card">
-                            <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
-                            <label for="switch-label" class="switch-button__label"></label>
-                        </div>
-                        <div class="main-card-info" id="dn-card">
-                            <h5><?= $date[2] ?></h5>
-                            <p><?= $date[4] ?></p>
-                        </div>
-                        <div class="main-card-btn df">
-                            <a href="./views.dashboard/createusers.php?id=<?= $date[0] ?>" class="card-btn-edit df cxy">
-                                <svg width="25" heigth="25" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <style>.cls-1{fill:#1E222F;}</style>
-                                    </defs>
-                                    <g data-name="Layer 42" id="Layer_42">
-                                        <path class="cls-1" d="M2,29a1,1,0,0,1-1-1.11l.77-7a1,1,0,0,1,.29-.59L18.42,3.94a3.2,3.2,0,0,1,4.53,0l3.11,3.11a3.2,3.2,0,0,1,0,4.53L9.71,27.93a1,1,0,0,1-.59.29l-7,.77Zm7-1.78H9ZM3.73,21.45l-.6,5.42,5.42-.6,16.1-16.1a1.2,1.2,0,0,0,0-1.7L21.53,5.35a1.2,1.2,0,0,0-1.7,0Z"/>
-                                        <path class="cls-1" d="M23,14.21a1,1,0,0,1-.71-.29L16.08,7.69A1,1,0,0,1,17.5,6.27l6.23,6.23a1,1,0,0,1,0,1.42A1,1,0,0,1,23,14.21Z"/>
-                                        <rect class="cls-1" height="2" transform="translate(-8.31 14.13) rotate(-45)" width="11.01" x="7.39" y="16.1"/>
-                                    </g>
-                                </svg>
-                            </a>
-                            <div class="card-btn-delete df cxy">
-                                <svg width="30" heigth="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <line x1="22.4247" y1="21.7174" x2="8.28256" y2="7.57526" stroke="#1E222F" stroke-width="3"/>
-                                    <line x1="8.2826" y1="22.4247" x2="22.4247" y2="8.28256" stroke="#1E222F" stroke-width="3"/>
-                                </svg>
-                            </div>
-                        </div>
+                <div class="section-coor df">
+                    <div class="section-coor-btn w100 df">
+                        <span>Coordinadores</span>
+                        <div></div>
+                        <button id="deploy-coor" class="df cxy">
+                            <i class="las la-chevron-right vw6 c-black"></i>
+                        </button>
                     </div>
-                <?php }}else echo "ERROR: No se pudo iniciar." ?>
+                    <?php $i = 1;
+                    if($coorDates != false){
+                    foreach ($coorDates as $date) {;?>
+                        <div id="<?php echo $i; ?>" class="db-main-card df">
+                            <div class="main-card-cont">
+                                <div class="main-card-cont-first df">
+                                    <div class="cont-main-card-img df cxy">
+                                        <div class="main-card-img">
+                                            <img src="./img/iconuser1.png" alt="Iconos de usuario">
+                                        </div>
+                                        <p><?= $date['rol'] ?></p>
+                                    </div>
+                                    <div class="cont-main-card-descri df">
+                                        <div class="main-card-descri">
+                                            <div><?= $date['nombre'] ?><br><?= $date['apellido'] ?></div>
+                                        </div>
+                                        <div class="main-card-info" id="dn-card">
+                                            <div>Jornada <?= ($date['jornada'] == 'M')? 'Mañana': 'Tarde'; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main-card-cont-second">
+                                    <div class="main-card-email w100">
+                                        <span>Correo</span>
+                                        <div><?= $date['correo'] ?></div>
+                                    </div>
+                                    <div class="main-card-email w100">
+                                        <span>Telefono</span>
+                                        <div><?= $date['telefono'] ?></div>
+                                    </div>
+                                </div>
+                                <div class="main-card-btn df">
+                                    <a href="./views.dashboard/createusers.php?id=<?= $date[0] ?>" class="card-btn-edit df cxy">
+                                        <i class="las la-pen vw6 c-black"></i>
+                                    </a>
+                                    <button id="<?php echo $i; ?>" class="view-more df cxy">
+                                        <i class="las la-angle-down vw6 c-black"></i>
+                                    </button>
+                                    <button class="card-btn-delete df cxy">
+                                        <i class="las la-times vw6 c-black"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="line-active-user <?= ($date['estado'] == 'A')? 'user-active': 'user-inactive';?> h100"></div>
+                        </div>
+                    <?php $i = $i + 1; }}else echo "ERROR: No se pudo iniciar." ?>
+                </div>
+                <div class="section-aux df">
+                    <div class="section-aux-btn w100 df">
+                        <span>Auxiliares</span>
+                        <div></div>
+                        <button id="deploy-aux" class="df cxy">
+                            <i class="las la-chevron-right vw6 c-black"></i>
+                        </button>
+                    </div>
+                    <?php $i = 1.1; 
+                    if($auxDates != false){
+                    foreach ($auxDates as $date) { ?>
+                        <div id="<?php echo $i; ?>" class="db-main-card df">
+                            <div class="main-card-cont">
+                                <div class="main-card-cont-first df">
+                                    <div class="cont-main-card-img df cxy">
+                                        <div class="main-card-img">
+                                            <img src="./img/iconuser1.png" alt="Iconos de usuario">
+                                        </div>
+                                        <p><?= $date['rol'] ?></p>
+                                    </div>
+                                    <div class="cont-main-card-descri df">
+                                        <div class="main-card-descri">
+                                            <div><?= $date['nombre'] ?><br><?= $date['apellido'] ?></div>
+                                        </div>
+                                        <div class="main-card-info" id="dn-card">
+                                            <div><?= $date['user'] ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main-card-cont-second">
+                                    <div class="main-card-email w100">
+                                        <span>Correo</span>
+                                        <div><?= $date['correo'] ?></div>
+                                    </div>
+                                    <div class="main-card-email w100">
+                                        <span>Telefono</span>
+                                        <div><?= $date['telefono'] ?></div>
+                                    </div>
+                                </div>
+                                <div class="main-card-btn df">
+                                    <a href="./views.dashboard/createusers.php?id=<?= $date[0] ?>" class="card-btn-edit df cxy">
+                                        <i class="las la-pen vw6 c-black"></i>
+                                    </a>
+                                    <button id="<?php echo $i; ?>" class="view-more df cxy">
+                                        <i class="las la-angle-down vw6 c-black"></i>
+                                    </button>
+                                    <button class="card-btn-delete df cxy">
+                                        <i class="las la-times vw6 c-black"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="line-active-user <?= ($date['estado'] == 'A')? 'user-active': 'user-inactive';?> h100"></div>
+                        </div>
+                    <?php $i = $i + 1; }}else echo "ERROR: No se pudo iniciar." ?>
+                </div>
             </section>
         </main>
     </div>
-    <div class="body-db-courses body-db df cxy">
+    <!-- <div class="body-db-courses body-db df cxy">
         <header id="header-db-courses" class="header-db">
             <div id="menu-icon-div" class="df">
                 <svg id="courses" class="menu-icon df" width="25px" height="25px" id="btn-menu-courses" viewBox="0 0 32 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +179,7 @@
             <div id="search" class="head-courses df cxy">
                 <h3>Cursos</h3>
                 <div class="header-db-search df">
-                <input type="text" placeholder="Busca usuarios, refrigerios y cursos...">
+                <input type="text" placeholder="Busca cursos">
                 <button class="df cxy">
                     <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="5.85508" cy="5.85508" r="4.85508" stroke="white" stroke-width="2"/>
@@ -192,12 +253,9 @@
             <div id="search" class="head-snacks df cxy">
                 <h3>Refrigerios</h3>
                 <div class="header-db-search df">
-                <input type="text" placeholder="Busca usuarios, refrigerios y cursos...">
+                <input type="text" placeholder="Busca refrigerios">
                 <button class="df cxy">
-                    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="5.85508" cy="5.85508" r="4.85508" stroke="white" stroke-width="2"/>
-                        <line x1="9.56697" y1="9.24651" x2="13.7071" y2="13.3867" stroke="white" stroke-width="2"/>
-                    </svg>
+                    <i class="las la-search"></i>
                 </button>
             </div>   
         </header>
@@ -940,7 +998,7 @@
                 </div>
             </section>
         </main>
-    </div>  
+    </div> -->
     <div class="nav df">
         <div class="nav-nav df">
             <a class="df jc-s" id="home" href="../index.php">

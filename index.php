@@ -60,10 +60,10 @@
         
         <div class="main-head" >
             <div class="main-img">
-                <img class="lazy-load" loading="none" src="./view/img/escudo3d.png" alt=".">
+                <img src="./view/img/escudobg.svg" alt=".">
             </div>
-            <div class="main-main">
-                <div class="main-date df">
+            <div class="main-main w100">
+                <div class="main-date">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
                         <path d="M8.03135 14.0439C8.60095 14.0439 9.0627 13.5864 9.0627 13.022C9.0627 12.4575 8.60095 12 8.03135 12C7.46175 12 7 12.4575 7 13.022C7 13.5864 7.46175 14.0439 8.03135 14.0439Z" fill="#1E222F"/>
                         <path d="M12 14C12.5523 14 13 13.5523 13 13C13 12.4477 12.5523 12 12 12C11.4477 12 11 12.4477 11 13C11 13.5523 11.4477 14 12 14Z" fill="#1E222F"/>
@@ -89,7 +89,7 @@
                 <div class="main-line"></div>
                 <div class="main-btn">
                     <a class="main-btn-ingresar di" id="ingresar" href="./view/login.php">Ingresar</a>
-                    <a class="main-btn-contacto di" id="contacto" href="#">Contacto</a>
+                    <a class="main-btn-contacto di" id="contacto" href="#form-contact">Contacto</a>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
     <main id="main-index">
         <section class="section-1-index" id="section-1-index">
             <div class="map">
-                <!-- <iframe class="mapIframe lazy-load" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.261302140725!2d-74.15205568570643!3d4.5469303442389215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa1dfc765d443%3A0x755db7df8764399e!2sIED%20Colegio%20Rafael%20Uribe%20Uribe%20Localidad%2019!5e0!3m2!1ses!2sco!4v1669464605207!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+                <iframe class="mapIframe wh100 lazy-load" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.261302140725!2d-74.15205568570643!3d4.5469303442389215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa1dfc765d443%3A0x755db7df8764399e!2sIED%20Colegio%20Rafael%20Uribe%20Uribe%20Localidad%2019!5e0!3m2!1ses!2sco!4v1669464605207!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="main-slider">
                 <div class="main-img-slider">
@@ -137,9 +137,9 @@
             </div>
         </section>
         <section class="section-2-index" id="section-2-index">
-            <!-- <div class="video-yt"><iframe class="videoIframe lazy-load" width="560" height="315" src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div> -->
+            <div class="video-yt"><iframe class="videoIframe lazy-load" width="560" height="315" src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
             <div class="about">
-                <h4>¿Quiénes Somos?</h4>
+                <h4>¿Quiénes somos?</h4>
                 <p> <b>RUU</b> inicio en septiembre de 2022 como una idea para gestionar, mas rapida y adecuadamente, los distintos refrigerios que llegan al Colegio Rafael Uribe Uribe mediante una plataforma web. <b>RUU</b> tiene como meta, desarrollar una plataforma que sea adaptable para todos los colegios de Bogota D.C.</p>
             </div>
             <div class="lema">
@@ -152,10 +152,11 @@
         <div class="main-form">
             <h4>Contactar</h4>
             <form class="form" id="form-contact">
-                <input type="text" placeholder="Nombre*" required>
-                <input type="email" placeholder="Correo*" required>
-                <input type="number" placeholder="Telefono*" required>
-                <textarea name="" id="" cols="30" rows="3" placeholder="Asunto"></textarea>
+                <input type="text" placeholder="Nombre" id="name"  name="name">
+                <input type="email" placeholder="Correo" id="email"  name="email">
+                <input type="number" placeholder="Telefono" id="number"  name="number">
+                <input type="text" placeholder="Asunto" id="matter"  name="matter">
+                <textarea cols="30" rows="3" placeholder="Mensaje" id="body"  name="body"></textarea>
                 <button type="submit">Enviar</button>
             </form>
         </div>
@@ -170,21 +171,52 @@
                 <svg enable-background="new 0 0 512 512" fill="#fff" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M260.4,449c-57.1-1.8-111.4-3.2-165.7-5.3c-11.7-0.5-23.6-2.3-35-5c-21.4-5-36.2-17.9-43.8-39c-6.1-17-8.3-34.5-9.9-52.3   C2.5,305.6,2.5,263.8,4.2,222c1-23.6,1.6-47.4,7.9-70.3c3.8-13.7,8.4-27.1,19.5-37c11.7-10.5,25.4-16.8,41-17.5   c42.8-2.1,85.5-4.7,128.3-5.1c57.6-0.6,115.3,0.2,172.9,1.3c24.9,0.5,50,1.8,74.7,5c22.6,3,39.5,15.6,48.5,37.6   c6.9,16.9,9.5,34.6,11,52.6c3.9,45.1,4,90.2,1.8,135.3c-1.1,22.9-2.2,45.9-8.7,68.2c-7.4,25.6-23.1,42.5-49.3,48.3   c-10.2,2.2-20.8,3-31.2,3.4C366.2,445.7,311.9,447.4,260.4,449z M205.1,335.3c45.6-23.6,90.7-47,136.7-70.9   c-45.9-24-91-47.5-136.7-71.4C205.1,240.7,205.1,287.6,205.1,335.3z"/></g></svg>
             </a>
         </div>
-        <div class="main-contact">
-            <div>
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" fill="#4AA163" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="15" height="15" viewBox="0 0 477.156 477.156" style="enable-background:new 0 0 477.156 477.156;"xml:space="preserve"><g><path d="M475.009,380.316l-2.375-7.156c-5.625-16.719-24.062-34.156-41-38.75l-62.688-17.125c-17-4.625-41.25,1.594-53.688,14.031l-22.688,22.688c-82.453-22.28-147.109-86.938-169.359-169.375L145.9,161.94c12.438-12.438,18.656-36.656,14.031-53.656l-17.094-62.719c-4.625-16.969-22.094-35.406-38.781-40.969L96.9,2.19c-16.719-5.563-40.563,0.063-53,12.5L9.962,48.659C3.899,54.69,0.024,71.94,0.024,72.003c-1.187,107.75,41.063,211.562,117.281,287.781c76.031,76.031,179.454,118.219,286.891,117.313c0.562,0,18.312-3.813,24.375-9.845l33.938-33.938C474.946,420.878,480.571,397.035,475.009,380.316z"/></g></svg>
-                <p>300 206 71 34</p>
-            </div>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 12 15"><path fill="#4AA163" fill-rule="evenodd" d="M574,120 C575.324428,120 580,114.054994 580,110.833333 C580,107.611672 577.313708,105 574,105 C570.686292,105 568,107.611672 568,110.833333 C568,114.054994 572.675572,120 574,120 Z M574,113.333333 C575.420161,113.333333 576.571429,112.214045 576.571429,110.833333 C576.571429,109.452621 575.420161,108.333333 574,108.333333 C572.579839,108.333333 571.428571,109.452621 571.428571,110.833333 C571.428571,112.214045 572.579839,113.333333 574,113.333333 Z" transform="translate(-568 -105)"/></svg>
-                <p>Diagonal 71 B sur N.° 18 i - 20</p>
-            </div>
-            <div>
-                <svg enable-background="new 0 0 64 64" width="16" height="15" version="1.1" fill="#4AA163" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Glyph_copy_2"><path d="M63.125,9.977c-0.902-1.321-2.419-2.194-4.131-2.194H5.006c-1.676,0-3.158,0.842-4.067,2.117l31.16,25.982L63.125,9.977z"/><path d="M0.006,14.328v36.889c0,2.75,2.25,5,5,5h53.988c2.75,0,5-2.25,5-5V14.461L32.099,41.09L0.006,14.328z"/></g></svg>
-                <p>escdirafaeluribeur19@educacionbogota.edu.co</p>
-            </div>
-        </div>
         <div class="copyright">©️ Todos los derechos reservados</div>
     </footer>
+    <div class="send-email df">
+        <div class="by-email df w100">
+            <span>De:</span>
+            <div class="cont-find-mail">
+                <div class="find-mail">
+                    <p id="by-email">samusamisam@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="for-email df w100">
+            <span>Para: </span>
+            <div class="cont-find-mail">
+                <div class="find-mail">
+                    <p id="for-email">colegiorafaeluribeuribe19@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="matter-email w100">
+            <span>Asunto:</span>
+            <p id="matter-email">
+                Solicito traslado para el Colegio
+                Confederación Suiza - Keilen Fernando
+                Zapata Alarcon 9-B JM 123456
+            </p>
+        </div>
+        <div class="body-email w100">
+            <span>Cuerpo:</span>
+            <p id="body-email">
+                Lorem ipsum dolor sit amet consectetur 
+                adipisicing elit. Ex, at! Facilis blanditii
+                laudantium voluptatem. Alias tenetur 
+                possimus laboriosam dicta sapiente aut 
+                repellat aliquid quibusdam incidunt atque 
+                optio soluta, totam iusto quia ex iste dolor 
+                accusantium. Veritatis, ipsa deleniti. 
+                Blanditiis, illum. Earum a dolore vitae 
+                hic iste, repellendus quam perspiciatis 
+                sequi?
+            </p>
+        </div>
+        <div class="btn-email w100 df">
+            <button id="edit">Editar</button>
+            <button id="send">Enviar</button>
+        </div>
+    </div>
 </body>
 </html>

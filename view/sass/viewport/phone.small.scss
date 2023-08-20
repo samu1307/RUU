@@ -1,3 +1,6 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
 /* * * * * * INDEX * * * * * */
 
 #body-index{
@@ -60,6 +63,7 @@
 
 .btn-login{
     width: 100%;
+    padding: 13%;
     color: white;
     transition: all .3s;
     border-radius: 10px;
@@ -71,10 +75,10 @@
 .menu-slider-header{
     gap: 15px;
     width: 70%;
+    height: 0;
     opacity: 0;
     display: grid;
     overflow: hidden;
-    border-radius: 10px;
     justify-items: center;
     justify-content: center;
     transition: all .3s ease-out;
@@ -104,8 +108,9 @@
 
 /* Class for active */
 .menu-header-open{
-    padding: 5vh 0;
     opacity: 1;
+    height: auto;
+    padding: 5vh 0;
     transition: all .3s ease-out;
 }
 
@@ -114,35 +119,43 @@
     opacity: .5;
 }
 
+/* Class for active */
+.opacity-on{
+    opacity: 1;
+    scale: 1.1;
+}
+
+/* Class for active */
+.scrollOn{
+    padding: 2.5% 5%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, .3);
+    .btn-login{padding: 10%;}
+}
+
 .main-head{
-    transition: all .3s;
     width: 100%;  
-    padding-top: 18vw;
+    padding-top: 15vh;
+    transition: all .3s;
 }
 
 .main-img{
     width: 100%;
     text-align: center;
     margin-bottom: 10%;
-    img{
-        width: 90%;
-        max-width: 330px;
-        height: auto;
-    }
+    img{width: 90%; height: auto;}
 }
+
+.main-date{display: none;}
 
 .main-p{
     width: 100%;
-    margin-bottom : 5%;
-    overflow: visible;
+    padding-bottom: 3vh;
     h1{
         text-align: center;
         overflow: visible;
-        font: normal normal 900 12vw 'Anek D';
-        line-height: 10vw;
-        span{
-            color: $green;
-        }
+        font: {family: $SignikaB;size: 15vw;}
+        line-height: 90%;
+        span{color: $green;}
     }
 }
 
@@ -157,37 +170,34 @@
     width: 100%;
     text-align: center;
     a{
+        padding: 3.5vw 5vw;
         margin: 0 5%;
-        border-radius: 2.5vw;
-        padding: 2.5vw 4.5vw;
-        line-height: 100%;
-        font: normal normal 500 4vw sans-serif;
+        border-radius: 10px;
+        font: {family:sans-serif; size:4.5vw; weight:500;};
     }
 }
 
 .main-btn-ingresar{
-    background: $green;
     color: white;
-    border: $green solid 2px;
+    background: $green;
     box-shadow: 0 0 10px rgba($color: black, $alpha: .3);
+    &:active{background: rgba($color: $green, $alpha: .7);}
 }
 
 .main-btn-contacto{
-    border: $green solid 2px;
     color: $bluedark;
+    border: $green solid 2px;
+    &:active{scale: 1.1;}
 }
 
 /* * * * * MAIN * * * * */
 
 /*  SECTION 1  */
 
-main{
-    width: 100%;
-    transition: all .3s;
-}
-
 #main-index{
+    width: 100%;
     padding: 5%;
+    transition: all .3s;
 }
 
 section{
@@ -196,22 +206,18 @@ section{
 }
 
 .section-1-index{
-    height: calc(100vh - 70px);
     padding: 30px 5%;
+    margin-bottom: 30px;
     border-radius: 20px;
     background: $bluedark;
-    margin-bottom: 30px;
-    box-shadow: 0 0 6px rgba($color: black, $alpha: .6);
+    height: calc(100vh - 70px);
+    box-shadow: 0 0 12px rgba($color: black, $alpha: .6);
 }
 
 .map{
     width: 100%;
     height: 50%;
-    iframe{
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
+    iframe{border-radius: 10px;}
 }
 
 .main-slider{
@@ -225,17 +231,14 @@ section{
     padding-top: 20px;
     overflow-x: scroll;
     overflow-y: hidden;
-    &::-webkit-scrollbar{
-        display: none;
-    }
+    &::-webkit-scrollbar{display: none;}
 }
 
 .img-slider{
-    min-width: 199%;
-    max-width: 300%;
+    width: 190%;
     height: 100%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-left: 0;
     transition: all .7s;
     div[id=vertical]{
@@ -264,10 +267,10 @@ section{
     width: 100%;
     height: 100%;
     button{
-        border: none;
-        font: normal normal 700 4vw sans-serif;
         margin: 0 5%;
+        border: none;
         border-radius: 5px;
+        font: {family: sans-serif; size: 4vw; weight: 700;}
     }
 }
 
@@ -275,17 +278,12 @@ section{
     width: auto;
     height: 45%;
     color: white;
-    background: transparent;
     cursor: pointer;
-    svg{
-        width: auto;
-        height: 100%;
-    }
+    background: transparent;
+    svg{width: auto; height: 100%;}
 }
 
-.row-slider-btn:nth-last-child(1){
-    transform: rotateY(180deg);
-}
+.row-slider-btn:nth-last-child(1){transform: rotateY(180deg);}
 
 .dinamic-btn-slider{
     width: 30%;
@@ -295,18 +293,18 @@ section{
         height: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
         align-items: center;
-        button{
-            padding: 9%;
-        }
+        justify-content: center;
+        button{padding: 9%;}
     }
 }
 
+/* Class for active */
 .btn-active{
-    transform: scale(1.1);
-    background: $green;
     color: white;
+    background: $green;
+    transition: all .2s;
+    transform: scale(1.2);
     box-shadow: 0 0 15px rgba($color: $green, $alpha: .5);
 }
 
@@ -315,30 +313,27 @@ section{
     width: 100%;
     height: 35%;
     text-align: center;
-    margin-bottom: 10%;
     iframe{
         width: 95%;
         height: 100%;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba($color: black, $alpha: .3);
+        box-shadow: 0 0 12px rgba($color: black, $alpha: .4);
     }
 }
 
 .about{
     width: 100%;
-    text-align: center;
-    margin-bottom: 15%;
+    padding: 10% 5%;
+    text-align: start;
     h4{
-        font: normal normal 600 140% 'Anek D';
-        line-height: 100%;
-        margin-bottom: 3%;
+        margin-bottom: 10px;
+        font: {family: $SignikaM; size: 8vw;}
     }
     p{
-        display: inline-block;
-        width: 80%;
-        font: normal normal 300 80% 'Anek D';
-        line-height: 110%;
         margin: 0;
+        width: 100%;
+        text-align: justify;
+        font: {family: $SignikaM; size: 5vw;}
     }
 }
 
@@ -346,28 +341,24 @@ section{
     width: 100%;
     text-align: center;
     h4{
-        font: normal normal 800 100% 'Anek D';
-        line-height: 110%;
-        width: 90%;
-        display: inline-block;
+        width: 100%;
+        font: {family: $SignikaB; size: 7vw;}
     }
 }
 
 .lema-img{
     width: 100%;
-    margin-bottom: 5%;
-    img{
-        width: 50%;
-    }
+    margin-bottom: 15px;
+    img{width: 50%;}
 }
 
 /* * * * * FOOTER * * * * */
 
 footer{
     width: 100%;
-    background-color: $bluedark;
+    // opacity: .4;
     text-align: center;
-    transition: all .3s;
+    background-color: $bluedark;
 }
 
 .main-form{
@@ -377,44 +368,36 @@ footer{
     margin-bottom: 10%;
     h4{
         color: white;
-        font: normal normal 400 120% 'Anek D';
-        line-height: 100%;
-        margin-bottom: 2%;
+        margin-bottom: 7px;
+        font: {family: $Segoe; size: 6vw;}
     }
 }
 
 .form{
     width: 80%;
-    text-align: center;
     display: inline-block;
     input, textarea, button{
-        width: 85%;
-        font: normal normal 200 13px sans-serif;
-        padding: 0 5%;
-        outline: none;
+        width: 90%;
+        padding: 3% 5%;
         border: none;
         margin: 5px 0;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba($color: black, $alpha: .4);
-    }
-    input{
-        height: 30px;
+        border-radius: 7px;
+        font: {family: sans-serif; size: 4.5vw;};
+        box-shadow: 0 0 12px rgba($color: black, $alpha: .4);
     }
     textarea{
         padding-top: 3%;
     }
     button{
-        width: 50%;
         padding: 4% 0;
         color: white;
         background: $green;
-        font-weight: 700;
+        box-shadow: 0 0 15px rgba($color: black, $alpha: .5);
+        &:active{box-shadow: none}
     }
 }
 
 .main-rs{
-    width: 70%;
-    display: inline-block;
     margin-bottom: 10%;
     a{
         width: 13%;
@@ -423,37 +406,134 @@ footer{
     }
 }
 
-.main-contact{
-    width: 100%;
-    text-align: left;
-    padding-left: 5%;
-    margin-bottom: 5%;
-    div{
-        display: flex;
-        // justify-content: center;
-        align-items: end;
-        padding: 5px 0;
-    }
-    svg, p{
-        display: inline-block;
-    }
-    p{
-        color: white;
-        font: normal normal 200 80% 'Anek D';
-        line-height: 25%;
-        margin: 4px;
-    }
-}
-
 .copyright{
-    padding-bottom: 5%;
     color: white;
-    font: normal normal 600 80% 'Anek D';
-    line-height: 100%;
+    position: relative;
+    padding-bottom: 15px;
+    font: {family: $SignikaL; size: 4vw;};
+    &::before{
+        @include before("",25%,0,20%,1,auto,2px,0,1s,$white)
+    }
+    &::after{
+        @include after("",0,70%,20%,1,auto,2px,0,1s,$white)
+    }
 }
 
+.send-email{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    left: -100%;
+    height: 70vh;
+    position: fixed;
+    translate: 0 5vh 0;
+    transition: all .4s;
+    align-items: center;
+    border-radius: 15px;
+    background: $bluedark;
+    flex-direction: column;
+    box-shadow: 0 0 10px $rgbaBlack; 
+    p{color: $gray !important;}
+    span{
+        opacity: .6;
+        color: $gray;
+        font: {size: 5vw; family: $SignikaL;}
+    }
+}
 
+/* Class for active */
+.email-active{
+    left: 0;
+    margin: auto;
+}
 
+/* Class for active */
+.alert-index{
+    border: 2px solid $red !important;
+    &::placeholder{
+        color: rgba($color: $red, $alpha: .7);
+    }
+}
+
+.by-email,
+.for-email,
+.matter-email,
+.body-email{
+    border-bottom: 1px solid $rgbaWhite;
+}
+
+.by-email,
+.for-email{
+    width: 10%;
+    height: 8vh;
+    padding: 0 0 0 8%;
+    align-items: center;
+}
+
+.cont-find-mail{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    margin-left: 10px;
+    overflow-x: scroll; 
+    overflow-y: hidden;
+    align-items: center;
+}
+
+.find-mail{
+    width: auto;
+    padding: 2.5% 5%;
+    border-radius: 20px;
+    background: rgba(255,255,255,.2);
+    p{font-size: 5vw;}
+}
+
+.matter-email,
+.body-email{
+    height: 14vh;
+    padding: 2% 8% 0;
+    p{
+        margin-top: 5px;
+        overflow-y: scroll;
+        height: calc(90% - 5vw - 5px);
+    }
+}
+
+.matter-email{
+    height: 14vh;
+}
+
+.body-email{
+    height: 30vh;
+}
+
+.btn-email{
+    height: 10vh;
+    padding: 0 8%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    button{
+        color: $bluedark;
+        padding: 4%;
+        width: 40%;
+        border: none;
+        border-radius: 10px;
+        font: {family: $Segoe; size: 5vw;};
+        &:active{
+            opacity: .8;
+        }
+    }
+}
+
+#edit{
+    background: $yellow;
+}
+
+#send{
+    background: $green;
+}
 
 /* * * * * * * * * VIEW/LOGIN.HTML * * * * * * * * */
 
@@ -473,7 +553,7 @@ footer{
 
 .bodyLoad{
     &::before{
-        @include before("", 0,0,0,1,auto,3px,0,0,$green);
+        @include before("", 0,0,0,1,auto,5px,0,0,$green);
         animation: 3s ease-in-out load;
     }
 }
@@ -502,6 +582,7 @@ footer{
         100%, 5%,
         0,0 0 10%, flex
     );
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -542,10 +623,11 @@ footer{
 .#{$l}__head-arrow{
     height: 100%;
     div{
+        height: 100%;
         cursor: pointer;
         a{
             height: 100%;
-            line-height: 100%;
+            line-height: calc(100% - 8vw);
             color: $bluedark;
             font: {
                 size: 8vw;
@@ -591,6 +673,7 @@ footer{
         padding: 4% 7%;
         border-radius: 2vw;
     }input{
+        font: {size: 4vw; family: $Segoe;}
         border-width: 1px;
         border-style: solid;
     }
@@ -912,64 +995,65 @@ footer{
     padding: 5% 5%;
     position: absolute;
     background-color: $bluedark;
-    div[id=menu-icon-div]{
-        height: 18%;
-        justify-content: space-between;
-        svg{
-            cursor: pointer;
-            stroke: $white;
-        }
-        #plus-icon-div{
-            border-radius: 20%;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-            background: $green;
-        }
+}
+
+#menu-icon-div{
+    height: 20%;
+    align-items: center;
+    justify-content: space-between;
+    i{
+        color: $gray;
+        cursor: pointer;
     }
-    div[id=search]{
-        width: 100%;
-        height: 85%;
-        flex-direction: column;
-        h3{
-            color: $white;
-            line-height: 100%;
-            margin-bottom: 3%;
-            font-size: calc(12vw - 1rem);
-        }div{
-            height: 25%;
-        }
+}
+
+#plus-icon-div{
+    padding: 1vw;
+    color: $gray;
+    height: 100%;
+    background: $green;
+    border-radius: 1vw;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    i{font-size: 5.5vw;}
+}
+
+#search{
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+    h3{
+        color: white;
+        line-height: 100%;
+        margin-bottom: 3%;
+        font-size: calc(12vw - 1rem);
     }
 }
 
 .header-db-search{
     width: 80%;
-    height: 50%;
+    height: 6vh;
+    overflow: hidden;
+    border-radius: 2vw;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
     input{
-        font-size: 3.5vw;
         width: 85%;
-        height: 100%;
-        padding: 3vw 4vw;
-        outline: none;
         border: none;
-        border-radius: 8px 0 0 8px;
-        line-height: 100%;
+        height: 100%;
+        padding: 0 4vw;
+        font: {family: $SignikaL; size: 4.5vw;}
     }
     button{
         width: 15%;
-        background: $green;
-        border-radius: 0 8px 8px 0;
-        outline: none;
         border: none;
+        outline: none;
         cursor: pointer;
-        svg{
-            width: 50%;
-        }
+        background: $green;
     }
 }
 
 #main-db-users, #main-db-courses{
     width: 100%;
+    min-height: 70vh;
     padding: 10% 5%;
     margin-top: 30vh;
     border-radius: 45px 45px 0 0;
@@ -979,14 +1063,12 @@ footer{
     box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.15);
     section{
         width: 100%;
-        padding-top: 15%;
     }&::-webkit-scrollbar{
         width: 0;
     }
 }
 
 .section-user, .section-refri{
-    width: 100%;
     flex-direction: column;
     overflow-y: visible;
     display: flex;
@@ -994,106 +1076,228 @@ footer{
     justify-content: center;
 }
 
-.db-main-card{
-    width: 80%;
+/* Class for active */
+.deploy-coors{
+    height: auto !important;
+    #deploy-coor{
+        rotate: 90deg;
+    }
+}
+
+/* Class for active */
+.deploy-auxs{
+    height: auto !important;
+    #deploy-aux{
+        rotate: 90deg;
+    }
+}
+
+.section-coor, .section-aux{
+    width: 100%;
+    height: 4vh;
+    margin-bottom: 5vh;
+    overflow: hidden;
+    align-items: center;
+    transition: all .4s;
     flex-direction: column;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    justify-content: start;
+}
+
+.section-coor-btn, .section-aux-btn{
+    height: 4vh;
+    padding: 0 5%;
+    color: $bluedark;
+    margin-bottom: 5vh;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font: {family: $SignikaM; size: 5vw;}
+    div{border: .5vw solid rgba($color: $bluedark, $alpha: .2);}
+    button{
+        width: 10%;
+        border: none;
+        text-align: end;
+        background: none;
+        transition: all .4s;
+    }
+}
+
+.section-coor-btn{
+    span{width: 40%;}
+    div{width: 45%;}
+}
+
+.section-aux-btn{
+    span{width: 30%;}
+    div{width: 60%;}
+}
+
+.db-main-card{
+    width: 90%;
+    height: 20vh;
     margin-bottom: 25%;
+    transition: all .5s;
+    flex-direction: row;
+    background: white;
+    border-radius: 2.8vw;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.main-card-cont{
+    width: 96.5%;
+    height: 100%;
+}
+
+.line-active-user{
+    width: 3.5%;
+    border-radius: 0 2.8vw 2.8vw 0;
+}
+
+.main-card-cont-first{
+    width: 100%;
+    height: 15vh;
+    padding: 3vh 3vh 0;
+    flex-direction: row;
+}
+
+/* Class for active */
+.user-active{background: $green;}
+/* Class for active */
+.user-inactive{background: $red;}
+
+.cont-main-card-img{
+    width: 40%;
+    height: 100%;
+    margin-right: 5%;
+    text-align: center;
+    flex-direction: column;
+    p{
+        width: 100%;
+        height: 20%;
+        margin-top: 5%;
+        line-height: 100%;
+        font: {family: $SignikaS; size: 4.5vw;}
+    }
 }
 
 .main-card-img{
-    width: 30%;
-    transform: translateY(-50%);
+    height: 75%;
     img{
+        height: 100%;
         border-radius: 50%;
-        width: 100%;
-        height: auto;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.3);
     }
+}
+
+.cont-main-card-descri{
+    width: 55%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .main-card-descri{
-    width: 60%;
-    margin-top: -10%;
-    text-align: center;
-    h3, p{
-        line-height: 100%;
-    }
-    p{
-        margin-top: 3%;
-        font-size: 4.5vw;
-        font-weight: 300;
-    }
-}
-
-.switch-button {
-    display: inline-block;
-    width: 30%;
-    margin-top: 5%;
-}
-.switch-button .switch-button__checkbox {
-    display: none;
-}
-.switch-button .switch-button__label {
-    background-color: $green;
     width: 100%;
-    height: 2rem;
-    border-radius: 10px;
-    display: inline-block;
-    position: relative;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-}
-.switch-button .switch-button__label:before {
-    transition: .2s;
-    display: block;
-    position: absolute;
-    width: 1.5rem;
-    height: 1rem;
-    background-color: white;
-    content: '';
-    top: .5rem;
-    left: .5rem;
-    border-radius: 10px;
-}
-.switch-button .switch-button__checkbox:checked + .switch-button__label {
-    background-color: $red;
-}
-.switch-button .switch-button__checkbox:checked + .switch-button__label:before {
-    transform: translateX(5rem);
+    div{
+        line-height: 100%;
+        font: {family: $Segoe; size: 4.5vw; weight: bold;}
+    }
 }
 
 .main-card-info{
     margin-top: 5%;
-    text-align: center;
-    h5{
-        line-height: 100%;
-        font-weight: 500;
+    div{
+        font: {family: $SignikaL; size: 5vw;}
     }
-    p{
-        letter-spacing: 1px;
-        font-size: .8rem;
-        margin-top: 5%;
+}
+
+/* Class for active */
+.deploy{
+    height: 40vh;
+    .main-card-cont-second{
+        height: 20vh;
+        padding: 3vh 5% 0;
+    }
+    .view-more{
+        rotate: 180deg;
+        animation-play-state: paused;
+    }
+}
+
+/* Class for icon*/
+.la-search{transform: scaleX(-1);}
+/* Class for icon*/
+.c-white{color: $gray;}
+/* Class for icon*/
+.c-black{color: $bluedark;}
+/* Class for icon*/
+.vw2{font-size: 2vw;}
+/* Class for icon*/
+.vw3{font-size: 3vw;}
+/* Class for icon*/
+.vw4{font-size: 4vw;}
+/* Class for icon*/
+.vw5{font-size: 5vw;}
+/* Class for icon*/
+.vw6{font-size: 6vw;}
+/* Class for icon*/
+.vw7{font-size: 7vw;}
+
+.main-card-cont-second{
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 5%;
+    transition: all .4s;
+}
+
+.main-card-email{
+    height: 8.5vh;
+    font: {family: $Calibri; size: 5vw;}
+    span{font-weight: 500;}
+    div{
+        width: 100%;
+        height: 5vh;
         line-height: 100%;
-        font-weight: 300;
+        overflow-x: scroll;
+        color: rgba($color: $bluedark, $alpha: .6);
     }
 }
 
 .main-card-btn{
-    width: 65%;
-    flex-direction: row;
+    width: 100%;
+    height: 5vh;
     align-items: center;
+    flex-direction: row;
+    translate: 0 50%;
     justify-content: space-around;
-    div{
+    button, a{
+        border: none;
+        width: 10vw;
+        height: 10vw;
         cursor: pointer;
-        width: 2.5rem;
-        height: 2.5rem;
-        transform: translateY(50%);
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+        color: $bluedark;
         border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
     }
+}
+
+.view-more{
+    line-height: 100%;
+    background: $green;
+    transition: all .3s;
+    animation: {
+        duration: 1s; 
+        name: viewMore; 
+        direction: alternate;
+        iteration-count: infinite;
+        timing-function: ease-in-out;
+    };
+}
+
+@keyframes viewMore {
+    0%{translate: 0 10%;}
+    100%{translate: 0 -10%;}
 }
 
 .card-btn-edit{
@@ -1104,13 +1308,6 @@ footer{
     background: $red;
 }
 
-.card-close #dn-card{
-    display: none;
-}
-
-.section-refri{
-    display: none;
-}
 
 /* * * * * views.dashboard.users * * * * */
 .cu{

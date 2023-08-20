@@ -1,5 +1,17 @@
 const d = document;
 
+//Deploy Users
+/* Coordinador */
+const divCoor = d.querySelector('.section-coor');
+const btnDeploCoor = d.getElementById('deploy-coor');
+/* Auxiliar */
+const btnDeploAux = d.getElementById('deploy-aux');
+const divAux = d.querySelector('.section-aux');
+
+//Query card
+const cards = d.querySelectorAll('.db-main-card');
+const btnsViewMore = d.querySelectorAll('.view-more');
+
 //Query bodys
 const bodyDbUsers = d.querySelector('.body-db-users')
 const bodyDbCourses = d.querySelector('.body-db-courses')
@@ -256,8 +268,34 @@ btnMenus.forEach(m=>{
             break;
         }
     })
-})
+});
 
+//Desplegar card
+(()=>{
+    btnsViewMore.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+            cards.forEach(card=>{
+                if(btn.id == card.id){
+                    card.classList.toggle('deploy');
+                }
+            })
+        })
+    })}
+)();
+
+//Desplegar Coordinadores
+(()=>{
+    btnDeploCoor.addEventListener('click', ()=>{
+        divCoor.classList.toggle('deploy-coors');
+    })
+})();
+
+//Desplegar Auxiliares
+(()=>{
+    btnDeploAux.addEventListener('click', ()=>{
+        divAux.classList.toggle('deploy-auxs');
+    })
+})();
 
 jc.forEach(e=>{
     e.addEventListener('click', ()=>{

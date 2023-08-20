@@ -195,7 +195,6 @@ setInterval(()=>{
             user: data.get('user'),
             pass: data.get('pass')
         }
-        console.log(formData)
         /* Submit */
         if (i == 0) queryFetch(formData);
     })
