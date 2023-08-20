@@ -5,8 +5,8 @@ const d = document;
 const divCoor = d.querySelector('.section-coor');
 const btnDeploCoor = d.getElementById('deploy-coor');
 /* Auxiliar */
-const btnDeploAux = d.getElementById('deploy-aux');
 const divAux = d.querySelector('.section-aux');
+const btnDeploAux = d.getElementById('deploy-aux');
 
 //Query card
 const cards = d.querySelectorAll('.db-main-card');
@@ -39,6 +39,10 @@ const svgIcon = d.querySelectorAll('.svg-icon')
 
 //Query HTML
 const html = d.querySelector('html')
+
+//Search
+const searchs = d.querySelectorAll('#search-element');
+const cardsSearch = d.querySelectorAll('.db-main-card');
 
 //Click btn menu
 btnMenus.forEach(m=>{
@@ -270,14 +274,39 @@ btnMenus.forEach(m=>{
     })
 });
 
+//Search
+searchs.forEach(i=> {
+    cardsSearch.forEach(c=>{
+        i.addEventListener('keyup', ()=>{
+            divCoor.classList.add('deploy-coor');
+            divAux.classList.add('deploy-auxs');
+
+            let name = c.dataset.name;
+            let lastname = c.dataset.lastname;
+            
+            if(i.value != ''){
+
+                let logicName = name.toLowerCase().indexOf(i.value.toLowerCase()) > -1;
+                let logicLastname = lastname.toLowerCase().indexOf(i.value.toLowerCase()) > -1;
+
+                if(logicName || logicLastname){
+                    c.style.display = 'flex'
+                }else c.style.display = 'none'
+            }else{
+                divAux.classList.remove('deploy-auxs');
+                c.style.display = "flex";
+            }
+        })
+    })
+});
+
 //Desplegar card
 (()=>{
     btnsViewMore.forEach(btn=>{
         btn.addEventListener('click', ()=>{
             cards.forEach(card=>{
-                if(btn.id == card.id){
-                    card.classList.toggle('deploy');
-                }
+                if(btn.id == card.id) card.classList.toggle('deploy');
+                else card.classList.remove('deploy');
             })
         })
     })}

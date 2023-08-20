@@ -37,7 +37,7 @@
             <div id="search" class="head-users df cxy">
                 <h3>Usuarios</h3>
                 <div class="header-db-search df">
-                    <input type="search" placeholder="Busca usuarios">
+                    <input type="search" id="search-element" placeholder="Busca usuarios">
                     <button class="df cxy h100">
                         <i class="las la-search c-white vw6"></i>
                     </button>
@@ -46,7 +46,7 @@
         </header>
         <main id="main-db-users">
             <section class="section-user">
-                <div class="section-coor df">
+                <div class="section-coor deploy-coors df">
                     <div class="section-coor-btn w100 df">
                         <span>Coordinadores</span>
                         <div></div>
@@ -57,7 +57,7 @@
                     <?php $i = 1;
                     if($coorDates != false){
                     foreach ($coorDates as $date) {;?>
-                        <div id="<?php echo $i; ?>" class="db-main-card df">
+                        <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']; ?>" data-lastname="<?php echo $date['apellido']; ?>">
                             <div class="main-card-cont">
                                 <div class="main-card-cont-first df">
                                     <div class="cont-main-card-img df cxy">
@@ -68,21 +68,28 @@
                                     </div>
                                     <div class="cont-main-card-descri df">
                                         <div class="main-card-descri">
-                                            <div><?= $date['nombre'] ?><br><?= $date['apellido'] ?></div>
+                                            <div><?= $date['nombre'] ?><br><?= $date['apellido'] ?> </div>
                                         </div>
-                                        <div class="main-card-info" id="dn-card">
-                                            <div>Jornada <?= ($date['jornada'] == 'M')? 'Mañana': 'Tarde'; ?></div>
+                                        <div class="main-card-info df" id="dn-card">
+                                            <span>Jornada:</span>
+                                            <div> <?= ($date['jornada'] == 'M')? 'Mañana': 'Tarde'; ?></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="main-card-cont-second">
-                                    <div class="main-card-email w100">
-                                        <span>Correo</span>
+                                    <div class="main-card-email df w100">
+                                        <span>Correo:</span>
                                         <div><?= $date['correo'] ?></div>
                                     </div>
-                                    <div class="main-card-email w100">
-                                        <span>Telefono</span>
-                                        <div><?= $date['telefono'] ?></div>
+                                    <div class="main-card-number-user df w100">
+                                        <div class="main-card-number w100">
+                                            <span>Telefono</span>
+                                            <div><?= $date['telefono'] ?></div>
+                                        </div>
+                                        <div class="main-card-user w100">
+                                            <span>Usuario</span>
+                                            <div><?= $date['user'] ?></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="main-card-btn df">
@@ -112,7 +119,7 @@
                     <?php $i = 1.1; 
                     if($auxDates != false){
                     foreach ($auxDates as $date) { ?>
-                        <div id="<?php echo $i; ?>" class="db-main-card df">
+                        <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']; ?>" data-lastname="<?php echo $date['apellido']; ?>">
                             <div class="main-card-cont">
                                 <div class="main-card-cont-first df">
                                     <div class="cont-main-card-img df cxy">
@@ -131,13 +138,19 @@
                                     </div>
                                 </div>
                                 <div class="main-card-cont-second">
-                                    <div class="main-card-email w100">
-                                        <span>Correo</span>
+                                    <div class="main-card-email df w100">
+                                        <span>Correo:</span>
                                         <div><?= $date['correo'] ?></div>
                                     </div>
-                                    <div class="main-card-email w100">
-                                        <span>Telefono</span>
-                                        <div><?= $date['telefono'] ?></div>
+                                    <div class="main-card-number-user df w100">
+                                        <div class="main-card-number w100">
+                                            <span>Telefono</span>
+                                            <div><?= $date['telefono'] ?></div>
+                                        </div>
+                                        <div class="main-card-user w100">
+                                            <span>Usuario</span>
+                                            <div><?= $date['user'] ?></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="main-card-btn df">
