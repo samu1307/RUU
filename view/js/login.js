@@ -203,7 +203,7 @@ setInterval(()=>{
 /* * Petición AJAX * */
 let queryFetch = (data)=>{
 
-    let url = "http://localhost/ruu/controllers/login.controller.php";
+    let url = "../controllers/login.controller.php";
     let op = {
         method: "POST",
         headers: {
@@ -221,8 +221,7 @@ let queryFetch = (data)=>{
             setTimeout(() => {
                 location.href = 'dashboard.php'
             }, 3000);
-        }
-        else {
+        }else {
             boxLogin.innerHTML = "Usuario invalido";
             user.classList.add('alert');
             pass.classList.add('alert');

@@ -18,8 +18,8 @@
 
         public function login($Rol, $User, $Pass){
             
-            if($Rol == 'coor') $msg = 'SELECT * FROM v_usercoordinador WHERE user = :User AND pass = :Pass';
-            else $msg = 'SELECT * FROM v_userauxiliar WHERE user = :User AND pass = :Pass';
+            if($Rol == 'coor') $msg = 'SELECT * FROM v_userCoordinador WHERE user = :User AND pass = :Pass';
+            else $msg = 'SELECT * FROM v_userAuxiliar WHERE user = :User AND pass = :Pass';
 
             $query = $this->pdo->prepare($msg);
             $query->bindParam(':User', $User);
@@ -30,6 +30,7 @@
 
                 $res = $query->fetch();
 
+                
                 $_SESSION['id'] = $res[0];
                 $_SESSION['Nombre'] = $res['nombre'];
                 $_SESSION['Apellido'] = $res['apellido'];
@@ -39,7 +40,7 @@
                 $_SESSION['Contrasenia'] = $res['pass'];
                 
                 return true;
-
+                
                 
             }else return false;
             
@@ -48,7 +49,7 @@
         
         public function validateSession(){
             session_start();
-            if($_SESSION['id'] == null) header('Location: login.php');
+            if($_SESSION['id'] == '') header('Location: login.php');
         }
 
     }

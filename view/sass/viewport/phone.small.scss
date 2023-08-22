@@ -1204,6 +1204,7 @@ footer{
         height: 100%;
         overflow: hidden;
         line-height: 100%;
+        white-space: nowrap;
         font: {family: $Segoe; size: 4.75vw; weight: bold;}
     }
 }
@@ -1223,7 +1224,6 @@ footer{
     height: 45vh;
     .main-card-cont-first{height: 20vh !important;}
     .main-card-cont-second{height: 20vh; padding: 3vh 8% 0;}
-    .main-card-descri{height: 70%;}
     .view-more{
         rotate: 180deg;
         animation-play-state: paused;

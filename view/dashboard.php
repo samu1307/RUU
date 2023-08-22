@@ -4,8 +4,8 @@
     require_once('../controllers/dashboard.controller.php');
 
     $query = new ControllerCRUD();
-    $coorDates = $query->show("v_usercoordinador");
-    $auxDates = $query->show("v_userauxiliar");
+    $coorDates = $query->show("v_userCoordinador");
+    $auxDates = $query->show("v_userAuxiliar");
     $snacksDates = $query->show("refrigerio");
     $coursesDates = $query->show("curso");
 
@@ -29,7 +29,7 @@
     <div class="body-db-users body-db df cxy">
         <header id="header-db-users" class="header-db">
             <div id="menu-icon-div" class="df">
-                <i class='menu-icon la la-bars c-white vw7' ></i>
+                <i id="users" class='menu-icon la la-bars c-white vw7' ></i>
                 <a id="plus-icon-div" class="df cxy" href="./views.dashboard/createusers.php">
                     <i class="las la-plus c-white"></i>
                 </a>
@@ -57,7 +57,7 @@
                     <?php $i = 1;
                     if($coorDates != false){
                     foreach ($coorDates as $date) {;?>
-                        <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']; ?>" data-lastname="<?php echo $date['apellido']; ?>">
+                        <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
                             <div class="main-card-cont">
                                 <div class="main-card-cont-first df">
                                     <div class="cont-main-card-img df cxy">
@@ -68,7 +68,8 @@
                                     </div>
                                     <div class="cont-main-card-descri df">
                                         <div class="main-card-descri">
-                                            <div><?= $date['nombre'] ?><br><?= $date['apellido'] ?> </div>
+                                            <div><?= $date['nombre'] ?></div>
+                                            <div><?= $date['apellido'] ?></div>
                                         </div>
                                         <div class="main-card-info df" id="dn-card">
                                             <span>Jornada:</span>
@@ -119,7 +120,7 @@
                     <?php $i = 1.1; 
                     if($auxDates != false){
                     foreach ($auxDates as $date) { ?>
-                        <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']; ?>" data-lastname="<?php echo $date['apellido']; ?>">
+                        <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
                             <div class="main-card-cont">
                                 <div class="main-card-cont-first df">
                                     <div class="cont-main-card-img df cxy">
@@ -172,7 +173,7 @@
             </section>
         </main>
     </div>
-    <!-- <div class="body-db-courses body-db df cxy">
+    <div class="body-db-courses body-db df cxy">
         <header id="header-db-courses" class="header-db">
             <div id="menu-icon-div" class="df">
                 <svg id="courses" class="menu-icon df" width="25px" height="25px" id="btn-menu-courses" viewBox="0 0 32 15" fill="none" xmlns="http://www.w3.org/2000/svg">

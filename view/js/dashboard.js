@@ -278,23 +278,21 @@ btnMenus.forEach(m=>{
 searchs.forEach(i=> {
     cardsSearch.forEach(c=>{
         i.addEventListener('keyup', ()=>{
-            divCoor.classList.add('deploy-coor');
+            divCoor.classList.add('deploy-coors');
             divAux.classList.add('deploy-auxs');
 
             let name = c.dataset.name;
-            let lastname = c.dataset.lastname;
             
             if(i.value != ''){
 
                 let logicName = name.toLowerCase().indexOf(i.value.toLowerCase()) > -1;
-                let logicLastname = lastname.toLowerCase().indexOf(i.value.toLowerCase()) > -1;
 
-                if(logicName || logicLastname){
-                    c.style.display = 'flex'
-                }else c.style.display = 'none'
+                if(logicName) c.style.display = 'flex'
+                else c.style.display = 'none'
+
             }else{
-                divAux.classList.remove('deploy-auxs');
                 c.style.display = "flex";
+                divAux.classList.remove('deploy-auxs');
             }
         })
     })

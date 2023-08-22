@@ -1317,6 +1317,7 @@ footer {
   height: 100%;
   overflow: hidden;
   line-height: 100%;
+  white-space: nowrap;
   font-family: "Segoe UI";
   font-size: 4.75vw;
   font-weight: bold;
@@ -1350,9 +1351,6 @@ footer {
 .deploy .main-card-cont-second {
   height: 20vh;
   padding: 3vh 8% 0;
-}
-.deploy .main-card-descri {
-  height: 70%;
 }
 .deploy .view-more {
   rotate: 180deg;
