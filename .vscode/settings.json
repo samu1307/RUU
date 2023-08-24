@@ -4,5 +4,5 @@
     "vscode_custom_css.imports": [
         "file:///C:/users/usuario/Desktop/synthwave84.css"
     ],
-    "files.autoSave": "off",
+    "files.autoSave": "afterDelay",
 }

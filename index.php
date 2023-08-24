@@ -7,35 +7,32 @@
     <title>Control de refrigerios</title>
     <link rel="stylesheet" href="./view/css/main.css">
     <script src="./view/js/index.js" defer></script>
+    <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body id="body-index">
     <header id="header-index">
         <nav class="df w100" id="nav-index">
             <div class="nav-nav-index df w100">
-                <div class="btn-menu">
-                    <svg viewBox="0 0 32 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line y1="1.5" x2="30" y2="1.5" stroke="#1E222F" stroke-width="3"/>
-                        <line y1="7.5" x2="30" y2="7.5" stroke="#1E222F" stroke-width="3"/>
-                        <line y1="13.5" x2="30" y2="13.5" stroke="#1E222F" stroke-width="3"/>
-                    </svg>
+                <div class="btn-menu">  
+                    <i class="la la-bars vw8" ></i>
                 </div>
-                <a href="./index.html" class="btn-home df cxy">
+                <a href="./index.php" class="btn-home df cxy">
                     <img class="lazy-load" src="./view/img/escudo.png" alt="Escudo Colegio Rafael Uribe Uribe">
                     <h3 class="di">RUU</h3>
                 </a>
                 <div class="n-n-msh">
                     <ul class="df cxy">
-                        <li><a href="#header-index">Inicio</a></li>
-                        <li><a href="#section-1-index">Ubicación</a></li>
-                        <li><a href="#section-2-index">Nosotros</a></li>
-                        <li><a href="#form-contact">Contactar</a></li>
+                        <li><a href="#header-index" data-icon="&#xf015;">Inicio</a></li>
+                        <li><a href="#section-1-index" data-icon="&#xf279;">Ubicación</a></li>
+                        <li><a href="#section-2-index" data-icon="&#xf500;">Nosotros</a></li>
+                        <li><a href="#form-contact" data-icon="&#xf2c2;">Contactar</a></li>
                     </ul>
                 </div>
                 <div class="btns df h100">
                     <div class="night">
                         <div id="btn-night"></div>
                     </div>
-                    <a class="btn-login df cxy h100" href="./view/login.php">Ingresar</a>
+                    <a class="btn-login df cxy" href="./view/login.php">Ingresar</a>
                 </div>
             </div>
             <div class="menu-slider-header">
@@ -62,7 +59,7 @@
             <div class="main-img">
                 <img src="./view/img/escudobg.svg" alt=".">
             </div>
-            <div class="main-main w100">
+            <div class="main-main">
                 <div class="main-date">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
                         <path d="M8.03135 14.0439C8.60095 14.0439 9.0627 13.5864 9.0627 13.022C9.0627 12.4575 8.60095 12 8.03135 12C7.46175 12 7 12.4575 7 13.022C7 13.5864 7.46175 14.0439 8.03135 14.0439Z" fill="#1E222F"/>
@@ -116,9 +113,7 @@
                 <div class="main-btn-slider">
                     <div class="btn-slider df cxy"> 
                         <button class="di row-slider-btn" id="row-btn-l">
-                            <svg viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.939279 10.9393C0.353492 11.5251 0.353492 12.4749 0.939279 13.0607L10.4852 22.6066C11.071 23.1924 12.0208 23.1924 12.6065 22.6066C13.1923 22.0208 13.1923 21.0711 12.6065 20.4853L4.12126 12L12.6065 3.51472C13.1923 2.92893 13.1923 1.97918 12.6065 1.3934C12.0208 0.807612 11.071 0.807612 10.4852 1.3934L0.939279 10.9393ZM26.9999 10.5L1.99994 10.5V13.5L26.9999 13.5V10.5Z" fill="#fff"/>
-                            </svg>
+                            <i class="las la-arrow-left"></i>
                         </button>
                         <span class="dinamic-btn-slider" >
                             <span>
@@ -128,19 +123,19 @@
                             </span>
                         </span>
                         <button class="di row-slider-btn" id="row-btn-r">
-                            <svg viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.939279 10.9393C0.353492 11.5251 0.353492 12.4749 0.939279 13.0607L10.4852 22.6066C11.071 23.1924 12.0208 23.1924 12.6065 22.6066C13.1923 22.0208 13.1923 21.0711 12.6065 20.4853L4.12126 12L12.6065 3.51472C13.1923 2.92893 13.1923 1.97918 12.6065 1.3934C12.0208 0.807612 11.071 0.807612 10.4852 1.3934L0.939279 10.9393ZM26.9999 10.5L1.99994 10.5V13.5L26.9999 13.5V10.5Z" fill="#fff"/>
-                            </svg>
+                            <i class="las la-arrow-right"></i>
                         </button>
                     </div>
                 </div>
             </div>
         </section>
         <section class="section-2-index" id="section-2-index">
-            <div class="video-yt"><iframe class="videoIframe lazy-load" width="560" height="315" src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
-            <div class="about">
-                <h4>¿Quiénes somos?</h4>
-                <p> <b>RUU</b> inicio en septiembre de 2022 como una idea para gestionar, mas rapida y adecuadamente, los distintos refrigerios que llegan al Colegio Rafael Uribe Uribe mediante una plataforma web. <b>RUU</b> tiene como meta, desarrollar una plataforma que sea adaptable para todos los colegios de Bogota D.C.</p>
+            <div class="cont-about">
+                <div class="video-yt"><iframe class="videoIframe lazy-load" width="560" height="315" src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+                <div class="about">
+                    <h4>¿Quiénes somos?</h4>
+                    <p> <b>RUU</b> inicio en septiembre de 2022 como una idea para gestionar, mas rapida y adecuadamente, los distintos refrigerios que llegan al Colegio Rafael Uribe Uribe mediante una plataforma web. <b>RUU</b> tiene como meta, desarrollar una plataforma que sea adaptable para todos los colegios de Bogota D.C.</p>
+                </div>
             </div>
             <div class="lema">
                 <div class="lema-img"><img class="lazy-load" src="./view/img/escudo.png" alt=""></div>
@@ -149,27 +144,23 @@
         </section>
     </main>
     <footer>
-        <div class="main-form">
-            <h4>Contactar</h4>
-            <form class="form" id="form-contact">
-                <input type="text" placeholder="Nombre" id="name"  name="name">
-                <input type="email" placeholder="Correo" id="email"  name="email">
-                <input type="number" placeholder="Telefono" id="number"  name="number">
-                <input type="text" placeholder="Asunto" id="matter"  name="matter">
-                <textarea cols="30" rows="3" placeholder="Mensaje" id="body"  name="body"></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-        <div class="main-rs">
-            <a href="#" class="di">
-                <svg enable-background="new 0 0 512 512" fill="#fff" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M308.3,508.5c-2.5,0.1-4.1,0.3-5.7,0.3c-34.2,0-68.3-0.1-102.5,0.1c-4.8,0-6.1-1.3-6.1-6.1c0.1-79.6,0.1-159.3,0.1-238.9   c0-2.1,0-4.2,0-6.9c-18.6,0-36.7,0-55.1,0c0-28.4,0-56.3,0-85c1.9,0,3.7,0,5.4,0c15,0,30-0.1,45,0.1c3.8,0,4.8-1.1,4.8-4.8   c-0.2-22.3-0.2-44.7,0-67c0.1-15.6,2.6-30.8,9.8-44.9c10.3-19.9,26.6-32.8,47.2-40.8c16.8-6.6,34.5-9,52.3-9.3   c29-0.4,58-0.2,87-0.3c2.7,0,4.9-0.1,4.9,3.7c-0.1,27.5-0.1,55-0.1,82.5c0,0.3-0.1,0.6-0.5,1.9c-1.7,0-3.6,0-5.5,0   c-18,0-36-0.1-54,0c-10.4,0-18.8,4.2-24.1,13.3c-1.6,2.7-2.6,6.2-2.6,9.4c-0.3,17,0,34-0.2,51c0,4,1.2,5.1,5.1,5.1   c25-0.2,50-0.1,75-0.1c2,0,3.9,0,7.3,0c-3.5,28.6-6.9,56.6-10.4,84.9c-26,0-51.3,0-77.1,0C308.3,340.8,308.3,424.4,308.3,508.5z"/></g></svg>
-            </a>
-            <a href="#" class="di">
-                <svg enable-background="new 0 0 512 512" fill="#fff" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M10.8,507.9c6.9-20.7,13.4-40.1,19.9-59.5c6.5-19.2,12.3-38.7,19.7-57.6c3.8-9.6,2.6-16.8-2.2-25.8   c-26.2-48.6-34-100.7-24.9-154.9c7.7-45.9,27.2-86.5,58.7-121C133.9,32.4,198.7,5.2,275.3,8.4c56.1,2.3,105.7,22.8,148,59.9   c39.4,34.5,65.1,77.4,77,128.4c9.6,41.1,8.5,82-3.3,122.5c-15,51.3-43.7,93.6-86.4,125.8c-59.3,44.8-125.8,58.7-198.3,44.6   c-21.8-4.2-42.6-12-62.2-22.6c-3.2-1.7-5.9-2.1-9.4-0.9c-37.2,12-74.5,23.9-111.7,35.8C23.4,503.7,17.7,505.6,10.8,507.9z    M74.1,445.2c2-0.5,2.9-0.7,3.8-1c23.3-7.4,46.6-14.9,70-22.1c2.2-0.7,5.2-0.1,7.3,0.9c10.1,5,19.8,11,30.2,15.4   c42.8,18.1,86.9,21,131.5,8.6c53.2-14.9,94-46.6,121.9-94.5c23.9-41,32.1-85.3,24.7-131.9c-9.4-59.3-39.8-105.9-90.1-139   C329.8,53,281.8,43.3,230.6,51.4c-44.1,7-81.8,27.1-112.9,59.3c-26.7,27.6-44.6,60.2-52.4,97.7c-11.1,53.7-2.9,104.5,26.9,150.8   c6,9.3,5.8,16.4,2.2,25.9C87.1,404.6,81,424.5,74.1,445.2z"/><path d="M389.3,321.8c-0.3,19.3-9.4,34-27.8,43.2c-18.1,9-36.5,11.3-55.4,3.9c-17-6.7-34.2-13.2-50.6-21.3   c-21.6-10.7-39.3-26.7-55.5-44.4c-17.9-19.6-33.1-41.4-45.6-64.7c-8.9-16.5-14.3-34-12.4-53.2c2-20.4,11.5-36.7,27.5-49   c3.2-2.4,8-3.5,12.1-3.9c5.3-0.4,10.6,0.4,15.9,0.8c4.4,0.4,6.8,3.5,8.3,7.1c3.9,9.6,7.4,19.2,11.1,28.9c2.5,6.5,4.4,13.3,7.4,19.6   c3.7,7.8,1.4,14.3-3.4,20.3c-4.1,5.1-8.4,10-13.1,14.4c-3.9,3.7-4.6,7.5-2,12c11.5,20.5,25.5,38.9,44,53.8   c12.2,9.8,25.7,17.1,39.7,23.9c4.1,2,8.1,1.7,11.3-2c6.9-7.9,13.9-15.7,20.7-23.7c4.4-5.1,6.6-6.1,12.5-3.1   c17.1,8.6,34,17.5,51,26.4C389,313,390,316.6,389.3,321.8z"/></g></svg>
-            </a>
-            <a href="#" class="di">
-                <svg enable-background="new 0 0 512 512" fill="#fff" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M260.4,449c-57.1-1.8-111.4-3.2-165.7-5.3c-11.7-0.5-23.6-2.3-35-5c-21.4-5-36.2-17.9-43.8-39c-6.1-17-8.3-34.5-9.9-52.3   C2.5,305.6,2.5,263.8,4.2,222c1-23.6,1.6-47.4,7.9-70.3c3.8-13.7,8.4-27.1,19.5-37c11.7-10.5,25.4-16.8,41-17.5   c42.8-2.1,85.5-4.7,128.3-5.1c57.6-0.6,115.3,0.2,172.9,1.3c24.9,0.5,50,1.8,74.7,5c22.6,3,39.5,15.6,48.5,37.6   c6.9,16.9,9.5,34.6,11,52.6c3.9,45.1,4,90.2,1.8,135.3c-1.1,22.9-2.2,45.9-8.7,68.2c-7.4,25.6-23.1,42.5-49.3,48.3   c-10.2,2.2-20.8,3-31.2,3.4C366.2,445.7,311.9,447.4,260.4,449z M205.1,335.3c45.6-23.6,90.7-47,136.7-70.9   c-45.9-24-91-47.5-136.7-71.4C205.1,240.7,205.1,287.6,205.1,335.3z"/></g></svg>
-            </a>
+        <div class="cont-form">
+            <div class="main-form">
+                <h4>Contactar</h4>
+                <form class="form" id="form-contact">
+                    <input type="text" placeholder="Nombre" id="name"  name="name">
+                    <input type="email" placeholder="Correo" id="email"  name="email">
+                    <input type="number" placeholder="Telefono" id="number"  name="number">
+                    <input type="text" placeholder="Asunto" id="matter"  name="matter">
+                    <textarea cols="30" rows="3" placeholder="Mensaje" id="body"  name="body"></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+            <div class="main-rs">
+                <a href="#" class="di"><i class="lab la-facebook"></i></a>
+                <a href="#" class="di"><i class="lab la-whatsapp"></i></a>
+                <a href="#" class="di"><i class="lab la-youtube"></i></a>
+            </div>
         </div>
         <div class="copyright">©️ Todos los derechos reservados</div>
     </footer>
@@ -178,7 +169,7 @@
             <span>De:</span>
             <div class="cont-find-mail">
                 <div class="find-mail">
-                    <p id="by-email">samusamisam@gmail.com</p>
+                    <p id="by-email">Samito34@gmail.com</p>
                 </div>
             </div>
         </div>
@@ -192,30 +183,20 @@
         </div>
         <div class="matter-email w100">
             <span>Asunto:</span>
-            <p id="matter-email">
-                Solicito traslado para el Colegio
-                Confederación Suiza - Keilen Fernando
-                Zapata Alarcon 9-B JM 123456
-            </p>
+            <p id="matter-email">No lo se bro</p>
         </div>
         <div class="body-email w100">
             <span>Cuerpo:</span>
-            <p id="body-email">
-                Lorem ipsum dolor sit amet consectetur 
-                adipisicing elit. Ex, at! Facilis blanditii
-                laudantium voluptatem. Alias tenetur 
-                possimus laboriosam dicta sapiente aut 
-                repellat aliquid quibusdam incidunt atque 
-                optio soluta, totam iusto quia ex iste dolor 
-                accusantium. Veritatis, ipsa deleniti. 
-                Blanditiis, illum. Earum a dolore vitae 
-                hic iste, repellendus quam perspiciatis 
-                sequi?
-            </p>
+            <p id="body-email">Lorem ipsum dolor, 
+                sit amet consectetur adipisicing 
+                elit. Expedita, fuga?</p>
         </div>
         <div class="btn-email w100 df">
-            <button id="edit">Editar</button>
-            <button id="send">Enviar</button>
+            <i id="close-email" class="las la-times"></i>
+            <div id="send-edit">
+                <i id="edit" class="las la-edit"></i>
+                <i id="send" class="las la-paper-plane"></i>
+            </div>
         </div>
     </div>
 </body>

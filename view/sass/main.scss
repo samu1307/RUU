@@ -87,7 +87,9 @@ h1, h2, h3, h4, h5, h6, p, label{
     font-family: $Segoe;
 }
 
-// i{font: {size: 4ch;}}
+button{
+    cursor: pointer;
+}
 
 /* * * Small Phone * * */
 @import './viewport/phone.small.scss';
@@ -119,6 +121,10 @@ h1, h2, h3, h4, h5, h6, p, label{
 
 @media screen and (min-width: 1024px) {
     @import './viewport/pc.small.scss';
+}
+
+@media screen and (min-width: 1200px) {
+    @import './viewport/pc.big.scss';
 }
 
 /* * * * * CLASES REPETIDAS * * * * */

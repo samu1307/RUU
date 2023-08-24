@@ -78,7 +78,7 @@ const cuadrado = ()=>{
 //Designar alto de a-sections al redimencionar
 window.addEventListener('resize', cuadrado);
 
-//
+//  
 let darkBg = ()=>{
     head.classList.toggle('opacity-off');
     main.classList.toggle('opacity-off');
@@ -111,14 +111,19 @@ let sectionOnOff = (i)=>{
     });
 })();
 
-const navAnimated = ()=>{
-    if(innerWidth <= 720){
+(()=>{
+    if(innerWidth < '1200px'){
         d.addEventListener('scroll', ()=>{
             if(scrollY < 20) nIndexC.remove('scrollOn');
             else nIndexC.add('scrollOn');
         })
+    }else{
+        d.addEventListener('scroll', ()=>{
+            if(scrollY < 90) nIndexC.remove('scrollOn');
+            else nIndexC.add('scrollOn');
+        })
     }
-}
+})()
 
 const sliderL = ()=>{
     btnL.addEventListener('click', ()=>{
@@ -291,7 +296,6 @@ const fetchSendEmail = (data)=>{
 
 
 scrollSpy();
-navAnimated();
 sliderL();
 sliderR();
 

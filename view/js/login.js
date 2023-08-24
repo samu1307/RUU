@@ -113,7 +113,7 @@ setInterval(()=>{
             if(i.isIntersecting){
                 d.querySelector(`button[data-slider="${di}"]`)
                 .classList.add('login-btn-active');
-                i.target.classList.add('login-sec-active');
+                i.target.classList.add('login-sec-ac    tive');
             }else{
                 d.querySelector(`button[data-slider="${di}"]`)
                 .classList.remove('login-btn-active');
@@ -122,9 +122,7 @@ setInterval(()=>{
         })
     }
 
-    const observer = new IntersectionObserver(cb, {
-        threshold: 0.8
-    })
+    const observer = new IntersectionObserver(cb, {threshold: 0.8})
 
     secCard.forEach(e => observer.observe(e))
 })();
@@ -217,12 +215,14 @@ let queryFetch = (data)=>{
     .then(res=> res.text())
     .then(json=>{
         if(json == 1){
+            btnSend.value = 'Validando...';
+            btnSend.disabled = true;
             body.classList.add('bodyLoad')
             setTimeout(() => {
                 location.href = 'dashboard.php'
             }, 3000);
         }else {
-            boxLogin.innerHTML = "Usuario invalido";
+            boxLogin.innerHTML = "Usuario incorrecto";
             user.classList.add('alert');
             pass.classList.add('alert');
             form.addEventListener('keydown', ()=>{

@@ -48,14 +48,8 @@
 }
 
 .btn-menu {
-  width: 30px;
-  height: auto;
   cursor: pointer;
   transform: translateY(3px);
-}
-.btn-menu svg {
-  width: 100%;
-  height: auto;
 }
 
 .btn-home img {
@@ -148,7 +142,7 @@
 
 /* Class for active */
 .scrollOn {
-  padding: 2.5% 5%;
+  padding: 2.5% 5% !important;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 .scrollOn .btn-login {
@@ -252,9 +246,8 @@ section {
 .map {
   width: 100%;
   height: 50%;
-}
-.map iframe {
-  border-radius: 10px;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .main-slider {
@@ -316,19 +309,16 @@ section {
 }
 
 .row-slider-btn {
-  width: auto;
-  height: 45%;
   color: white;
   cursor: pointer;
+  transition: all 0.3s;
   background: transparent;
 }
-.row-slider-btn svg {
-  width: auto;
-  height: 100%;
+.row-slider-btn i {
+  font-size: 7vw;
 }
-
-.row-slider-btn:nth-last-child(1) {
-  transform: rotateY(180deg);
+.row-slider-btn:hover {
+  scale: 1.2;
 }
 
 .dinamic-btn-slider {
@@ -359,7 +349,7 @@ section {
 /*  SECTION 2  */
 .video-yt {
   width: 100%;
-  height: 35%;
+  height: 30vh;
   text-align: center;
 }
 .video-yt iframe {
@@ -456,9 +446,9 @@ footer {
   margin-bottom: 10%;
 }
 .main-rs a {
-  width: 13%;
-  height: auto;
-  margin: 7px;
+  margin: 0 7px;
+  font-size: 13vw;
+  color: #E5E9F6;
 }
 
 .copyright {
@@ -587,12 +577,12 @@ footer {
 }
 
 .body-email {
-  height: 30vh;
+  height: 33vh;
 }
 
 .btn-email {
-  height: 10vh;
-  padding: 0 8%;
+  height: 7vh;
+  padding: 0 2%;
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
@@ -608,14 +598,6 @@ footer {
 }
 .btn-email button:active {
   opacity: 0.8;
-}
-
-#edit {
-  background: #F2E63C;
-}
-
-#send {
-  background: #4AA163;
 }
 
 /* * * * * * * * * VIEW/LOGIN.HTML * * * * * * * * */
@@ -1087,7 +1069,7 @@ footer {
   left: 0;
   z-index: 10;
   height: 30vh;
-  padding: 5% 5%;
+  padding: 5%;
   position: absolute;
   background-color: #1E222F;
 }
@@ -1400,6 +1382,11 @@ footer {
 /* Class for icon*/
 .vw7 {
   font-size: 7vw;
+}
+
+/* Class for icon*/
+.vw8 {
+  font-size: 8vw;
 }
 
 .main-card-cont-second {

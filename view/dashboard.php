@@ -54,9 +54,11 @@
                             <i class="las la-chevron-right vw6 c-black"></i>
                         </button>
                     </div>
+                    <div class="cont-db-main-card">
                     <?php $i = 1;
                     if($coorDates != false){
-                    foreach ($coorDates as $date) {;?>
+                    foreach ($coorDates as $date) {;
+                        if($date['nombre'] != 'ADMIN'){?>
                         <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
                             <div class="main-card-cont">
                                 <div class="main-card-cont-first df">
@@ -107,7 +109,8 @@
                             </div>
                             <div class="line-active-user <?= ($date['estado'] == 'A')? 'user-active': 'user-inactive';?> h100"></div>
                         </div>
-                    <?php $i = $i + 1; }}else echo "ERROR: No se pudo iniciar." ?>
+                        <?php $i = $i + 1; }}}else echo "ERROR: No se pudo iniciar." ?>
+                    </div>
                 </div>
                 <div class="section-aux df">
                     <div class="section-aux-btn w100 df">
@@ -1012,7 +1015,7 @@
                 </div>
             </section>
         </main>
-    </div> -->
+    </div>
     <div class="nav df">
         <div class="nav-nav df">
             <a class="df jc-s" id="home" href="../index.php">

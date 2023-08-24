@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* * * * * * IMPORTS * * * * * */
 @font-face {
   font-family: "Signika-Light";
@@ -98,6 +97,10 @@ h1, h2, h3, h4, h5, h6, p, label {
   font-family: "Segoe UI";
 }
 
+button {
+  cursor: pointer;
+}
+
 /* * * Small Phone * * */
 @font-face {
   font-family: "Signika-Light";
@@ -149,14 +152,8 @@ h1, h2, h3, h4, h5, h6, p, label {
 }
 
 .btn-menu {
-  width: 30px;
-  height: auto;
   cursor: pointer;
   transform: translateY(3px);
-}
-.btn-menu svg {
-  width: 100%;
-  height: auto;
 }
 
 .btn-home img {
@@ -249,7 +246,7 @@ h1, h2, h3, h4, h5, h6, p, label {
 
 /* Class for active */
 .scrollOn {
-  padding: 2.5% 5%;
+  padding: 2.5% 5% !important;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 .scrollOn .btn-login {
@@ -353,9 +350,8 @@ section {
 .map {
   width: 100%;
   height: 50%;
-}
-.map iframe {
-  border-radius: 10px;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .main-slider {
@@ -417,19 +413,16 @@ section {
 }
 
 .row-slider-btn {
-  width: auto;
-  height: 45%;
   color: white;
   cursor: pointer;
+  transition: all 0.3s;
   background: transparent;
 }
-.row-slider-btn svg {
-  width: auto;
-  height: 100%;
+.row-slider-btn i {
+  font-size: 7vw;
 }
-
-.row-slider-btn:nth-last-child(1) {
-  transform: rotateY(180deg);
+.row-slider-btn:hover {
+  scale: 1.2;
 }
 
 .dinamic-btn-slider {
@@ -460,7 +453,7 @@ section {
 /*  SECTION 2  */
 .video-yt {
   width: 100%;
-  height: 35%;
+  height: 30vh;
   text-align: center;
 }
 .video-yt iframe {
@@ -557,9 +550,9 @@ footer {
   margin-bottom: 10%;
 }
 .main-rs a {
-  width: 13%;
-  height: auto;
-  margin: 7px;
+  margin: 0 7px;
+  font-size: 13vw;
+  color: #E5E9F6;
 }
 
 .copyright {
@@ -688,12 +681,12 @@ footer {
 }
 
 .body-email {
-  height: 30vh;
+  height: 33vh;
 }
 
 .btn-email {
-  height: 10vh;
-  padding: 0 8%;
+  height: 7vh;
+  padding: 0 2%;
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
@@ -709,14 +702,6 @@ footer {
 }
 .btn-email button:active {
   opacity: 0.8;
-}
-
-#edit {
-  background: #F2E63C;
-}
-
-#send {
-  background: #4AA163;
 }
 
 /* * * * * * * * * VIEW/LOGIN.HTML * * * * * * * * */
@@ -1188,7 +1173,7 @@ footer {
   left: 0;
   z-index: 10;
   height: 30vh;
-  padding: 5% 5%;
+  padding: 5%;
   position: absolute;
   background-color: #1E222F;
 }
@@ -1503,6 +1488,11 @@ footer {
   font-size: 7vw;
 }
 
+/* Class for icon*/
+.vw8 {
+  font-size: 8vw;
+}
+
 .main-card-cont-second {
   height: 0;
   width: 100%;
@@ -1755,26 +1745,43 @@ footer {
   }
 }
 @media screen and (min-width: 1024px) {
+  @font-face {
+    font-family: "Signika-Light";
+    src: url("../fonts/Signika/SignikaLight.ttf");
+  }
+  @font-face {
+    font-family: "Signika-Regular";
+    src: url("../fonts/Signika/SignikaSemiBold.ttf");
+  }
+  @font-face {
+    font-family: "Signika-Medium";
+    src: url("../fonts/Signika/SignikaRegular.ttf");
+  }
+  @font-face {
+    font-family: "Signika-SemiBold";
+    src: url("../fonts/Signika/SignikaMedium.ttf");
+  }
+  @font-face {
+    font-family: "Signika-Bold";
+    src: url("../fonts/Signika/SignikaBold.ttf");
+  }
   /*  INDEX  */
+  #body-index {
+    background: #E5E9F6;
+  }
   #header-index {
-    height: 100vh;
-    padding: 3.5% 3%;
+    height: 90vh;
     display: flex;
-    background-color: #F2E63C;
+    padding: 3.5% 5%;
     flex-direction: column;
-    align-items: center;
-    background: hsl(56, 87%, 68%);
-    background: radial-gradient(circle, hsl(56, 87%, 68%) 0%, hsl(56, 80%, 52%) 100%);
   }
   #nav-index {
-    width: 94%;
-    height: 6vh;
-    position: static;
+    position: fixed;
   }
   .nav-nav-index {
-    padding: 0;
-    height: 100%;
-    background: none;
+    padding: 5vh 5% 2vh;
+    height: 14vh;
+    align-items: center;
   }
   .menu-slider-header {
     display: none;
@@ -1790,68 +1797,82 @@ footer {
     height: 90%;
   }
   .btn-home h3 {
-    font-family: "Segoe UI";
     height: auto;
     font-size: 1rem;
     letter-spacing: 0;
+    font-family: "Segoe UI";
   }
   .n-n-msh {
     height: 100%;
+    display: flex;
   }
   .n-n-msh ul {
     flex-direction: row;
-  }
-  .n-n-msh ul li:nth-child(1) a::after {
-    content: "Inicio";
-  }
-  .n-n-msh ul li:nth-child(2) a::after {
-    content: "Ubicación";
-  }
-  .n-n-msh ul li:nth-child(3) a::after {
-    content: "Nosotros";
-  }
-  .n-n-msh ul li:nth-child(4) a::after {
-    content: "Contactar";
   }
   .n-n-msh ul li {
     list-style: none;
     position: relative;
     margin: 0 1.5vw;
   }
-  .n-n-msh ul li a {
-    display: inline-block;
-    font-weight: 500;
+  .n-n-msh a {
+    margin: auto;
     cursor: pointer;
-    font-size: calc(0.6em + 0.6vw);
-    font-family: Calibri;
-    line-height: 100%;
     color: #1E222F;
+    font-weight: 500;
+    line-height: 100%;
     position: relative;
-    transition: all 0.3s;
-    transform-style: preserve-3d;
+    display: inline-block;
+    font-family: Calibri;
+    font-size: 1.8vw;
+    transition: all 0.4s;
   }
-  .n-n-msh ul li a::after {
+  .n-n-msh a::before, .n-n-msh a::after {
+    left: 0;
     position: absolute;
-    top: -100%;
-    left: 0px;
-    width: 100%;
-    transform-origin: left bottom;
-    transform: rotateX(90deg);
-    font-weight: 600;
   }
-  .n-n-msh ul li a:hover {
-    transform-origin: center bottom;
-    transform: rotateX(-90deg) translateY(100%);
+  .n-n-msh a::before {
+    width: 0;
+    z-index: 10;
+    height: 100%;
+    content: "";
+    background: #E5E9F6;
+    transition: all 0.4s;
+  }
+  .n-n-msh a::after {
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: 100;
+    height: 100%;
+    display: flex;
+    color: #1E222F;
+    transition: all 0.4s;
+    align-items: center;
+    justify-content: center;
+    content: attr(data-icon);
+    font-family: "Line Awesome Free";
+    font-size: 1.8vw;
+    font-weight: 900;
+  }
+  .n-n-msh a:hover {
+    color: transparent;
+  }
+  .n-n-msh a:hover::before {
+    width: 100%;
+  }
+  .n-n-msh a:hover::after {
+    opacity: 1;
   }
   .btns {
-    width: 18%;
+    width: 12%;
     height: 80%;
-    justify-content: space-between;
     flex-direction: row;
+    justify-content: space-between;
   }
   .btns .night {
     width: 46%;
     height: 100%;
+    display: none;
     position: relative;
     border-radius: 12px;
     background: #1E222F;
@@ -1872,14 +1893,14 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   .btn-login {
-    width: 46%;
-    height: 100%;
+    width: 100%;
+    height: 90%;
     padding: 0;
-    border: #1E222F solid 2px;
-    font-size: calc(0.5em + 0.5vw);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     transition: all 0.3s;
+    border: 2px solid #1E222F;
+    font-size: 1.5vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   .btn-login:hover {
     background: none;
@@ -1887,34 +1908,24 @@ footer {
   }
   .main-head {
     display: flex;
+    padding-top: 25vh;
+    align-items: center;
     flex-direction: row-reverse;
-    padding-top: 10vh;
   }
   .main-img {
     margin: 0;
     width: 50%;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
-    position: relative;
   }
   .main-img img {
     max-width: 96%;
   }
-  .main-img::after {
-    content: "";
-    bottom: 10px;
-    left: auto;
-    width: 80%;
-    border-radius: 50%;
-    height: 50px;
-    position: absolute;
-    filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.4);
-  }
   .main-main {
     width: 50%;
-    padding: 0 3%;
+    padding: 0 3% 0 0;
   }
   .main-date {
     position: relative;
@@ -1932,11 +1943,11 @@ footer {
     padding-left: 0.5vw;
   }
   .main-p h1 {
-    font-family: "Segoe UI";
-    font-weight: bold;
-    font-size: calc(7vw - 1rem);
-    line-height: 0.8em;
+    font-size: 7vw;
     text-align: start;
+    font-weight: bold;
+    line-height: 0.8em;
+    font-family: "Segoe UI";
     letter-spacing: -0.2vw;
   }
   .main-p h1 span {
@@ -1947,17 +1958,19 @@ footer {
   }
   .main-line {
     width: 100%;
+    margin: 5% auto;
   }
   .main-btn {
     display: flex;
     flex-direction: row;
   }
   .main-btn a {
-    border-radius: 0 -12px;
     margin: 0 2%;
-    padding: 1vw 1.7vw;
-    font-size: calc(3vw - 1em);
+    padding: 1.3vw 2vw;
     transition: all 0.3s;
+    border-radius: 0 -12px;
+    font-size: 2vw;
+    border: 2px solid #4AA163;
   }
   .main-btn a[id=ingresar]:hover {
     background: none;
@@ -1966,9 +1979,192 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   .main-btn a[id=contacto]:hover {
-    background-color: #4AA163;
     color: #FFFFFF;
+    background-color: #4AA163;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  /* Main */
+  #main-index {
+    padding: 2.5% 5%;
+  }
+  .section-1-index {
+    padding: 5%;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  .map {
+    height: 90%;
+    white-space: nowrap;
+    border: 0.5vw solid #4AA163;
+  }
+  .main-slider {
+    height: 90%;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .main-img-slider {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .img-slider {
+    width: 250%;
+    height: 80%;
+  }
+  .img-slider div {
+    width: 100%;
+    min-width: 0;
+  }
+  .img-slider img {
+    width: auto;
+    height: 100%;
+  }
+  .main-btn-slider {
+    height: 15%;
+  }
+  .main-btn-slider button {
+    font-size: 1.3vw;
+  }
+  .row-slider-btn i {
+    font-size: 2vw;
+  }
+  .dinamic-btn-slider {
+    height: 100%;
+  }
+  .dinamic-btn-slider span button {
+    padding: 5%;
+  }
+  /* Section 2 */
+  .cont-about {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  .video-yt,
+  .about {
+    padding: 0;
+    width: 50%;
+  }
+  .video-yt {
+    height: 75%;
+  }
+  .about {
+    height: auto;
+    padding: 0 5%;
+  }
+  .about h4 {
+    font-size: 4vw;
+  }
+  .about p {
+    font-size: 1.6vw;
+  }
+  .lema {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  .lema .lema-img, .lema h4 {
+    width: 50%;
+  }
+  .lema h4 {
+    font-size: 5vw;
+  }
+  /* Footer */
+  .cont-form {
+    width: 100%;
+    display: flex;
+    padding: 0 10%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-form {
+    margin: 5% 0;
+    width: 70%;
+    padding: 0;
+  }
+  .main-form h4 {
+    font-size: 4vw;
+  }
+  #form-contact {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #form-contact input, #form-contact textarea {
+    padding: 1.5% 2.5%;
+  }
+  #form-contact input {
+    width: auto;
+    font-size: 1.5vw;
+  }
+  #form-contact textarea, #form-contact button {
+    width: 100%;
+    font-size: 1.5vw;
+  }
+  .main-rs {
+    width: 10%;
+    padding: 0;
+    margin: calc(5% + 4vw) 0 5%;
+    display: flex;
+    font-size: 5vw;
+    text-align: center;
+    justify-content: end;
+    flex-direction: column;
+  }
+  .main-rs a {
+    width: auto;
+    font-size: 6vw;
+  }
+  .copyright {
+    font-size: 1.5vw;
+  }
+  .copyright::before, .copyright::after {
+    width: 35%;
+  }
+  .send-email {
+    width: 60%;
+  }
+  .send-email span, .send-email button, .send-email #by-email, .send-email #for-email {
+    font-size: 1.8vw;
+  }
+  #matter-email,
+  #body-email {
+    font-size: 1.4vw;
+    height: calc(98% - 1.8vw - 5px);
+  }
+  .by-email, .for-email {
+    padding-left: 4%;
+  }
+  .matter-email, .body-email {
+    padding: 2% 4% 0;
+  }
+  .cont-find-mail, #matter-email, #body-email {
+    overflow: auto;
+  }
+  .find-mail {
+    padding: 0.5% 3%;
+  }
+  .btn-email {
+    justify-content: space-between;
+  }
+  .btn-email i {
+    color: #E5E9F6;
+    cursor: pointer;
+    font-size: 2.5vw;
+  }
+  .btn-email i:hover {
+    scale: 1.2;
+  }
+  .btn-email #edit {
+    margin-right: 1vw;
   }
   /*  LOGIN  */
   #body-login {
@@ -2144,6 +2340,7 @@ footer {
   }
   .right__body button, .right__body input {
     border-radius: 1vw;
+    font-size: 1.5vw;
   }
   #rol-btn-coor {
     width: 54%;
@@ -2181,14 +2378,7 @@ footer {
     text-decoration: underline;
   }
   .right__body-btn-send {
-    width: 45%;
-    border: none;
-    color: #FFFFFF;
-    cursor: pointer;
-    transition: all 0.3s;
     background: #1E222F;
-    font-size: 100%;
-    font-family: "Signika-Light";
   }
   .right__body-btn-send:hover {
     scale: 1.1;
@@ -2231,7 +2421,7 @@ footer {
     display: none;
     margin: 0.3vw 0 0 0.3vw;
     color: rgba(255, 89, 89, 0.7333333333);
-    font-size: 1.3vw;
+    font-size: 1.5vw;
     font-family: "Signika-Medium";
   }
   .alertLogin {
@@ -2239,6 +2429,104 @@ footer {
     width: 100%;
     height: 1.3vw;
     font-size: 1.3vw;
+  }
+  /* * * DASHBOARD * * */
+  .header-db {
+    padding: 2%;
+  }
+  #menu-icon-div i {
+    font-size: 3vw;
+  }
+  #menu-icon-div a {
+    padding: 0.5vw;
+  }
+  #search h3 {
+    font-size: 5vw;
+    margin-bottom: 1%;
+  }
+  .header-db-search {
+    width: 40%;
+    border-radius: 1vw;
+  }
+  .header-db-search i {
+    font-size: 3vw;
+  }
+  #search-element {
+    padding: 0 2vw;
+    font-size: 2vw;
+  }
+  #main-db-users {
+    padding: 3% 3%;
+  }
+  .section-coor {
+    flex-wrap: wrap;
+  }
+  .section-coor-btn,
+  .section-aux-btn {
+    padding: 0;
+    font-size: 2.5vw;
+  }
+  .section-coor-btn div,
+  .section-aux-btn div {
+    width: 100%;
+    border-width: 0.2vw;
+  }
+  .section-coor-btn span {
+    width: 23%;
+  }
+  .section-aux-btn span {
+    width: 17%;
+  }
+  #deploy-coor i {
+    font-size: 2.5vw;
+  }
+  .cont-db-main-card {
+    width: 100%;
+    display: grid;
+    gap: 3%;
+    grid-template-columns: repeat(3, 33%);
+  }
+  .db-main-card {
+    width: 100%;
+  }
+  .main-card-cont-first {
+    padding: 1.5vw 1.5vw 0;
+  }
+  .main-card-descri div {
+    font-size: 2vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* * * * * Index * * * * */
+  /* Class for active */
+  .scrollOn {
+    padding: 3.5vh 5% !important;
+  }
+  .btn-home h3 {
+    font-size: 2vw;
+  }
+  .n-n-msh a {
+    font-size: 1.5vw;
+  }
+  .btns {
+    width: 10%;
+  }
+  .btn-login {
+    font-size: 1.2vw;
+    height: 100%;
+  }
+  .main-head {
+    padding-top: 15vh;
+  }
+  .main-main {
+    font-size: 6.5vw;
+  }
+  .main-btn a {
+    padding: 1vw 1.5vw;
+    font-size: 1.5vw;
+  }
+  .main-img img {
+    width: 80%;
   }
 }
 /* * * * * CLASES REPETIDAS * * * * */
