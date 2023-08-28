@@ -768,6 +768,16 @@
   padding: 2%;
 }
 
+#menu-icon-div {
+  height: auto;
+}
+#menu-icon-div i, #menu-icon-div a {
+  transition: all 0.3s;
+}
+#menu-icon-div i:hover, #menu-icon-div a:hover {
+  scale: 1.1;
+  opacity: 0.7;
+}
 #menu-icon-div i {
   font-size: 3vw;
 }
@@ -790,15 +800,11 @@
 
 #search-element {
   padding: 0 2vw;
-  font-size: 2vw;
+  font-size: 1.8vw;
 }
 
 #main-db-users {
   padding: 3% 3%;
-}
-
-.section-coor {
-  flex-wrap: wrap;
 }
 
 .section-coor-btn,
@@ -811,6 +817,10 @@
   width: 100%;
   border-width: 0.2vw;
 }
+.section-coor-btn button,
+.section-aux-btn button {
+  font-size: 2.7vw;
+}
 
 .section-coor-btn span {
   width: 23%;
@@ -820,27 +830,63 @@
   width: 17%;
 }
 
-#deploy-coor i {
-  font-size: 2.5vw;
-}
-
 .cont-db-main-card {
-  width: 100%;
-  display: grid;
   gap: 3%;
-  grid-template-columns: repeat(3, 33%);
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: start;
+  flex-direction: row;
+  justify-content: start;
 }
 
 .db-main-card {
-  width: 100%;
+  width: 30%;
+  margin-bottom: 7%;
+  border-radius: 1.5vw;
 }
 
 .main-card-cont-first {
   padding: 1.5vw 1.5vw 0;
 }
 
+.cont-main-card-img p {
+  font-size: 1.5vw;
+}
+
 .main-card-descri div {
-  font-size: 2vw;
+  font-size: 1.8vw;
+}
+
+.main-card-info {
+  word-wrap: break-word;
+}
+.main-card-info span {
+  margin-right: 0.5vw;
+}
+.main-card-info span, .main-card-info div {
+  font-size: 1.7vw;
+}
+
+.main-card-email,
+.main-card-number-user {
+  font-size: 1.8vw;
+}
+
+.main-card-email div,
+.main-card-number div,
+.main-card-user div {
+  overflow: visible;
+  word-wrap: break-word;
+}
+
+.main-card-btn a, .main-card-btn button {
+  width: 3.7vw;
+  height: 3.7vw;
+  font-size: 2.6vw;
+}
+.main-card-btn a:hover, .main-card-btn button:hover {
+  opacity: 0.9;
+  scale: 1.1;
 }
 
 /*# sourceMappingURL=pc.small.css.map */

@@ -707,6 +707,9 @@
 }
 
 #menu-icon-div{
+    height: auto;
+    i,a{transition: all .3s;}
+    i:hover,a:hover{scale: 1.1; opacity: .7;}
     i{font-size: 3vw;}
     a{padding: .5vw;}
 }
@@ -723,15 +726,11 @@
 
 #search-element{
     padding: 0 2vw;
-    font-size: 2vw;
+    font-size: 1.8vw;
 }
 
 #main-db-users{
     padding: 3% 3%;
-}
-
-.section-coor{
-    flex-wrap: wrap;
 }
 
 .section-coor-btn,
@@ -739,28 +738,64 @@
     padding: 0;
     font-size: 2.5vw;
     div{width: 100%; border-width: 0.2vw;}
+    button{font-size: 2.7vw;}
 }
 
 .section-coor-btn{span{width: 23%;}}
 .section-aux-btn{span{width: 17%;}}
 
-#deploy-coor{i{font-size: 2.5vw;}}
-
 .cont-db-main-card{
-    width: 100%;
-    display: grid;
     gap: 3%;
-    grid-template-columns: repeat(3, 33%);
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: start;
+    flex-direction: row;
+    justify-content: start;
 }
 
 .db-main-card{
-    width: 100%;
+    width: 30%;
+    margin-bottom: 7%;
+    border-radius: 1.5vw;
 }
 
 .main-card-cont-first{
     padding: 1.5vw 1.5vw 0;
 }
 
+.cont-main-card-img{
+    p{font-size: 1.5vw;}
+}
+
 .main-card-descri{
-    div{font-size: 2vw;}
+    div{font-size: 1.8vw;}
+}
+
+.main-card-info{
+    word-wrap: break-word;
+    span{margin-right: .5vw;}
+    span,div{font-size: 1.7vw;}
+}
+
+.main-card-cont-second{
+
+}
+
+.main-card-email,
+.main-card-number-user{
+    font-size: 1.8vw;
+}
+
+.main-card-email,
+.main-card-number,
+.main-card-user{
+    div{overflow: visible;word-wrap: break-word;}
+}
+
+
+
+
+.main-card-btn{
+    a,button{width: 3.7vw;height: 3.7vw;font-size: 2.6vw;}
+    a:hover,button:hover{opacity: .9;scale: 1.1;}
 }

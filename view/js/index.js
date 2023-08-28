@@ -111,41 +111,38 @@ let sectionOnOff = (i)=>{
     });
 })();
 
-(()=>{
-    if(innerWidth < '1200px'){
-        d.addEventListener('scroll', ()=>{
-            if(scrollY < 20) nIndexC.remove('scrollOn');
-            else nIndexC.add('scrollOn');
-        })
-    }else{
-        d.addEventListener('scroll', ()=>{
-            if(scrollY < 90) nIndexC.remove('scrollOn');
-            else nIndexC.add('scrollOn');
-        })
+// Función para manejar el evento de desplazamiento
+const handleScroll = () => {
+    if (window.scrollY < (innerWidth < 1200 ? 20 : 90)) nIndexC.remove('scrollOn');
+    else nIndexC.add('scrollOn');
+};
+
+// Asigna el manejador de eventos de desplazamiento
+d.addEventListener('scroll', handleScroll);
+
+/* Slider */
+const slider = (v1, v2)=>{
+    switch (ifStyle.marginLeft) {
+        case '': ifStyle.marginLeft = v1; break;
+        case v1: ifStyle.marginLeft = v2; break;
+        case v2: ifStyle.marginLeft = ''; break;
     }
-})()
+}
+
 
 const sliderL = ()=>{
     btnL.addEventListener('click', ()=>{
-        switch (ifStyle.marginLeft) {
-            case '': ifStyle.marginLeft = '-99%'; break;
-            case '-99%': ifStyle.marginLeft = '-48.5%'; break;
-            case '-48.5%': ifStyle.marginLeft = ''; break;
-        }
+        slider('-50vw', '-25vw');
     })
 }
 
 const sliderR = ()=>{
     btnR.addEventListener('click', ()=>{
-        switch (ifStyle.marginLeft) {
-            case '': ifStyle.marginLeft = '-48.5%'; break;
-            case '-48.5%': ifStyle.marginLeft = '-99%'; break;
-            case '-99%': ifStyle.marginLeft = ''; break;
-        }
+        slider('-50vw', '-25vw');
     })
 }
 
-const scrollSpy = ()=>{
+(()=>{
 
     let cb = (entries)=>{
         entries.forEach(i => {
@@ -161,10 +158,10 @@ const scrollSpy = ()=>{
         })
     }
 
-    let observer = new IntersectionObserver(cb, {threshold: 0.8})
+    let observer = new IntersectionObserver(cb, {threshold: 0.8});
 
-    imgSlider.forEach(e => observer.observe(e))
-}
+    imgSlider.forEach(e => observer.observe(e));
+})();
 
 (()=>{
     contF.addEventListener('submit', e=>{
@@ -255,7 +252,7 @@ const scrollSpy = ()=>{
             sendEmail(formData)
         };
     })
-})()
+})();
 
 const sendEmail = (formData)=>{
 
@@ -295,9 +292,9 @@ const fetchSendEmail = (data)=>{
 }
 
 
-scrollSpy();
 sliderL();
 sliderR();
 
 //Designar alto de a-sections al cargar
 d.addEventListener('DOMContentLoaded', cuadrado)
+    

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/login.js" defer></script>
+    <script type="module" src="./js/login.js" defer></script>
+    <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body id="body-login">
     <div class="login-div-left">
@@ -17,7 +18,7 @@
                     <h3>RUU</h3>
                 </div>
                 <div class="left__head-arrow">
-                    <div class="df cxy"><a href="../index.php"><span>&larr;</span></a></div>
+                    <div class="df cxy"><a href="../index.php"><i class="las la-arrow-left"></i></a></div>
                 </div>
             </div>
             <div class="left__text">
@@ -209,7 +210,9 @@
                 <h3>RUU</h3>
             </div>
             <div class="left__head-arrow">
-                <div><a class="df cxy" href="../index.php">&larr;</a></div>
+                <div><a class="df cxy" href="../index.php">
+                    <i class="las la-arrow-left"></i>
+                </a></div>
             </div>
         </div>
         <div class="right__text w100 df">
@@ -219,7 +222,7 @@
                 podrás iniciar sesión
             </p>
         </div>
-        <form method="POST" enctype="mullipart/form-data" id="form" class="right__body w100 df" >
+        <form id="form" class="right__body w100 df" >
             <div class="right__body-btn w100">
                 <span>¿Cuál es tu rol?</span>
                 <div class="right__body-btn-rols w100">

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* * * * * * IMPORTS * * * * * */
 @font-face {
   font-family: "Signika-Light";
@@ -1277,6 +1278,12 @@ footer {
   rotate: 90deg;
 }
 
+.cont-db-main-card {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
 .section-coor, .section-aux {
   width: 100%;
   height: 4vh;
@@ -1308,6 +1315,7 @@ footer {
   text-align: end;
   background: none;
   transition: all 0.4s;
+  font-size: 6vw;
 }
 
 .section-coor-btn span {
@@ -1392,18 +1400,16 @@ footer {
   width: 55%;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .main-card-descri {
   width: 100%;
-  height: 50%;
 }
 .main-card-descri div {
   height: 100%;
-  overflow: hidden;
   line-height: 100%;
-  white-space: nowrap;
+  word-wrap: break-word;
   font-family: "Segoe UI";
   font-size: 4.75vw;
   font-weight: bold;
@@ -1429,13 +1435,10 @@ footer {
 
 /* Class for active */
 .deploy {
-  height: 45vh;
-}
-.deploy .main-card-cont-first {
-  height: 20vh !important;
+  height: calc(40.5vh + 5px);
 }
 .deploy .main-card-cont-second {
-  height: 20vh;
+  height: calc(20.5vh + 5px);
   padding: 3vh 8% 0;
 }
 .deploy .view-more {
@@ -1516,8 +1519,11 @@ footer {
 }
 
 .main-card-email {
-  height: 5vh;
-  flex-direction: row;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+.main-card-email div {
+  line-height: 90%;
 }
 .main-card-email span {
   margin-right: 1.5vw;
@@ -1527,8 +1533,7 @@ footer {
 .main-card-number div,
 .main-card-user div {
   width: 100%;
-  height: 5vh;
-  overflow-x: scroll;
+  word-wrap: break-word;
   color: rgba(30, 34, 47, 0.6);
 }
 
@@ -1555,14 +1560,14 @@ footer {
   height: 10vw;
   cursor: pointer;
   color: #1E222F;
+  font-size: 7vw;
+  transition: all 0.3s;
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 }
 
 .view-more {
-  line-height: 100%;
   background: #4AA163;
-  transition: all 0.3s;
   animation-duration: 1s;
   animation-name: viewMore;
   animation-direction: alternate;
@@ -1670,6 +1675,212 @@ footer {
   color: white;
   font-weight: 400;
   cursor: pointer;
+}
+
+/* * * Create Forms * * */
+#body-create {
+  height: 100vh;
+  display: flex;
+  padding: 6% 10%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.bodyLoad::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  opacity: 1;
+  z-index: auto;
+  position: absolute;
+  border-radius: 0;
+  transition: all 0 ease-in;
+  background: #4AA163;
+  animation: 3s ease-in-out load;
+}
+
+.login-div-left, .login-right {
+  height: 100%;
+}
+
+.login-div-left {
+  display: none;
+}
+
+.login-sec-active {
+  scale: 1.1;
+  box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.25);
+}
+
+.login-btn-active {
+  scale: 1.3;
+  background-color: #FFFFFF !important;
+}
+
+/* HEAD LOGIN */
+.left__head {
+  margin: 0 0 5%;
+}
+
+.left__head-logo {
+  width: auto;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+.left__head-logo img, .left__head-logo h3 {
+  display: inline-block;
+}
+.left__head-logo img::selection, .left__head-logo h3::selection {
+  background: none;
+}
+.left__head-logo img {
+  width: auto;
+  height: 100%;
+  margin-right: 0.5vw;
+}
+.left__head-logo h3 {
+  line-height: 100%;
+  color: #1E222F;
+  letter-spacing: 1px;
+  font-size: 100%;
+  font-family: "Segoe UI";
+}
+
+.left__head-arrow {
+  height: 100%;
+}
+.left__head-arrow div {
+  height: 100%;
+  cursor: pointer;
+}
+.left__head-arrow div a {
+  height: 100%;
+  line-height: calc(100% - 8vw);
+  color: #1E222F;
+  font-size: 8vw;
+  font-family: "Signika-Light";
+}
+
+/* RIGHT */
+.login-right {
+  width: 100%;
+  height: 100%;
+  padding: 4vh 14vw;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right__text h1 {
+  font-size: 10vw;
+}
+.right__text p {
+  font-size: 4vw;
+}
+
+.right__body {
+  height: auto;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.right__body span {
+  display: block;
+  font-size: 5vw;
+  font-family: "Signika-Light";
+  margin-bottom: 5px;
+}
+.right__body button, .right__body input {
+  padding: 1.2vh 3.5vw;
+}
+.right__body button {
+  cursor: pointer;
+  margin: auto 0;
+}
+
+#btnSubmit {
+  font-size: 5.5vw;
+}
+
+.right__names,
+.right__info,
+.right__jornada,
+.right__user {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.right__name-name,
+.right__name-lastname {
+  width: 49%;
+}
+
+.right__info-number {
+  width: 37%;
+}
+
+.right__info-email {
+  width: 61%;
+}
+
+.right__names,
+.right__info,
+.right__jornada,
+.right__user,
+.right__body-btn {
+  margin-bottom: 2vh;
+}
+
+.right__name-name input,
+.right__name-lastname input,
+.right__info-number input,
+.right__info-email input,
+.right__user-user input,
+.right__user-pass input {
+  width: 100%;
+}
+
+.right__jornada-btn {
+  height: 100%;
+  background: none;
+  text-align: start;
+  align-items: center;
+  display: inline-flex;
+  border: 1px solid rgba(30, 34, 47, 0.5);
+  font-family: "Signika-Light";
+  font-size: 4vw;
+}
+
+#jor-btn-mañana {
+  width: 44%;
+}
+
+#jor-btn-tarde {
+  width: 54%;
+}
+
+.right__jornada-cont {
+  width: 3vw;
+  height: 3vw;
+  margin-right: 5px;
+  border-radius: 50%;
+  border: 1px solid rgba(30, 34, 47, 0.5);
+}
+
+.right__user div {
+  width: 49%;
 }
 
 /* * * * * Querys * * * * */
@@ -2434,6 +2645,16 @@ footer {
   .header-db {
     padding: 2%;
   }
+  #menu-icon-div {
+    height: auto;
+  }
+  #menu-icon-div i, #menu-icon-div a {
+    transition: all 0.3s;
+  }
+  #menu-icon-div i:hover, #menu-icon-div a:hover {
+    scale: 1.1;
+    opacity: 0.7;
+  }
   #menu-icon-div i {
     font-size: 3vw;
   }
@@ -2453,13 +2674,10 @@ footer {
   }
   #search-element {
     padding: 0 2vw;
-    font-size: 2vw;
+    font-size: 1.8vw;
   }
   #main-db-users {
     padding: 3% 3%;
-  }
-  .section-coor {
-    flex-wrap: wrap;
   }
   .section-coor-btn,
   .section-aux-btn {
@@ -2471,29 +2689,65 @@ footer {
     width: 100%;
     border-width: 0.2vw;
   }
+  .section-coor-btn button,
+  .section-aux-btn button {
+    font-size: 2.7vw;
+  }
   .section-coor-btn span {
     width: 23%;
   }
   .section-aux-btn span {
     width: 17%;
   }
-  #deploy-coor i {
-    font-size: 2.5vw;
-  }
   .cont-db-main-card {
-    width: 100%;
-    display: grid;
     gap: 3%;
-    grid-template-columns: repeat(3, 33%);
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: start;
+    flex-direction: row;
+    justify-content: start;
   }
   .db-main-card {
-    width: 100%;
+    width: 30%;
+    margin-bottom: 7%;
+    border-radius: 1.5vw;
   }
   .main-card-cont-first {
     padding: 1.5vw 1.5vw 0;
   }
+  .cont-main-card-img p {
+    font-size: 1.5vw;
+  }
   .main-card-descri div {
-    font-size: 2vw;
+    font-size: 1.8vw;
+  }
+  .main-card-info {
+    word-wrap: break-word;
+  }
+  .main-card-info span {
+    margin-right: 0.5vw;
+  }
+  .main-card-info span, .main-card-info div {
+    font-size: 1.7vw;
+  }
+  .main-card-email,
+  .main-card-number-user {
+    font-size: 1.8vw;
+  }
+  .main-card-email div,
+  .main-card-number div,
+  .main-card-user div {
+    overflow: visible;
+    word-wrap: break-word;
+  }
+  .main-card-btn a, .main-card-btn button {
+    width: 3.7vw;
+    height: 3.7vw;
+    font-size: 2.6vw;
+  }
+  .main-card-btn a:hover, .main-card-btn button:hover {
+    opacity: 0.9;
+    scale: 1.1;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -2527,6 +2781,36 @@ footer {
   }
   .main-img img {
     width: 80%;
+  }
+  /* * * * * Login * * * * */
+  .left__head {
+    margin: 0 0 5%;
+  }
+  .left__text-tittle h1 {
+    font-size: 2.2vw;
+  }
+  .left__text-parraf p {
+    font-size: 1.1vw;
+  }
+  .left__slider-sec-text p {
+    font-size: 0.9vw;
+  }
+  .right__text h1 {
+    font-size: 2.5vw;
+  }
+  .right__text p {
+    font-size: 1.3vw;
+  }
+  .right__body span {
+    font-size: 1.3vw;
+  }
+  .right__body button, .right__body input {
+    padding: 3% 6%;
+    font-size: 1.3vw;
+  }
+  /* * * * * Dashboard * * * * */
+  #menu-icon-div i {
+    font-size: 2vw;
   }
 }
 /* * * * * CLASES REPETIDAS * * * * */

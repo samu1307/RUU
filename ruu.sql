@@ -909,7 +909,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`id18786132_db`@`%` SQL SECURITY DEFINER VIEW
 CREATE OR REPLACE VIEW v_userAuxiliar AS
     SELECT u.idUsuario AS id, u.usuario AS user,
       u.contrasenia AS pass, u.rol AS rol,
-      u.estado, a.nombre, a.apellido, a.telefono, a.correo
+      u.estado, a.nombre, a.apellido, a.jornada,a.telefono, a.correo
     FROM usuario AS u
     INNER JOIN auxiliar AS a 
     WHERE u.idUsuario = a.usuario;

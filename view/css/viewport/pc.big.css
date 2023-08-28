@@ -38,4 +38,42 @@
   width: 80%;
 }
 
+/* * * * * Login * * * * */
+.left__head {
+  margin: 0 0 5%;
+}
+
+.left__text-tittle h1 {
+  font-size: 2.2vw;
+}
+
+.left__text-parraf p {
+  font-size: 1.1vw;
+}
+
+.left__slider-sec-text p {
+  font-size: 0.9vw;
+}
+
+.right__text h1 {
+  font-size: 2.5vw;
+}
+.right__text p {
+  font-size: 1.3vw;
+}
+
+.right__body span {
+  font-size: 1.3vw;
+}
+
+.right__body button, .right__body input {
+  padding: 3% 6%;
+  font-size: 1.3vw;
+}
+
+/* * * * * Dashboard * * * * */
+#menu-icon-div i {
+  font-size: 2vw;
+}
+
 /*# sourceMappingURL=pc.big.css.map */

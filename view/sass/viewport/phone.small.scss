@@ -1073,6 +1073,12 @@ footer{
     }
 }
 
+.cont-db-main-card{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
 .section-coor, .section-aux{
     width: 100%;
     height: 4vh;
@@ -1100,6 +1106,7 @@ footer{
         text-align: end;
         background: none;
         transition: all .4s;
+        font-size: 6vw;
     }
 }
 
@@ -1175,17 +1182,15 @@ footer{
     width: 55%;
     height: 100%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .main-card-descri{
     width: 100%;
-    height: 50%;
     div{
         height: 100%;
-        overflow: hidden;
         line-height: 100%;
-        white-space: nowrap;
+        word-wrap: break-word;
         font: {family: $Segoe; size: 4.75vw; weight: bold;}
     }
 }
@@ -1202,9 +1207,8 @@ footer{
 
 /* Class for active */
 .deploy{
-    height: 45vh;
-    .main-card-cont-first{height: 20vh !important;}
-    .main-card-cont-second{height: 20vh; padding: 3vh 8% 0;}
+    height: calc(40.5vh + 5px);
+    .main-card-cont-second{height: calc(20.5vh + 5px); padding: 3vh 8% 0;}
     .view-more{
         rotate: 180deg;
         animation-play-state: paused;
@@ -1251,8 +1255,9 @@ footer{
 }
 
 .main-card-email{
-    height: 5vh;
-    flex-direction: row;
+    margin-bottom: 10px;
+    flex-direction: column;
+    div{line-height: 90%;}
     span{margin-right: 1.5vw;}
 }
 
@@ -1261,8 +1266,7 @@ footer{
 .main-card-user{
     div{
         width: 100%;
-        height: 5vh;
-        overflow-x: scroll;
+        word-wrap: break-word;
         color: rgba($color: $bluedark, $alpha: .6);
     }
 }
@@ -1289,15 +1293,15 @@ footer{
         height: 10vw;
         cursor: pointer;
         color: $bluedark;
+        font-size: 7vw;
+        transition: all .3s;
         border-radius: 10px;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
     }
 }
 
 .view-more{
-    line-height: 100%;
     background: $green;
-    transition: all .3s;
     animation: {
         duration: 1s; 
         name: viewMore; 
@@ -1394,4 +1398,193 @@ footer{
         font-weight: 400;
         cursor: pointer;
     }
+}
+
+
+
+/* * * Create Forms * * */
+
+#body-create{
+    height: 100vh;
+    display: flex;
+    padding: 6% 10%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes load {
+    0%{
+        width: 0;
+    }100%{
+        width: 100%;
+    }
+}
+
+.bodyLoad{
+    &::before{
+        @include before("", 0,0,0,1,auto,5px,0,0,$green);
+        animation: 3s ease-in-out load;
+    }
+}
+
+.login-div-#{$l}, .login-#{$r}{
+    height: 100%;
+}
+
+.login-div-#{$l}{
+    display: none;
+}
+
+.login-sec-active{
+    scale: 1.1;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.25);
+}
+
+.login-btn-active{
+    scale: 1.3;
+    background-color: $white !important;
+}
+
+/* HEAD LOGIN */
+.#{$l}__head{
+    margin: 0 0 5%;
+}
+
+.#{$l}__head-logo{
+    width: auto;
+    height: 100%; 
+    display: inline-flex;
+    align-items: center;
+
+    img,h3{
+        display: inline-block;
+        &::selection{background: none;}
+    }
+
+    img{
+        width: auto;
+        height: 100%;
+        margin-right: .5vw;
+    }
+
+    h3{
+        line-height: 100%;
+        color: $bluedark;
+        letter-spacing: 1px;
+        font: {size: 100%;family: $Segoe;}
+    }
+
+
+}
+
+.#{$l}__head-arrow{
+    height: 100%;
+    div{
+        height: 100%;
+        cursor: pointer;
+        a{
+            height: 100%;
+            line-height: calc(100% - 8vw);
+            color: $bluedark;
+            font: {
+                size: 8vw;
+                family: $SignikaL;
+            }
+        }
+    }
+}
+
+/* RIGHT */
+.login-#{$r}{
+    @include div(
+        100%,100%,
+        4vh 14vw,
+        0,flex
+    );
+    flex-direction: column;
+    justify-content: center;
+}
+
+.#{$r}__text{
+    h1{font-size: 10vw;}
+    p{font-size: 4vw;}
+}
+
+.#{$r}__body{
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    span{
+        display: block;
+        font: {size: 5vw; family: $SignikaL;}
+        margin-bottom: 5px;
+    }
+    button, input{padding: 1.2vh 3.5vw;}
+    button{cursor: pointer;margin: auto 0;}
+}
+
+#btnSubmit{font-size: 5.5vw;}
+
+.#{$r}__names,
+.#{$r}__info,
+.#{$r}__jornada,
+.#{$r}__user{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.#{$r}__name-name,
+.#{$r}__name-lastname{
+    width: 49%;
+}
+
+.#{$r}__info-number{
+    width: 37%;
+}
+
+.#{$r}__info-email{
+    width: 61%;
+}
+
+.#{$r}__names,
+.#{$r}__info,
+.#{$r}__jornada,
+.#{$r}__user,
+.#{$r}__body-btn{
+    margin-bottom: 2vh;
+}
+
+.#{$r}__name-name,
+.#{$r}__name-lastname,
+.#{$r}__info-number,
+.#{$r}__info-email,
+.#{$r}__user-user,
+.#{$r}__user-pass{
+    input{width: 100%;}
+}
+
+.#{$r}__jornada-btn{
+    height: 100%;
+    background: none;
+    text-align: start;
+    align-items: center;
+    display: inline-flex;
+    border: 1px solid rgba($color: $bluedark, $alpha: .5);
+    font: {family: $SignikaL; size: 4vw;}
+}
+
+#jor-btn-mañana{width: 44%;}
+#jor-btn-tarde{width: 54%;}
+
+.#{$r}__jornada-cont{
+    width: 3vw;
+    height: 3vw;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 1px solid rgba($color: $bluedark, $alpha: .5);
+}
+
+.#{$r}__user{
+    div{width: 49%;}
 }

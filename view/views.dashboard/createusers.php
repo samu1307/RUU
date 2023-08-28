@@ -6,65 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Usuario</title>
     <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/login.js" defer></script>
+    <script type="module" src="../js/login.js" defer></script>
+    <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
-<body id="body-login">
-    <header id="header-login">
-        <nav class="df cxy" id="nav-login">
-            <a href="../dashboard.html">
-                <svg viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.939279 10.9393C0.353492 11.5251 0.353492 12.4749 0.939279 13.0607L10.4852 22.6066C11.071 23.1924 12.0208 23.1924 12.6065 22.6066C13.1923 22.0208 13.1923 21.0711 12.6065 20.4853L4.12126 12L12.6065 3.51472C13.1923 2.92893 13.1923 1.97918 12.6065 1.3934C12.0208 0.807612 11.071 0.807612 10.4852 1.3934L0.939279 10.9393ZM26.9999 10.5L1.99994 10.5V13.5L26.9999 13.5V10.5Z" fill="#1E222F"/>
-                </svg>
-            </a>
-            <div class="logo-login df cxy">
-                <img src="../img/escudo.png" alt="Escudo Colegio Rafael Uribe Uribe">
-                <h3 class="di" >RUU</h3>
+<body id="body-create">
+    <div class="left__head" id="headLeft">
+        <div class="left__head-logo">
+            <img src="../img/escudo.png">
+            <h3>RUU</h3>
+        </div>
+        <div class="left__head-arrow">
+            <div><a class="df cxy" href="../dashboard.php">
+                <i class="las la-arrow-left c-black"></i>
+            </a></div>
+        </div>
+    </div>
+    <div class="right__text w100 df">
+        <h1>Crear Usuario</h1>
+        <p>
+            Como coordinador, podrás crear, editar
+            y eliminar usuarios, además de realizar
+            una variedad de funciones más
+        </p>
+    </div>
+    <form id="createUser" class="right__body w100 df" >
+        <div class="right__names df w100">
+            <div class="right__name-name">
+                <span>Nombres</span>
+                <input type="text" placeholder="Nombres" name="name">
             </div>
-        </nav>
-    </header>
-    <main id="main-login" class="cu df">
-        <h2>Agregar Usuario</h2>
-        <form id="form-create-users" >
-            <div id="users-name" class="users-div df">
-                <label for="users-name">Nombre</label>
-                <input type="text" placeholder="Pepito" required>
+            <div class="right__name-lastname">
+                <span>Apellidos</span>
+                <input type="text" placeholder="Apellidos" name="lastname">
             </div>
-            <div id="users-lastname" class="users-div df">
-                <label for="users-lastname">Apellidos</label>
-                <input type="text" placeholder="Perez Mirador" required>
+        </div>
+        <div class="right__info df w100">
+            <div class="right__info-number">
+                <span>Telefono</span>
+                <input type="number" placeholder="Telefono" name="number">
             </div>
-            <div id="users-email" class="users-div df">
-                <label for="users-email">Correo</label>
-                <input type="email" placeholder="pepemira123@gmail.com" required>
+            <div class="right__info-email">
+                <span>Correo</span>
+                <input type="email" placeholder="Correo" name="email">
             </div>
-            <div id="users-pass" class="users-div df">
-                <label for="users-pass">Contraseña</label>
-                <input type="password" placeholder="••••••••••••••" required>
-            </div>  
-            <div id="users-user" class="users-div df">
-                <label for="users-user">Usuario</label>
-                <input type="text" placeholder="Pepemira123" required>
-            </div>    
-            <div id="users-number" class="users-div df">
-                <label for="users-number">Telefono</label>
-                <input type="number" placeholder="312 456 ** **" required>
+        </div>
+        <div class="right__jornada-div-btn w100">
+            <span>Jornada</span>
+            <div class="right__jornada df w100">
+                <button class="right__jornada-btn off" id="jor-btn-mañana" type="button" value="coor">
+                    <div class="right__jornada-cont df cxy"></div>
+                    <div>Mañana</div>
+                </button>
+                <button class="right__jornada-btn off" id="jor-btn-tarde" type="button" value="aux">
+                    <div class="right__jornada-cont df cxy"></div>
+                    <div>Tarde<div>
+                </button>
             </div>
-            <div id="users-rol" class="users-div df">
-                <select name="" id="" >
-                    <option  value="Coordinador">Coordinador</option>
-                    <option value="Auxiliar">Auxiliar</option>
-                    <option value="" hidden selected>Rol</option>
-                </select>
+            <div class="alertRol">Falta especificar la jornada</div>
+        </div>
+        <div class="right__user df w100">
+            <div class="right__user-user">
+                <span>Usuario</span>
+                <input type="text" placeholder="Usuario" name="number">
             </div>
-            <div id="users-state" class="users-div df">
-                <select name="" id="">
-                    <option value="A">Activo</option>
-                    <option value="I">Inactivo</option>
-                    <option value="" hidden selected>Estado</option>
-                </select>
+            <div class="right__user-pass">
+                <span>Contraseña</span>
+                <input type="pass" placeholder="Contraseña" name="pass">
             </div>
-            <input id="users-send" type="button" value="Crear Usuario">
-        </form>
-    </main>
+        </div>
+        <div class="right__body-btn w100">
+            <span>Rol</span>
+            <div class="right__body-btn-rols w100">
+                <button class="right__body-btn-rol off" id="rol-btn-coor" type="button" value="coor">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Coordinador</div>
+                </button>
+                <button class="right__body-btn-rol off" id="rol-btn-aux" type="button" value="aux">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Auxiliar<div>
+                </button>
+            </div>
+            <div class="alertRol">Falta especificar el rol</div>
+        </div>
+        <div class="alertLogin w100 df cxy"></div>
+        <input class="right__body-btn-send" id="btnSubmit" type="submit" value="Ingresar">
+    </form>
 </body>
 </html>

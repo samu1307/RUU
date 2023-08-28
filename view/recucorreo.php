@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperación de la cuenta</title>
     <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/index.js" defer></script>
+    <script type="module" src="./js/index.js" defer></script>
 </head>
 <body>
     <header id="header-login">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control de refrigerios</title>
     <link rel="stylesheet" href="./view/css/main.css">
-    <script src="./view/js/index.js" defer></script>
+    <script type="module" src="./view/js/index.js" defer></script>
     <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body id="body-index">

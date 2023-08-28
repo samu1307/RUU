@@ -128,10 +128,8 @@ setInterval(()=>{
 })();
 
 
-
 /* * VALIDACION  * */
 (()=>{
-
     form.addEventListener('submit', (e)=>{
         e.preventDefault();
 

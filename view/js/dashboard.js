@@ -281,18 +281,21 @@ searchs.forEach(i=> {
             divCoor.classList.add('deploy-coors');
             divAux.classList.add('deploy-auxs');
 
-            let name = c.dataset.name;
-            
-            if(i.value != ''){
+            if(c.dataset.name){
 
-                let logicName = name.toLowerCase().indexOf(i.value.toLowerCase()) > -1;
-
-                if(logicName) c.style.display = 'flex'
-                else c.style.display = 'none'
-
-            }else{
-                c.style.display = "flex";
-                divAux.classList.remove('deploy-auxs');
+                let name = c.dataset.name;
+                
+                if(i.value != ''){
+                    
+                    let logicName = name.toLowerCase().indexOf(i.value.toLowerCase()) > -1;
+                    
+                    if(logicName) c.style.display = 'flex'
+                    else c.style.display = 'none'
+                    
+                }else{
+                    c.style.display = "flex";
+                    divAux.classList.remove('deploy-auxs');
+                }
             }
         })
     })

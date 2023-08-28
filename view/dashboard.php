@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de control</title>
     <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/dashboard.js" defer></script>
+    <script type="module" src="./js/dashboard.js" defer></script>
     <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body id="body-dash">
@@ -51,10 +51,10 @@
                         <span>Coordinadores</span>
                         <div></div>
                         <button id="deploy-coor" class="df cxy">
-                            <i class="las la-chevron-right vw6 c-black"></i>
+                            <i class="las la-chevron-right c-black"></i>
                         </button>
                     </div>
-                    <div class="cont-db-main-card">
+                    <div class="cont-db-main-card df">
                     <?php $i = 1;
                     if($coorDates != false){
                     foreach ($coorDates as $date) {;
@@ -70,18 +70,17 @@
                                     </div>
                                     <div class="cont-main-card-descri df">
                                         <div class="main-card-descri">
-                                            <div><?= $date['nombre'] ?></div>
-                                            <div><?= $date['apellido'] ?></div>
+                                            <div><?= $date['nombre'] ?> <?= $date['apellido'] ?></div>
                                         </div>
                                         <div class="main-card-info df" id="dn-card">
                                             <span>Jornada:</span>
-                                            <div> <?= ($date['jornada'] == 'M')? 'Mañana': 'Tarde'; ?></div>
+                                            <div><?= ($date['jornada'] == 'M')? 'Mañana': 'Tarde'; ?></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="main-card-cont-second">
                                     <div class="main-card-email df w100">
-                                        <span>Correo:</span>
+                                        <span>Correo</span>
                                         <div><?= $date['correo'] ?></div>
                                     </div>
                                     <div class="main-card-number-user df w100">
@@ -97,13 +96,13 @@
                                 </div>
                                 <div class="main-card-btn df">
                                     <a href="./views.dashboard/createusers.php?id=<?= $date[0] ?>" class="card-btn-edit df cxy">
-                                        <i class="las la-pen vw6 c-black"></i>
+                                        <i class="las la-pen c-black"></i>
                                     </a>
                                     <button id="<?php echo $i; ?>" class="view-more df cxy">
-                                        <i class="las la-angle-down vw6 c-black"></i>
+                                        <i class="las la-angle-down c-black"></i>
                                     </button>
                                     <button class="card-btn-delete df cxy">
-                                        <i class="las la-times vw6 c-black"></i>
+                                        <i class="las la-times c-black"></i>
                                     </button>
                                 </div>
                             </div>
@@ -117,9 +116,10 @@
                         <span>Auxiliares</span>
                         <div></div>
                         <button id="deploy-aux" class="df cxy">
-                            <i class="las la-chevron-right vw6 c-black"></i>
+                            <i class="las la-chevron-right c-black"></i>
                         </button>
                     </div>
+                    <div class="cont-db-main-card df">
                     <?php $i = 1.1; 
                     if($auxDates != false){
                     foreach ($auxDates as $date) { ?>
@@ -136,8 +136,9 @@
                                         <div class="main-card-descri">
                                             <div><?= $date['nombre'] ?><br><?= $date['apellido'] ?></div>
                                         </div>
-                                        <div class="main-card-info" id="dn-card">
-                                            <div><?= $date['user'] ?></div>
+                                        <div class="main-card-info df" id="dn-card">
+                                            <span>Jornada:</span>
+                                            <div><?= ($date['jornada'] == 'M')? 'Mañana': 'Tarde'; ?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -159,19 +160,20 @@
                                 </div>
                                 <div class="main-card-btn df">
                                     <a href="./views.dashboard/createusers.php?id=<?= $date[0] ?>" class="card-btn-edit df cxy">
-                                        <i class="las la-pen vw6 c-black"></i>
+                                        <i class="las la-pen c-black"></i>
                                     </a>
                                     <button id="<?php echo $i; ?>" class="view-more df cxy">
-                                        <i class="las la-angle-down vw6 c-black"></i>
+                                        <i class="las la-angle-down c-black"></i>
                                     </button>
                                     <button class="card-btn-delete df cxy">
-                                        <i class="las la-times vw6 c-black"></i>
+                                        <i class="las la-times c-black"></i>
                                     </button>
                                 </div>
                             </div>
                             <div class="line-active-user <?= ($date['estado'] == 'A')? 'user-active': 'user-inactive';?> h100"></div>
                         </div>
                     <?php $i = $i + 1; }}else echo "ERROR: No se pudo iniciar." ?>
+                    </div>
                 </div>
             </section>
         </main>
