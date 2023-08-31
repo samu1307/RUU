@@ -172,7 +172,7 @@
 
 .main-head {
   display: flex;
-  padding-top: 25vh;
+  padding-top: 20vh;
   align-items: center;
   flex-direction: row-reverse;
 }
@@ -464,17 +464,12 @@
 }
 
 /*  LOGIN  */
-#body-login {
-  height: 100vh;
-  display: flex;
-}
-
-.login-div-left, .login-right {
-  height: 100%;
+.body-login {
+  flex-direction: row;
 }
 
 .login-div-left {
-  width: 40%;
+  width: 50%;
   padding: 0.5vw;
   display: inline-block;
 }
@@ -503,12 +498,12 @@
   font-size: 1.5vw;
 }
 
-.left__head-arrow div a {
+.left__head-arrow a {
   color: #E5E9F6;
   font-size: 2.5vw;
   transition: all 0.4s ease-in-out;
 }
-.left__head-arrow div a:hover {
+.left__head-arrow a:hover {
   transform: translateX(-0.5vw);
 }
 
@@ -534,8 +529,7 @@
 }
 .left__text-parraf p {
   letter-spacing: 1px;
-  width: 90%;
-  font-size: 1.3vw;
+  font-size: 1.5vw;
   font-family: "Segoe UI";
   font-weight: 100;
 }
@@ -571,7 +565,7 @@
 }
 .left__slider-sec-text p {
   color: #E5E9F6;
-  font-size: 1vw;
+  font-size: 1.2vw;
   font-family: "Signika-Light";
 }
 
@@ -633,11 +627,7 @@
 
 /* RIGHT */
 .login-right {
-  width: 60%;
-  height: 100%;
-  padding: 4vh 14vw;
-  margin: 0;
-  display: flex;
+  width: 50%;
 }
 
 .right__head {
@@ -657,11 +647,10 @@
 
 .right__body span {
   font-size: 1.5vw;
-  font-family: "Signika-Light";
 }
-.right__body button, .right__body input {
-  border-radius: 1vw;
-  font-size: 1.5vw;
+
+.form-login button, .form-login input {
+  padding: 2vh 2.5vw;
 }
 
 #rol-btn-coor {
@@ -682,10 +671,11 @@
   border: 1px solid #4AA163;
 }
 .right__body-btn-rol:hover .right__body-cont {
-  border: 4px solid #4AA163;
+  border: 2px solid #4AA163;
 }
 
-.right__body-cont {
+.right__body-cont,
+.right__jornada-cont {
   width: 1.3vw;
   height: 1.3vw;
 }
@@ -707,6 +697,7 @@
 
 .right__body-btn-send {
   background: #1E222F;
+  font-size: 2vw;
 }
 .right__body-btn-send:hover {
   scale: 1.1;
@@ -760,7 +751,7 @@
   display: flex !important;
   width: 100%;
   height: 1.3vw;
-  font-size: 1.3vw;
+  font-size: 1.8vw;
 }
 
 /* * * DASHBOARD * * */
@@ -787,7 +778,7 @@
 
 #search h3 {
   font-size: 5vw;
-  margin-bottom: 1%;
+  margin-bottom: 1vh;
 }
 
 .header-db-search {
@@ -887,6 +878,55 @@
 .main-card-btn a:hover, .main-card-btn button:hover {
   opacity: 0.9;
   scale: 1.1;
+}
+
+/* * * Create User * * */
+.nav {
+  width: 23vw;
+}
+
+.nav-nav h4 {
+  font-size: 2vw;
+}
+.nav-nav i {
+  font-size: 2.8vw;
+}
+
+#body-create {
+  padding: 0;
+}
+
+.forms-create, .div-form-login {
+  padding: 4vh 6vw;
+}
+
+.right__body button, .right__body input {
+  border-radius: 0.7vw;
+}
+
+#name, #lastname,
+#number, #email,
+#user, #pass,
+.right__body-btn-rol,
+.right__jornada-btn {
+  font-size: 1.5vw;
+  padding: 1.2vh 2vw;
+}
+
+.create-btn-user {
+  padding: 1.5vh 3.5vw;
+  font-size: 2vw;
+}
+
+.uc-p {
+  font-size: 2vw;
+}
+
+/* * * Create User * * */
+#refriDecription {
+  border-radius: 1vw;
+  font-size: 1.5vw;
+  padding: 1.5vh 1.5vw;
 }
 
 /*# sourceMappingURL=pc.small.css.map */

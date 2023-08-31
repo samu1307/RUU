@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Usuario</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <script type="module" src="../js/login.js" defer></script>
-    <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-</head>
+<?php
+    $tittle =  'Crear Usuario';
+    $urlJs =  '../js/cuser.js';
+    $urlCss =  '../css/main.css';
+    $icon = 1;
+    include('../templates.php/head-page.php'); 
+?>
 <body id="body-create">
+    <div class="userCreated">
+        <div class="uc-p df">Usuario creado</div>
+        <div class="uc-line"></div>
+    </div>
+    <div id="body-login" class="body-user">
+    <div class="login-right forms-create">
     <div class="left__head" id="headLeft">
         <div class="left__head-logo">
             <img src="../img/escudo.png">
             <h3>RUU</h3>
         </div>
         <div class="left__head-arrow">
-            <div><a class="df cxy" href="../dashboard.php">
+            <a class="df cxy" href="../dashboard.php">
                 <i class="las la-arrow-left c-black"></i>
-            </a></div>
+            </a>
         </div>
     </div>
-    <div class="right__text w100 df">
+    <div class="right__text info-create w100 df">
         <h1>Crear Usuario</h1>
         <p>
             Como coordinador, podrás crear, editar
@@ -29,25 +31,25 @@
             una variedad de funciones más
         </p>
     </div>
-    <form id="createUser" class="right__body w100 df" >
+    <form id="createUser" class="right__body form-user w100 df" >
         <div class="right__names df w100">
             <div class="right__name-name">
                 <span>Nombres</span>
-                <input type="text" placeholder="Nombres" name="name">
+                <input type="text" placeholder="Nombres" name="name" id="name">
             </div>
             <div class="right__name-lastname">
                 <span>Apellidos</span>
-                <input type="text" placeholder="Apellidos" name="lastname">
+                <input type="text" placeholder="Apellidos" name="lastname" id="lastname">
             </div>
         </div>
         <div class="right__info df w100">
             <div class="right__info-number">
                 <span>Telefono</span>
-                <input type="number" placeholder="Telefono" name="number">
+                <input type="number" maxlength="10" placeholder="Telefono" name="number" id="number">
             </div>
             <div class="right__info-email">
                 <span>Correo</span>
-                <input type="email" placeholder="Correo" name="email">
+                <input type="email" placeholder="Correo" name="email" id="email">
             </div>
         </div>
         <div class="right__jornada-div-btn w100">
@@ -62,16 +64,15 @@
                     <div>Tarde<div>
                 </button>
             </div>
-            <div class="alertRol">Falta especificar la jornada</div>
         </div>
         <div class="right__user df w100">
             <div class="right__user-user">
                 <span>Usuario</span>
-                <input type="text" placeholder="Usuario" name="number">
+                <input type="text" placeholder="Usuario" name="user" id="user">
             </div>
             <div class="right__user-pass">
                 <span>Contraseña</span>
-                <input type="pass" placeholder="Contraseña" name="pass">
+                <input type="pass" placeholder="Contraseña" name="pass" id="pass">
             </div>
         </div>
         <div class="right__body-btn w100">
@@ -86,10 +87,15 @@
                     <div>Auxiliar<div>
                 </button>
             </div>
-            <div class="alertRol">Falta especificar el rol</div>
         </div>
-        <div class="alertLogin w100 df cxy"></div>
-        <input class="right__body-btn-send" id="btnSubmit" type="submit" value="Ingresar">
+        <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Crear usuario">
     </form>
+    </div>
+    <?php 
+        $urlA = '../dashboard.php';
+        $urlImg = '../img/escudo.png';
+        include('../templates.php/slider-form.php'); 
+    ?>
+    </div>
 </body>
 </html>

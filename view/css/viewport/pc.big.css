@@ -1,79 +1,17 @@
-/* * * * * Index * * * * */
-/* Class for active */
-.scrollOn {
-  padding: 3.5vh 5% !important;
-}
+/* Error: Undefined variable.
+ *    ,
+ * 79 | .#{$r}__text{p{font-size: 1.2vw;}}
+ *    |    ^^
+ *    '
+ *   sass\viewport\pc.big.scss 79:4  root stylesheet */
 
-.btn-home h3 {
-  font-size: 2vw;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 79 \2502  .#{$r}__text{p{font-size: 1.2vw;}}\d\a    \2502     ^^\a    \2575 \a   sass\\viewport\\pc.big.scss 79:4  root stylesheet";
 }
-
-.n-n-msh a {
-  font-size: 1.5vw;
-}
-
-.btns {
-  width: 10%;
-}
-
-.btn-login {
-  font-size: 1.2vw;
-  height: 100%;
-}
-
-.main-head {
-  padding-top: 15vh;
-}
-
-.main-main {
-  font-size: 6.5vw;
-}
-
-.main-btn a {
-  padding: 1vw 1.5vw;
-  font-size: 1.5vw;
-}
-
-.main-img img {
-  width: 80%;
-}
-
-/* * * * * Login * * * * */
-.left__head {
-  margin: 0 0 5%;
-}
-
-.left__text-tittle h1 {
-  font-size: 2.2vw;
-}
-
-.left__text-parraf p {
-  font-size: 1.1vw;
-}
-
-.left__slider-sec-text p {
-  font-size: 0.9vw;
-}
-
-.right__text h1 {
-  font-size: 2.5vw;
-}
-.right__text p {
-  font-size: 1.3vw;
-}
-
-.right__body span {
-  font-size: 1.3vw;
-}
-
-.right__body button, .right__body input {
-  padding: 3% 6%;
-  font-size: 1.3vw;
-}
-
-/* * * * * Dashboard * * * * */
-#menu-icon-div i {
-  font-size: 2vw;
-}
-
-/*# sourceMappingURL=pc.big.css.map */

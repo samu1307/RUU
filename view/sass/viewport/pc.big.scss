@@ -23,6 +23,8 @@
 
 .left__head{margin: 0 0 5%;}
 
+.left__head-arrow{a{font-size: 2vw;}}
+
 .left__text-tittle{h1{font-size: 2.2vw;}}
 
 .left__text-parraf{p{font-size: 1.1vw;}}
@@ -33,9 +35,59 @@
 
 .right__body{span{font-size: 1.3vw;}}
 
-.right__body{button,input{padding: 3% 6%; font-size: 1.3vw;}}
+.form-login{button,input{padding: 1.5vh 1.5vw;}}
+
+#userLogin,
+#passLogin{
+    font-size: 1.5vw;
+}
+
+.alertRol,
+.alertUser, 
+.alertPass{
+    font-size: 1.2vw;
+}
+
+.alertLogin{font-size: 1.5vw;}
 
 
 /* * * * * Dashboard * * * * */
 
 #menu-icon-div{i{font-size: 2vw;}}
+
+#search{h3{font-size: 4vw;}}
+.header-db-search{
+    border-radius: .7vw;
+    button{width: 10%;}
+    input{width: 90%;}
+    i{font-size: 2vw;}
+}
+
+.main-card-btn,
+.main-card-btn{
+    a,button{
+        width: 3vw;
+        height: 3vw;
+    }i{font-size: 2.2vw;}
+}
+
+/* * * * * Create FORMS * * * * */
+.nav{width: 18vw;}
+
+.nav-nav{h4{font-size: 1.5vw;}i{font-size: 2vw;}}
+
+.#{$r}__text{p{font-size: 1.2vw;}}
+
+#name,#lastname,
+#number,#email,
+#user,#pass,
+.#{$r}__body-btn-rol,
+.#{$r}__jornada-btn{
+    font-size: 1.5vw; 
+    padding: 1.2vh 2vw;
+}
+
+.create-btn-user{
+    padding: 1.5vh 3.5vw;
+    font-size: 2vw;
+}

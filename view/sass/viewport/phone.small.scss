@@ -519,9 +519,9 @@ footer{
 /* * * * * * * * * VIEW/LOGIN.HTML * * * * * * * * */
 
 #body-login{
-    height: 100vh;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    height: var(--height);
 }
 
 @keyframes load {
@@ -534,13 +534,9 @@ footer{
 
 .bodyLoad{
     &::before{
-        @include before("", 0,0,0,1,auto,5px,0,0,$green);
+        @include before("", 0,0,0,1,auto,4px,0,0,$green);
         animation: 3s ease-in-out load;
     }
-}
-
-.login-div-#{$l}, .login-#{$r}{
-    height: 100%;
 }
 
 .login-div-#{$l}{
@@ -603,28 +599,19 @@ footer{
 
 .#{$l}__head-arrow{
     height: 100%;
-    div{
+    a{
         height: 100%;
+        color: $white;
         cursor: pointer;
-        a{
-            height: 100%;
-            line-height: calc(100% - 8vw);
-            color: $bluedark;
-            font: {
-                size: 8vw;
-                family: $SignikaL;
-            }
-        }
+        font: {size: 8.5vw; family: $SignikaL;}
     }
 }
 
 /* RIGHT */
 .login-#{$r}{
-    @include div(
-        100%,100%,
-        4vh 14vw,
-        0,flex
-    );
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
@@ -640,8 +627,12 @@ footer{
     p{font-size: 4vw;}
 }
 
-.#{$r}__body{
+.form-login{
     height: 65%;
+    button, input{padding: 2vh 7vw;}
+}
+
+.#{$r}__body{
     flex-direction: column;
     justify-content: space-evenly;
     span{
@@ -651,14 +642,13 @@ footer{
     }
     button, input{
         outline: none;
-        padding: 4% 7%;
         border-radius: 2vw;
     }input{
-        font: {size: 4vw; family: $Segoe;}
+        font-family: $Segoe;
         border-width: 1px;
         border-style: solid;
     }
-    button{cursor: pointer;margin: auto 0;}
+    button{margin: auto 0;}
 }
 
 #rol-btn-coor{
@@ -669,7 +659,8 @@ footer{
     width: 39%;
 }
 
-.#{$r}__body-btn-rol{
+.#{$r}__body-btn-rol,
+.#{$r}__jornada-btn{
     height: 100%;
     background: none;
     text-align: start;
@@ -682,7 +673,8 @@ footer{
     }
 }
 
-.#{$r}__body-cont{
+.#{$r}__body-cont,
+.#{$r}__jornada-cont{
     width: 3vw;
     height: 3vw;
     margin-right: 5px;
@@ -691,12 +683,10 @@ footer{
 }
 
 .rol-btn-active{
-    color: $green;
-    border-color: $green;
-    font-family: $SignikaL;
-    border: 1px solid $green;
-    .#{$r}__body-cont{
-        border: 2px solid $green;
+    color: $green !important;
+    border: {color: $green !important;}
+    .#{$r}__body-cont,.#{$r}__jornada-cont{
+        border: {width: 2.5px !important; style: solid !important; color: $green !important;}
     }
 }
 
@@ -743,12 +733,12 @@ footer{
     color: $redAlert;
     border-color: $redAlert;
     div{border-color: $redAlert;}
+    &::placeholder{color: $redAlert;}
     &:focus{
-        border-color: $redAlert;
         color: $redAlert;
+        border-color: $redAlert;
         &::placeholder{color: $redAlert}
     }
-    &::placeholder{color: $redAlert;}
 }
 
 .alertRol,
@@ -781,26 +771,27 @@ footer{
 .nav{
     top: 0;
     left: 0;
-    width:50%;
+    width: 25%;
     z-index: 10;
     height: 100vh;
     position: fixed;
-    overflow: hidden;
     flex-direction: column;
     justify-content: center;
 }
 
 .nav-nav{
-    width: 85%;
-    height: 60vh;
+    width: 100%;
     flex-direction: column;
     justify-content: space-evenly;
+    i{font-size: 7.5vw;color: $white;}
 }
 
-.jc-s{
-    padding: 1.5vw 0 1.5vw 3vw;
+.btn-menu-menu{
     cursor: pointer;
     position: relative;
+    align-items: center;
+    margin: 2vh 0;
+    padding: 1.5vh 3vw;
     &::before{
         top: 0;
         left: 0;
@@ -825,23 +816,14 @@ footer{
 
 .icon-img{
     margin-right: 5%;
-    svg{
-        width: 8vw;
-        fill: $gray;
-    }
 }   
 
 .icon-text{
-    height: 100%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     h4{
         color: $gray;
-        line-height: 80%;
-        font-size: 4vw;
-        font-weight: 300;
-        transform: translateY(1vw);
+        font: {family: $SignikaL;size: 4.5vw; weight: 400;}
     }
 }
 
@@ -850,13 +832,8 @@ footer{
         width: 100%;
         box-shadow: 0px 0px 10px 2px rgba($color: black, $alpha: .35);
     }
-    svg{
-        fill: $bluedark;
-        stroke-width: 2px;
-    }h4{
-        color: $bluedark;
-        font-weight: 500;
-    }
+    i{color: $bluedark;}
+    h4{color: $bluedark;}
 }
 
 // * * * BODY DASHBOARD * * * //
@@ -906,7 +883,7 @@ footer{
     top:  var(--uTop);
     left: var(--uLeft) ;
     z-index: var(--uIndex);
-    height: 100vh;
+    height: var(--uHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
@@ -915,7 +892,7 @@ footer{
     top:  var(--cTop);
     left: var(--cLeft) ;
     z-index: var(--cIndex);
-    height: 100vh;
+    height: var(--cHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
@@ -924,7 +901,7 @@ footer{
     top:  var(--sTop);
     left: var(--sLeft) ;
     z-index: var(--sIndex);
-    height: 100vh;
+    height: var(--sHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
@@ -933,7 +910,7 @@ footer{
     top:  var(--pTop);
     left: var(--pLeft) ;
     z-index: var(--pIndex);
-    height: 100vh;
+    height: var(--pHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
@@ -942,7 +919,7 @@ footer{
     top:  var(--rTop);
     left: var(--rLeft) ;
     z-index: var(--rIndex);
-    height: 100vh;
+    height: var(--rHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
@@ -969,12 +946,9 @@ footer{
 }
 
 .header-db{
-    top: 0;
-    left: 0;
     z-index: 10;
     height: 30vh;
     padding: 5%;
-    position: absolute;
     background-color: $bluedark;
 }
 
@@ -983,8 +957,9 @@ footer{
     align-items: center;
     justify-content: space-between;
     i{
-        color: $gray;
+        color: $white;
         cursor: pointer;
+        font-size: 7vw;
     }
 }
 
@@ -1036,7 +1011,6 @@ footer{
     width: 100%;
     min-height: 70vh;
     padding: 10% 5%;
-    margin-top: 30vh;
     border-radius: 45px 45px 0 0;
     background-color: $gray;
     z-index: 30;
@@ -1333,7 +1307,7 @@ footer{
         margin-bottom: 4vh;
     }
 }
-#form-create-users{
+#form-create-uers{
     display: grid;
     width: 70%;
     gap: 8% 3%;
@@ -1405,7 +1379,7 @@ footer{
 /* * * Create Forms * * */
 
 #body-create{
-    height: 100vh;
+    height: var(--height);
     display: flex;
     padding: 6% 10%;
     align-items: center;
@@ -1413,118 +1387,37 @@ footer{
     justify-content: center;
 }
 
-@keyframes load {
-    0%{
-        width: 0;
-    }100%{
-        width: 100%;
-    }
-}
 
-.bodyLoad{
-    &::before{
-        @include before("", 0,0,0,1,auto,5px,0,0,$green);
-        animation: 3s ease-in-out load;
-    }
-}
-
-.login-div-#{$l}, .login-#{$r}{
-    height: 100%;
-}
-
-.login-div-#{$l}{
-    display: none;
-}
-
-.login-sec-active{
-    scale: 1.1;
-    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.25);
-}
-
-.login-btn-active{
-    scale: 1.3;
-    background-color: $white !important;
-}
-
-/* HEAD LOGIN */
+/* HEAD CREATE USER */
 .#{$l}__head{
     margin: 0 0 5%;
 }
 
-.#{$l}__head-logo{
-    width: auto;
-    height: 100%; 
-    display: inline-flex;
-    align-items: center;
-
-    img,h3{
-        display: inline-block;
-        &::selection{background: none;}
-    }
-
-    img{
-        width: auto;
-        height: 100%;
-        margin-right: .5vw;
-    }
-
-    h3{
-        line-height: 100%;
-        color: $bluedark;
-        letter-spacing: 1px;
-        font: {size: 100%;family: $Segoe;}
-    }
-
-
-}
-
-.#{$l}__head-arrow{
-    height: 100%;
-    div{
-        height: 100%;
-        cursor: pointer;
-        a{
-            height: 100%;
-            line-height: calc(100% - 8vw);
-            color: $bluedark;
-            font: {
-                size: 8vw;
-                family: $SignikaL;
-            }
-        }
-    }
-}
-
-/* RIGHT */
-.login-#{$r}{
-    @include div(
-        100%,100%,
-        4vh 14vw,
-        0,flex
-    );
-    flex-direction: column;
-    justify-content: center;
-}
-
-.#{$r}__text{
-    h1{font-size: 10vw;}
-    p{font-size: 4vw;}
-}
-
-.#{$r}__body{
+.form-user{
     height: auto;
-    flex-direction: column;
-    justify-content: space-evenly;
-    span{
-        display: block;
-        font: {size: 5vw; family: $SignikaL;}
-        margin-bottom: 5px;
-    }
-    button, input{padding: 1.2vh 3.5vw;}
-    button{cursor: pointer;margin: auto 0;}
 }
 
-#btnSubmit{font-size: 5.5vw;}
+#name,#lastname,
+#number,#email,
+#user,#pass,
+.#{$r}__body-btn-rol,
+.#{$r}__jornada-btn{
+    font-size: 4vw; 
+    padding: 1.2vh 3.5vw;
+}
+
+.create-btn-user{
+    padding: 1.5vh 3.5vw;
+    font-size: 4.5vw;
+}
+
+#jor-btn-mañana{width: 44%;}
+#jor-btn-tarde{width: 54%;}
+
+.forms-create{padding: 0;}
+.div-form-login{padding: 4vh 10vw;}
+
+#btnCUser{font-size: 5.5vw;}
 
 .#{$r}__names,
 .#{$r}__info,
@@ -1551,7 +1444,10 @@ footer{
 .#{$r}__info,
 .#{$r}__jornada,
 .#{$r}__user,
-.#{$r}__body-btn{
+.#{$r}__body-btn,
+.#{$r}__body-div-email,
+.#{$r}__body-div-pass,
+.#{$r}__body-op{
     margin-bottom: 2vh;
 }
 
@@ -1564,27 +1460,84 @@ footer{
     input{width: 100%;}
 }
 
-.#{$r}__jornada-btn{
-    height: 100%;
-    background: none;
-    text-align: start;
-    align-items: center;
-    display: inline-flex;
-    border: 1px solid rgba($color: $bluedark, $alpha: .5);
-    font: {family: $SignikaL; size: 4vw;}
-}
-
-#jor-btn-mañana{width: 44%;}
-#jor-btn-tarde{width: 54%;}
-
-.#{$r}__jornada-cont{
-    width: 3vw;
-    height: 3vw;
-    margin-right: 5px;
-    border-radius: 50%;
-    border: 1px solid rgba($color: $bluedark, $alpha: .5);
-}
-
 .#{$r}__user{
     div{width: 49%;}
+}
+
+.bodyInvalid{
+    opacity: .5;
+    pointer-events: none;
+}
+
+.cardNew{
+    animation-name: new;
+    .uc-line{animation-name: new-line;}
+}
+
+.userCreated{
+    left: -200%;
+    top: 2%;
+    right: 0;
+    bottom: 0;
+    width: 70%;
+    height: 10%;
+    z-index: 100;
+    max-width: 300px;
+    animation: {
+        duration: 5s; 
+        direction: alternate;
+        timing-function: ease-in-out;
+    };
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 1vw;
+    position: absolute;
+}
+
+.uc-p{
+    width: 100%;
+    height: 90%;
+    color: $white;
+    background: $green;
+    align-items: center;
+    justify-content: center;
+    font: {family: $SignikaM; size: 7vw;}
+}
+
+.uc-line{
+    width: 0;
+    height: 10%;
+    animation: {
+        duration: 5s; 
+        direction: alternate;
+        timing-function: ease-in-out;
+    };
+    background: lighten($green, 10%);
+}
+
+@keyframes new {
+    0%{left: -200%;}
+    30%{left: 0;}
+    70%{left: 0;}
+    100%{left: 200%;}
+}
+
+@keyframes new-line {
+    0%{width: 0%;}
+    30%{width: 0%;}
+    70%{width: 100%;}
+    100%{width: 100%;}
+}
+
+/* CREATE REFRI */
+#div-type-refry{margin-right: 1%;}
+
+#refriDecription{
+    width: 100%;
+    height: 20vh;
+    border-radius: 3vw;
+    margin-bottom: 2vh;
+    padding: 1.5vh 2.5vw;
+    font: {size: 4vw; family: $Segoe;}
+    border: 1px solid rgba($color: $bluedark, $alpha: .5);
 }

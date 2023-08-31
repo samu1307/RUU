@@ -43,50 +43,56 @@ const html = d.querySelector('html')
 //Search
 const searchs = d.querySelectorAll('#search-element');
 const cardsSearch = d.querySelectorAll('.db-main-card');
+let h = bodyDbUsers.clientHeight;
 
 //Click btn menu
 btnMenus.forEach(m=>{
     m.addEventListener('click', ()=>{
-
-        headers.forEach(h=>{
-            h.style.position = 'absolute'
-        })
         
         const pBodys = (
             uT, 
             uL,
             uI,
+            uH, 
             cT,
             cL,
             cI,
+            cH,
             sT,
             sL,
             sI,
+            sH,
             pT,
             pL,
             pI,
+            pH,
             rT,
             rL,
-            rI
+            rI,
+            rH
         )=>{
             let rootSet = d.documentElement.style
 
             rootSet.setProperty('--uTop', uT)
             rootSet.setProperty('--uLeft', uL)
             rootSet.setProperty('--uIndex', uI)
+            rootSet.setProperty('--uHeight', uH)
             rootSet.setProperty('--cTop', cT)
             rootSet.setProperty('--cLeft', cL)
             rootSet.setProperty('--cIndex', cI)
+            rootSet.setProperty('--cHeight', cH)
             rootSet.setProperty('--sTop', sT)
             rootSet.setProperty('--sLeft', sL)
             rootSet.setProperty('--sIndex', sI)
+            rootSet.setProperty('--sHeight', sH)
             rootSet.setProperty('--pTop', pT)
             rootSet.setProperty('--pLeft', pL)
             rootSet.setProperty('--pIndex', pI)
+            rootSet.setProperty('--pHeight', pH)
             rootSet.setProperty('--rTop', rT)
             rootSet.setProperty('--rLeft', rL)
             rootSet.setProperty('--rIndex', rI)
-
+            rootSet.setProperty('--rHeight', rH)
         }
 
         html.style.overflow = 'hidden'
@@ -98,11 +104,11 @@ btnMenus.forEach(m=>{
 
                 if(ifUsers == 4 || ifUsers == 5 ){
 
-                    pBodys('27vh', '70vw', '60',
-                            '24vh', '65vw', '50',
-                            '21vh', '60vw', '40',
-                            '18vh', '55vw', '30',
-                            '15vh', '50vw', '20')
+                    pBodys('27vh', '70vw', '60', `${h}px`,
+                            '24vh', '65vw', '50', `${h}px`,
+                            '21vh', '60vw', '40', `${h}px`,
+                            '18vh', '55vw', '30', `${h}px`,
+                            '15vh', '50vw', '20', `${h}px`)
                     
                     bodyDbUsers.classList.add('body-view-menu-users')
                     bodyDbCourses.classList.add('body-view-menu-courses')
@@ -110,6 +116,7 @@ btnMenus.forEach(m=>{
                     bodyDbProfile.classList.add('body-view-menu-profile')
                     bodyDbReport.classList.add('body-view-menu-report')
                     bodyDbUsers.classList.remove('load-profile')
+                    bodyDbCourses.style.display = "none"
             
                 }else{
                     bodyDbUsers.classList.remove('body-view-menu-users')
@@ -120,6 +127,9 @@ btnMenus.forEach(m=>{
             
                     headers.forEach(h=>{
                         setTimeout(()=>{
+                            bodyDbSnacks.style.display = "none"
+                            bodyDbProfile.style.display = "none"
+                            bodyDbReport.style.display = "none"
                             h.style.position = 'fixed'
                         }, 500)
                     })
@@ -133,12 +143,12 @@ btnMenus.forEach(m=>{
                 let ifCourses = bodyDbCourses.classList.length 
                 
                 if(ifCourses == 5){
-
-                    pBodys('24vh', '65vw', '50',
-                            '27vh', '70vw', '60',
-                            '21vh', '60vw', '40',
-                            '18vh', '55vw', '30',
-                            '15vh', '50vw', '20')
+                    
+                    pBodys('24vh', '65vw', '50', `${h}px`,
+                            '27vh', '70vw', '60', `${h}px`,
+                            '21vh', '60vw', '40', `${h}px`,
+                            '18vh', '55vw', '30', `${h}px`,
+                            '15vh', '50vw', '20', `${h}px`)
                                 
                     bodyDbCourses.classList.remove('load-profile')
                     bodyDbCourses.classList.add('body-view-menu-courses')
@@ -172,11 +182,11 @@ btnMenus.forEach(m=>{
 
                 if(ifSnacks == 5 ){
             
-                    pBodys('21vh', '60vw', '40',
-                            '24vh', '65vw', '50',
-                            '27vh', '70vw', '60',
-                            '18vh', '55vw', '30',
-                            '15vh', '50vw', '20')
+                    pBodys('21vh', '60vw', '40', `${h}px`,
+                            '24vh', '65vw', '50', `${h}px`,
+                            '27vh', '70vw', '60', `${h}px`,
+                            '18vh', '55vw', '30', `${h}px`,
+                            '15vh', '50vw', '20', `${h}px`)
 
                     bodyDbSnacks.classList.remove('load-profile')
                     bodyDbUsers.classList.add('body-view-menu-users')
@@ -192,12 +202,6 @@ btnMenus.forEach(m=>{
                     bodyDbProfile.classList.remove('body-view-menu-profile')
                     bodyDbReport.classList.remove('body-view-menu-report')
             
-                    headers.forEach(h=>{
-                        setTimeout(()=>{
-                            h.style.position = 'fixed'
-                        }, 500)
-                    })
-            
                     html.style.overflow = 'auto'
                 }
 
@@ -206,11 +210,11 @@ btnMenus.forEach(m=>{
                 
                 if(bodyDbProfile.classList.length == 5 ){
             
-                    pBodys('18vh', '55vw', '30',
-                            '21vh', '60vw', '40',
-                            '24vh', '65vw', '50',
-                            '27vh', '70vw', '60',
-                            '15vh', '50vw', '20')
+                    pBodys('18vh', '55vw', '30', `${h}px`,
+                            '21vh', '60vw', '40', `${h}px`,
+                            '24vh', '65vw', '50', `${h}px`,
+                            '27vh', '70vw', '60', `${h}px`,
+                            '15vh', '50vw', '20', `${h}px`)
 
                     bodyDbUsers.classList.add('body-view-menu-users')
                     bodyDbCourses.classList.add('body-view-menu-courses')
@@ -240,11 +244,11 @@ btnMenus.forEach(m=>{
                 
                 if(bodyDbReport.classList.length == 4 ){
             
-                    pBodys('15vh', '50vw', '20',
-                            '18vh', '55vw', '30',
-                            '21vh', '60vw', '40',
-                            '24vh', '65vw', '50',
-                            '27vh', '70vw', '60')
+                    pBodys('15vh', '50vw', '20', `${h}px`,
+                            '18vh', '55vw', '30', `${h}px`,
+                            '21vh', '60vw', '40', `${h}px`,
+                            '24vh', '65vw', '50', `${h}px`,
+                            '27vh', '70vw', '60', `${h}px`)
 
                     bodyDbReport.classList.remove('load-profile')
                     bodyDbUsers.classList.add('body-view-menu-users')

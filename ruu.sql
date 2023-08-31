@@ -28,9 +28,9 @@ DELIMITER $$
 -- Procedimientos
 --
 DROP PROCEDURE IF EXISTS `sp_createAux`$$
-CREATE  PROCEDURE `sp_createAux` (IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_user` INT(11))   BEGIN
+CREATE  PROCEDURE `sp_createAux` (IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_jornada` VARCHAR(1), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20))   BEGIN
+	INSERT INTO usuario (usuario, contrasenia, rol, estado) VALUES (_user, _pass, 'Coordinador', 'A');
 	INSERT INTO auxiliar (nombre, apellido, telefono, correo, usuario) VALUES (_name, _lastName, _number, _email, _user);
-    SELECT * FROM auxiliar WHERE nombre = _name;
 END$$
 
 DROP PROCEDURE IF EXISTS `sp_createCoor`$$

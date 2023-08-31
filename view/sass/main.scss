@@ -19,18 +19,26 @@
     --pTop: 0;
     --pLeft: 0;  
     --pIndex: 0;
+    --pHeight: 0;
     --uTop: 0;
     --uLeft: 0;  
     --uIndex: 0;
+    --uHeight: 0;
     --cTop: 0;
     --cLeft: 0;  
     --cIndex: 0;
+    --cHeight: 0;
     --sTop: 0;
     --sLeft: 0;  
     --sIndex: 0;
+    --sHeight: 0;
     --rTop: 0;
     --rLeft: 0;  
     --rIndex: 0;
+    --rHeight: 0;
+
+    //Height forms
+    --height: 0px;
 }
 
 html{
@@ -72,6 +80,7 @@ html{
 body{
     width: 100%;
     height: 100%;
+    transition: all .3s;
 }
 
 header{
@@ -89,6 +98,19 @@ h1, h2, h3, h4, h5, h6, p, label{
 
 button{
     cursor: pointer;
+}
+
+/* Oculta las flechas en inputs de tipo number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0; /* Puedes ajustar el margen si es necesario */
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* * * Small Phone * * */

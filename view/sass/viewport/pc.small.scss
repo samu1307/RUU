@@ -145,7 +145,7 @@
 
 .main-head{
     display: flex;
-    padding-top: 25vh;
+    padding-top: 20vh;
     align-items: center;
     flex-direction: row-reverse;
 }
@@ -391,17 +391,14 @@
 
 /*  LOGIN  */
 
-#body-login{
-    height: 100vh;
-    display: flex;
-}
+.body-login{flex-direction: row;}
 
-.login-div-#{$l}, .login-#{$r}{
-    height: 100%;
-}
+// .login-div-#{$l}, .login-#{$r}{
+//     height: 100%;
+// }
 
 .login-div-#{$l}{
-    width: 40%;
+    width: 50%;
     padding: .5vw;
     display: inline-block;
 }
@@ -431,21 +428,17 @@
     }
 
     .#{$l}__head-arrow{
-        div{
-            a{
-                color: $gray;
-                font-size: 2.5vw;
-                transition: all .4s ease-in-out;
-                &:hover{transform: translateX(-.5vw);}
-            }
+        a{
+            color: $gray;
+            font-size: 2.5vw;
+            transition: all .4s ease-in-out;
+            &:hover{transform: translateX(-.5vw);}
         }
     }
 
     .#{$l}__text{
         width: 100%;
-        h1, p{
-            color: $gray;
-        }
+        h1, p{color: $gray;}
     }
 
     .#{$l}__text-tittle{
@@ -464,12 +457,7 @@
         padding-top: 5%;
         p{
             letter-spacing: 1px;
-            width: 90%;
-            font: {
-                size: 1.3vw;
-                family: $Segoe;
-                weight: 100;
-            }
+            font: {size: 1.5vw; family: $Segoe; weight: 100;}
         }
     }
 
@@ -503,10 +491,7 @@
         width: 100%;
         p{
             color: $gray;
-            font: {
-                size: 1vw;
-                family: $SignikaL;
-            }
+            font: {size: 1.2vw; family: $SignikaL;}
         }
     }
 
@@ -574,13 +559,7 @@
 
 
     /* RIGHT */
-    .login-#{$r}{
-        @include div(
-            60%,100%,
-            4vh 14vw,
-            0,flex
-        );
-    }
+    .login-#{$r}{width: 50%;}
 
     .#{$r}__head{
         display: none !important;
@@ -595,15 +574,12 @@
         p{font-size: 1.5vw;}
     }
 
-    .#{$r}__body{
-        span{
-            font: {size: 1.5vw; family: $SignikaL;}
-        }
-        button, input{
-            border-radius: 1vw;
-            font-size: 1.5vw;
-        }
-    }
+    .#{$r}__body{span{font-size: 1.5vw;}}
+
+#userLogin,
+#passLogin{}
+
+    .form-login{button, input{padding: 2vh 2.5vw;}}
 
     #rol-btn-coor{
         width: 54%;
@@ -623,12 +599,13 @@
             font-family: $SignikaL;
             border: 1px solid $green;
             .#{$r}__body-cont{
-                border: 4px solid $green;
+                border: 2px solid $green;
             }
         }
     }
 
-    .#{$r}__body-cont{
+    .#{$r}__body-cont,
+    .#{$r}__jornada-cont{
         width: 1.3vw;
         height: 1.3vw;
     }
@@ -646,6 +623,7 @@
 
     .#{$r}__body-btn-send{
         background: $bluedark;
+        font-size: 2vw;
         &:hover{scale: 1.1;background: rgba($color: $bluedark, $alpha: .8);}
     }
 
@@ -672,7 +650,7 @@
     }
 
     .alertRol,
-    .alertUser,
+    .alertUser, 
     .alertPass,
     .alertLogin{
         display: none;
@@ -688,19 +666,11 @@
         display: flex !important;
         width: 100%;
         height: 1.3vw;
-        font-size: 1.3vw;
+        font-size: 1.8vw;
     }    
 
 
 /* * * DASHBOARD * * */
-
-.body-db{
-    
-}
-
-.body-db-users{
-
-}
 
 .header-db{
     padding: 2%;
@@ -715,7 +685,7 @@
 }
 
 #search{
-    h3{font-size: 5vw; margin-bottom: 1%;}
+    h3{font-size: 5vw; margin-bottom: 1vh;}
 }
 
 .header-db-search{
@@ -792,10 +762,75 @@
     div{overflow: visible;word-wrap: break-word;}
 }
 
-
-
-
 .main-card-btn{
     a,button{width: 3.7vw;height: 3.7vw;font-size: 2.6vw;}
     a:hover,button:hover{opacity: .9;scale: 1.1;}
 }
+
+/* * * Create User * * */
+
+.nav{width: 23vw;}
+
+.nav-nav{h4{font-size: 2vw;}i{font-size: 2.8vw;}}
+
+#body-create{padding: 0;}
+
+.forms-create,.div-form-login{padding: 4vh 6vw;}
+
+.#{$r}__body{button,input{border-radius: .7vw;}}
+
+#name,#lastname,
+#number,#email,
+#user,#pass,
+.#{$r}__body-btn-rol,
+.#{$r}__jornada-btn{
+    font-size: 1.5vw; 
+    padding: 1.2vh 2vw;
+}
+
+.create-btn-user{
+    padding: 1.5vh 3.5vw;
+    font-size: 2vw;
+}
+
+.uc-p{font-size: 2vw;}
+
+
+/* * * Create User * * */
+
+#refriDecription{
+    border-radius: 1vw;
+    font-size: 1.5vw;
+    padding: 1.5vh 1.5vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

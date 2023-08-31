@@ -1,70 +1,78 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Curso</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <script type="module" src="../js/login.js" defer></script>
-</head>
-<body id="body-login">
-    <header id="header-login">
-        <nav class="df cxy" id="nav-login">
-            <a href="../dashboard.html">
-                <svg viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.939279 10.9393C0.353492 11.5251 0.353492 12.4749 0.939279 13.0607L10.4852 22.6066C11.071 23.1924 12.0208 23.1924 12.6065 22.6066C13.1923 22.0208 13.1923 21.0711 12.6065 20.4853L4.12126 12L12.6065 3.51472C13.1923 2.92893 13.1923 1.97918 12.6065 1.3934C12.0208 0.807612 11.071 0.807612 10.4852 1.3934L0.939279 10.9393ZM26.9999 10.5L1.99994 10.5V13.5L26.9999 13.5V10.5Z" fill="#1E222F"/>
-                </svg>
+<?php
+    $tittle =  'Crear Curso';
+    $urlJs =  '../js/cuser.js';
+    $urlCss =  '../css/main.css';
+    $icon = 1;
+    include('../templates.php/head-page.php'); 
+?>
+<body id="body-create">
+    <div class="userCreated">
+        <div class="uc-p df">Curso creado</div>
+        <div class="uc-line"></div>
+    </div>
+    <div id="body-login" class="body-user">
+    <div class="login-right forms-create">
+    <div class="left__head" id="headLeft">
+        <div class="left__head-logo">
+            <img src="../img/escudo.png">
+            <h3>RUU</h3>
+        </div>
+        <div class="left__head-arrow">
+            <a class="df cxy" href="../dashboard.php">
+                <i class="las la-arrow-left c-black"></i>
             </a>
-            <div class="logo-login df cxy">
-                <img src="../img/escudo.png" alt="Escudo Colegio Rafael Uribe Uribe">
-                <h3 class="di" >RUU</h3>
+        </div>
+    </div>
+    <div class="right__text info-create w100 df">
+        <h1>Crear curso</h1>
+        <p>
+            Como coordinador , podrás crear, editar
+            y eliminar cursos, además de realizar
+            una variedad de funciones más
+        </p>
+    </div>
+    <form id="createUser" class="right__body form-user w100 df" >
+        <div class="right__names df w100">
+            <div class="right__name-name">
+                <span>Grado</span>
+                <input type="text" placeholder="Grado" name="name" id="name">
             </div>
-        </nav>
-    </header>
-    <main id="main-login" class="cu df">
-        <h2>Agregar Curso</h2>
-        <form id="form-create-users" >
-            <div id="users-name" class="users-div df">
-                <label for="users-name">Nombre</label>
-                <input type="text" placeholder="Pepito" required>
+            <div class="right__name-lastname">
+                <span>Curso</span>
+                <input type="text" placeholder="Curso" name="lastname" id="lastname">
             </div>
-            <div id="users-lastname" class="users-div df">
-                <label for="users-lastname">Apellidos</label>
-                <input type="text" placeholder="Perez Mirador" required>
+            <div class="right__jornada-div-btn w100">
+                <span>Jornada</span>
+                <div class="right__jornada df w100">
+                    <button class="right__jornada-btn off" id="jor-btn-mañana" type="button" value="coor">
+                        <div class="right__jornada-cont df cxy"></div>
+                        <div>Mañana</div>
+                    </button>
+                    <button class="right__jornada-btn off" id="jor-btn-tarde" type="button" value="aux">
+                        <div class="right__jornada-cont df cxy"></div>
+                        <div>Tarde<div>
+                    </button>
+                </div>
             </div>
-            <div id="users-email" class="users-div df">
-                <label for="users-email">Correo</label>
-                <input type="email" placeholder="pepemira123@gmail.com" required>
+        </div>
+        <div class="right__info df w100">
+            <div class="right__info-number">
+                <span>Alumnos</span>
+                <input type="number" maxlength="10" placeholder="Numero de Alumnos" name="number" id="number">
             </div>
-            <div id="users-pass" class="users-div df">
-                <label for="users-pass">Contraseña</label>
-                <input type="password" placeholder="••••••••••••••" required>
-            </div>  
-            <div id="users-user" class="users-div df">
-                <label for="users-user">Usuario</label>
-                <input type="text" placeholder="Pepemira123" required>
-            </div>    
-            <div id="users-number" class="users-div df">
-                <label for="users-number">Telefono</label>
-                <input type="number" placeholder="312 456 ** **" required>
+            <div class="right__info-email">
+                <span>Director</span>
+                <input type="text" placeholder="Nombre del director" name="email" id="email">
             </div>
-            <div id="users-rol" class="users-div df">
-                <select name="" id="" >
-                    <option  value="Coordinador">Coordinador</option>
-                    <option value="Auxiliar">Auxiliar</option>
-                    <option value="" hidden selected>Rol</option>
-                </select>
-            </div>
-            <div id="users-state" class="users-div df">
-                <select name="" id="">
-                    <option value="A">Activo</option>
-                    <option value="I">Inactivo</option>
-                    <option value="" hidden selected>Estado</option>
-                </select>
-            </div>
-            <input id="users-send" type="button" value="Crear Usuario">
-        </form>
-    </main>
+        </div>
+        <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Crear curso">
+    </form>
+    </div>
+    <?php 
+        $urlA = '../dashboard.php';
+        $urlImg = '../img/escudo.png';
+        include('../templates.php/slider-form.php'); 
+    ?>
+    </div>
 </body>
 </html>

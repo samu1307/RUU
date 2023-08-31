@@ -1,5 +1,18 @@
 const d = document;
 
+import { btnSelectLeft, btnSelectRight } from './modules/validation.js';
+import { queryFetch } from './modules/ajax.js';
+
+/* ViewPort */
+const setHeightProperty = () => {
+    document.documentElement.style.setProperty('--height', `${window.innerHeight}px`);
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    setHeightProperty();
+    window.addEventListener('resize', setHeightProperty);
+});
+
 /* Body */
 const body = d.getElementById('body-login');
 
@@ -14,13 +27,10 @@ const boxUser = d.querySelector('.alertUser').style;
 const boxPass = d.querySelector('.alertPass').style;
 const boxLogin = d.querySelector('.alertLogin');
 
-/* Colors */
-let redAlert = "#ff5959bb";
-
 /* Form */ 
 const form = d.getElementById('form');
-const user = d.getElementById('user');
-const pass = d.getElementById('pass');
+const user = d.getElementById('userLogin');
+const pass = d.getElementById('passLogin');
 const btnSend = d.getElementById('btnSubmit');
 const rolAux = d.getElementById('rol-btn-aux');
 const rolCoor = d.getElementById('rol-btn-coor');
@@ -32,46 +42,14 @@ let rolAuxClass = rolAux.classList;
 /* Coordinador */
 (()=>{
     rolCoor.addEventListener('click', ()=>{
-
-        /* Logica */
-        let validateOff = rolCoorClass.length == 2 && rolAuxClass.length == 2;
-        let validateOne = rolCoorClass.length == 2 && rolAuxClass.length == 3;
-
-        /* Validaciones */
-        if (validateOff){
-            rolCoorClass.add('rol-btn-active')
-            rolCoorClass.add('off')
-            rolCoorClass.remove('alert')
-        }else if(validateOne){
-            rolCoorClass.add('rol-btn-active')
-            rolCoorClass.remove('alert')
-            rolAuxClass.remove('rol-btn-active')
-        }else{
-            rolCoorClass.remove('rol-btn-active')
-        }
+        btnSelectLeft(rolCoor, rolAux);
     })
 })();
 
 /* Auxiliar */
 (()=>{
     rolAux.addEventListener('click', ()=>{
-
-        /* Logica */
-        let validateOff = rolCoorClass.length == 2 && rolAuxClass.length == 2;
-        let validateOne = rolCoorClass.length == 3 && rolAuxClass.length == 2;
-
-        /* Validaciones */
-        if (validateOff){
-            rolAuxClass.add('rol-btn-active')
-            rolAuxClass.add('off')
-            rolAuxClass.remove('alert')
-        }else if(validateOne){
-            rolAuxClass.add('rol-btn-active')
-            rolAuxClass.remove('alert')
-            rolCoorClass.remove('rol-btn-active')
-        }else{
-            rolAuxClass.remove('rol-btn-active')
-        }
+        btnSelectRight(rolCoor, rolAux)
     })
 })();
 
@@ -113,7 +91,7 @@ setInterval(()=>{
             if(i.isIntersecting){
                 d.querySelector(`button[data-slider="${di}"]`)
                 .classList.add('login-btn-active');
-                i.target.classList.add('login-sec-ac    tive');
+                i.target.classList.add('login-sec-active');
             }else{
                 d.querySelector(`button[data-slider="${di}"]`)
                 .classList.remove('login-btn-active');
@@ -132,14 +110,13 @@ setInterval(()=>{
 (()=>{
     form.addEventListener('submit', (e)=>{
         e.preventDefault();
-
+        
         let i = 0;
 
         /* Logica */
         let validateRol = rolCoorClass.length == 3 || rolAuxClass.length == 3;
         let validateUser = user.value.length != 0;
         let validatePass = pass.value.length != 0;
-
 
         /* Validaciones */
         
@@ -191,44 +168,33 @@ setInterval(()=>{
             user: data.get('user'),
             pass: data.get('pass')
         }
+
+        let url = '../controllers/login.controller.php';
+
         /* Submit */
-        if (i == 0) queryFetch(formData);
+        if (i == 0) queryFetch(url, formData, (json)=>{
+            if(json == 1){
+                btnSend.value = 'Validando...';
+                body.classList.add('bodyLoad')
+                body.classList.add('bodyInvalid')
+                setTimeout(() => {
+                    location.href = 'dashboard.php'
+                    setTimeout(()=>{
+                        btnSend.value = 'Ingresar';
+                        body.classList.remove('bodyLoad')
+                        body.classList.remove('bodyInvalid')
+                    }, 5000)
+                }, 3000);
+            }else{
+                boxLogin.innerHTML = "Usuario incorrecto";
+                user.classList.add('alert');
+                pass.classList.add('alert');
+                form.addEventListener('keydown', ()=>{
+                    boxLogin.innerHTML = "";
+                    user.classList.remove('alert');
+                    pass.classList.remove('alert');
+                })
+            }
+        });
     })
 })();
-
-/* * Petición AJAX * */
-let queryFetch = (data)=>{
-
-    let url = "../controllers/login.controller.php";
-    let op = {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }
-
-    fetch(url, op)
-    .then(res=> res.text())
-    .then(json=>{
-        if(json == 1){
-            btnSend.value = 'Validando...';
-            btnSend.disabled = true;
-            body.classList.add('bodyLoad')
-            setTimeout(() => {
-                location.href = 'dashboard.php'
-            }, 3000);
-        }else {
-            boxLogin.innerHTML = "Usuario incorrecto";
-            user.classList.add('alert');
-            pass.classList.add('alert');
-            form.addEventListener('keydown', ()=>{
-                boxLogin.innerHTML = "";
-                user.classList.remove('alert');
-                pass.classList.remove('alert');
-            })
-        }
-    })
-    .catch(err=>console.error(err))
-}
