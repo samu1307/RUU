@@ -2211,7 +2211,6 @@ footer {
     justify-content: space-between;
   }
   .main-img-slider {
-    display: flex;
     align-items: center;
     flex-wrap: nowrap;
   }
