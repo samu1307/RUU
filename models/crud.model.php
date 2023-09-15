@@ -14,34 +14,25 @@
             }
         }
 
-        public function create($name, $lastname, $number, $email, $jor, $user, $pass, $rol){            
+        public function save($idUser, $name, $lastname, $number, $email, $jor, $user, $pass, $rol, $idRol){            
             try {
-                $msg = "INSERT INTO `usuario` (`usuario`, `contrasenia`, `rol`, `estado`) VALUES (:User, :Pass, :Rol, 'A')";
+
+                $msg = "CALL sp_saveUser(:Id, :Name, :LastName, :Number, :Email, :Jor, :User, :Pass, :Rol, :IdRol)";
                 $reques = $this->pdo->prepare($msg);
+                $reques->bindParam(':Id', $idUser);
+                $reques->bindParam(':Name', $name);
+                $reques->bindParam(':LastName', $lastname);
+                $reques->bindParam(':Number', $number);
+                $reques->bindParam(':Email', $email);
+                $reques->bindParam(':Jor', $jor);
                 $reques->bindParam(':User', $user);
                 $reques->bindParam(':Pass', $pass);
                 $reques->bindParam(':Rol', $rol);
-                $reques->execute();
+                $reques->bindParam(':IdRol', $idRol);
+                if($reques->execute()) return true;
+                else return false;
                 
-                $req = $this->pdo->prepare("SELECT idUsuario FROM usuario WHERE usuario = :UserId");
-                $req->bindParam(':UserId', $user);
-                $req->execute();
-                
-                if($req->rowCount() == 1){
-                    $res = $req->fetch();
-                    $msg = "INSERT INTO ".$rol." (`nombre`, `apellido`, `jornada`, `telefono`, `correo`, `usuario`) VALUES (:Name, :Lastname, :Jor, :Number, :Email, :UserRol)";
-                    $request = $this->pdo->prepare($msg);
-                    $request->bindParam(':Name', $name);
-                    $request->bindParam(':Lastname', $lastname);
-                    $request->bindParam(':Jor', $jor);
-                    $request->bindParam(':Number', $number);
-                    $request->bindParam(':Email', $email);
-                    $request->bindParam(':UserRol', $res[0]);
-                    $request->execute();
-                    return "Usuario insertado";
-                }
-                
-            }catch (PDOException $E) {
+            }catch (PDOException $E){
                 return $E;
             }
         }
@@ -51,13 +42,18 @@
             $request = $this->pdo->prepare($query);
             return ($request->execute()) ? $request->fetchAll() : false;
         }
-
-        public function update(){
-            $reques = $this->pdo->prepare();
+        
+        public function delete($id){
+            $reques = $this->pdo->prepare('CALL sp_deleteUser(:Id)');
+            $reques->bindParam(':Id', $id);            
+            return ($reques->execute()) ? true : false;
         }
 
-        public function delete(){
-            $reques = $this->pdo->prepare();
+        public function getData($id, $rol){
+            ($rol == "Coordinador")? $query = 'SELECT * FROM `v_usercoordinador` WHERE idUsuario = :id': $query = 'SELECT * FROM `v_userauxiliar` WHERE idUsuario = :id';
+            $reques = $this->pdo->prepare($query);
+            $reques->bindParam(':id', $id);
+            return ($reques->execute()) ? $reques->fetchAll() : false;
         }
 
     }

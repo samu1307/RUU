@@ -4,8 +4,13 @@ const d = document;
 import { btnSelectLeft, btnSelectRight } from './modules/validation.js';
 import { queryFetch } from './modules/ajax.js';
 
+
 /* URL */
-let url = '../../controllers/dashboard.controller.php?method=create'
+const urlS = new URL(location.href);
+let idUserUrl = urlS.searchParams.get('id');
+let idRolUrl = urlS.searchParams.get('__');
+let urlCreate = '../../controllers/dashboard.controller.php?method=create'
+let urlUpdate = `../../controllers/dashboard.controller.php?method=update&idUser=${idUserUrl}&idRol=${idRolUrl}`
 
 /* ViewPort */
 const setHeightProperty = () => {
@@ -18,6 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const cardNew = d.querySelector('.userCreated');
+const cardUpdate = d.querySelector('.userUpdate');
 const bodyUser = d.querySelector('.body-user');
 
 /* Form */
@@ -54,22 +60,25 @@ const rolA = d.getElementById('rol-btn-aux');
 
         let a = 0
 
-        /* Logic */
-        let validateJor = jorM.classList.length == 3 || jorT.classList.length == 3;
-        let validateRol = rolC.classList.length == 3 || rolA.classList.length == 3;
-        
-        if(!validateJor){
-            a++
-            jorM.classList.add('alert');
-            jorM.classList.remove('off');
-            jorT.classList.add('alert');
-            jorT.classList.remove('off');
-        }if(!validateRol){
-            a++
-            rolC.classList.add('alert');
-            rolC.classList.remove('off');
-            rolA.classList.add('alert');
-            rolA.classList.remove('off');
+        if(!idUserUrl){
+
+            /* Logic */
+            let validateJor = jorM.classList.length == 3 || jorT.classList.length == 3;
+            let validateRol = rolC.classList.length == 3 || rolA.classList.length == 3;
+            
+            if(!validateJor){
+                a++
+                jorM.classList.add('alert');
+                jorM.classList.remove('off');
+                jorT.classList.add('alert');
+                jorT.classList.remove('off');
+            }if(!validateRol){
+                a++
+                rolC.classList.add('alert');
+                rolC.classList.remove('off');
+                rolA.classList.add('alert');
+                rolA.classList.remove('off');
+            }
         }
 
         /* Validation */
@@ -99,19 +108,32 @@ const rolA = d.getElementById('rol-btn-aux');
         }
 
         if(a==0){
-            queryFetch(url, data);
-            btnSubmit.value = 'Insertando...';
-            cardNew.classList.add('cardNew');
-            bodyUser.classList.add('bodyInvalid')
-            setTimeout(()=>{
-                btnSubmit.value = 'Crear usuario';
-                setTimeout(()=>{
-                    cardNew.classList.remove('cardNew');
-                    bodyUser.classList.remove('bodyInvalid')
-                }, 1500)
-                inputs.forEach(i=>{i.value = ''})
-                btnSelect.forEach(btn=>{btn.classList.remove('rol-btn-active')})
-            }, 3000)
+            if(btnSubmit.value == "Actualizar usuario"){
+                queryFetch(urlUpdate, data, (j)=>{
+                    console.log(j)
+                    btnSubmit.value = 'Actualizando...';
+                    cardUpdate.classList.add('cardNew');
+                    bodyUser.classList.add('bodyInvalid');
+                    setTimeout(()=>{
+                        location.href = '../dashboard.php';
+                    }, 5100)
+                });
+            }else{
+                queryFetch(urlCreate, data, (j)=>{
+                    btnSubmit.value = 'Insertando...';
+                    cardNew.classList.add('cardNew');
+                    bodyUser.classList.add('bodyInvalid');
+                    setTimeout(()=>{
+                        btnSubmit.value = 'Crear usuario';
+                        setTimeout(()=>{
+                            cardNew.classList.remove('cardNew');
+                            bodyUser.classList.remove('bodyInvalid')
+                        }, 1500)
+                        inputs.forEach(i=>{i.value = ''})
+                        btnSelect.forEach(btn=>{btn.classList.remove('rol-btn-active')})
+                    }, 3000)
+                });
+            }
 
         }
     })

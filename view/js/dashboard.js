@@ -1,3 +1,5 @@
+import { queryFetch } from "./modules/ajax.js";
+
 const d = document;
 
 //Deploy Users
@@ -22,20 +24,14 @@ const bodys = d.querySelectorAll('.body-db')
 
 //Query headers
 const headers = d.querySelectorAll('.header-db')
-const hUsers = d.querySelector('.header-db-users')
-const hCourses = d.querySelector('.header-db-courses')
-const hSnacks = d.querySelector('.header-db-snacks')
-const hProfile = d.querySelector('.header-db-profile')
-const hReport = d.querySelector('.header-db-report')
 
 //Query btnMenu
-const btnMenus = d.querySelectorAll('.menu-icon')
+const btnMenus = d.querySelectorAll('.menu-icon');
+console.log(btnMenus)
 
 //Query NAV
 const nav = d.querySelector('.nav')
 const jc = d.querySelectorAll('.jc-s')
-const iconImg = d.querySelectorAll('.icon-img')
-const svgIcon = d.querySelectorAll('.svg-icon')
 
 //Query HTML
 const html = d.querySelector('html')
@@ -45,31 +41,22 @@ const searchs = d.querySelectorAll('#search-element');
 const cardsSearch = d.querySelectorAll('.db-main-card');
 let h = bodyDbUsers.clientHeight;
 
+//Delete Alert
+const bodyDashboard = d.getElementById('body-dash');
+const deleteUser = d.getElementById('delete-btn-el');
+const cDeleteUser = d.getElementById('delete-btn-ca');
+const btnDelete = d.querySelectorAll('.card-btn-delete');
+const btnCloseDelete = d.getElementById('close-delete');
+
 //Click btn menu
 btnMenus.forEach(m=>{
     m.addEventListener('click', ()=>{
         
-        const pBodys = (
-            uT, 
-            uL,
-            uI,
-            uH, 
-            cT,
-            cL,
-            cI,
-            cH,
-            sT,
-            sL,
-            sI,
-            sH,
-            pT,
-            pL,
-            pI,
-            pH,
-            rT,
-            rL,
-            rI,
-            rH
+        const pBodys = (uT, uL,uI,uH,
+                        cT,cL,cI,cH,
+                        sT,sL,sI,sH,
+                        pT,pL,pI,pH,
+                        rT,rL,rI,rH
         )=>{
             let rootSet = d.documentElement.style
 
@@ -99,7 +86,10 @@ btnMenus.forEach(m=>{
 
         switch (m.id) {
             case 'users':
-                
+            
+                alert('users')
+                console.log('users')
+
                 let ifUsers = bodyDbUsers.classList.length
 
                 if(ifUsers == 4 || ifUsers == 5 ){
@@ -139,7 +129,10 @@ btnMenus.forEach(m=>{
 
             break;
             case 'courses':
-                
+               
+                alert('courses')
+
+
                 let ifCourses = bodyDbCourses.classList.length 
                 
                 if(ifCourses == 5){
@@ -166,18 +159,14 @@ btnMenus.forEach(m=>{
                     bodyDbProfile.classList.remove('body-view-menu-profile1')
                     bodyDbReport.classList.remove('body-view-menu-report1')
             
-                    headers.forEach(h=>{
-                        setTimeout(()=>{
-                            h.style.position = 'fixed'
-                        }, 500)
-                    })
-            
                     html.style.overflow = 'auto'
                 }
 
             break;
             case 'snacks':
             
+                alert('Snacks')
+
                 let ifSnacks = bodyDbSnacks.classList.length
 
                 if(ifSnacks == 5 ){
@@ -208,6 +197,8 @@ btnMenus.forEach(m=>{
             break;
             case 'profile':
                 
+                alert('Snacks')
+
                 if(bodyDbProfile.classList.length == 5 ){
             
                     pBodys('18vh', '55vw', '30', `${h}px`,
@@ -230,18 +221,14 @@ btnMenus.forEach(m=>{
                     bodyDbProfile.classList.remove('body-view-menu-profile')
                     bodyDbReport.classList.remove('body-view-menu-report')
             
-                    headers.forEach(h=>{
-                        setTimeout(()=>{
-                            h.style.position = 'fixed'
-                        }, 500)
-                    })
-            
                     html.style.overflow = 'auto'
                 }
 
             break;
             case 'report':
                 
+                alert('Snacks')
+
                 if(bodyDbReport.classList.length == 4 ){
             
                     pBodys('15vh', '50vw', '20', `${h}px`,
@@ -263,12 +250,6 @@ btnMenus.forEach(m=>{
                     bodyDbSnacks.classList.remove('body-view-menu-snacks')
                     bodyDbProfile.classList.remove('body-view-menu-profile')
                     bodyDbReport.classList.remove('body-view-menu-report')
-            
-                    headers.forEach(h=>{
-                        setTimeout(()=>{
-                            h.style.position = 'fixed'
-                        }, 500)
-                    })
             
                     html.style.overflow = 'auto'
                 }
@@ -369,26 +350,35 @@ jc.forEach(e=>{
         switch (e.id) {
 
         // + + Se ejecuta si se quiere entrar al perfil + + //
-            case 'profile':
+            case 'profileMenu':
 
                 //Llama funcion de posición de body para perfil
                 setValue('15vh', '50vw', '30', '-10vh', '-45vw', '80')
                 //Añade clase para ejecutar animacion
                 bodyDbProfile.classList.add('load-profile')
-
+                
+                setTimeout(()=>{
+                    bodyDbProfile.style.zIndex = "100"
+                    bodyDbProfile.classList.remove('load-profile')
+                },2000)
             break;
 
         // + + Se ejecuta si se quiere entrar a los cursos + + //
-            case 'course':
+            case 'courseMenu':
 
                 //Llama funcion de posición de body para curso
                 setValue('21vh', '60vw', '50', '-10vh', '-35vw', '80')
                 //Añade clase para ejecutar animacion
                 bodyDbCourses.classList.add('load-profile')
+
+                setTimeout(()=>{
+                    bodyDbCourses.style.zIndex = "100"
+                    bodyDbCourses.classList.remove('load-profile')
+                },2000)
             break;
 
         // + + Se ejecuta si se quiere entrar a los usuarios + + //
-            case 'user':
+            case 'userMenu':
 
                 if(bodyDbUsers.clientTop != '27vh'){
                     // Llama funcion de posición de body para usuario
@@ -399,21 +389,31 @@ jc.forEach(e=>{
             break;
 
         // + + Se ejecuta si se quiere entrar a los refrigerios + + //
-            case 'snack':
+            case 'snackMenu':
 
                 //Llama funcion de posición de body para refrigerio
                 setValue('18vh', '55vw', '40', '-10vh', '-40vw', '80')
                 //Añade clase para ejecutar animacion
                 bodyDbSnacks.classList.add('load-profile')
+
+                setTimeout(()=>{
+                    bodyDbSnacks.classList.remove('load-profile')
+                    bodyDbSnacks.style.zIndex = "100"
+                },2000)
             break;
 
         // + + Se ejecuta si se quiere hacer un reporte + + //
-            case 'report':
+            case 'reportMenu':
 
                 //Llama funcion de posición de body para reporte
                 setValue('12vh', '45vw', '20', '-10vh', '-50vw', '80')
                 //Añade clase para ejecutar animacion
                 bodyDbReport.classList.add('load-profile')
+
+                setTimeout(()=>{
+                    bodyDbReport.style.zIndex = "100"
+                    bodyDbReport.classList.remove('load-profile')
+                },2000)
             break;
         }
         
@@ -432,19 +432,17 @@ jc.forEach(e=>{
     })
 })
 
-//heightHover
-const heightHover = ()=>{
-    iconImg.forEach(e=>{
-        svgIcon.forEach(i=>{
-            let heightI = i.clientHeight
-            e.style.height = `${heightI}px`
-        })
+btnDelete.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+        let id = btn.dataset.deleteid;
+        deleteUser.href = `../controllers/dashboard.controller.php?method=delete&id=${id}`
+        bodyDashboard.classList.add('activeDeleteDiv');
     })
-}
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    heightHover();
 })
-window.addEventListener('resize', ()=>{
-    heightHover();
+
+let closeDeleteDiv = [cDeleteUser, btnCloseDelete]
+closeDeleteDiv.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+        bodyDashboard.classList.remove('activeDeleteDiv');
+    })
 })

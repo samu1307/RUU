@@ -575,9 +575,6 @@
 
     .#{$r}__body{span{font-size: 1.5vw;}}
 
-#userLogin,
-#passLogin{}
-
     .form-login{button, input{padding: 2vh 2.5vw;}}
 
     #rol-btn-coor{
@@ -671,6 +668,20 @@
 
 /* * * DASHBOARD * * */
 
+.cont-delete-confirm{
+    width: 40vw;
+    height: 30vh;
+    h3{margin-bottom: 4vh;}
+    button,a{transition: all .3s;}
+    button,a{&:hover{scale: 1.1;}}
+}
+
+#close-delete{
+    font-size: 3vw;
+}
+
+.cont-delete-btns{button,a{font-size: 2vw;}}
+
 .header-db{
     padding: 2%;
 }
@@ -744,10 +755,6 @@
     word-wrap: break-word;
     span{margin-right: .5vw;}
     span,div{font-size: 1.7vw;}
-}
-
-.main-card-cont-second{
-
 }
 
 .main-card-email,

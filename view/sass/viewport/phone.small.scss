@@ -762,6 +762,64 @@ footer{
 
 /* * * * * * * * * VIEW/DASHBOARD.HTML * * * * * * * * */
 
+.activeDeleteDiv{
+    .body-db-users{
+        pointer-events: none;
+    }
+    .cont-delete-confirm{
+        display: flex;
+    }
+}
+
+.cont-delete-confirm{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 80vw;
+    height: 25vh;
+    z-index: 100;
+    padding: 5vw 5vh;
+    display: none;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    background: $white;
+    border-radius: 3vw;
+    box-shadow: 0 0 10px 1px rgba($color: $bluedark, $alpha: .3);
+
+    h3{margin-bottom: 2vh;}
+}
+
+#close-delete{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 6vw;
+}
+
+.cont-delete-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    button, a{
+        border: none;
+        color: $white;
+        padding: 1vh 3vw;
+        border-radius: 1vw;
+        font: {family: $Segoe;size: 4vw;}
+        box-shadow: 0 0 10px rgba($color: $bluedark, $alpha: .3);
+    }
+}
+
+#delete-btn-ca{background: $bluedark;}
+#delete-btn-el{background: $red}
 
 #body-dash{
     transition: all .4s;
@@ -1474,7 +1532,8 @@ footer{
     .uc-line{animation-name: new-line;}
 }
 
-.userCreated{
+.userCreated,
+.userUpdate{
     left: -200%;
     top: 2%;
     right: 0;

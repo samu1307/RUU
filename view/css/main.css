@@ -996,6 +996,70 @@ footer {
 }
 
 /* * * * * * * * * VIEW/DASHBOARD.HTML * * * * * * * * */
+.activeDeleteDiv .body-db-users {
+  pointer-events: none;
+}
+.activeDeleteDiv .cont-delete-confirm {
+  display: flex;
+}
+
+.cont-delete-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80vw;
+  height: 25vh;
+  z-index: 100;
+  padding: 5vw 5vh;
+  display: none;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 3vw;
+  box-shadow: 0 0 10px 1px rgba(30, 34, 47, 0.3);
+}
+.cont-delete-confirm h3 {
+  margin-bottom: 2vh;
+}
+
+#close-delete {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 6vw;
+}
+
+.cont-delete-btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.cont-delete-btns button, .cont-delete-btns a {
+  border: none;
+  color: #FFFFFF;
+  padding: 1vh 3vw;
+  border-radius: 1vw;
+  font-family: "Segoe UI";
+  font-size: 4vw;
+  box-shadow: 0 0 10px rgba(30, 34, 47, 0.3);
+}
+
+#delete-btn-ca {
+  background: #1E222F;
+}
+
+#delete-btn-el {
+  background: #FF5959;
+}
+
 #body-dash {
   transition: all 0.4s;
   background-color: #4AA163;
@@ -1794,7 +1858,8 @@ footer {
   animation-name: new-line;
 }
 
-.userCreated {
+.userCreated,
+.userUpdate {
   left: -200%;
   top: 2%;
   right: 0;
@@ -2625,6 +2690,25 @@ footer {
     font-size: 1.8vw;
   }
   /* * * DASHBOARD * * */
+  .cont-delete-confirm {
+    width: 40vw;
+    height: 30vh;
+  }
+  .cont-delete-confirm h3 {
+    margin-bottom: 4vh;
+  }
+  .cont-delete-confirm button, .cont-delete-confirm a {
+    transition: all 0.3s;
+  }
+  .cont-delete-confirm button:hover, .cont-delete-confirm a:hover {
+    scale: 1.1;
+  }
+  #close-delete {
+    font-size: 3vw;
+  }
+  .cont-delete-btns button, .cont-delete-btns a {
+    font-size: 2vw;
+  }
   .header-db {
     padding: 2%;
   }
@@ -2846,6 +2930,18 @@ footer {
     font-size: 1.5vw;
   }
   /* * * * * Dashboard * * * * */
+  .cont-delete-confirm {
+    width: 30vw;
+    height: 25vh;
+    border-radius: 1.5vw;
+  }
+  #close-delete {
+    font-size: 2vw;
+  }
+  .cont-delete-btns button, .cont-delete-btns a {
+    font-size: 1.3vw;
+    border-radius: 0.5vw;
+  }
   #menu-icon-div i {
     font-size: 2vw;
   }

@@ -53,6 +53,23 @@
 
 /* * * * * Dashboard * * * * */
 
+.cont-delete-confirm{
+    width: 30vw;
+    height: 25vh;
+    border-radius: 1.5vw;
+}
+
+#close-delete{
+    font-size: 2vw;
+}
+
+.cont-delete-btns{
+    button,a{
+        font-size: 1.3vw;
+        border-radius: .5vw;
+    }
+}
+
 #menu-icon-div{i{font-size: 2vw;}}
 
 #search{h3{font-size: 4vw;}}

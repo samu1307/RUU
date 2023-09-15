@@ -1,13 +1,26 @@
 <?php
+    $urlCss =  '../css/main.css';
     $tittle =  'Crear Usuario';
     $urlJs =  '../js/cuser.js';
-    $urlCss =  '../css/main.css';
     $icon = 1;
     include('../templates.php/head-page.php'); 
+
+    include_once('../../models/crud.model.php'); 
+    if($_GET){
+        $idUser = $_GET['id'];
+        $rol = $_GET['r_0'];
+        $model = new ModelCRUD();
+        $res = $model->getData($idUser, $rol);
+    }
+
 ?>
 <body id="body-create">
     <div class="userCreated">
         <div class="uc-p df">Usuario creado</div>
+        <div class="uc-line"></div>
+    </div>
+    <div class="userUpdate">
+        <div class="uc-p df">Usuario actualizado</div>
         <div class="uc-line"></div>
     </div>
     <div id="body-login" class="body-user">
@@ -31,7 +44,109 @@
             una variedad de funciones más
         </p>
     </div>
+    <?php if(isset($res)){ foreach($res as $data){?>
     <form id="createUser" class="right__body form-user w100 df" >
+        <div class="right__names df w100">
+            <div class="right__name-name">
+                <span>Nombres</span>
+                <input type="text" placeholder="Nombres" value="<?= $data['nombre'] ?>" name="name" id="name">
+            </div>
+            <div class="right__name-lastname">
+                <span>Apellidos</span>
+                <input type="text" placeholder="Apellidos" value="<?= $data['apellido'] ?>" name="lastname" id="lastname">
+            </div>
+        </div>
+        <div class="right__info df w100">
+            <div class="right__info-number">
+                <span>Telefono</span>
+                <input type="number" maxlength="10" placeholder="Telefono" value="<?= $data['telefono'] ?>" name="number" id="number">
+            </div>
+            <div class="right__info-email">
+                <span>Correo</span>
+                <input type="email" placeholder="Correo" value="<?= $data['correo'] ?>" name="email" id="email">
+            </div>
+        </div>
+        <div class="right__jornada-div-btn w100">
+            <span>Jornada</span>
+            <?php if($data['jornada'] == 'M'){ ?>
+            <div class="right__jornada df w100">
+                <button class="right__jornada-btn off rol-btn-active" id="jor-btn-mañana" type="button" value="coor">
+                    <div class="right__jornada-cont df cxy"></div>
+                    <div>Mañana</div>
+                </button>
+                <button class="right__jornada-btn off" id="jor-btn-tarde" type="button" value="aux">
+                    <div class="right__jornada-cont df cxy"></div>
+                    <div>Tarde<div>
+                </button>
+            </div>
+            <?php }else{ ?>
+            <div class="right__jornada df w100">
+                <button class="right__jornada-btn off" id="jor-btn-mañana" type="button" value="coor">
+                    <div class="right__jornada-cont df cxy"></div>
+                    <div>Mañana</div>
+                </button>
+                <button class="right__jornada-btn off rol-btn-active" id="jor-btn-tarde" type="button" value="aux">
+                    <div class="right__jornada-cont df cxy"></div>
+                    <div>Tarde<div>
+                </button>
+            </div>
+            <?php } ?>
+        </div>
+        <div class="right__user df w100">
+            <div class="right__user-user">
+                <span>Usuario</span>
+                <input type="text" placeholder="Usuario" value="<?= $data['user'] ?>" name="user" id="user">
+            </div>
+            <div class="right__user-pass">
+                <span>Contraseña</span>
+                <input type="pass" placeholder="Contraseña" value="<?= $data['pass'] ?>"  name="pass" id="pass">
+            </div>
+        </div>
+        <div class="right__body-btn w100" style="display:none;">
+            <span>Rol</span>
+            <?php if($data['rol'] == 'Coordinador'){ ?>
+            <div class="right__body-btn-rols w100">
+                <button class="right__body-btn-rol off rol-btn-active" id="rol-btn-coor" type="button" value="coor">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Coordinador</div>
+                </button>
+                <button class="right__body-btn-rol off" id="rol-btn-aux" type="button" value="aux">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Auxiliar<div>
+                </button>
+            </div>
+            <?php }else{ ?>
+            <div class="right__body-btn-rols w100">
+                <button class="right__body-btn-rol off" id="rol-btn-coor" type="button" value="coor">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Coordinador</div>
+                </button>
+                <button class="right__body-btn-rol off rol-btn-active" id="rol-btn-aux" type="button" value="aux">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Auxiliar<div>
+                </button>
+            </div>
+            <?php } ?>
+        </div>
+        <?php if($data['estado'] == 'I'){ ?>
+        <div class="right__body-btn w100">
+            <span>Estado</span>
+            <div class="right__body-btn-rols w100">
+                <button class="right__body-btn-rol off" id="rol-btn-coor" type="button" value="coor">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Activo</div>
+                </button>
+                <button class="right__body-btn-rol off rol-btn-active" id="rol-btn-aux" type="button" value="aux">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Inactivo<div>
+                </button>
+            </div>
+        </div>
+        <?php }?>
+        <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Actualizar usuario">
+    </form>
+    <?php }}else{ ?>
+        <form id="createUser" class="right__body form-user w100 df" >
         <div class="right__names df w100">
             <div class="right__name-name">
                 <span>Nombres</span>
@@ -72,7 +187,7 @@
             </div>
             <div class="right__user-pass">
                 <span>Contraseña</span>
-                <input type="pass" placeholder="Contraseña" name="pass" id="pass">
+                <input type="pass" placeholder="Contraseña"  name="pass" id="pass">
             </div>
         </div>
         <div class="right__body-btn w100">
@@ -90,6 +205,7 @@
         </div>
         <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Crear usuario">
     </form>
+    <?php } ?>
     </div>
     <?php 
         $urlA = '../dashboard.php';

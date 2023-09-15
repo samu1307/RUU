@@ -14,7 +14,7 @@
             return ($this->model->read($table) != false) ? $this->model->read($table) : false ;
         }
 
-        public function create(){
+        public function save($idUser = 0, $idRol = 0){
             if(isset($_POST)){
                 $name = $_POST['namee'];
                 $lastname = $_POST['lastname'];
@@ -24,9 +24,20 @@
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
                 $rol = $_POST['rol'];
-                
-                return $this->model->create($name, $lastname, $number, $email, $jornada, $user, $pass, $rol);
+
+                if ($idUser != 0 && $idRol != 0){
+                    // Edita
+                    return $this->model->save($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol);
+                }else{
+                    // Crea
+                    return $this->model->save($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol);
+                }
             }
+        }
+
+        public function delete($id){
+            $this->model->delete($id);
+            header('Location: ../view/dashboard.php');
         }
     }
 
@@ -35,10 +46,17 @@
     
         switch ($_GET['method']) {
             case 'create':
-                echo $class->create();
+                echo $class->save();
                 break;
-            default:
-                echo "Método no válido";
+            case 'update':
+                $idUser = $_GET['idUser'];
+                $idRol = $_GET['idRol'];
+                echo $class->save($idUser, $idRol);
+                break;
+            case 'delete':
+                $id = $_GET['id'];
+                echo $class->delete($id);
+                break;
         }
     }
 

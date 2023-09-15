@@ -754,6 +754,28 @@
 }
 
 /* * * DASHBOARD * * */
+.cont-delete-confirm {
+  width: 40vw;
+  height: 30vh;
+}
+.cont-delete-confirm h3 {
+  margin-bottom: 4vh;
+}
+.cont-delete-confirm button, .cont-delete-confirm a {
+  transition: all 0.3s;
+}
+.cont-delete-confirm button:hover, .cont-delete-confirm a:hover {
+  scale: 1.1;
+}
+
+#close-delete {
+  font-size: 3vw;
+}
+
+.cont-delete-btns button, .cont-delete-btns a {
+  font-size: 2vw;
+}
+
 .header-db {
   padding: 2%;
 }

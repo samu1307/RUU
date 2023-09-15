@@ -11,365 +11,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de datos: `id18786132_db_ruu`
 --
 CREATE DATABASE IF NOT EXISTS `RUU` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `RUU`;
-
-DELIMITER $$
---
--- Procedimientos
---
-DROP PROCEDURE IF EXISTS `sp_createAux`$$
-CREATE  PROCEDURE `sp_createAux` (IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_jornada` VARCHAR(1), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20))   BEGIN
-	INSERT INTO usuario (usuario, contrasenia, rol, estado) VALUES (_user, _pass, 'Coordinador', 'A');
-	INSERT INTO auxiliar (nombre, apellido, telefono, correo, usuario) VALUES (_name, _lastName, _number, _email, _user);
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_createCoor`$$
-CREATE  PROCEDURE `sp_createCoor` (IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_user` INT(11))   BEGIN
-	INSERT INTO coordinador (nombre, apellido, telefono, correo, usuario) VALUES (_name, _lastName, _number, _email, _user);
-    SELECT * FROM coordinador WHERE nombre = _name;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_createCourse`$$
-CREATE  PROCEDURE `sp_createCourse` (IN `_grado` INT(2), IN `_curso` VARCHAR(1), IN `_jornada` VARCHAR(1), IN `_cantAlumnos` BIGINT(20), IN `_profesor` VARCHAR(20), IN `_estado` VARCHAR(1))   BEGIN
-	INSERT INTO curso (grado, curso, jornada, cantAlumnos, profesor, estado) VALUES (_grado, _curso, _jornada, _cantAlumnos, _profesor, _estado);
-    SELECT * FROM curso WHERE grado = _grado AND curso = _curso;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_createCuRe`$$
-CREATE  PROCEDURE `sp_createCuRe` (IN `_horaER` TIME, IN `_fechaER` DATE, IN `_cantidad` INT, IN `_cursoId` INT(11), IN `_refriId` INT(11))   BEGIN
-	INSERT INTO curso_refrigerio (horaEntregaRefri, fechaEntregaRefri, cantidad, curso_idCurso, refrigerio_idRefrigerio) VALUES (_grado, _curso, _jornada, _cantAlumnos, _profesor, _estado);
-    SELECT * FROM curso_refrigerio WHERE idEntregaRefri = _name;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_createSnack`$$
-CREATE  PROCEDURE `sp_createSnack` (IN `_hora` TIME, IN `_fecha` DATE, IN `_cantidad` BIGINT(20), IN `_tipo` VARCHAR(1), IN `_descripcion` VARCHAR(100), IN `auxiliar` INT(11), IN `coordinador` INT(11))   BEGIN
-	INSERT INTO refrigerio (hora, fecha, cantidad, tipo, descripcion, auxiliar, coordinador) VALUES (_hora, _fecha, _cantidad, _tipo, _descripcion, _auxiliar, _coordinador);
-    SELECT * FROM refrigerio WHERE hora = _hora;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_createUser`$$
-CREATE  PROCEDURE `sp_createUser` (IN `_name` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(20), IN `_state` VARCHAR(1))   BEGIN
-	INSERT INTO usuario (usuario, contrasenia, rol, estado) VALUES (_name, _pass, _rol, UCASE(_state));
-    SELECT * FROM usuario WHERE nombre = _name;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_deleteAuxById`$$
-CREATE  PROCEDURE `sp_deleteAuxById` (IN `_id` INT(11))   BEGIN 
-	DELETE FROM auxiliar WHERE idAuxiliar = _id;
-	SELECT * FROM auxiliar WHERE idAuxiliar = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_deleteCoorById`$$
-CREATE  PROCEDURE `sp_deleteCoorById` (IN `_id` INT(11))   BEGIN 
-	DELETE FROM coordinador WHERE idCoordinador = _id;
-	SELECT * FROM coordinador WHERE idCoordinador = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_deleteCourseById`$$
-CREATE  PROCEDURE `sp_deleteCourseById` (IN `_id` INT(11))   BEGIN 
-	DELETE FROM curso WHERE idCurso = _id;
-	SELECT * FROM curso;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_deleteCuReById`$$
-CREATE  PROCEDURE `sp_deleteCuReById` (IN `_id` INT(11))   BEGIN 
-	DELETE FROM curso_refrigerio WHERE idEntregaRefri = _id;
-	SELECT * FROM curso_refrigerio;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_deleteUserById`$$
-CREATE  PROCEDURE `sp_deleteUserById` (IN `_id` INT(11))   BEGIN 
-	DELETE FROM usuario WHERE idUsuario = _id;
-	SELECT * FROM usuario WHERE idUsuario = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryAuxById`$$
-CREATE  PROCEDURE `sp_queryAuxById` (IN `_id` INT(11))   BEGIN 
-	SELECT * FROM auxiliar WHERE idAuxiliar = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryAuxs`$$
-CREATE  PROCEDURE `sp_queryAuxs` ()   BEGIN
-SELECT * FROM auxiliar;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryCoor`$$
-CREATE  PROCEDURE `sp_queryCoor` ()   BEGIN
-SELECT * FROM coordinador;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryCoorById`$$
-CREATE  PROCEDURE `sp_queryCoorById` (IN `_id` INT(11))   BEGIN 
-	SELECT * FROM coordinador WHERE idAuxiliar = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryCourse`$$
-CREATE  PROCEDURE `sp_queryCourse` ()   BEGIN
-SELECT * FROM curso;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryCourseById`$$
-CREATE  PROCEDURE `sp_queryCourseById` (IN `_id` INT(11))   BEGIN 
-	SELECT * FROM curso WHERE idCurso = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryCuRe`$$
-CREATE  PROCEDURE `sp_queryCuRe` ()   BEGIN
-SELECT * FROM curso_refrigerio;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryCuReById`$$
-CREATE  PROCEDURE `sp_queryCuReById` (IN `_id` INT(11))   BEGIN 
-	SELECT * FROM curso_refrigerio WHERE idEntregaRefri = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_querySnack`$$
-CREATE  PROCEDURE `sp_querySnack` ()   BEGIN
-SELECT * FROM refrigerio;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_querySnackById`$$
-CREATE  PROCEDURE `sp_querySnackById` (IN `_id` INT(11))   BEGIN 
-	SELECT * FROM refrigerio WHERE idRefrigerio = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryUser`$$
-CREATE  PROCEDURE `sp_queryUser` ()   BEGIN
-SELECT * FROM usuario;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_queryUserById`$$
-CREATE  PROCEDURE `sp_queryUserById` (IN `_id` INT)   BEGIN 
-	SELECT * FROM usuario WHERE idUsuario = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateAuxEmail`$$
-CREATE  PROCEDURE `sp_updateAuxEmail` (IN `_id` INT(11), IN `_newEmail` VARCHAR(50))   BEGIN
-	UPDATE auxiliar SET correo = _newEmail WHERE idAuxiliar = _id;
-    SELECT * FROM auxiliar WHERE correo = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateAuxId`$$
-CREATE  PROCEDURE `sp_updateAuxId` (IN `_id` INT(11), IN `_newId` INT)   BEGIN
-	UPDATE auxiliar SET idAuxiliar = _newId WHERE idAuxiliar = _id;
-    SELECT * FROM auxiliar WHERE idAuxiliar = _newId;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateAuxLastName`$$
-CREATE  PROCEDURE `sp_updateAuxLastName` (IN `_id` INT(11), IN `_newLastName` VARCHAR(50))   BEGIN
-	UPDATE auxiliar SET apellido = _newLastName WHERE idAuxiliar = _id;
-    SELECT * FROM auxiliar WHERE apellido = _newLastName;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateAuxName`$$
-CREATE  PROCEDURE `sp_updateAuxName` (IN `_id` INT(11), IN `_newName` VARCHAR(40))   BEGIN
-	UPDATE auxiliar SET nombre = _newName WHERE idAuxiliar = _id;
-    SELECT * FROM auxiliar WHERE nombre = _newName;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateAuxNumber`$$
-CREATE  PROCEDURE `sp_updateAuxNumber` (IN `_id` INT(11), IN `_newNumber` VARCHAR(10))   BEGIN
-	UPDATE auxiliar SET telefono = _newNumber WHERE idAuxiliar = _id;
-    SELECT * FROM auxiliar WHERE telefono = _newNumber;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCoorEmail`$$
-CREATE  PROCEDURE `sp_updateCoorEmail` (IN `_id` INT(11), IN `_newEmail` VARCHAR(50))   BEGIN
-	UPDATE coordinador SET correo = _newEmail WHERE idCoordinador = _id;
-    SELECT * FROM coordinador WHERE correo = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCoorId`$$
-CREATE  PROCEDURE `sp_updateCoorId` (IN `_id` INT(11), IN `_newId` INT)   BEGIN
-	UPDATE coordinador SET idCoordinador = _newId WHERE idCoordinador = _id;
-    SELECT * FROM coordinador WHERE idCoordinador = _newId;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCoorLastName`$$
-CREATE  PROCEDURE `sp_updateCoorLastName` (IN `_id` INT(11), IN `_newLastName` VARCHAR(50))   BEGIN
-	UPDATE coordinador SET apellido = _newLastName WHERE idCoordinador = _id;
-    SELECT * FROM coordinador WHERE apellido = _newLastName;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCoorName`$$
-CREATE  PROCEDURE `sp_updateCoorName` (IN `_id` INT(11), IN `_newName` VARCHAR(40))   BEGIN
-	UPDATE coordinador SET nombre = _newName WHERE idCoordinador = _id;
-    SELECT * FROM coordinador WHERE nombre = _newName;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCoorNumber`$$
-CREATE  PROCEDURE `sp_updateCoorNumber` (IN `_id` INT(11), IN `_newNumber` VARCHAR(10))   BEGIN
-	UPDATE coordinador SET telefono = _newNumber WHERE idCoordinador = _id;
-    SELECT * FROM coordinador WHERE telefono = _newNumber;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCourse`$$
-CREATE  PROCEDURE `sp_updateCourse` (IN `_id` INT(11), IN `_newCourse` VARCHAR(1))   BEGIN
-	UPDATE curso SET curso = _newCourse WHERE idCurso = _id;
-    SELECT * FROM curso WHERE idCurso = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCourseCAlum`$$
-CREATE  PROCEDURE `sp_updateCourseCAlum` (IN `_id` INT(11), IN `_newCAlum` BIGINT(20))   BEGIN
-	UPDATE curso SET cantAlumnos = _newCAlum WHERE idCurso = _id;
-    SELECT * FROM curso WHERE idCurso = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCourseGrade`$$
-CREATE  PROCEDURE `sp_updateCourseGrade` (IN `_id` INT(11), IN `_newGrade` INT(2))   BEGIN
-	UPDATE curso SET grado = _newGrade WHERE idCurso = _id;
-    SELECT * FROM curso	 WHERE idCurso = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCourseId`$$
-CREATE  PROCEDURE `sp_updateCourseId` (IN `_id` INT(11), IN `_newId` INT)   BEGIN
-	UPDATE curso SET idCurso = _newId WHERE idCurso = _id;
-    SELECT * FROM curso WHERE idCurso = _newId;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCourseJ`$$
-CREATE  PROCEDURE `sp_updateCourseJ` (IN `_id` INT(11), IN `_newJ` VARCHAR(1))   BEGIN
-	UPDATE curso SET jornada = _newJ WHERE idCurso = _id;
-    SELECT * FROM curso WHERE idCurso = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCourseState`$$
-CREATE  PROCEDURE `sp_updateCourseState` (IN `_id` INT(11), IN `_newState` VARCHAR(1))   BEGIN
-	UPDATE curso SET estado = _newState WHERE idCurso = _id;
-    SELECT * FROM curso WHERE idCurso = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCourseTeach`$$
-CREATE  PROCEDURE `sp_updateCourseTeach` (IN `_id` INT(11), IN `_newTeach` VARCHAR(20))   BEGIN
-	UPDATE curso SET profesor = _newTeach WHERE idCurso = _id;
-    SELECT * FROM curso WHERE idCurso = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCuReCant`$$
-CREATE  PROCEDURE `sp_updateCuReCant` (IN `_id` INT(11), IN `_newCant` VARCHAR(1))   BEGIN
-	UPDATE curso_refrigerio SET cantidad = _newCant WHERE idEntregaRefri = _id;
-    SELECT * FROM curso_refrigerio WHERE idEntregaRefri = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCuReCursoId`$$
-CREATE  PROCEDURE `sp_updateCuReCursoId` (IN `_id` INT(11), IN `_newIdCurso` BIGINT(20))   BEGIN
-	UPDATE curso_refrigerio SET curso_idCurso = _newIdCurso WHERE idEntregaRefri = _id;
-    SELECT * FROM curso_refrigerio WHERE idEntregaRefri = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCuReDate`$$
-CREATE  PROCEDURE `sp_updateCuReDate` (IN `_id` INT(11), IN `_newDate` DATE)   BEGIN
-	UPDATE curso_refrigerio SET fechaEntregaRefri = _newDate WHERE idEntregaRefri = _id;
-    SELECT * FROM curso_refrigerio WHERE idEntregaRefri = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCuReId`$$
-CREATE  PROCEDURE `sp_updateCuReId` (IN `_id` INT(11), IN `_newId` INT)   BEGIN
-	UPDATE curso_refrigerio SET idEntregaRefri = _newId WHERE idEntregaRefri = _id;
-    SELECT * FROM curso_refrigerio WHERE idEntregaRefri = _newId;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCuReRefriId`$$
-CREATE  PROCEDURE `sp_updateCuReRefriId` (IN `_id` INT(11), IN `_newIdRefri` VARCHAR(20))   BEGIN
-	UPDATE curso_refrigerio SET refrigerio_idRefrigerio = _newIdRefri WHERE idEntregaRefri = _id;
-    SELECT * FROM curso_refrigerio WHERE idEntregaRefri = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateCuReTime`$$
-CREATE  PROCEDURE `sp_updateCuReTime` (IN `_id` INT(11), IN `_newTime` TIME)   BEGIN
-	UPDATE curso_refrigerio SET horaEntregaRefri = _newTime WHERE idEntregaRefri = _id;
-    SELECT * FROM curso_refrigerio WHERE idEntregaRefri = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateSnackAux`$$
-CREATE  PROCEDURE `sp_updateSnackAux` (IN `_id` INT(11), IN `_newAux` VARCHAR(50))   BEGIN
-	UPDATE refrigerio SET auxiliar = _newAux WHERE idRefrigerio = _id;
-    SELECT * FROM refrigerio WHERE idRefrigerio = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateSnackCant`$$
-CREATE  PROCEDURE `sp_updateSnackCant` (IN `_id` INT(11), IN `_newCant` VARCHAR(10))   BEGIN
-	UPDATE refrigerio SET cantidad = _newCant WHERE idRefrigerio = _id;
-    SELECT * FROM refrigerio WHERE idRefrigerio = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateSnackCoor`$$
-CREATE  PROCEDURE `sp_updateSnackCoor` (IN `_id` INT(11), IN `_newCoor` VARCHAR(50))   BEGIN
-	UPDATE refrigerio SET coordinador = _newCoor WHERE idRefrigerio = _id;
-    SELECT * FROM refrigerio WHERE idRefrigerio = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateSnackDate`$$
-CREATE  PROCEDURE `sp_updateSnackDate` (IN `_id` INT(11), IN `_newDate` VARCHAR(50))   BEGIN
-	UPDATE refrigerio SET fecha = _newDate WHERE idRefrigerio = _id;
-    SELECT * FROM refrigerio WHERE idRefrigerio = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateSnackDescri`$$
-CREATE  PROCEDURE `sp_updateSnackDescri` (IN `_id` INT(11), IN `_newDescri` VARCHAR(100))   BEGIN
-	UPDATE refrigerio SET descripcion = _newDescri WHERE idRefrigerio = _id;
-    SELECT * FROM refrigerio WHERE idRefrigerio = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateSnackId`$$
-CREATE  PROCEDURE `sp_updateSnackId` (IN `_id` INT(11), IN `_newId` INT)   BEGIN
-	UPDATE refrigerio SET idRefrigerio = _newId WHERE idRefrigerio = _id;
-    SELECT * FROM refrigerio WHERE idRefrigerio = _newId;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateSnackTime`$$
-CREATE  PROCEDURE `sp_updateSnackTime` (IN `_id` INT(11), IN `_newTime` VARCHAR(40))   BEGIN
-	UPDATE refrigerio SET hora = _newTime WHERE idRefrigerio = _id;
-    SELECT * FROM refrigerio WHERE hora = _newTime;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateSnackType`$$
-CREATE  PROCEDURE `sp_updateSnackType` (IN `_id` INT(11), IN `_newType` VARCHAR(50))   BEGIN
-	UPDATE refrigerio SET tipo = _newType WHERE idRefrigerio = _id;
-    SELECT * FROM refrigerio WHERE idRefrigerio = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateUserId`$$
-CREATE  PROCEDURE `sp_updateUserId` (IN `_id` INT, IN `_newId` INT)   BEGIN
-	UPDATE usuario SET idUsuario = _newId WHERE idUsuario = _id;
-    SELECT * FROM usuario WHERE idUsuario = _newId;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateUserName`$$
-CREATE  PROCEDURE `sp_updateUserName` (IN `_name` VARCHAR(40), IN `_newName` VARCHAR(40))   BEGIN
-	UPDATE usuario SET usuario = _newName WHERE usuario = _name;
-    SELECT * FROM usuario WHERE usuario = _newName;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateUserPass`$$
-CREATE  PROCEDURE `sp_updateUserPass` (IN `_pass` VARCHAR(20), IN `_newPass` VARCHAR(20))   BEGIN
-	UPDATE usuario SET contrasenia = _newPass WHERE contrasenia = _pass;
-    SELECT * FROM usuario WHERE contrasenia = _newPass;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateUserRol`$$
-CREATE  PROCEDURE `sp_updateUserRol` (IN `_id` INT(11), IN `_newRol` VARCHAR(20))   BEGIN
-	UPDATE usuario SET rol = _newRol WHERE idUsuario = _id;
-    SELECT * FROM usuario WHERE idUsuario = _id;
-END$$
-
-DROP PROCEDURE IF EXISTS `sp_updateUserState`$$
-CREATE  PROCEDURE `sp_updateUserState` (IN `_id` INT(11), IN `_newState` VARCHAR(1))   BEGIN
-	UPDATE usuario SET estado = _newState WHERE idUsuario = _id;
-    SELECT * FROM usuario WHERE idUsuario = _id;
-END$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -392,7 +38,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idUsuario`, `usuario`, `contrasenia`, `rol`, `estado`) VALUES
 (0, 'ADMIN', '.33', 'Coordinador', 'A'),
-(1, 'Juan Carlos', 'juandmin123', 'Auxiliar', 'A'),
+(1, 'Juan Carlos', 'juandmin123', 'Coordinador', 'A'),
 (2, 'Walter', 'walteradmin123', 'Coordinador', 'A'),
 (3, 'Carolina', 'caro023277', 'Auxiliar', 'A'),
 (4, 'Maria Jose', 'Maria.33', 'Auxiliar', 'A'),
@@ -907,12 +553,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`id18786132_db`@`%` SQL SECURITY DEFINER VIEW
 -- Estructura para la vista `v_userAuxiliar`
 --
 CREATE OR REPLACE VIEW v_userAuxiliar AS
-    SELECT u.idUsuario AS id, u.usuario AS user,
+    SELECT u.idUsuario, a.idAuxiliar, u.usuario AS user,
       u.contrasenia AS pass, u.rol AS rol,
       u.estado, a.nombre, a.apellido, a.jornada,a.telefono, a.correo
     FROM usuario AS u
     INNER JOIN auxiliar AS a 
-    WHERE u.idUsuario = a.usuario;
+    WHERE u.idUsuario = a.usuario AND u.rol = 'Auxiliar';
 
 
 -- --------------------------------------------------------
@@ -921,12 +567,12 @@ CREATE OR REPLACE VIEW v_userAuxiliar AS
 -- Estructura para la vista `v_userCoordinador`
 --
 CREATE OR REPLACE VIEW v_userCoordinador AS
-    SELECT u.idUsuario AS id, u.usuario AS user,
+    SELECT u.idUsuario, a.idCoordinador, u.usuario AS user,
       u.contrasenia AS pass, u.rol AS rol,
       u.estado, a.nombre, a.apellido, a.jornada, a.telefono, a.correo
     FROM usuario AS u
     INNER JOIN coordinador AS a 
-    WHERE u.idUsuario = a.usuario;
+    WHERE u.idUsuario = a.usuario AND u.rol = 'Coordinador';
 
 --
 -- Índices para tablas volcadas
@@ -1045,6 +691,45 @@ ALTER TABLE `refrigerio`
   ADD CONSTRAINT `refrigerio_ibfk_2` FOREIGN KEY (`coordinador`) REFERENCES `coordinador` (`idCoordinador`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Procedimientos
+--
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_saveUser` $$
+CREATE  PROCEDURE `sp_saveUser` (IN `_id` INT, IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_jornada` VARCHAR(1),  IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11), IN `_idRol` INT) 
+BEGIN
+  DECLARE _idQuery INT; 
+  IF _id = 0 THEN
+	  INSERT INTO usuario (usuario, contrasenia, rol, estado) VALUES (_user, _pass, _rol, 'A');
+    SELECT idUsuario INTO _idQuery FROM usuario WHERE usuario = _user AND contrasenia = _pass AND rol = _rol;
+    IF _rol = 'Coordinador' THEN 
+	    INSERT INTO coordinador (nombre, apellido, jornada, telefono, correo, usuario) VALUES (_name, _lastName, _jornada, _number, _email, _idQuery);
+    ELSE
+      INSERT INTO auxiliar (nombre, apellido, jornada, telefono, correo, usuario) VALUES (_name, _lastName, _jornada, _number, _email, _idQuery);
+    END IF;
+  ELSE 
+	  UPDATE usuario SET usuario = _user, contrasenia = _pass WHERE idUsuario = _id;
+    IF _rol = 'Coordinador' THEN 
+	    UPDATE coordinador SET nombre = _name, apellido = _lastName, jornada = _jornada, telefono = _number, correo = _email WHERE idCoordinador = _idRol;
+    ELSE
+	    UPDATE auxiliar SET nombre = _name, apellido = _lastName, jornada = _jornada, telefono = _number, correo = _email WHERE idAuxiliar = _idRol;
+    END IF;
+  END IF;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_deleteUser`$$
+CREATE  PROCEDURE `sp_deleteUser` (IN `_id` INT) 
+BEGIN
+	UPDATE usuario SET estado = "I" WHERE idUsuario = _id;
+END$$
+
+DELIMITER $$
+
