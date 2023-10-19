@@ -872,6 +872,58 @@ footer {
 }
 
 /* * * * * * * * * VIEW/DASHBOARD.HTML * * * * * * * * */
+/* * * Animation Menu * * */
+.first-page {
+  top: 50% !important;
+  left: 85% !important;
+  border-radius: 5vw;
+}
+
+.second-page {
+  top: 45% !important;
+  left: 76% !important;
+  border-radius: 5vw;
+}
+
+.third-page {
+  top: 40% !important;
+  left: 67% !important;
+  border-radius: 5vw;
+}
+
+.fourth-page {
+  top: 35% !important;
+  left: 58% !important;
+  border-radius: 5vw;
+}
+
+.fifth-page {
+  top: 30% !important;
+  left: 49% !important;
+  border-radius: 5vw;
+}
+
+.zi-first {
+  z-index: 100 !important;
+}
+
+.zi-second {
+  z-index: 80 !important;
+}
+
+.zi-third {
+  z-index: 60 !important;
+}
+
+.zi-fourth {
+  z-index: 40 !important;
+}
+
+.zi-fifth {
+  z-index: 20 !important;
+}
+
+/* * * Animation Menu * * */
 .activeDeleteDiv .body-db-users {
   pointer-events: none;
 }

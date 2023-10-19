@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 96 \2502  .#{$r}__text{p{font-size: 1.2vw;}}\a    \2502     ^^\a    \2575 \a   sass\\viewport\\pc.big.scss 96:4  root stylesheet";
+  content: "Error: Undefined variable.\a    \2577 \a 96 \2502  .#{$r}__text{p{font-size: 1.2vw;}}\d\a    \2502     ^^\a    \2575 \a   sass\\viewport\\pc.big.scss 96:4  root stylesheet";
 }

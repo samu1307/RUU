@@ -31,7 +31,7 @@
                 if($coorDates != false){
                 foreach ($coorDates as $date) {;
                     if($date['nombre'] != 'ADMIN'){?>
-                    <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
+                    <div id="<?php echo $i; ?>" class="db-main-card df <?php echo $date['estado']?>" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
                         <div class="main-card-cont">
                             <div class="main-card-cont-first df">
                                 <div class="cont-main-card-img df cxy">

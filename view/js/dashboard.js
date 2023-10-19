@@ -27,7 +27,6 @@ const headers = d.querySelectorAll('.header-db')
 
 //Query btnMenu
 const btnMenus = d.querySelectorAll('.menu-icon');
-console.log(btnMenus)
 
 //Query NAV
 const nav = d.querySelector('.nav')
@@ -48,8 +47,69 @@ const cDeleteUser = d.getElementById('delete-btn-ca');
 const btnDelete = d.querySelectorAll('.card-btn-delete');
 const btnCloseDelete = d.getElementById('close-delete');
 
+//btnSectionsMenu
+const sectionsMenu = d.querySelectorAll('.btn-menu-menu')
+
+// btnMenus
+const menusBtn = d.querySelectorAll('.menu-icon');
+
+// menusBtn.forEach(btn=>{
+//     btn.addEventListener('click', ()=>{
+//         bodyDbUsers.classList.add('first-page');
+//         bodyDbUsers.classList.add('zi-first');
+//         bodyDbCourses.classList.add('second-page');
+//         bodyDbCourses.classList.add('zi-second');
+//         bodyDbSnacks.classList.add('third-page');
+//         bodyDbSnacks.classList.add('zi-third');
+//         bodyDbProfile.classList.add('fourth-page');
+//         bodyDbProfile.classList.add('zi-fourth');
+//         bodyDbReport.classList.add('fifth-page');
+//         bodyDbReport.classList.add('zi-fifth');
+//     })
+// })
+
+
+sectionsMenu.forEach(s=>{
+    s.addEventListener('click', ()=>{
+        switch (s.id) {
+            case 'userMenu':
+                bodyDbUsers.classList.remove('first-page');
+                bodyDbCourses.classList.remove('second-page');
+                bodyDbSnacks.classList.remove('third-page');
+                bodyDbProfile.classList.remove('fourth-page');
+                bodyDbReport.classList.remove('fifth-page');
+                bodyDbUsers.classList.add('zi-first');
+                bodyDbCourses.classList.add('zi-second');
+                bodyDbSnacks.classList.add('zi-third');
+                bodyDbProfile.classList.add('zi-fourth');
+                bodyDbReport.classList.add('zi-fifth');
+                break;
+            case 'courseMenu':
+                bodyDbUsers.classList.remove('first-page');
+                bodyDbUsers.classList.remove('zi-first');
+                bodyDbCourses.classList.remove('second-page');
+                bodyDbCourses.classList.remove('zi-second');
+                bodyDbSnacks.classList.remove('third-page');
+                bodyDbProfile.classList.remove('fourth-page');
+                bodyDbReport.classList.remove('fifth-page');
+                bodyDbCourses.classList.add('zi-first');
+                bodyDbUsers.classList.add('zi-second');
+                bodyDbSnacks.classList.add('zi-third');
+                bodyDbProfile.classList.add('zi-fourth');
+                bodyDbReport.classList.add('zi-fifth');
+                break;
+            /*case 'snackMenu':
+                
+                break;
+            default:
+                break;*/
+        }
+    })
+})
+
 //Click btn menu
-btnMenus.forEach(m=>{
+/*btnMenus.forEach(m=>{
+
     m.addEventListener('click', ()=>{
         
         const pBodys = (uT, uL,uI,uH,
@@ -87,7 +147,6 @@ btnMenus.forEach(m=>{
         switch (m.id) {
             case 'users':
             
-                alert('users')
                 console.log('users')
 
                 let ifUsers = bodyDbUsers.classList.length
@@ -130,9 +189,6 @@ btnMenus.forEach(m=>{
             break;
             case 'courses':
                
-                alert('courses')
-
-
                 let ifCourses = bodyDbCourses.classList.length 
                 
                 if(ifCourses == 5){
@@ -165,8 +221,6 @@ btnMenus.forEach(m=>{
             break;
             case 'snacks':
             
-                alert('Snacks')
-
                 let ifSnacks = bodyDbSnacks.classList.length
 
                 if(ifSnacks == 5 ){
@@ -197,8 +251,6 @@ btnMenus.forEach(m=>{
             break;
             case 'profile':
                 
-                alert('Snacks')
-
                 if(bodyDbProfile.classList.length == 5 ){
             
                     pBodys('18vh', '55vw', '30', `${h}px`,
@@ -227,8 +279,6 @@ btnMenus.forEach(m=>{
             break;
             case 'report':
                 
-                alert('Snacks')
-
                 if(bodyDbReport.classList.length == 4 ){
             
                     pBodys('15vh', '50vw', '20', `${h}px`,
@@ -258,6 +308,7 @@ btnMenus.forEach(m=>{
         }
     })
 });
+*/
 
 //Search
 searchs.forEach(i=> {
@@ -312,7 +363,7 @@ searchs.forEach(i=> {
     })
 })();
 
-jc.forEach(e=>{
+/*jc.forEach(e=>{
     e.addEventListener('click', ()=>{
         
         //Añade animacion a las etiquetas de menu
@@ -430,7 +481,7 @@ jc.forEach(e=>{
 
         }, 2000)
     })
-})
+})*/
 
 btnDelete.forEach(btn=>{
     btn.addEventListener('click', ()=>{
