@@ -53,20 +53,20 @@ const sectionsMenu = d.querySelectorAll('.btn-menu-menu')
 // btnMenus
 const menusBtn = d.querySelectorAll('.menu-icon');
 
-// menusBtn.forEach(btn=>{
-//     btn.addEventListener('click', ()=>{
-//         bodyDbUsers.classList.add('first-page');
-//         bodyDbUsers.classList.add('zi-first');
-//         bodyDbCourses.classList.add('second-page');
-//         bodyDbCourses.classList.add('zi-second');
-//         bodyDbSnacks.classList.add('third-page');
-//         bodyDbSnacks.classList.add('zi-third');
-//         bodyDbProfile.classList.add('fourth-page');
-//         bodyDbProfile.classList.add('zi-fourth');
-//         bodyDbReport.classList.add('fifth-page');
-//         bodyDbReport.classList.add('zi-fifth');
-//     })
-// })
+menusBtn.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+        bodyDbUsers.classList.add('first-page');
+        bodyDbUsers.classList.add('zi-first');
+        bodyDbCourses.classList.add('second-page');
+        bodyDbCourses.classList.add('zi-second');
+        bodyDbSnacks.classList.add('third-page');
+        bodyDbSnacks.classList.add('zi-third');
+        bodyDbProfile.classList.add('fourth-page');
+        bodyDbProfile.classList.add('zi-fourth');
+        bodyDbReport.classList.add('fifth-page');
+        bodyDbReport.classList.add('zi-fifth');
+    })
+})
 
 
 sectionsMenu.forEach(s=>{
