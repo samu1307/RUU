@@ -401,7 +401,7 @@ section {
 }
 .img-slider div[id=vertical] {
   min-width: 15%;
-  max-width: 25%;
+  max-width: 21%;
 }
 .img-slider div {
   min-width: 35%;
@@ -411,6 +411,18 @@ section {
   width: 90%;
   border-radius: 5%;
   transition: all 0.2s;
+}
+
+.moSl1 {
+  margin-left: 0;
+}
+
+.moSl2 {
+  margin-left: -44%;
+}
+
+.moSl3 {
+  margin-left: -90%;
 }
 
 .main-btn-slider {
@@ -1994,16 +2006,6 @@ footer {
 }
 
 /* * * * * Querys * * * * */
-@media screen and (min-width: 400px) {
-  .img-slider div[id=vertical] {
-    min-width: 17%;
-    max-width: 18%;
-  }
-  .img-slider div {
-    min-width: 31%;
-    max-width: 32%;
-  }
-}
 @media screen and (min-width: 480px) {
   /* * * * * Index * * * * */
   .btn-login {
@@ -2060,9 +2062,6 @@ footer {
   .section-login {
     max-width: 710px;
     width: 100%;
-  }
-  .img-slider div {
-    min-width: 100%;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -2332,7 +2331,6 @@ footer {
     flex-wrap: nowrap;
   }
   .img-slider {
-    width: 250%;
     height: 80%;
   }
   .img-slider div {
@@ -2940,6 +2938,17 @@ footer {
   }
   .main-img img {
     width: 80%;
+  }
+  .main-slider {
+    padding: 0 10%;
+    justify-content: center;
+  }
+  .main-img-slider {
+    height: auto;
+    padding: 10px;
+  }
+  .img-slider {
+    height: auto;
   }
   /* * * * * Login * * * * */
   .left__head {

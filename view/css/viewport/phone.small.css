@@ -277,7 +277,7 @@ section {
 }
 .img-slider div[id=vertical] {
   min-width: 15%;
-  max-width: 25%;
+  max-width: 21%;
 }
 .img-slider div {
   min-width: 35%;
@@ -287,6 +287,18 @@ section {
   width: 90%;
   border-radius: 5%;
   transition: all 0.2s;
+}
+
+.moSl1 {
+  margin-left: 0;
+}
+
+.moSl2 {
+  margin-left: -44%;
+}
+
+.moSl3 {
+  margin-left: -90%;
 }
 
 .main-btn-slider {

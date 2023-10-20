@@ -98,7 +98,7 @@
             </div>
             <div class="main-slider">
                 <div class="main-img-slider">
-                    <div class="img-slider df">
+                    <div class="img-slider df moSl1">
                         <div class="df cxy">
                             <img class="lazy-load" src="./view/img/imgslider1.jpg" data-spy="scroll" data-img="1" alt="">
                         </div>

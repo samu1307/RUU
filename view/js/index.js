@@ -41,7 +41,6 @@ const sendBtn = d.getElementById('send');
 const menuHeaderS = mH.style;
 const menuHeaderC = mH.classList;
 const nIndexC = nnIndex.classList;
-let ifStyle = divSlider.style;
 
 
 (()=>{
@@ -121,24 +120,35 @@ const handleScroll = () => {
 d.addEventListener('scroll', handleScroll);
 
 /* Slider */
-const slider = (v1, v2)=>{
-    switch (ifStyle.marginLeft) {
-        case '': ifStyle.marginLeft = v1; break;
-        case v1: ifStyle.marginLeft = v2; break;
-        case v2: ifStyle.marginLeft = ''; break;
-    }
-}
-
-
 const sliderL = ()=>{
     btnL.addEventListener('click', ()=>{
-        slider('-50vw', '-25vw');
+        switch (divSlider.classList.item(2)) {
+            case 'moSl1':
+                divSlider.classList.replace('moSl1', 'moSl3'); 
+            break;
+            case 'moSl2':
+                divSlider.classList.replace('moSl2', 'moSl1');
+            break;
+            case 'moSl3':
+                divSlider.classList.replace('moSl3', 'moSl2');
+            break;
+        }
     })
 }
 
 const sliderR = ()=>{
     btnR.addEventListener('click', ()=>{
-        slider('-50vw', '-25vw');
+        switch (divSlider.classList.item(2)) {
+            case 'moSl1':
+                divSlider.classList.replace('moSl1', 'moSl2'); 
+            break;
+            case 'moSl2':
+                divSlider.classList.replace('moSl2', 'moSl3');
+            break;
+            case 'moSl3':
+                divSlider.classList.replace('moSl3', 'moSl1');
+            break;
+        }
     })
 }
 
@@ -297,4 +307,3 @@ sliderR();
 
 //Designar alto de a-sections al cargar
 d.addEventListener('DOMContentLoaded', cuadrado)
-    

@@ -119,19 +119,19 @@ input[type="number"] {
 
 
 /* * * * * Querys * * * * */
-@media screen and (min-width: 400px) {
+// @media screen and (min-width: 400px) {
 
-    .img-slider{
-        div[id=vertical]{
-            min-width: 17%;
-            max-width: 18%;
-        }
-        div{
-            min-width: 31%;
-            max-width: 32%;
-        }
-    }
-}
+//     .img-slider{
+//         div[id=vertical]{
+//             min-width: 17%;
+//             max-width: 18%;
+//         }
+//         div{
+//             min-width: 31%;
+//             max-width: 32%;
+//         }
+//     }
+// }
 
 @media screen and (min-width: 480px ){
     @import './viewport/phone.big.scss';
