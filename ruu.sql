@@ -52,6 +52,20 @@ INSERT INTO `usuario` (`idUsuario`, `usuario`, `contrasenia`, `rol`, `estado`) V
 (12, 'Josefina', '3125698754', 'Auxiliar', 'A'),
 (13, 'Laura', '1027653497', 'Auxiliar', 'A');
 
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `hash`
+--
+
+DROP TABLE IF EXISTS `hash`;
+CREATE TABLE `hash` (
+  `idHash` int(11) NOT NULL,
+  `hash` varchar(400) DEFAULT NOT NULL,
+  `idUser` INT(20) DEFAULT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -702,33 +716,49 @@ COMMIT;
 
 DELIMITER $$
 
+-- Create or Update
+
 DROP PROCEDURE IF EXISTS `sp_saveUser` $$
 CREATE  PROCEDURE `sp_saveUser` (IN `_id` INT, IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_jornada` VARCHAR(1),  IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11), IN `_idRol` INT) 
 BEGIN
   DECLARE _idQuery INT; 
   IF _id = 0 THEN
-	  INSERT INTO usuario (usuario, contrasenia, rol, estado) VALUES (_user, _pass, _rol, 'A');
+    INSERT INTO usuario (usuario, contrasenia, rol, estado) VALUES (_user, _pass, _rol, 'A');
     SELECT idUsuario INTO _idQuery FROM usuario WHERE usuario = _user AND contrasenia = _pass AND rol = _rol;
     IF _rol = 'Coordinador' THEN 
-	    INSERT INTO coordinador (nombre, apellido, jornada, telefono, correo, usuario) VALUES (_name, _lastName, _jornada, _number, _email, _idQuery);
+      INSERT INTO coordinador (nombre, apellido, jornada, telefono, correo, usuario) VALUES (_name, _lastName, _jornada, _number, _email, _idQuery);
     ELSE
       INSERT INTO auxiliar (nombre, apellido, jornada, telefono, correo, usuario) VALUES (_name, _lastName, _jornada, _number, _email, _idQuery);
     END IF;
   ELSE 
-	  UPDATE usuario SET usuario = _user, contrasenia = _pass WHERE idUsuario = _id;
+    UPDATE usuario SET usuario = _user, contrasenia = _pass WHERE idUsuario = _id;
     IF _rol = 'Coordinador' THEN 
-	    UPDATE coordinador SET nombre = _name, apellido = _lastName, jornada = _jornada, telefono = _number, correo = _email WHERE idCoordinador = _idRol;
+      UPDATE coordinador SET nombre = _name, apellido = _lastName, jornada = _jornada, telefono = _number, correo = _email WHERE idCoordinador = _idRol;
     ELSE
-	    UPDATE auxiliar SET nombre = _name, apellido = _lastName, jornada = _jornada, telefono = _number, correo = _email WHERE idAuxiliar = _idRol;
+      UPDATE auxiliar SET nombre = _name, apellido = _lastName, jornada = _jornada, telefono = _number, correo = _email WHERE idAuxiliar = _idRol;
     END IF;
   END IF;
 
 END$$
 
+-- Delete User
+
 DROP PROCEDURE IF EXISTS `sp_deleteUser`$$
 CREATE  PROCEDURE `sp_deleteUser` (IN `_id` INT) 
 BEGIN
 	UPDATE usuario SET estado = "I" WHERE idUsuario = _id;
+END$$
+
+-- Login
+
+DROP PROCEDURE IF EXISTS `sp_login`$$
+CREATE  PROCEDURE `sp_login` (IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11)) 
+BEGIN
+  IF `_rol` = 'coor' THEN
+    SELECT * FROM `v_usercoordinador` WHERE `user` = `_user` AND `pass` = `_pass`;
+  ELSE
+    SELECT * FROM `v_userauxiliar` WHERE `user` = `_user` AND `pass` = `_pass`;
+  END IF;
 END$$
 
 DELIMITER $$

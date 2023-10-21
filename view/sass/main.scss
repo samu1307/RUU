@@ -103,35 +103,20 @@ button{
 /* Oculta las flechas en inputs de tipo number */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0; /* Puedes ajustar el margen si es necesario */
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0; /* Puedes ajustar el margen si es necesario */
 }
 
 /* Firefox */
 input[type="number"] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 /* * * Small Phone * * */
 @import './viewport/phone.small.scss';
 
 
-
-/* * * * * Querys * * * * */
-// @media screen and (min-width: 400px) {
-
-//     .img-slider{
-//         div[id=vertical]{
-//             min-width: 17%;
-//             max-width: 18%;
-//         }
-//         div{
-//             min-width: 31%;
-//             max-width: 32%;
-//         }
-//     }
-// }
 
 @media screen and (min-width: 480px ){
     @import './viewport/phone.big.scss';

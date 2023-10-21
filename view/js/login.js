@@ -54,10 +54,10 @@ let rolAuxClass = rolAux.classList;
 })();
 
 /* Secciones */
-  //Card
-  const secCard = d.querySelectorAll('.left__body-slider-sec');
-  //Btn
-  const secBtn = d.querySelectorAll('.login-sec-btn');
+    //Card
+    const secCard = d.querySelectorAll('.left__body-slider-sec');
+    //Btn
+    const secBtn = d.querySelectorAll('.login-sec-btn');
 
 
 //Slider Animation
@@ -160,13 +160,13 @@ setInterval(()=>{
         
         /* Get dates form */
         let data = new FormData(form);
-
         
         /* Data */
         let formData = {
             rol: (rolCoorClass.length == 3)? 'coor': 'aux',
             user: data.get('user'),
-            pass: data.get('pass')
+            pass: data.get('pass'),
+            record: (data.get('record') == 'on')? 'active' : 'inactive'
         }
 
         let url = '../controllers/login.controller.php';

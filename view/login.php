@@ -1,4 +1,10 @@
 <?php
+
+    include_once('../models/login.model.php');
+    $login = new LoginModel();
+    $arrUsers = $login->readCookie();
+    print_r($arrUsers);
+
     /* Incluir Head */
     $tittle =  'Inicio de Sesión';
     $urlCss =  './css/main.css';

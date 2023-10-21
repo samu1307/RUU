@@ -16,17 +16,17 @@
 
         }
 
-        public function login($Rol, $User, $Pass){
-            
-            if($Rol == 'coor') $msg = 'SELECT * FROM v_userCoordinador WHERE user = :User AND pass = :Pass';
-            else $msg = 'SELECT * FROM v_userAuxiliar WHERE user = :User AND pass = :Pass';
+        public function login($Rol, $User, $Pass, $record){
 
-            $query = $this->pdo->prepare($msg);
+            $query = $this->pdo->prepare('CALL `sp_login` (:User, :Pass, :Rol)');
             $query->bindParam(':User', $User);
             $query->bindParam(':Pass', $Pass);
+            $query->bindParam(':Rol', $Rol);
             $query->execute();
-
+            
             if($query->rowCount() == 1){
+
+                $this->saveCookie($record, $User);
 
                 $res = $query->fetch();
 
@@ -38,14 +38,31 @@
                 $_SESSION['Correo'] = $res['correo'];
                 $_SESSION['Usuario'] = $res['user'];
                 $_SESSION['Contrasenia'] = $res['pass'];
+
                 
                 return true;
-                
                 
             }else return false;
             
         }
         
+        public function saveCookie($record, $user){
+            if($record == 'active'){
+                $userEncrypt = password_hash($user, PASSWORD_DEFAULT);
+                setCookie('__1432', $userEncrypt, time() + 606024 * 30, '/');
+            }
+        }
+
+        public function readCookie(){
+            $query = $this->pdo->prepare('SELECT usuario, contrasenia FROM usuario');
+            $query->execute();
+            $arrUsers = $query->fetchAll();
+            for($i=0; $i < count($arrUsers); $i++) {
+                $user = $arrUsers[$i][0];
+                $arr[$i] = password_hash($user, PASSWORD_DEFAULT);
+            }
+            return $arr;
+        }
         
         public function validateSession(){
             session_start();
