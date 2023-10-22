@@ -1,44 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recuperación de la cuenta</title>
-    <link rel="stylesheet" href="./css/main.css">
-    <script type="module" src="./js/index.js" defer></script>
-</head>
-<body>
-    <header id="header-login">
-        <nav class="df" id="nav-login">
-            <a href="./login.html">
-                <svg width="20" height="20" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.939279 10.9393C0.353492 11.5251 0.353492 12.4749 0.939279 13.0607L10.4852 22.6066C11.071 23.1924 12.0208 23.1924 12.6065 22.6066C13.1923 22.0208 13.1923 21.0711 12.6065 20.4853L4.12126 12L12.6065 3.51472C13.1923 2.92893 13.1923 1.97918 12.6065 1.3934C12.0208 0.807612 11.071 0.807612 10.4852 1.3934L0.939279 10.9393ZM26.9999 10.5L1.99994 10.5V13.5L26.9999 13.5V10.5Z" fill="#1E222F"/>
-                </svg>
-            </a>
-            <div class="logo-login df cxy">
-                <img src="./img/escudo.png" alt="Escudo Colegio Rafael Uribe Uribe">
-                <h3 class="di" >RUU</h3>
+<?php
+
+    include_once('../helpers/validations.php');
+    validateSession();
+
+    /* Incluir Head */
+    $tittle =  'Recuperación de contraseña';
+    $urlCss =  './css/main.css';
+    $urlJs =  './js/sendMail.js';
+    $icon = 1;
+    include('./templates.php/head-page.php'); 
+?>
+<body id="body-login" class="body-login">  
+    <div class="login-right div-form-email">
+        <div class="left__head" id="headLeft">
+            <div class="left__head-logo">
+                <img src="./img/escudo.png">
+                <h3>RUU</h3>
             </div>
-        </nav>
-    </header>
-    <main id="main-login" class="df cxy">
-        <section class="section-login">
-            <h3 class="h3-login">Recuperación de la cuenta</h3>
-            <div class="emailInvalid">
-                <h5>El codigo es inválido</h5>
+            <div class="left__head-arrow">
+                <div><a class="df cxy" href="login.php">
+                    <i class="las la-arrow-left"></i>
+                </a></div>
             </div>
-            <p class="p-login">Se acaba de enviar un correo electronico con un codigo de verifiacion a pep********@gmail.com</p>
-            <form class="form-login">
-                <div class="correo-in">
-                    <label>Codigo</label>
-                    <input type="number" name="correo" placeholder="Escribe el código" required>
+        </div>
+        <div class="right__body-main">
+            <div class="right__text info-login w100 df">
+                <h1>Recuperación de contraseña</h1>
+                <p>
+                    Ingresa tu correo electrónico para 
+                    enviarte un código de verificación.
+                </p>
+            </div>
+            <form id="form" class="right__body form-email w100 df">
+                <div class="right__body-div-email">
+                    <span>Correo</span>
+                    <input class="normal recupass w100" type="text" id="userLogin" name="email" placeholder="Ingresa tu correo">
+                    <div class="alertUser">Falta especificar el correo</div>
                 </div>
-                <div class="ingresar-in">
-                    <button type="submit" href="./recucorreo.html">Verificar</button>
-                </div>
-            </form>
-        </section>
-    </main>
+                <div class="alertLogin w100 df cxy"></div>
+                <input class="right__body-btn-send recupass" id="btnSubmit" type="submit" value="Validar">
+            </form> 
+        </div>
+    </div>
+    <?php 
+        $urlA = 'login.php';
+        $urlImg = './img/escudo.png';
+        include('./templates.php/slider-form.php'); 
+    ?>  
 </body>
 </html>

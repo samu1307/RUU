@@ -626,6 +626,7 @@
 /* RIGHT */
 .login-right {
   width: 50%;
+  justify-content: center;
 }
 
 .right__head {
@@ -645,6 +646,10 @@
 
 .right__body span {
   font-size: 1.5vw;
+}
+
+.right__body-main {
+  margin-top: 0;
 }
 
 .form-login button, .form-login input {
@@ -922,6 +927,7 @@
 
 .right__body button, .right__body input {
   border-radius: 0.7vw;
+  padding: 2vh 3vw;
 }
 
 #name, #lastname,

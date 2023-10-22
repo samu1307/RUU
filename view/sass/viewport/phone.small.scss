@@ -611,7 +611,7 @@ footer{
     height: 100%;
     a{
         height: 100%;
-        color: $white;
+        color: $bluedark;
         cursor: pointer;
         font: {size: 8.5vw; family: $SignikaL;}
     }
@@ -626,23 +626,33 @@ footer{
     justify-content: center;
 }
 
+.info-login{
+    margin-bottom: 10% !important;
+}
+
 .#{$r}__text{
     font-weight: 400;
     letter-spacing: 1px;
     align-items: start;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 5%;
-    h1{font-size: 10vw;}
+    margin-bottom: 6%;
+    h1{font-size: 10vw; line-height: 105%; margin-bottom: 5px;}
     p{font-size: 4vw;}
 }
 
 .form-login{
     height: 65%;
-    button, input{padding: 2vh 7vw;}
 }
 
+.form-email{
+    height: auto;
+}
+
+.#{$r}__body-main{margin-top: 30%;}
+
 .#{$r}__body{
+    button, input{padding: 2vh 7vw;}
     flex-direction: column;
     justify-content: space-evenly;
     span{
@@ -767,7 +777,7 @@ footer{
 .alertLogin{
     height: .1px;
     font-size: 5vw;
-}
+}   
 
 
 /* * * * * * * * * VIEW/DASHBOARD.HTML * * * * * * * * */
@@ -1501,9 +1511,7 @@ footer{
 
 
 /* HEAD CREATE USER */
-.#{$l}__head{
-    margin: 0 0 5%;
-}
+.#{$l}__head{margin: 0 0 5%;}
 
 .form-user{
     height: auto;
@@ -1528,6 +1536,7 @@ footer{
 
 .forms-create{padding: 0;}
 .div-form-login{padding: 4vh 10vw;}
+.div-form-email{padding: 4vh 10vw;justify-content: start;}
 
 #btnCUser{font-size: 5.5vw;}
 

@@ -1,9 +1,7 @@
 <?php
 
-    include_once('../models/login.model.php');
-    $login = new LoginModel();
-    $arrUsers = $login->readCookie();
-    print_r($arrUsers);
+    include_once('../helpers/validations.php');
+    validateSession();
 
     /* Incluir Head */
     $tittle =  'Inicio de Sesión';

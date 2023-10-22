@@ -1,6 +1,6 @@
 <?php
 
-    require_once('../models/login.model.php');
+    require_once('../helpers/validations.php');
     require_once('../controllers/dashboard.controller.php');
 
     $query = new ControllerCRUD();
@@ -9,8 +9,7 @@
     $snacksDates = $query->show("refrigerio");
     $coursesDates = $query->show("curso");
 
-    $mLogin = new LoginModel();
-    $mLogin->validateSession();
+    validateCookie();
 
     /* Incluir Head */
     $tittle =  'Panel de control';

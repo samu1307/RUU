@@ -1,6 +1,8 @@
 <?php
 
     require_once('connection.model.php');
+    require_once('../helpers/validations.php');
+    
 
     class LoginModel{
 
@@ -26,11 +28,11 @@
             
             if($query->rowCount() == 1){
 
-                $this->saveCookie($record, $User);
-
+                
                 $res = $query->fetch();
 
-                
+                saveCookie($record, $res[0], $res['user'], $res['pass']);
+
                 $_SESSION['id'] = $res[0];
                 $_SESSION['Nombre'] = $res['nombre'];
                 $_SESSION['Apellido'] = $res['apellido'];
@@ -38,7 +40,6 @@
                 $_SESSION['Correo'] = $res['correo'];
                 $_SESSION['Usuario'] = $res['user'];
                 $_SESSION['Contrasenia'] = $res['pass'];
-
                 
                 return true;
                 
@@ -46,27 +47,53 @@
             
         }
         
-        public function saveCookie($record, $user){
+        public function saveCookie($record, $id, $user, $pass){
             if($record == 'active'){
-                $userEncrypt = password_hash($user, PASSWORD_DEFAULT);
-                setCookie('__1432', $userEncrypt, time() + 606024 * 30, '/');
+                $user = array('id'=> $id,'user'=> $user,'pass'=> $pass);
+                setCookie('_RECOD', base64_encode('active'), time() + 86400 * 30, '/');
+                setCookie('_USSES', serialize($user), time() + 86400 * 30, '/');   
             }
         }
 
-        public function readCookie(){
-            $query = $this->pdo->prepare('SELECT usuario, contrasenia FROM usuario');
-            $query->execute();
-            $arrUsers = $query->fetchAll();
-            for($i=0; $i < count($arrUsers); $i++) {
-                $user = $arrUsers[$i][0];
-                $arr[$i] = password_hash($user, PASSWORD_DEFAULT);
+        public function validateCookie(){
+            session_start();
+            
+            $usses = isset($_COOKIE['_USSES']);
+            $sesid = isset($_SESSION['id']);  
+            $recod = isset($_COOKIE['_RECOD']);  
+            
+            if($usses && !$sesid && $recod){
+                $data = unserialize($_COOKIE['_USSES']);
+                
+                $id = $data['id'];
+                $user = $data['user'];
+                $pass = $data['pass'];
+                
+                $_SESSION['id'] = $id;
+                $_SESSION['user'] = $user;
+                $_SESSION['pass'] = $pass;
+
+            }else if(!$usses && $sesid && $recod){
+                $id = $_SESSION['id'];
+                $user = $_SESSION['user'];
+                $pass = $_SESSION['pass'];
+                $userArr = array('id'=> $id,'user'=> $user,'pass'=> $pass);
+                setCookie('_USSES', serialize($userArr), time() + 86400 * 30, '/');   
+            }else if($usses && $sesid && !$recod){
+                setCookie('_USSES', "", time() - 86400, '/');   
             }
-            return $arr;
+            else if(!$sesid && !$recod) header('Location: Login.php');
         }
         
         public function validateSession(){
             session_start();
-            if($_SESSION['id'] == '') header('Location: login.php');
+
+            $usses = isset($_COOKIE['_USSES']);
+            $sesid = isset($_SESSION['id']);
+            $recod = isset($_COOKIE['_RECOD']);  
+
+            if($sesid) header('Location: dashboard.php');
+            else if($usses && $recod) header('Location: dashboard.php');
         }
 
     }

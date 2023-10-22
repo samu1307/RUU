@@ -557,7 +557,7 @@
 
 
     /* RIGHT */
-    .login-#{$r}{width: 50%;}
+    .login-#{$r}{width: 50%;justify-content: center;}
 
     .#{$r}__head{
         display: none !important;
@@ -573,6 +573,7 @@
     }
 
     .#{$r}__body{span{font-size: 1.5vw;}}
+    .#{$r}__body-main{margin-top: 0;}
 
     .form-login{button, input{padding: 2vh 2.5vw;}}
 
@@ -782,7 +783,11 @@
 
 .forms-create,.div-form-login{padding: 4vh 6vw;}
 
-.#{$r}__body{button,input{border-radius: .7vw;}}
+.#{$r}__body{
+    button,input{
+        border-radius: .7vw;
+        padding: 2vh 3vw;
+    }}
 
 #name,#lastname,
 #number,#email,

@@ -173,6 +173,7 @@ setInterval(()=>{
 
         /* Submit */
         if (i == 0) queryFetch(url, formData, (json)=>{
+            console.log(json)
             if(json == 1){
                 btnSend.value = 'Validando...';
                 body.classList.add('bodyLoad')

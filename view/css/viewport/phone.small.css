@@ -699,7 +699,7 @@ footer {
 }
 .left__head-arrow a {
   height: 100%;
-  color: #FFFFFF;
+  color: #1E222F;
   cursor: pointer;
   font-size: 8.5vw;
   font-family: "Signika-Light";
@@ -714,16 +714,22 @@ footer {
   justify-content: center;
 }
 
+.info-login {
+  margin-bottom: 10% !important;
+}
+
 .right__text {
   font-weight: 400;
   letter-spacing: 1px;
   align-items: start;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 5%;
+  margin-bottom: 6%;
 }
 .right__text h1 {
   font-size: 10vw;
+  line-height: 105%;
+  margin-bottom: 5px;
 }
 .right__text p {
   font-size: 4vw;
@@ -732,13 +738,21 @@ footer {
 .form-login {
   height: 65%;
 }
-.form-login button, .form-login input {
-  padding: 2vh 7vw;
+
+.form-email {
+  height: auto;
+}
+
+.right__body-main {
+  margin-top: 30%;
 }
 
 .right__body {
   flex-direction: column;
   justify-content: space-evenly;
+}
+.right__body button, .right__body input {
+  padding: 2vh 7vw;
 }
 .right__body span {
   display: block;
@@ -1735,6 +1749,11 @@ footer {
 
 .div-form-login {
   padding: 4vh 10vw;
+}
+
+.div-form-email {
+  padding: 4vh 10vw;
+  justify-content: start;
 }
 
 #btnCUser {

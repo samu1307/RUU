@@ -13,7 +13,7 @@
         $record = $_POST['record']; 
 
         $model = new LoginModel();
-        echo $entrada = $model->login($rol, $user, $pass, $record);
+        echo $model->login($rol, $user, $pass, $record);
 
     }
 
