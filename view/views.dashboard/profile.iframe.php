@@ -2,18 +2,7 @@
     <header id="header-db-profile" class="header-db">
         <div id="menu-icon-div" class="df">
             <i class="menu-icon las la-bars" id="profile"></i>
-            <a id="plus-icon-div" class="df" href="./views.dashboard/createsnacks.php">
-                <i class="las la-plus" id="users-plus"></i>
-            </a>
-        </div>
-        <div id="search" class="head-profile df cxy">
-            <h3>Perfil</h3>
-            <div class="header-db-search df">
-            <input type="text" placeholder="Busca usuarios, refrigerios y cursos...">
-            <button class="df cxy">
-                <i class="las la-search"></i>
-            </button>
-        </div>   
+        </div> 
     </header>
     <main id="main-db-users">
         <section class="section-user">

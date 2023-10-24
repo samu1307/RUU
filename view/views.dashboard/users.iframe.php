@@ -1,3 +1,7 @@
+<?php 
+    $rol = $_SESSION["Rol"];
+    if(trim($rol) !== 'Auxiliar'){
+?>
 <div class="body-db-users body-db df cxy" data-id="userMenu">
     <header id="header-db-users" class="header-db">
         <div id="menu-icon-div" class="df">
@@ -150,3 +154,4 @@
         </section>
     </main>
 </div>
+<?php } ?>

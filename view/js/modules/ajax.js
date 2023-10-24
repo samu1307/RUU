@@ -4,7 +4,8 @@ export function queryFetch(url, data, funct = undefined){
         method: "POST",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'enctype': 'multipart/form-data'
         },
         body: JSON.stringify(data)
     }

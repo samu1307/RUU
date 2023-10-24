@@ -1030,7 +1030,7 @@ footer {
 .nav {
   top: 0;
   left: 0;
-  width: 25%;
+  width: 45%;
   z-index: 10;
   height: 100vh;
   position: fixed;
@@ -1787,6 +1787,28 @@ footer {
 
 .right__info-email {
   width: 61%;
+}
+
+.inputPass {
+  position: relative;
+  overflow: visible;
+}
+
+#viewPass {
+  top: 1px;
+  right: 1px;
+  padding: 0;
+  width: 15%;
+  border: none;
+  font-size: 5vw;
+  position: absolute;
+  background: #1E222F;
+  height: calc(100% - 2px);
+  border-radius: 0 2vw 2vw 0;
+}
+#viewPass i {
+  line-height: 100%;
+  color: #FFFFFF;
 }
 
 .right__names,

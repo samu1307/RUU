@@ -9,7 +9,6 @@
     }
 
     function validateCookie(){
-        session_start();
         
         $usses = isset($_COOKIE['_USSES']);
         $sesid = isset($_SESSION['id']);  

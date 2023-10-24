@@ -8,6 +8,8 @@ const d = document;
 
 /* Body */
 const body = d.getElementById('body-login');
+const btnViewPass = d.getElementById('viewPass')
+const iViewPass = d.querySelector('#viewPass > i')
 
 /* Body left */
 const bodySlider = d.querySelector('.left__body-slider');
@@ -45,6 +47,20 @@ let rolAuxClass = rolAux.classList;
         btnSelectRight(rolCoor, rolAux)
     })
 })();
+
+function viewPass(){
+    const isPassword = pass.type === 'password';
+    pass.type = isPassword ? 'text' : 'password';
+    iViewPass.classList.replace(isPassword ? 'la-eye-slash' : 'la-eye', isPassword ? 'la-eye' : 'la-eye-slash');
+    if (isPassword) {
+        setTimeout(() => {
+            pass.type = 'password';
+            iViewPass.classList.replace('la-eye', 'la-eye-slash');
+        }, 3000);
+    }
+}
+
+btnViewPass.addEventListener('click', viewPass);
 
 localStorage.removeItem('email')
 

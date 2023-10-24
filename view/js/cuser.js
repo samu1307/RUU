@@ -1,7 +1,7 @@
 const d = document;
 
 /* Functions */
-import { btnSelectLeft, btnSelectRight } from './modules/validation.js';
+import { btnSelectLeft, btnSelectRight } from './modules/slider.js';
 import { queryFetch } from './modules/ajax.js';
 
 
@@ -104,7 +104,8 @@ const rolA = d.getElementById('rol-btn-aux');
             jornada: (jorM.classList.length == 3)? 'M': 'T',
             user: formData.get('user'),
             pass: formData.get('pass'),
-            rol: (rolC.classList.length == 3)? 'Coordinador': 'Auxiliar'
+            rol: (rolC.classList.length == 3)? 'Coordinador': 'Auxiliar',
+            img: formData.get('img')
         }
 
         if(a==0){

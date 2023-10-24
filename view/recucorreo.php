@@ -3,6 +3,11 @@
     include_once('../helpers/validations.php');
     validateSession();
 
+    $img = file_get_contents('./img/escudo.png');
+    echo $img."<hr>";
+    $imgHex = bin2hex($img);
+    echo $imgHex;
+
     /* Incluir Head */
     $tittle =  'Recuperación de contraseña';
     $urlCss =  './css/main.css';

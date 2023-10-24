@@ -617,6 +617,12 @@
         &:hover{text-decoration: underline;}
     }
 
+    #viewPass{
+        width: 10%;
+        font-size: 2vw;
+        border-radius: 0 0.7vw 0.7vw 0;
+    }
+
     .#{$r}__body-btn-send{
         background: $bluedark;
         font-size: 2vw;
@@ -685,6 +691,40 @@
 }
 
 .cont-delete-btns{button,a{font-size: 2vw;}}
+
+
+/* * * Animation Menu * * */
+
+.first-page{
+    top: 35% !important;
+    left: 66% !important; 
+    border-radius: 2vw;
+}
+
+.second-page{
+    top: 30% !important; 
+    left: 57% !important; 
+    border-radius: 2vw;
+}
+
+.third-page{
+    top: 25% !important; 
+    left: 48% !important; 
+    border-radius: 2vw;
+}
+
+.fourth-page{
+    top: 20% !important; 
+    left: 39% !important; 
+    border-radius: 2vw;
+}
+
+.fifth-page{
+    top: 15% !important; 
+    left: 30% !important; 
+    border-radius: 2vw;
+}
+
 
 .header-db{
     padding: 2%;

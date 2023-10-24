@@ -146,7 +146,7 @@
         <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Actualizar usuario">
     </form>
     <?php }}else{ ?>
-        <form id="createUser" class="right__body form-user w100 df" >
+        <form id="createUser" enctype="multipart/form-data" class="right__body form-user w100 df" >
         <div class="right__names df w100">
             <div class="right__name-name">
                 <span>Nombres</span>
@@ -204,6 +204,7 @@
             </div>
         </div>
         <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Crear usuario">
+        <input class="right__body-btn-send create-btn-user" id="img" name="img" type="file" value="./img/escudo.png">
     </form>
     <?php } ?>
     </div>
@@ -214,4 +215,14 @@
     ?>
     </div>
 </body>
-</html>
+<script>
+        const archivoInput = document.getElementById('img');
+
+        archivoInput.addEventListener('change', function() {
+            // Obtiene el nombre del archivo seleccionado
+            const node = archivoInput.value.split(/(\\|\/)/g).pop();
+            // Muestra el nombre del archivo en el elemento con id "rutaArchivo"
+            console.log(node)
+        });
+    </script>
+</html> 

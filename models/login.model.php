@@ -35,6 +35,7 @@
 
                 $_SESSION['id'] = $res[0];
                 $_SESSION['Nombre'] = $res['nombre'];
+                $_SESSION['Rol'] = $res['rol'];
                 $_SESSION['Apellido'] = $res['apellido'];
                 $_SESSION['Telefono'] = $res['telefono'];
                 $_SESSION['Correo'] = $res['correo'];

@@ -35,7 +35,7 @@
                 podrás iniciar sesión
             </p>
         </div>
-        <form id="form" class="right__body form-login w100 df" >
+        <form id="form" class="right__body form-login w100 df">
             <div class="right__body-btn w100">
                 <span>¿Cuál es tu rol?</span>
                 <div class="right__body-btn-rols w100">
@@ -51,13 +51,16 @@
                 <div class="alertRol">Falta especificar el rol</div>
             </div>
             <div class="right__body-div-email">
-                <span>Usuario</span>
+                <span>Correo electrónico o usuario</span>
                 <input class="normal w100" type="text" id="userLogin" name="user" placeholder="Ingresa tu usuario">
                 <div class="alertUser">Falta especificar el usuario</div>
             </div>
             <div class="right__body-div-pass">
                 <span>Contraseña</span>
-                <input class="normal w100" type="password" id="passLogin" name="pass" placeholder="•••••••••••••••">
+                <div class="inputPass">
+                    <button id="viewPass" type="button" class="df cxy"><i class="las la-eye-slash"></i></button>
+                    <input class="normal w100" type="password" id="passLogin" name="pass" placeholder="•••••••••••••••">
+                </div>
                 <div class="alertPass">Falta especificar la contraseña</div>
             </div>
             <div class="alertLogin w100 df cxy"></div>

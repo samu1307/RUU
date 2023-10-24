@@ -1154,7 +1154,7 @@ footer {
 .nav {
   top: 0;
   left: 0;
-  width: 25%;
+  width: 45%;
   z-index: 10;
   height: 100vh;
   position: fixed;
@@ -1911,6 +1911,28 @@ footer {
 
 .right__info-email {
   width: 61%;
+}
+
+.inputPass {
+  position: relative;
+  overflow: visible;
+}
+
+#viewPass {
+  top: 1px;
+  right: 1px;
+  padding: 0;
+  width: 15%;
+  border: none;
+  font-size: 5vw;
+  position: absolute;
+  background: #1E222F;
+  height: calc(100% - 2px);
+  border-radius: 0 2vw 2vw 0;
+}
+#viewPass i {
+  line-height: 100%;
+  color: #FFFFFF;
 }
 
 .right__names,
@@ -2715,6 +2737,11 @@ footer {
   .right__body-op-pass:hover {
     text-decoration: underline;
   }
+  #viewPass {
+    width: 10%;
+    font-size: 2vw;
+    border-radius: 0 0.7vw 0.7vw 0;
+  }
   .right__body-btn-send {
     background: #1E222F;
     font-size: 2vw;
@@ -2791,6 +2818,32 @@ footer {
   }
   .cont-delete-btns button, .cont-delete-btns a {
     font-size: 2vw;
+  }
+  /* * * Animation Menu * * */
+  .first-page {
+    top: 35% !important;
+    left: 66% !important;
+    border-radius: 2vw;
+  }
+  .second-page {
+    top: 30% !important;
+    left: 57% !important;
+    border-radius: 2vw;
+  }
+  .third-page {
+    top: 25% !important;
+    left: 48% !important;
+    border-radius: 2vw;
+  }
+  .fourth-page {
+    top: 20% !important;
+    left: 39% !important;
+    border-radius: 2vw;
+  }
+  .fifth-page {
+    top: 15% !important;
+    left: 30% !important;
+    border-radius: 2vw;
   }
   .header-db {
     padding: 2%;
@@ -3016,6 +3069,11 @@ footer {
   #passLogin {
     font-size: 1.5vw;
   }
+  #viewPass {
+    width: 8.5%;
+    font-size: 1vw;
+    border-radius: 0 0.7vw 0.7vw 0;
+  }
   .recupass {
     font-size: 1.3vw !important;
     padding: 1.8vh 2.5vw !important;
@@ -3040,6 +3098,22 @@ footer {
   .cont-delete-btns button, .cont-delete-btns a {
     font-size: 1.3vw;
     border-radius: 0.5vw;
+  }
+  /* * * Animation Menu * * */
+  .first-page {
+    border-radius: 1.5vw;
+  }
+  .second-page {
+    border-radius: 1.5vw;
+  }
+  .third-page {
+    border-radius: 1.5vw;
+  }
+  .fourth-page {
+    border-radius: 1.5vw;
+  }
+  .fifth-page {
+    border-radius: 1.5vw;
   }
   #menu-icon-div i {
     font-size: 2vw;

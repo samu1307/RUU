@@ -48,6 +48,12 @@
     font-size: 1.5vw;
 }
 
+#viewPass{
+    width: 8.5%;
+    font-size: 1vw;
+    border-radius: 0 0.7vw 0.7vw 0;
+}
+
 .recupass{
     font-size: 1.3vw !important;
     padding: 1.8vh 2.5vw !important;
@@ -80,6 +86,14 @@
         border-radius: .5vw;
     }
 }
+
+/* * * Animation Menu * * */
+
+.first-page{border-radius: 1.5vw;}
+.second-page{border-radius: 1.5vw;}
+.third-page{border-radius: 1.5vw;}
+.fourth-page{border-radius: 1.5vw;}
+.fifth-page{border-radius: 1.5vw;}
 
 #menu-icon-div{i{font-size: 2vw;}}
 

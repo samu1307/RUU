@@ -20,6 +20,18 @@ USE `RUU`;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `imgUsuario`
+--
+
+DROP TABLE IF EXISTS `imgs`;
+CREATE TABLE `imgs` (
+  `idImg` INT PRIMARY KEY NOT NULL,
+  `img` varchar(40) DEFAULT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -767,9 +779,9 @@ DROP PROCEDURE IF EXISTS `sp_login`$$
 CREATE  PROCEDURE `sp_login` (IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11)) 
 BEGIN
   IF `_rol` = 'coor' THEN
-    SELECT * FROM `v_usercoordinador` WHERE `user` = `_user` AND `pass` = `_pass`;
+    SELECT * FROM `v_usercoordinador` WHERE `user` = `_user` OR `correo` = `_user` AND `pass` = `_pass`;
   ELSE
-    SELECT * FROM `v_userauxiliar` WHERE `user` = `_user` AND `pass` = `_pass`;
+    SELECT * FROM `v_userauxiliar` WHERE `user` = `_user` OR `correo` = `_user` AND `pass` = `_pass`;
   END IF;
 END$$
 
