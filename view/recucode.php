@@ -10,7 +10,7 @@
     $icon = 1;
     include('./templates.php/head-page.php'); 
 ?>
-<body id="body-login" class="body-login">  
+<body id="body-login" class="body-login">
     <div class="login-right div-form-email">
         <div class="left__head" id="headLeft">
             <div class="left__head-logo">
@@ -36,7 +36,7 @@
                 <div class="right__body-div-email">
                     <span>Código</span>
                     <input class="normal recupass w100" type="number" id="userLogin" name="code" placeholder="Escribe el código">
-                    <div class="alertUser">Codigo Incorrecto</div>
+                    <div class="alertUser cxy">Codigo Incorrecto</div>
                 </div>
                 <div class="alertLogin w100 df cxy"></div>
                 <input class="right__body-btn-send recupass" id="btnSubmit" type="submit" value="Validar">

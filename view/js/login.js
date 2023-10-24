@@ -1,17 +1,10 @@
-const d = document;
-
-import { btnSelectLeft, btnSelectRight } from './modules/validation.js';
+import { btnSelectLeft, btnSelectRight } from './modules/slider.js';
+import { heightViewport } from './modules/validations.js';
 import { queryFetch } from './modules/ajax.js';
 
-/* ViewPort */
-const setHeightProperty = () => {
-    document.documentElement.style.setProperty('--height', `${window.innerHeight}px`);
-};
+heightViewport();
 
-window.addEventListener('DOMContentLoaded', () => {
-    setHeightProperty();
-    window.addEventListener('resize', setHeightProperty);
-});
+const d = document;
 
 /* Body */
 const body = d.getElementById('body-login');
@@ -52,6 +45,8 @@ let rolAuxClass = rolAux.classList;
         btnSelectRight(rolCoor, rolAux)
     })
 })();
+
+localStorage.removeItem('email')
 
 /* Secciones */
     //Card

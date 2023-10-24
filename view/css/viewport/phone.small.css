@@ -892,6 +892,14 @@ footer {
   font-family: "Signika-Medium";
 }
 
+.styleAlert {
+  text-align: center;
+  margin: -1vh 0 0.5vh;
+  color: rgba(255, 89, 89, 0.7333333333);
+  font-size: 4vw;
+  font-family: "Signika-Medium";
+}
+
 .alertLogin {
   height: 0.1px;
   font-size: 5vw;

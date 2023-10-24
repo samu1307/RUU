@@ -52,20 +52,6 @@ INSERT INTO `usuario` (`idUsuario`, `usuario`, `contrasenia`, `rol`, `estado`) V
 (12, 'Josefina', '3125698754', 'Auxiliar', 'A'),
 (13, 'Laura', '1027653497', 'Auxiliar', 'A');
 
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `hash`
---
-
-DROP TABLE IF EXISTS `hash`;
-CREATE TABLE `hash` (
-  `idHash` int(11) NOT NULL,
-  `hash` varchar(400) DEFAULT NOT NULL,
-  `idUser` INT(20) DEFAULT NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -588,6 +574,24 @@ CREATE OR REPLACE VIEW v_userCoordinador AS
     INNER JOIN coordinador AS a 
     WHERE u.idUsuario = a.usuario AND u.rol = 'Coordinador';
 
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_newPass`
+--
+CREATE OR REPLACE VIEW v_newPass AS
+    SELECT 
+    u.idUsuario AS idUser,
+    a.idCoordinador AS idCoor,
+    e.idAuxiliar AS idAux,
+    u.rol AS rol,
+    a.correo AS correoCoor,
+    e.correo AS correoAux
+    FROM usuario AS u
+    LEFT JOIN coordinador AS a ON u.idUsuario = a.usuario
+    LEFT JOIN auxiliar AS e ON u.idUsuario = e.usuario;
+
+
 --
 -- Índices para tablas volcadas
 --
@@ -738,7 +742,15 @@ BEGIN
       UPDATE auxiliar SET nombre = _name, apellido = _lastName, jornada = _jornada, telefono = _number, correo = _email WHERE idAuxiliar = _idRol;
     END IF;
   END IF;
+END$$
 
+-- Update Password
+DROP PROCEDURE IF EXISTS `sp_UpdatePass`$$
+CREATE  PROCEDURE `sp_UpdatePass` (IN `_email` VARCHAR(50), IN `_passNew` VARCHAR(20)) 
+BEGIN
+  DECLARE _idUser INT;
+  SELECT idUser INTO _idUser FROM v_newpass WHERE correoCoor = _email OR correoAux = _email;
+  UPDATE usuario SET contrasenia = _passNew WHERE idUsuario = _idUser;
 END$$
 
 -- Delete User

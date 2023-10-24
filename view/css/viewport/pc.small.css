@@ -750,6 +750,10 @@
   font-family: "Signika-Medium";
 }
 
+.styleAlert {
+  font-size: 1.5vw;
+}
+
 .alertLogin {
   display: flex !important;
   width: 100%;

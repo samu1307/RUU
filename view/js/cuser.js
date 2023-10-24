@@ -110,7 +110,6 @@ const rolA = d.getElementById('rol-btn-aux');
         if(a==0){
             if(btnSubmit.value == "Actualizar usuario"){
                 queryFetch(urlUpdate, data, (j)=>{
-                    console.log(j)
                     btnSubmit.value = 'Actualizando...';
                     cardUpdate.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');

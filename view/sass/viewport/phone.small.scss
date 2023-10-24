@@ -774,6 +774,16 @@ footer{
     }
 }
 
+.styleAlert{
+    text-align: center;
+    margin: -1vh 0 .5vh;
+    color: $redAlert;
+    font: {
+        size: 4vw;
+        family: $SignikaM;
+    }
+}
+
 .alertLogin{
     height: .1px;
     font-size: 5vw;

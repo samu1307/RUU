@@ -10,7 +10,11 @@
     $icon = 1;
     include('./templates.php/head-page.php'); 
 ?>
-<body id="body-login" class="body-login">  
+<body id="body-login" class="body-login">
+    <div class="userUpdate">
+        <div class="uc-p df">Enviando correo</div>
+        <div class="uc-line"></div>
+    </div>
     <div class="login-right div-form-email">
         <div class="left__head" id="headLeft">
             <div class="left__head-logo">
@@ -35,9 +39,9 @@
                 <div class="right__body-div-email">
                     <span>Correo</span>
                     <input class="normal recupass w100" type="text" id="userLogin" name="email" placeholder="Ingresa tu correo">
-                    <div class="alertUser">Falta especificar el correo</div>
+                    <div class="alertUser cxy">Correo no válido</div>
                 </div>
-                <div class="alertLogin w100 df cxy"></div>
+                <div class="userUndefined styleAlert dn">Usuario no encontrado</div>
                 <input class="right__body-btn-send recupass" id="btnSubmit" type="submit" value="Validar">
             </form> 
         </div>

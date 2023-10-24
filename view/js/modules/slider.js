@@ -49,5 +49,4 @@ export function btnSelectRight(inputLeft, inputRight){
     }else{
         btnRightClass.remove('rol-btn-active')
     }
-
 }
