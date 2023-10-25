@@ -31,16 +31,16 @@
                 
                 $res = $query->fetch();
 
-                saveCookie($record, $res[0], $res['user'], $res['pass']);
+                saveCookie($record, $res[0], $res['user'], $res['pass'], $res['rol']);
 
                 $_SESSION['id'] = $res[0];
                 $_SESSION['Nombre'] = $res['nombre'];
-                $_SESSION['Rol'] = $res['rol'];
+                $_SESSION['rol'] = $res['rol'];
                 $_SESSION['Apellido'] = $res['apellido'];
                 $_SESSION['Telefono'] = $res['telefono'];
                 $_SESSION['Correo'] = $res['correo'];
-                $_SESSION['Usuario'] = $res['user'];
-                $_SESSION['Contrasenia'] = $res['pass'];
+                $_SESSION['user'] = $res['user'];
+                $_SESSION['pass'] = $res['pass'];
                 
                 return 1;
                 

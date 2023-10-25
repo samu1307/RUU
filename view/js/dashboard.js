@@ -1,5 +1,3 @@
-import { queryFetch } from "./modules/ajax.js";
-
 const d = document;
 
 //Deploy Users
@@ -15,8 +13,8 @@ const cards = d.querySelectorAll('.db-main-card');
 const btnsViewMore = d.querySelectorAll('.view-more');
 
 //Query bodys
-const bodyDbUsers = d.querySelector('.body-db-users')
-const bodyDbCourses = d.querySelector('.body-db-courses')
+let bodyDbUsers = d.querySelector('.body-db-users')
+let bodyDbCourses = d.querySelector('.body-db-courses')
 const bodyDbSnacks = d.querySelector('.body-db-snacks')
 const bodyDbProfile = d.querySelector('.body-db-profile')
 const bodyDbReport = d.querySelector('.body-db-report')
@@ -37,7 +35,6 @@ const html = d.querySelector('html')
 //Search
 const searchs = d.querySelectorAll('#search-element');
 const cardsSearch = d.querySelectorAll('.db-main-card');
-let h = bodyDbUsers.clientHeight;
 
 //Delete Alert
 const bodyDashboard = d.getElementById('body-dash');
@@ -58,23 +55,27 @@ const menusBtn = d.querySelectorAll('.menu-icon');
 function addPage(bodys, vari = null){
     let position = ['first', 'second', 'third', 'fourth', 'fifth']
     bodys.forEach((b, i)=>{
-        let oldClass1 = b.classList.item(5);
-        b.classList.remove(oldClass1)
-        b.classList.add(`${position[i]}-page`)
-        if(vari){
-            setTimeout(()=>{
-                b.classList.remove(`${position[i]}-page`)
-            }, 1000)
-        }
+        if(b){
+            let oldClass1 = b.classList.item(5);
+            b.classList.remove(oldClass1)
+            b.classList.add(`${position[i]}-page`)
+            if(vari){
+                setTimeout(()=>{
+                    b.classList.remove(`${position[i]}-page`)
+                }, 1000)
+            }
+        }else i--
     })
 }
 
 function addZi(bodys){
     let position = ['first', 'second', 'third', 'fourth', 'fifth']
     bodys.forEach((b, i)=>{
-        let oldClass2 = b.classList.item(4);
-        b.classList.remove(oldClass2)
-        b.classList.toggle(`zi-${position[i]}`)
+        if(b){
+            let oldClass2 = b.classList.item(4);
+            b.classList.remove(oldClass2)
+            b.classList.toggle(`zi-${position[i]}`)
+        }else i--
     })
 }
 
@@ -144,19 +145,21 @@ searchs.forEach(i=> {
     })}
 )();
 
-//Desplegar Coordinadores
-(()=>{
-    btnDeploCoor.addEventListener('click', ()=>{
-        divCoor.classList.toggle('deploy-coors');
-    })
-})();
+if(bodyDbUsers && bodyDbCourses){
+    //Desplegar Coordinadores
+    (()=>{
+        btnDeploCoor.addEventListener('click', ()=>{
+            divCoor.classList.toggle('deploy-coors');
+        })
+    })();
 
-//Desplegar Auxiliares
-(()=>{
-    btnDeploAux.addEventListener('click', ()=>{
-        divAux.classList.toggle('deploy-auxs');
-    })
-})();
+    //Desplegar Auxiliares
+    (()=>{
+        btnDeploAux.addEventListener('click', ()=>{
+            divAux.classList.toggle('deploy-auxs');
+        })
+    })();
+}
 
 //Antes: 100Lineas
 //Ahora: 28Lineas

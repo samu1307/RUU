@@ -3,16 +3,12 @@
     include_once('../helpers/validations.php');
     validateSession();
 
-    $img = file_get_contents('./img/escudo.png');
-    echo $img."<hr>";
-    $imgHex = bin2hex($img);
-    echo $imgHex;
-
     /* Incluir Head */
     $tittle =  'Recuperación de contraseña';
     $urlCss =  './css/main.css';
     $urlJs =  './js/sendMail.js';
     $icon = 1;
+    $report = 0;
     include('./templates.php/head-page.php'); 
 ?>
 <body id="body-login" class="body-login">

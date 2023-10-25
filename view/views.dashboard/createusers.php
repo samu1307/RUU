@@ -204,7 +204,6 @@
             </div>
         </div>
         <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Crear usuario">
-        <input class="right__body-btn-send create-btn-user" id="img" name="img" type="file" value="./img/escudo.png">
     </form>
     <?php } ?>
     </div>
@@ -215,14 +214,4 @@
     ?>
     </div>
 </body>
-<script>
-        const archivoInput = document.getElementById('img');
-
-        archivoInput.addEventListener('change', function() {
-            // Obtiene el nombre del archivo seleccionado
-            const node = archivoInput.value.split(/(\\|\/)/g).pop();
-            // Muestra el nombre del archivo en el elemento con id "rutaArchivo"
-            console.log(node)
-        });
-    </script>
 </html> 

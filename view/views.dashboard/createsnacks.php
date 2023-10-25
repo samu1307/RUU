@@ -3,6 +3,7 @@
     $urlJs =  '../js/cuser.js';
     $urlCss =  '../css/main.css';
     $icon = 1;
+    $report = 0;
     include('../templates.php/head-page.php'); 
 ?>
 <body id="body-create">

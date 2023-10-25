@@ -8,6 +8,7 @@
     $urlCss =  './css/main.css';
     $urlJs =  './js/login.js';
     $icon = 1;
+    $report = 0;
     include('./templates.php/head-page.php'); 
 ?>
 <body id="body-login" class="body-login">
@@ -58,8 +59,8 @@
             <div class="right__body-div-pass">
                 <span>Contraseña</span>
                 <div class="inputPass">
-                    <button id="viewPass" type="button" class="df cxy"><i class="las la-eye-slash"></i></button>
                     <input class="normal w100" type="password" id="passLogin" name="pass" placeholder="•••••••••••••••">
+                    <button id="viewPass" type="button" class="df cxy"><i class="las la-eye-slash"></i></button>
                 </div>
                 <div class="alertPass">Falta especificar la contraseña</div>
             </div>

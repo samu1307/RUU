@@ -174,7 +174,7 @@ setInterval(()=>{
         
         /* Data */
         let formData = {
-            rol: (rolCoorClass.length == 3)? 'coor': 'aux',
+            rol: (rolCoorClass.length == 3)? 'Coordinador': 'Auxiliar',
             user: data.get('user'),
             pass: data.get('pass'),
             record: (data.get('record') == 'on')? 'active' : 'inactive'

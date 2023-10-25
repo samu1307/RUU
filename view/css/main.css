@@ -239,6 +239,7 @@ input[type=number] {
 }
 .menu-slider-header a img {
   width: 40%;
+  height: auto;
 }
 .menu-slider-header a span {
   margin-top: 5%;
@@ -288,10 +289,6 @@ input[type=number] {
 .main-img img {
   width: 90%;
   height: auto;
-}
-
-.main-date {
-  display: none;
 }
 
 .main-p {
@@ -373,6 +370,13 @@ section {
   height: 50%;
   overflow: hidden;
   border-radius: 20px;
+}
+.map iframe {
+  background-image: url("../img/loading.gif");
+  background-size: 100px;
+  background-color: #FFFFFF;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .main-slider {
@@ -494,6 +498,11 @@ section {
   height: 100%;
   border-radius: 10px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  background-image: url("../img/loading.gif");
+  background-size: 100px;
+  background-color: #1E222F;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .about {

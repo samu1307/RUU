@@ -1,8 +1,8 @@
 <?php
 
-    function saveCookie($record, $id, $user, $pass){
+    function saveCookie($record, $id, $user, $pass, $rol){
         if($record == 'active'){
-            $user = array('id'=> $id,'user'=> $user,'pass'=> $pass);
+            $user = array('id'=> $id,'user'=> $user,'pass'=> $pass, 'rol'=> $rol);
             setCookie('_RECOD', base64_encode('active'), time() + 86400 * 30, '/');
             setCookie('_USSES', serialize($user), time() + 86400 * 30, '/');   
         }
@@ -20,16 +20,20 @@
             $id = $data['id'];
             $user = $data['user'];
             $pass = $data['pass'];
+            $rol = $data['rol'];
+
             
             $_SESSION['id'] = $id;
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
+            $_SESSION['rol'] = $rol;
 
         }else if(!$usses && $sesid && $recod){
             $id = $_SESSION['id'];
             $user = $_SESSION['user'];
             $pass = $_SESSION['pass'];
-            $userArr = array('id'=> $id,'user'=> $user,'pass'=> $pass);
+            $rol = $_SESSION['rol'];
+            $userArr = array('id'=> $id,'user'=> $user,'pass'=> $pass, 'rol', $rol);
             setCookie('_USSES', serialize($userArr), time() + 86400 * 30, '/');   
         }else if($usses && $sesid && !$recod){
             setCookie('_USSES', "", time() - 86400, '/');   

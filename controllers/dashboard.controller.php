@@ -24,13 +24,15 @@
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
                 $rol = $_POST['rol'];
+                $getImg = file_get_contents('../view/img/iconuser1');
+                $img = bin2hex($getImg);
 
                 if ($idUser != 0 && $idRol != 0){
                     // Edita
-                    return $this->model->save($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol);
+                    return $this->model->save($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol, $img);
                 }else{
                     // Crea
-                    return $this->model->save($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol);
+                    return $this->model->save($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol, $img);
                 }
             }
         }

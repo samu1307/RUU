@@ -91,7 +91,7 @@
         transition: all .3s ease-out;
         font: {size: 4vw; family: $Segoe; weight:700;}
         box-shadow: 0 0 10px rgba($color: black, $alpha: .3);
-        img{width: 40%;}
+        img{width: 40%; height: auto;}
         span{
             margin-top: 5%;
             color: $bluedark;
@@ -138,8 +138,6 @@
     margin-bottom: 10%;
     img{width: 90%; height: auto;}
 }
-
-.main-date{display: none;}
 
 .main-p{
     width: 100%;
@@ -213,6 +211,15 @@ section{
     height: 50%;
     overflow: hidden;
     border-radius: 20px;
+    iframe{
+        background: {
+            image: url('../img/loading.gif');
+            size: 100px;
+            color: $white;
+            repeat: no-repeat;
+            position: center center;
+        }
+    }
 }
 
 .main-slider{
@@ -321,6 +328,13 @@ section{
         height: 100%;
         border-radius: 10px;
         box-shadow: 0 0 12px rgba($color: black, $alpha: .4);
+        background: {
+            image: url('../img/loading.gif');
+            size: 100px;
+            color: $bluedark;
+            repeat: no-repeat;
+            position: center center;
+        }
     }
 }
 

@@ -2,7 +2,7 @@
     <header id="header-db-report" class="header-db">
         <div id="menu-icon-div" class="df">
             <i class="menu-icon las la-bars" id="report"></i>
-            <a id="plus-icon-div" class="df" href="./views.dashboard/createsnacks.php">
+            <a id="plus-icon-div" class="reportBtn df" href="./views.dashboard/createsnacks.php">
                 <i class="las la-plus" id="users-plus"></i>
             </a>
         </div>

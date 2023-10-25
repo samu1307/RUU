@@ -1,5 +1,5 @@
 <?php 
-    $rol = $_SESSION["Rol"];
+    $rol = $_SESSION["rol"];
     if(trim($rol) !== 'Auxiliar'){
 ?>
 <div class="body-db-users body-db df cxy" data-id="userMenu">

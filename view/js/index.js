@@ -2,9 +2,7 @@ const d = document;
 const head = d.querySelector('.main-head');
 const main = d.querySelector('main')
 const foot = d.querySelector('footer')
-const map = d.querySelector('.map')
 const btnNight = d.querySelector('#btn-night');
-const lazyLoad = d.querySelectorAll('.lazy-load')
 const btnMenu = d.querySelector('.btn-menu');
 const mH = d.querySelector('.menu-slider-header');
 const navIndex = d.querySelector('#nav-index');
@@ -52,26 +50,9 @@ const nIndexC = nnIndex.classList;
     })
 })()
 
-//Creación de arrays para fecha
-
-    //Mes
-    let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-
-    //Dia
-    const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
-
-//Colocar fecha index
-const date = new Date();
-let dateToday = date.toDateString();
-dateH4.innerHTML = `${days[date.getDay() - 1]}, ${date.getDate()} de ${months[date.getMonth()]} de ${date.getUTCFullYear()}`
-
-
 //Funcion para relacion cuadrada en elemento y en Div
 const cuadrado = ()=>{
-    aSections.forEach(e=>{
-        e.style.height = `${e.clientWidth}px`;
-        return e.clientWidth;
-    })
+    aSections.forEach(e=>{e.style.height = `${e.clientWidth}px`;})
 };
 
 //Designar alto de a-sections al redimencionar
@@ -112,12 +93,16 @@ let sectionOnOff = (i)=>{
 
 // Función para manejar el evento de desplazamiento
 const handleScroll = () => {
-    if (window.scrollY < (innerWidth < 1200 ? 20 : 90)) nIndexC.remove('scrollOn');
-    else nIndexC.add('scrollOn');
+    let ifScroll =  window.scrollY < (innerWidth < 1200 ? 20 : 90);
+    nIndexC.toggle('scrollOn', !ifScroll)
 };
 
 // Asigna el manejador de eventos de desplazamiento
-d.addEventListener('scroll', handleScroll);
+d.addEventListener('scroll', ()=>{
+    handleScroll();
+    mapI.src = mapI.dataset.src
+    videoI.src = videoI.dataset.src
+});
 
 /* Slider */
 const sliderL = ()=>{
@@ -153,7 +138,6 @@ const sliderR = ()=>{
 }
 
 (()=>{
-
     let cb = (entries)=>{
         entries.forEach(i => {
             let di = i.target.dataset.img;
@@ -279,28 +263,6 @@ const sendEmail = (formData)=>{
         fetchSendEmail(formData)
     })
 }
-
-//Query AJAX = Send email
-const fetchSendEmail = (data)=>{
-    let url = './controllers/var.controller.php';
-    let op = {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }
-
-    fetch(url, op)
-    .then(r=> r.text())
-    .then(res=>{
-        console.log(res);
-    }).catch(err=>{
-        alert(err)
-    })
-}
-
 
 sliderL();
 sliderR();

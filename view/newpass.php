@@ -8,6 +8,7 @@
     $urlCss =  './css/main.css';
     $urlJs =  './js/newpass.js';
     $icon = 1;
+    $report = 0;
     include('./templates.php/head-page.php'); 
 ?>
 <body id="body-login" class="body-login">  

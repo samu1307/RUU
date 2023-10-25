@@ -20,18 +20,6 @@ USE `RUU`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imgUsuario`
---
-
-DROP TABLE IF EXISTS `imgs`;
-CREATE TABLE `imgs` (
-  `idImg` INT PRIMARY KEY NOT NULL,
-  `img` varchar(40) DEFAULT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -41,7 +29,8 @@ CREATE TABLE `usuario` (
   `usuario` varchar(40) DEFAULT NULL,
   `contrasenia` varchar(20) DEFAULT NULL,
   `rol` varchar(11) DEFAULT NULL,
-  `estado` varchar(1) DEFAULT NULL
+  `estado` varchar(1) DEFAULT NULL,
+  `imgUser` LONGBLOB
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -301,267 +290,6 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `v_dateAuxiliar`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_dateAuxiliar`;
-CREATE TABLE `v_dateAuxiliar` (
-`nombre` varchar(40)
-,`apellido` varchar(50)
-,`telefono` varchar(10)
-,`correo` varchar(50)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_dateCoordinador`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_dateCoordinador`;
-CREATE TABLE `v_dateCoordinador` (
-`nombre` varchar(40)
-,`apellido` varchar(50)
-,`telefono` varchar(10)
-,`correo` varchar(50)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_dateCuRefri`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_dateCuRefri`;
-CREATE TABLE `v_dateCuRefri` (
-`idEntregaRefri` int(11)
-,`horaEntregaRefri` time
-,`fechaEntregaRefri` date
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_dateCurso`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_dateCurso`;
-CREATE TABLE `v_dateCurso` (
-`idCurso` int(11)
-,`grado` int(2)
-,`curso` varchar(1)
-,`jornada` varchar(1)
-,`cantAlumnos` bigint(20)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_dateRefri`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_dateRefri`;
-CREATE TABLE `v_dateRefri` (
-`hora` time
-,`fecha` date
-,`cantidad` bigint(20)
-,`tipo` varchar(1)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_descriCurso`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_descriCurso`;
-CREATE TABLE `v_descriCurso` (
-`grado` int(2)
-,`curso` varchar(1)
-,`jornada` varchar(1)
-,`profesor` varchar(20)
-,`estado` varchar(1)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_descriRefri`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_descriRefri`;
-CREATE TABLE `v_descriRefri` (
-`cantidad` bigint(20)
-,`tipo` varchar(1)
-,`descripcion` varchar(100)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_entregaRefri`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_entregaRefri`;
-CREATE TABLE `v_entregaRefri` (
-`idEntregaRefri` int(11)
-,`cantidad` int(11)
-,`grado` int(2)
-,`curso` varchar(1)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_userAuxiliar`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_userauxiliar`;
-CREATE TABLE `v_userAuxiliar` (
-`nombre` varchar(40)
-,`apellido` varchar(50)
-,`correo` varchar(50)
-,`usuario` int(11)
-,`contrasenia` varchar(20)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_userCoordinador`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_usercoordinador`;
-CREATE TABLE `v_userCoordinador` (
-`nombre` varchar(40)
-,`apellido` varchar(50)
-,`correo` varchar(50)
-,`usuario` int(11)
-,`contrasenia` varchar(20)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_auxiliares`
---
-DROP TABLE IF EXISTS `v_auxiliares`;
-
-DROP VIEW IF EXISTS `v_auxiliares`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_auxiliares`  AS SELECT `usuario`.`idUsuario` AS `idUsuario`, `usuario`.`usuario` AS `usuario`, `usuario`.`contrasenia` AS `contrasenia`, `usuario`.`rol` AS `rol`, `usuario`.`estado` AS `estado` FROM `usuario` WHERE `usuario`.`rol` = 'Auxiliar' ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_coordinadores`
---
-DROP TABLE IF EXISTS `v_coordinadores`;
-
-DROP VIEW IF EXISTS `v_coordinadores`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_coordinadores`  AS SELECT `usuario`.`idUsuario` AS `idUsuario`, `usuario`.`usuario` AS `usuario`, `usuario`.`contrasenia` AS `contrasenia`, `usuario`.`rol` AS `rol`, `usuario`.`estado` AS `estado` FROM `usuario` WHERE `usuario`.`rol` = 'Coordinador' ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_dateAuxiliar`
---
-DROP TABLE IF EXISTS `v_dateAuxiliar`;
-
-DROP VIEW IF EXISTS `v_dateAuxiliar`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_dateAuxiliar`  AS SELECT `auxiliar`.`nombre` AS `nombre`, `auxiliar`.`apellido` AS `apellido`, `auxiliar`.`telefono` AS `telefono`, `auxiliar`.`correo` AS `correo` FROM `auxiliar` ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_dateCoordinador`
---
-DROP TABLE IF EXISTS `v_dateCoordinador`;
-
-DROP VIEW IF EXISTS `v_dateCoordinador`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_dateCoordinador`  AS SELECT `coordinador`.`nombre` AS `nombre`, `coordinador`.`apellido` AS `apellido`, `coordinador`.`telefono` AS `telefono`, `coordinador`.`correo` AS `correo` FROM `coordinador` ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_dateCuRefri`
---
-DROP TABLE IF EXISTS `v_dateCuRefri`;
-
-DROP VIEW IF EXISTS `v_dateCuRefri`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_dateCuRefri`  AS SELECT `curso_refrigerio`.`idEntregaRefri` AS `idEntregaRefri`, `curso_refrigerio`.`horaEntregaRefri` AS `horaEntregaRefri`, `curso_refrigerio`.`fechaEntregaRefri` AS `fechaEntregaRefri` FROM `curso_refrigerio` ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_dateCurso`
---
-DROP TABLE IF EXISTS `v_dateCurso`;
-
-DROP VIEW IF EXISTS `v_dateCurso`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_dateCurso`  AS SELECT `curso`.`idCurso` AS `idCurso`, `curso`.`grado` AS `grado`, `curso`.`curso` AS `curso`, `curso`.`jornada` AS `jornada`, `curso`.`cantAlumnos` AS `cantAlumnos` FROM `curso` ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_dateRefri`
---
-DROP TABLE IF EXISTS `v_dateRefri`;
-
-DROP VIEW IF EXISTS `v_dateRefri`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_dateRefri`  AS SELECT `refrigerio`.`hora` AS `hora`, `refrigerio`.`fecha` AS `fecha`, `refrigerio`.`cantidad` AS `cantidad`, `refrigerio`.`tipo` AS `tipo` FROM `refrigerio` ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_descriCurso`
---
-DROP TABLE IF EXISTS `v_descriCurso`;
-
-DROP VIEW IF EXISTS `v_descriCurso`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_descriCurso`  AS SELECT `curso`.`grado` AS `grado`, `curso`.`curso` AS `curso`, `curso`.`jornada` AS `jornada`, `curso`.`profesor` AS `profesor`, `curso`.`estado` AS `estado` FROM `curso` ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_descriRefri`
---
-DROP TABLE IF EXISTS `v_descriRefri`;
-
-DROP VIEW IF EXISTS `v_descriRefri`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_descriRefri`  AS SELECT `refrigerio`.`cantidad` AS `cantidad`, `refrigerio`.`tipo` AS `tipo`, `refrigerio`.`descripcion` AS `descripcion` FROM `refrigerio` ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_entregaRefri`
---
-DROP TABLE IF EXISTS `v_entregaRefri`;
-
-DROP VIEW IF EXISTS `v_entregaRefri`;
-CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `v_entregaRefri`  AS SELECT `cr`.`idEntregaRefri` AS `idEntregaRefri`, `cr`.`cantidad` AS `cantidad`, `c`.`grado` AS `grado`, `c`.`curso` AS `curso` FROM (`curso_refrigerio` `cr` join `curso` `c`) WHERE `c`.`idCurso` = `cr`.`curso_idCurso` ;
-
--- --------------------------------------------------------
-
--- Estructura para la vista `v_userAuxiliar`
---
-DROP TABLE IF EXISTS `v_userAuxiliar`;
-
-DROP VIEW IF EXISTS `v_userAuxiliar`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`id18786132_db`@`%` SQL SECURITY DEFINER VIEW `v_userAuxiliar`  AS SELECT `a`.`nombre` AS `nombre`, `a`.`apellido` AS `apellido`, `a`.`correo` AS `correo`, `a`.`usuario` AS `usuario`, `u`.`contrasenia` AS `contrasenia` FROM (`auxiliar` `a` join `usuario` `u`) WHERE `a`.`usuario` = `u`.`idUsuario` ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_userCoordinador`
---
-DROP TABLE IF EXISTS `v_userCoordinador`;
-
-DROP VIEW IF EXISTS `v_userCoordinador`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`id18786132_db`@`%` SQL SECURITY DEFINER VIEW `v_userCoordinador`  AS SELECT `c`.`nombre` AS `nombre`, `c`.`apellido` AS `apellido`, `c`.`correo` AS `correo`, `c`.`usuario` AS `usuario`, `u`.`contrasenia` AS `contrasenia` FROM (`coordinador` `c` join `usuario` `u`) WHERE `c`.`usuario` = `u`.`idUsuario` ;
-
--- --------------------------------------------------------
-
---
 -- Estructura para la vista `v_userAuxiliar`
 --
 CREATE OR REPLACE VIEW v_userAuxiliar AS
@@ -735,11 +463,11 @@ DELIMITER $$
 -- Create or Update
 
 DROP PROCEDURE IF EXISTS `sp_saveUser` $$
-CREATE  PROCEDURE `sp_saveUser` (IN `_id` INT, IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_jornada` VARCHAR(1),  IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11), IN `_idRol` INT) 
+CREATE  PROCEDURE `sp_saveUser` (IN `_id` INT, IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_jornada` VARCHAR(1),  IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11), IN `_idRol` INT, IN `_img` LONGBLOB) 
 BEGIN
   DECLARE _idQuery INT; 
   IF _id = 0 THEN
-    INSERT INTO usuario (usuario, contrasenia, rol, estado) VALUES (_user, _pass, _rol, 'A');
+    INSERT INTO usuario (usuario, contrasenia, rol, estado, imgUser) VALUES (_user, _pass, _rol, 'A', _img);
     SELECT idUsuario INTO _idQuery FROM usuario WHERE usuario = _user AND contrasenia = _pass AND rol = _rol;
     IF _rol = 'Coordinador' THEN 
       INSERT INTO coordinador (nombre, apellido, jornada, telefono, correo, usuario) VALUES (_name, _lastName, _jornada, _number, _email, _idQuery);
@@ -778,10 +506,10 @@ END$$
 DROP PROCEDURE IF EXISTS `sp_login`$$
 CREATE  PROCEDURE `sp_login` (IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11)) 
 BEGIN
-  IF `_rol` = 'coor' THEN
-    SELECT * FROM `v_usercoordinador` WHERE `user` = `_user` OR `correo` = `_user` AND `pass` = `_pass`;
+  IF `_rol` = 'Coordinador' THEN
+    SELECT * FROM `v_usercoordinador` WHERE (`user` = `_user` OR `correo` = `_user`) AND `pass` = `_pass`;
   ELSE
-    SELECT * FROM `v_userauxiliar` WHERE `user` = `_user` OR `correo` = `_user` AND `pass` = `_pass`;
+    SELECT * FROM `v_userauxiliar` WHERE (`user` = `_user` OR `correo` = `_user`) AND `pass` = `_pass`;
   END IF;
 END$$
 

@@ -1,4 +1,4 @@
-<div class="body-db-snacks body-db df cxy" data-id="snacksMenu">
+<div class="body-db-snacks body-db df cxy zi-first" data-id="snacksMenu">
     <header id="header-db-snacks" class="header-db">
         <div id="menu-icon-div" class="df">
             <i class="menu-icon las la-bars" id="snacks"></i>

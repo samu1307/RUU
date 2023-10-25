@@ -9,5 +9,5 @@
     <script type="module" src="<?php echo $urlJs; ?>" defer></script>
     <?php if($icon == 1){ ?>
         <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <?php }?>
+    <?php } ?>
 </head>
