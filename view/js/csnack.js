@@ -10,12 +10,20 @@ let idSnackUrl = urlS.searchParams.get('id');
 let urlCreate = '../../controllers/dashboard.controller.php?method=create&create=snack'
 let urlUpdate = `../../controllers/dashboard.controller.php?method=update&create=snack&id=${idSnackUrl}`
 
+const cardNew = d.querySelector('.userCreated');
+const cardUpdate = d.querySelector('.userUpdate');
+
+const btnSubmit = d.getElementById('btnSubmit')
+
 /* ViewPort */
 heightViewport()
 
 const form = d.querySelector('form')
 const leftBtn = d.getElementById('type-btn-a');
 const rightBtn = d.getElementById('type-btn-b');
+
+const selectCoor = d.getElementById('selectCoor');
+const selectAux = d.getElementById('selectAux');
 
 const snackCant = d.getElementById('snackCant');
 const refriDescri = d.getElementById('refriDecription');
@@ -31,6 +39,22 @@ const refriDescri = d.getElementById('refriDecription');
         e.preventDefault();
 
         let a = 0
+
+        console.log(selectCoor.value)
+
+        if(selectCoor.value == '--'){
+            a++
+            selectCoor.classList.add('alert')
+        }else{
+            selectCoor.classList.remove('alert')
+        }
+
+        if(selectAux.value == '--'){
+            a++
+            selectAux.classList.add('alert')
+        }else{
+            selectAux.classList.remove('alert')
+        }
 
         /* Logic */
         let validateType = leftBtn.classList.length == 3 || rightBtn.classList.length == 3;
@@ -56,13 +80,14 @@ const refriDescri = d.getElementById('refriDecription');
         let formData = new FormData(form);
         let data = {
             type: formData.get('name'),
-            cant: formData.get('lastname'),
+            cant: formData.get('cantSnacks'),
             descri: formData.get('number'),
-            
+            aux: formData.get('aux'),
+            coor: formData.get('coor'),
         }
 
         if(a==0){
-            if(btnSubmit.value == "Actualizar usuario"){
+            if(btnSubmit.value == "Actualizar refrigerio"){
                 queryFetch(urlUpdate, data, (j)=>{
                     btnSubmit.value = 'Actualizando...';
                     cardUpdate.classList.add('cardNew');

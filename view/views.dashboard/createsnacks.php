@@ -72,7 +72,7 @@
             </div>
             <div class="right__snack-coor">
                 <span>Coordinador</span>
-                <select name="" id="">
+                <select id="selectCoor" name="coor">
                     <?php
                         if(isset($coor)){
                             forEach($coor as $c){ 
@@ -83,7 +83,7 @@
             </div>
             <div class="right__snack-aux">
                 <span>Auxiliar</span>
-                <select name="" id="">
+                <select id="selectAux" name="aux>
                     <?php
                         if(isset($aux)){
                             forEach($aux as $a){ 
@@ -99,7 +99,7 @@
                 <textarea name="refriDecription" id="refriDecription"><?= $data['descripcion'] ?></textarea>
             </div>
         </div>
-        <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Crear refrigerio">
+        <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Actualizar refrigerio">
     </form>
     <?php }}else{ ?>
     <form id="createUser" enctype="multipart/form-data" class="right__body form-user w100 df" >
@@ -119,11 +119,11 @@
         <div class="right__user df w100">
             <div class="right__user-user" style="width: 25%;">
                 <span>Cantidad</span>
-                <input type="number" name="cantSnacks" id="snackCant" style="padding: 0; height: 58%;">
+                <input type="number" name="cantSnacks" id="snackCant" style="padding: 0 7vw; height: 58%;">
             </div>
             <div class="right__snack-coor">
                 <span>Coordinador</span>
-                <select name="" id="">
+                <select id="selectCoor" name="coor">
                     <?php
                         if(isset($coor)){
                             forEach($coor as $c){ ?>
@@ -134,7 +134,7 @@
             </div>
             <div class="right__snack-aux">
                 <span>Auxiliar</span>
-                <select name="" id="">
+                <select id="selectAux" name="aux">
                     <?php
                         if(isset($aux)){
                             forEach($aux as $a){ ?>

@@ -1001,21 +1001,21 @@ footer {
 }
 
 .alert {
-  color: rgba(255, 89, 89, 0.7333333333);
-  border-color: rgba(255, 89, 89, 0.7333333333);
+  color: rgba(255, 89, 89, 0.7333333333) !important;
+  border-color: rgba(255, 89, 89, 0.7333333333) !important;
 }
 .alert div {
-  border-color: rgba(255, 89, 89, 0.7333333333);
+  border-color: rgba(255, 89, 89, 0.7333333333) !important;
 }
 .alert::placeholder {
-  color: rgba(255, 89, 89, 0.7333333333);
+  color: rgba(255, 89, 89, 0.7333333333) !important;
 }
 .alert:focus {
-  color: rgba(255, 89, 89, 0.7333333333);
-  border-color: rgba(255, 89, 89, 0.7333333333);
+  color: rgba(255, 89, 89, 0.7333333333) !important;
+  border-color: rgba(255, 89, 89, 0.7333333333) !important;
 }
 .alert:focus::placeholder {
-  color: rgba(255, 89, 89, 0.7333333333);
+  color: rgba(255, 89, 89, 0.7333333333) !important;
 }
 
 .alertRol,

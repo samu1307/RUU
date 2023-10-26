@@ -764,14 +764,14 @@ footer{
 }
 
 .alert{
-    color: $redAlert;
-    border-color: $redAlert;
-    div{border-color: $redAlert;}
-    &::placeholder{color: $redAlert;}
+    color: $redAlert !important;
+    border-color: $redAlert !important;
+    div{border-color: $redAlert !important;}
+    &::placeholder{color: $redAlert !important;}
     &:focus{
-        color: $redAlert;
-        border-color: $redAlert;
-        &::placeholder{color: $redAlert}
+        color: $redAlert !important;
+        border-color: $redAlert !important;
+        &::placeholder{color: $redAlert !important}
     }
 }
 
