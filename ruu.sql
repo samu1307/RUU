@@ -317,19 +317,30 @@ CREATE OR REPLACE VIEW v_userCoordinador AS
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `v_newPass`
+-- Estructura para la vista `v_allUsers`
 --
-CREATE OR REPLACE VIEW v_newPass AS
-    SELECT 
-    u.idUsuario AS idUser,
-    a.idCoordinador AS idCoor,
-    e.idAuxiliar AS idAux,
+
+DROP VIEW IF EXISTS `v_allUsers`;
+CREATE VIEW v_allUsers AS
+SELECT 
+    u.idUsuario AS idUsuario,
+    c.nombre AS ncoor,
+    a.nombre AS naux,
+    c.apellido AS acoor,
+    a.apellido AS aaux,
+    c.correo AS ccoor,
+    a.correo AS caux,
+    c.telefono AS tcoor,
+    a.telefono AS taux,
+    c.jornada AS jcoor,
+    a.jornada AS jaux,
+    u.usuario AS usuario,
+    u.contrasenia AS contrasenia,
     u.rol AS rol,
-    a.correo AS correoCoor,
-    e.correo AS correoAux
-    FROM usuario AS u
-    LEFT JOIN coordinador AS a ON u.idUsuario = a.usuario
-    LEFT JOIN auxiliar AS e ON u.idUsuario = e.usuario;
+    u.estado AS estado
+FROM usuario u
+LEFT JOIN coordinador c ON u.idUsuario = c.usuario
+LEFT JOIN auxiliar a ON u.idUsuario = a.usuario;
 
 
 --

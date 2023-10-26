@@ -35,7 +35,7 @@
                 if($coorDates != false){
                 foreach ($coorDates as $date) {;
                     if($date['nombre'] != 'ADMIN'){?>
-                    <div id="<?php echo $i; ?>" class="db-main-card df <?php echo $date['estado']?>" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
+                    <div id="<?php echo $i; ?>" class="db-main-card <?= ($date['estado'] == 'A')? 'user-active': 'user-inactive';?> df <?php echo $date['estado']?>" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
                         <div class="main-card-cont">
                             <div class="main-card-cont-first df">
                                 <div class="cont-main-card-img df cxy">
@@ -82,7 +82,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="line-active-user <?= ($date['estado'] == 'A')? 'user-active': 'user-inactive';?> h100"></div>
+                        <div class="line-active-user h100"></div>
                     </div>
                     <?php $i = $i + 1; }}}else echo "ERROR: No se pudo iniciar." ?>
                 </div>
@@ -99,7 +99,7 @@
                 <?php $i = 1.1; 
                 if($auxDates != false){
                 foreach ($auxDates as $date) { ?>
-                    <div id="<?php echo $i; ?>" class="db-main-card df" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
+                    <div id="<?php echo $i; ?>" class="db-main-card <?= ($date['estado'] == 'A')? 'user-active': 'user-inactive';?> df" data-name="<?php echo $date['nombre']." ".$date['apellido']; ?>">
                         <div class="main-card-cont">
                             <div class="main-card-cont-first df">
                                 <div class="cont-main-card-img df cxy">
@@ -146,7 +146,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="line-active-user <?= ($date['estado'] == 'A')? 'user-active': 'user-inactive';?> h100"></div>
+                        <div class="line-active-user h100"></div>
                     </div>
                 <?php $i = $i + 1; }}else echo "ERROR: No se pudo iniciar." ?>
                 </div>

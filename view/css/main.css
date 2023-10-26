@@ -1107,7 +1107,7 @@ footer {
   margin: auto;
   width: 80vw;
   height: 25vh;
-  z-index: 100;
+  z-index: 200;
   padding: 5vw 5vh;
   display: none;
   align-items: center;
@@ -1528,13 +1528,23 @@ footer {
 }
 
 /* Class for active */
-.user-active {
+.user-active .line-active-user {
   background: #4AA163;
 }
 
 /* Class for active */
 .user-inactive {
+  box-shadow: none;
+  background: rgba(255, 89, 89, 0.8);
+}
+.user-inactive .line-active-user {
   background: #FF5959;
+}
+.user-inactive .card-btn-delete {
+  display: none;
+}
+.user-inactive .view-more {
+  animation-play-state: paused;
 }
 
 .cont-main-card-img {

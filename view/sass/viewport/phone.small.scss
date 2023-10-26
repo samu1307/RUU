@@ -799,7 +799,7 @@ footer{
 }
 
 .alertLogin{
-    height: .1px;
+    height: .1px;   
     font-size: 5vw;
 }   
 
@@ -865,7 +865,7 @@ footer{
     margin: auto;
     width: 80vw;
     height: 25vh;
-    z-index: 100;
+    z-index: 200;
     padding: 5vw 5vh;
     display: none;
     align-items: center;
@@ -1267,11 +1267,16 @@ footer{
 }
 
 /* Class for active */
-.user-active{background: $green;}
+.user-active{
+    .line-active-user{background: $green;}
+}
 /* Class for active */
 .user-inactive{
-    background: $red;
-    
+    box-shadow: none;
+    background: rgba($color: $red, $alpha: .8);
+    .line-active-user{background: $red;}
+    .card-btn-delete{display: none;}
+    .view-more{animation-play-state: paused;}
 }
 
 .cont-main-card-img{

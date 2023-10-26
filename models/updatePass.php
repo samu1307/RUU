@@ -16,7 +16,7 @@
         }
 
         public function verifyEmail($to){
-            $query = $this->pdo->prepare('SELECT correoCoor, correoAux FROM v_newPass WHERE correoCoor = :Email OR correoAux = :Email');
+            $query = $this->pdo->prepare('SELECT correoCoor, correoAux FROM v_allUsers WHERE ccoor = :Email OR caux = :Email');
             $query->bindParam(':Email', $to);
             if($query->execute()){
                 if($query->rowCount() > 0) return true;

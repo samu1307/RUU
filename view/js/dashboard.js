@@ -1,3 +1,5 @@
+import { reportUsers } from "./modules/reports.js";
+
 const d = document;
 
 //Deploy Users
@@ -59,8 +61,10 @@ function addPage(bodys, vari = null){
             let oldClass1 = b.classList.item(5);
             b.classList.remove(oldClass1)
             b.classList.add(`${position[i]}-page`)
+            b.style.pointerEvents = "none";
             if(vari){
                 setTimeout(()=>{
+                    b.style.pointerEvents = "auto";
                     b.classList.remove(`${position[i]}-page`)
                 }, 1000)
             }
@@ -207,4 +211,14 @@ closeDeleteDiv.forEach(btn=>{
     btn.addEventListener('click', ()=>{
         bodyDashboard.classList.remove('activeDeleteDiv');
     })
+})
+
+
+/* GENERAR REPORTES */
+
+let btnReport = document.querySelector('.reportBtn');
+btnReport.addEventListener('click', e=>{
+    e.preventDefault();
+
+    reportUsers();
 })
