@@ -109,6 +109,10 @@ button {
   cursor: pointer;
 }
 
+textarea {
+  resize: none;
+}
+
 /* Oculta las flechas en inputs de tipo number */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -1272,46 +1276,26 @@ footer {
 }
 
 .body-view-menu-users {
-  top: var(--uTop);
-  left: var(--uLeft);
-  z-index: var(--uIndex);
-  height: var(--uHeight);
   position: absolute;
   border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-courses {
-  top: var(--cTop);
-  left: var(--cLeft);
-  z-index: var(--cIndex);
-  height: var(--cHeight);
   position: absolute;
   border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-snacks {
-  top: var(--sTop);
-  left: var(--sLeft);
-  z-index: var(--sIndex);
-  height: var(--sHeight);
   position: absolute;
   border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-profile {
-  top: var(--pTop);
-  left: var(--pLeft);
-  z-index: var(--pIndex);
-  height: var(--pHeight);
   position: absolute;
   border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-report {
-  top: var(--rTop);
-  left: var(--rLeft);
-  z-index: var(--rIndex);
-  height: var(--rHeight);
   position: absolute;
   border-radius: 20px 20px 0 0;
 }
@@ -1611,15 +1595,18 @@ footer {
 
 /* Class for active */
 .deploy {
-  height: calc(40.5vh + 5px);
+  height: auto;
 }
 .deploy .main-card-cont-second {
-  height: calc(20.5vh + 5px);
+  height: auto;
   padding: 3vh 8% 0;
 }
 .deploy .view-more {
   rotate: 180deg;
   animation-play-state: paused;
+}
+.deploy .line-active-user {
+  height: auto;
 }
 
 /* Class for icon*/
@@ -1765,6 +1752,70 @@ footer {
 
 .card-btn-delete {
   background: #FF5959;
+}
+
+/* Snacks */
+.section-snack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Reports */
+.cont-reports {
+  flex-direction: column;
+  align-items: center;
+}
+
+.report-main {
+  width: 90%;
+  height: 22vh;
+  padding: 5vw;
+  border-radius: 2vw;
+  background: #1E222F;
+  box-shadow: 0 0 10px rgba(30, 34, 47, 0.3);
+  flex-direction: column;
+  text-align: center;
+}
+.report-main h2 {
+  color: #E5E9F6;
+  margin-bottom: 1vh;
+}
+
+.report-cont-main {
+  width: 100%;
+  height: calc(100% - 10vw);
+  flex-direction: row;
+}
+
+.report-main-img {
+  width: 50%;
+  height: 100%;
+}
+.report-main-img i {
+  color: #FFFFFF;
+  font-size: 25vw;
+}
+
+.report-main-btn {
+  width: 50%;
+  height: 100%;
+}
+.report-main-btn button {
+  color: #FFFFFF;
+  border: none;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+  border-radius: 2vw;
+  font-size: 4vw;
+  background-color: #4AA163;
+}
+.report-main-btn button img {
+  width: 60%;
+}
+.report-main-btn button:hover {
+  scale: 0.9;
 }
 
 /* * * * * views.dashboard.users * * * * */
@@ -2071,6 +2122,24 @@ footer {
   font-size: 4vw;
   font-family: "Segoe UI";
   border: 1px solid rgba(30, 34, 47, 0.5);
+}
+
+.right__snack-coor,
+.right__snack-aux {
+  width: 35% !important;
+}
+.right__snack-coor select,
+.right__snack-aux select {
+  outline: none;
+  border-radius: 2vw;
+  border: 0.5px solid #1E222F;
+  width: 100%;
+  padding: 8%;
+}
+
+#type-btn-a,
+#type-btn-b {
+  width: 49%;
 }
 
 @media screen and (min-width: 480px) {
@@ -2885,7 +2954,7 @@ footer {
   }
   #search h3 {
     font-size: 5vw;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
   }
   .header-db-search {
     width: 40%;
@@ -2898,7 +2967,8 @@ footer {
     padding: 0 2vw;
     font-size: 1.8vw;
   }
-  #main-db-users {
+  #main-db-users,
+  #main-db-courses {
     padding: 3% 3%;
   }
   .section-coor-btn,
@@ -2970,6 +3040,31 @@ footer {
   .main-card-btn a:hover, .main-card-btn button:hover {
     opacity: 0.9;
     scale: 1.1;
+  }
+  /* Snack */
+  .section-snack {
+    gap: 3%;
+    flex-wrap: wrap;
+    align-items: start;
+    flex-direction: row;
+    justify-content: center;
+  }
+  /* Reports */
+  .report-main {
+    width: 30%;
+    padding: 1.5vw;
+  }
+  .report-cont-main {
+    width: 100%;
+    height: calc(100% - 4vw);
+    flex-direction: row;
+  }
+  .report-main-img i {
+    font-size: 10vw;
+  }
+  .report-main-btn button {
+    border-radius: 1vw;
+    font-size: 1.5vw;
   }
   /* * * Create User * * */
   .nav {
@@ -3161,6 +3256,22 @@ footer {
   .main-card-btn i,
   .main-card-btn i {
     font-size: 2.2vw;
+  }
+  /* Reports */
+  .report-main {
+    width: 30%;
+    padding: 1vw;
+  }
+  .report-cont-main {
+    width: 100%;
+    height: calc(100% - 3vw);
+  }
+  .report-main-img i {
+    font-size: 8vw;
+  }
+  .report-main-btn button {
+    border-radius: 1vw;
+    font-size: 1.3vw;
   }
   /* * * * * Create FORMS * * * * */
   .nav {

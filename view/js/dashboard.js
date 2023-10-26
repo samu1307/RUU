@@ -216,9 +216,23 @@ closeDeleteDiv.forEach(btn=>{
 
 /* GENERAR REPORTES */
 
-let btnReport = document.querySelector('.reportBtn');
+let btnReport = document.getElementById('report-btn-user');
 btnReport.addEventListener('click', e=>{
-    e.preventDefault();
-
-    reportUsers();
+    btnReport.innerHTML = '<img id="gift-load-report" src="./img/loading.gif">';
+    reportUsers((info, report)=>{
+        const load = d.getElementById('gift-load-report'); 
+        setTimeout(()=>{
+            load.parentNode.removeChild(load)
+            btnReport.innerHTML = 'Generar<br>reporte<br>usuarios';
+        }, 4000)
+        let data = JSON.parse(info)
+        const opciones = {
+            margin: 10,
+            filename: 'reporte_usuarios.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2},
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+        };
+        html2pdf(report(data), opciones);
+    });
 })

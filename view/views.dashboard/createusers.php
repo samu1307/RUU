@@ -10,7 +10,8 @@
         $idUser = $_GET['id'];
         $rol = $_GET['r_0'];
         $model = new ModelCRUD();
-        $res = $model->getData($idUser, $rol);
+        $res = $model->getDataUser($idUser, $rol);
+        if(!$res) header('Location: ../dashboard.php');
     }
 
 ?>

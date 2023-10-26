@@ -3,24 +3,18 @@ const d = document;
 /* Functions */
 import { btnSelectLeft, btnSelectRight } from './modules/slider.js';
 import { queryFetch } from './modules/ajax.js';
+import { heightViewport } from './modules/validations.js';
 
 
 /* URL */
 const urlS = new URL(location.href);
 let idUserUrl = urlS.searchParams.get('id');
 let idRolUrl = urlS.searchParams.get('__');
-let urlCreate = '../../controllers/dashboard.controller.php?method=create'
-let urlUpdate = `../../controllers/dashboard.controller.php?method=update&idUser=${idUserUrl}&idRol=${idRolUrl}`
+let urlCreate = '../../controllers/dashboard.controller.php?method=create&create=user'
+let urlUpdate = `../../controllers/dashboard.controller.php?method=update&create=user&idUser=${idUserUrl}&idRol=${idRolUrl}`
 
 /* ViewPort */
-const setHeightProperty = () => {
-    document.documentElement.style.setProperty('--height', `${window.innerHeight}px`);
-};
-
-window.addEventListener('DOMContentLoaded', () => {
-    setHeightProperty();
-    window.addEventListener('resize', setHeightProperty);
-});
+heightViewport()
 
 const cardNew = d.querySelector('.userCreated');
 const cardUpdate = d.querySelector('.userUpdate');
@@ -94,7 +88,7 @@ const rolA = d.getElementById('rol-btn-aux');
                 }  
             }
         })
-                
+
         let formData = new FormData(form);
         let data = {
             namee: formData.get('name'),

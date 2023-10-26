@@ -14,7 +14,7 @@
             }
         }
 
-        public function save($idUser, $name, $lastname, $number, $email, $jor, $user, $pass, $rol, $idRol, $img){            
+        public function saveUser($idUser, $name, $lastname, $number, $email, $jor, $user, $pass, $rol, $idRol, $img){            
             try {
 
                 $msg = "CALL sp_saveUser(:Id, :Name, :LastName, :Number, :Email, :Jor, :User, :Pass, :Rol, :IdRol, :Img)";
@@ -38,6 +38,27 @@
             }
         }
 
+        public function saveSnack($hora, $date, $cant, $type, $descri, $aux, $coor, $id = 0){            
+            try {
+
+                $msg = "CALL sp_saveSnack(:Id, :Hora, :Date, :Cant, :Type, :Descri, :Aux, :Coor)";
+                $reques = $this->pdo->prepare($msg);
+                $reques->bindParam(':Id', $id);
+                $reques->bindParam(':Hora', $hora);
+                $reques->bindParam(':Date', $date);
+                $reques->bindParam(':Cant', $cant);
+                $reques->bindParam(':Type', $type);
+                $reques->bindParam(':Descri', $descri);
+                $reques->bindParam(':Aux', $aux);
+                $reques->bindParam(':Coor', $coor);
+                if($reques->execute()) return true;
+                else return false;
+                
+            }catch (PDOException $E){
+                return $E;
+            }
+        }
+
         public function read($table){
             $query = 'SELECT * FROM '.$table;
             $request = $this->pdo->prepare($query);
@@ -50,8 +71,15 @@
             return ($reques->execute()) ? true : false;
         }
 
-        public function getData($id, $rol){
+        public function getDataUser($id, $rol){
             ($rol == "Coordinador")? $query = 'SELECT * FROM `v_usercoordinador` WHERE idUsuario = :id': $query = 'SELECT * FROM `v_userauxiliar` WHERE idUsuario = :id';
+            $reques = $this->pdo->prepare($query);
+            $reques->bindParam(':id', $id);
+            return ($reques->execute()) ? $reques->fetchAll() : false;
+        }
+
+        public function getDataSnack($id){
+            $query = 'SELECT * FROM `refrigerio` WHERE idRefrigerio = :id';
             $reques = $this->pdo->prepare($query);
             $reques->bindParam(':id', $id);
             return ($reques->execute()) ? $reques->fetchAll() : false;

@@ -1,6 +1,6 @@
 <?php
 
-    require_once('../models/crud.model.php');
+    require_once('C://xampp/htdocs/RUU/models/crud.model.php');
     $_POST = json_decode(file_get_contents('php://input'),true);
 
     class ControllerCRUD{
@@ -14,7 +14,7 @@
             return ($this->model->read($table) != false) ? $this->model->read($table) : false ;
         }
 
-        public function save($idUser = 0, $idRol = 0){
+        public function saveUser($idUser = 0, $idRol = 0){
             if(isset($_POST)){
                 $name = $_POST['namee'];
                 $lastname = $_POST['lastname'];
@@ -29,10 +29,30 @@
 
                 if ($idUser != 0 && $idRol != 0){
                     // Edita
-                    return $this->model->save($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol, $img);
+                    return $this->model->saveUser($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol, $img);
                 }else{
                     // Crea
-                    return $this->model->save($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol, $img);
+                    return $this->model->saveUser($idUser, $name, $lastname, $number, $email, $jornada, $user, $pass, $rol, $idRol, $img);
+                }
+            }
+        }
+
+        public function saveSnack($id = 0){
+            if(isset($_POST)){
+                $hora = $_POST['namee'];
+                $date = $_POST['lastname'];
+                $cant = $_POST['number'];
+                $type = $_POST['email'];
+                $descri = $_POST['jornada'];
+                $aux = $_POST['user'];
+                $coor = $_POST['pass'];
+
+                if ($id != 0){
+                    // Edita
+                    return $this->model->saveSnack($hora, $date, $cant, $type, $descri, $aux, $coor, $id);
+                }else{
+                    // Crea
+                    return $this->model->saveSnack($hora, $date, $cant, $type, $descri, $aux, $coor, $id);
                 }
             }
         }
@@ -43,22 +63,29 @@
         }
     }
 
-    if (isset($_GET['method'])) {
+    if (isset($_GET['method']) && isset($_GET['create'])) {
         $class = new ControllerCRUD();
     
         switch ($_GET['method']) {
             case 'create':
-                echo $class->save();
-                break;
+                if($_GET['create'] == 'user') echo $class->saveUser();
+                else if($_GET['create'] == 'snack') echo $class->saveSnack();
+            break;
             case 'update':
-                $idUser = $_GET['idUser'];
-                $idRol = $_GET['idRol'];
-                echo $class->save($idUser, $idRol);
-                break;
+                if($_GET['create'] == 'user'){
+                    $idRol = $_GET['idRol'];
+                    $idUser = $_GET['idUser'];
+                    echo $class->saveUser($idUser, $idRol);
+                }
+                else if($_GET['create'] == 'snack'){
+                    $idRol = $_GET['idRefri'];
+                    echo $class->saveSnack($id);
+                }
+            break;
             case 'delete':
                 $id = $_GET['id'];
                 echo $class->delete($id);
-                break;
+            break;
         }
     }
 

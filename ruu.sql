@@ -495,6 +495,8 @@ BEGIN
   END IF;
 END$$
 
+
+
 -- Update Password
 DROP PROCEDURE IF EXISTS `sp_UpdatePass`$$
 CREATE  PROCEDURE `sp_UpdatePass` (IN `_email` VARCHAR(50), IN `_passNew` VARCHAR(20)) 
@@ -521,6 +523,19 @@ BEGIN
     SELECT * FROM `v_usercoordinador` WHERE (`user` = `_user` OR `correo` = `_user`) AND `pass` = `_pass`;
   ELSE
     SELECT * FROM `v_userauxiliar` WHERE (`user` = `_user` OR `correo` = `_user`) AND `pass` = `_pass`;
+  END IF;
+END$$
+
+
+-- Create or Update Snacks
+
+DROP PROCEDURE IF EXISTS `sp_saveSnack` $$
+CREATE  PROCEDURE `sp_saveSnack` (IN `_id` INT, IN `_hora` TIME, IN `_fecha` DATE, IN `_cant` BIGINT(20), IN `_type` VARCHAR(1), IN `_descri` VARCHAR(100), IN `_aux` INT(11),  IN `_coor` INT(11)) 
+BEGIN
+  IF _id = 0 THEN
+    INSERT INTO refrigerio (hora, fecha, cantidad, tipo, descripcion, auxiliar, coordinador) VALUES (_hora, _fecha, _cant, _type, _descri, _aux, _coor);
+  ELSE 
+    UPDATE refrigerio SET hora = _hora, fecha = _fecha, cantidad = _cant, tipo = _type, descripcion = _descri, auxiliar = _aux, coordinador = _coor WHERE idUsuario = _id;
   END IF;
 END$$
 

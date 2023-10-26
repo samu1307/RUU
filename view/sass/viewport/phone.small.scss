@@ -1023,46 +1023,26 @@ footer{
 
 
 .body-view-menu-users{
-    top:  var(--uTop);
-    left: var(--uLeft) ;
-    z-index: var(--uIndex);
-    height: var(--uHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-courses{
-    top:  var(--cTop);
-    left: var(--cLeft) ;
-    z-index: var(--cIndex);
-    height: var(--cHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-snacks{
-    top:  var(--sTop);
-    left: var(--sLeft) ;
-    z-index: var(--sIndex);
-    height: var(--sHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-profile{
-    top:  var(--pTop);
-    left: var(--pLeft) ;
-    z-index: var(--pIndex);
-    height: var(--pHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
 
 .body-view-menu-report{
-    top:  var(--rTop);
-    left: var(--rLeft) ;
-    z-index: var(--rIndex);
-    height: var(--rHeight);
     position: absolute;
     border-radius: 20px 20px 0 0;
 }
@@ -1332,12 +1312,13 @@ footer{
 
 /* Class for active */
 .deploy{
-    height: calc(40.5vh + 5px);
-    .main-card-cont-second{height: calc(20.5vh + 5px); padding: 3vh 8% 0;}
+    height: auto;
+    .main-card-cont-second{height: auto; padding: 3vh 8% 0;}
     .view-more{
         rotate: 180deg;
         animation-play-state: paused;
     }
+    .line-active-user{height: auto;}
 }
 
 /* Class for icon*/
@@ -1449,6 +1430,66 @@ footer{
     background: $red;
 }
 
+/* Snacks */
+
+.section-snack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Reports */
+
+.cont-reports{
+    flex-direction: column;
+    align-items: center;
+}
+
+.report-main{
+    width: 90%;
+    height: 22vh;
+    padding: 5vw;
+    border-radius: 2vw;
+    background: $bluedark;
+    box-shadow: 0 0 10px rgba($color: $bluedark, $alpha: .3);
+    flex-direction: column;
+    text-align: center;
+    h2{color: $gray; margin-bottom: 1vh;}
+}
+
+.report-cont-main{
+    width: 100%;
+    height: calc(100% - 10vw);
+    flex-direction: row;
+}
+
+.report-main-img{
+    width: 50%;
+    height: 100%;
+    i{
+        color: $white;
+        font-size: 25vw;
+    }
+}
+
+.report-main-btn{
+    width: 50%;
+    height: 100%;
+    button{
+        img{width: 60%;}
+        color: $white;
+        border: none;
+        width: 100%;
+        height: 100%;
+        transition: all .3s;
+        border-radius: 2vw;
+        font-size: 4vw;
+        background-color: $green;
+        &:hover{
+            scale: 0.9;
+        }
+    }
+}
 
 /* * * * * views.dashboard.users * * * * */
 .cu{
@@ -1711,3 +1752,18 @@ footer{
     font: {size: 4vw; family: $Segoe;}
     border: 1px solid rgba($color: $bluedark, $alpha: .5);
 }
+
+.#{$r}__snack-coor,
+.#{$r}__snack-aux{
+    width: 35% !important;
+    select{
+        outline: none;
+        border-radius: 2vw;
+        border: .5px solid $bluedark;
+        width: 100%;
+        padding: 8%;
+    }
+}
+
+#type-btn-a,
+#type-btn-b{width: 49%;}

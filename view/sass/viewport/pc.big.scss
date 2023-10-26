@@ -113,6 +113,29 @@
     }i{font-size: 2.2vw;}
 }
 
+/* Reports */
+
+.report-main{
+    width: 30%;
+    padding: 1vw;
+}
+
+.report-cont-main{
+    width: 100%;
+    height: calc(100% - 3vw);
+}
+
+.report-main-img{
+    i{font-size: 8vw;}
+}
+
+.report-main-btn{
+    button{
+        border-radius: 1vw;
+        font-size: 1.3vw;
+    }
+}
+
 /* * * * * Create FORMS * * * * */
 .nav{width: 18vw;}
 

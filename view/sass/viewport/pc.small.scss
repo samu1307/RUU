@@ -739,7 +739,7 @@
 }
 
 #search{
-    h3{font-size: 5vw; margin-bottom: 1vh;}
+    h3{font-size: 5vw; margin-bottom: 2vh;}
 }
 
 .header-db-search{
@@ -753,7 +753,8 @@
     font-size: 1.8vw;
 }
 
-#main-db-users{
+#main-db-users,
+#main-db-courses{
     padding: 3% 3%;
 }
 
@@ -815,6 +816,40 @@
 .main-card-btn{
     a,button{width: 3.7vw;height: 3.7vw;font-size: 2.6vw;}
     a:hover,button:hover{opacity: .9;scale: 1.1;}
+}
+
+/* Snack */
+
+.section-snack{
+    gap: 3%;
+    flex-wrap: wrap;
+    align-items: start;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Reports */
+
+.report-main{
+    width: 30%;
+    padding: 1.5vw;
+}
+
+.report-cont-main{
+    width: 100%;
+    height: calc(100% - 4vw);
+    flex-direction: row;
+}
+
+.report-main-img{
+    i{font-size: 10vw;}
+}
+
+.report-main-btn{
+    button{
+        border-radius: 1vw;
+        font-size: 1.5vw;
+    }
 }
 
 /* * * Create User * * */
