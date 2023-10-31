@@ -39,13 +39,13 @@
 
         public function saveSnack($id = 0){
             if(isset($_POST)){
-                $hora = $_POST['namee'];
-                $date = $_POST['lastname'];
-                $cant = $_POST['number'];
-                $type = $_POST['email'];
-                $descri = $_POST['jornada'];
-                $aux = $_POST['user'];
-                $coor = $_POST['pass'];
+                $hora = date('H:i:s');
+                $date = date('Y-m-d');
+                $cant = $_POST['cant'];
+                $type = $_POST['type'];
+                $descri = $_POST['descri'];
+                $aux = $_POST['aux'];
+                $coor = $_POST['coor'];
 
                 if ($id != 0){
                     // Edita

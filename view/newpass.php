@@ -12,6 +12,10 @@
     include('./templates.php/head-page.php'); 
 ?>
 <body id="body-login" class="body-login">  
+    <?php 
+        $jsPath = './js/modules/preloader.js';
+        include_once('./templates.php/preloader.php')
+    ?>
     <div class="userUpdate">
         <div class="uc-p df">Contraseña actualizada</div>
         <div class="uc-line"></div>

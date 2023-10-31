@@ -1,22 +1,27 @@
 @charset "UTF-8";
 /* * * * * * IMPORTS * * * * * */
 @font-face {
+  font-display: swap;
   font-family: "Signika-Light";
   src: url("../fonts/Signika/SignikaLight.ttf");
 }
 @font-face {
+  font-display: swap;
   font-family: "Signika-Regular";
   src: url("../fonts/Signika/SignikaSemiBold.ttf");
 }
 @font-face {
+  font-display: swap;
   font-family: "Signika-Medium";
   src: url("../fonts/Signika/SignikaRegular.ttf");
 }
 @font-face {
+  font-display: swap;
   font-family: "Signika-SemiBold";
   src: url("../fonts/Signika/SignikaMedium.ttf");
 }
 @font-face {
+  font-display: swap;
   font-family: "Signika-Bold";
   src: url("../fonts/Signika/SignikaBold.ttf");
 }
@@ -128,22 +133,27 @@ input[type=number] {
 
 /* * * Small Phone * * */
 @font-face {
+  font-display: swap;
   font-family: "Signika-Light";
   src: url("../fonts/Signika/SignikaLight.ttf");
 }
 @font-face {
+  font-display: swap;
   font-family: "Signika-Regular";
   src: url("../fonts/Signika/SignikaSemiBold.ttf");
 }
 @font-face {
+  font-display: swap;
   font-family: "Signika-Medium";
   src: url("../fonts/Signika/SignikaRegular.ttf");
 }
 @font-face {
+  font-display: swap;
   font-family: "Signika-SemiBold";
   src: url("../fonts/Signika/SignikaMedium.ttf");
 }
 @font-face {
+  font-display: swap;
   font-family: "Signika-Bold";
   src: url("../fonts/Signika/SignikaBold.ttf");
 }
@@ -1045,33 +1055,28 @@ footer {
 /* * * * * * * * * VIEW/DASHBOARD.HTML * * * * * * * * */
 /* * * Animation Menu * * */
 .first-page {
-  top: 50% !important;
-  left: 85% !important;
   border-radius: 5vw;
+  transform: translate(85%, 50vh) !important;
 }
 
 .second-page {
-  top: 45% !important;
-  left: 76% !important;
   border-radius: 5vw;
+  transform: translate(77%, 45vh) !important;
 }
 
 .third-page {
-  top: 40% !important;
-  left: 67% !important;
   border-radius: 5vw;
+  transform: translate(69%, 40vh) !important;
 }
 
 .fourth-page {
-  top: 35% !important;
-  left: 58% !important;
   border-radius: 5vw;
+  transform: translate(61%, 35vh) !important;
 }
 
 .fifth-page {
-  top: 30% !important;
-  left: 49% !important;
   border-radius: 5vw;
+  transform: translate(52%, 30vh) !important;
 }
 
 .zi-first {
@@ -1168,7 +1173,7 @@ footer {
   top: 0;
   left: 0;
   width: 45%;
-  z-index: 10;
+  z-index: 0;
   height: 100vh;
   position: fixed;
   flex-direction: column;
@@ -1255,75 +1260,7 @@ footer {
   box-shadow: -3px -3px 30px 10px rgba(0, 0, 0, 0.3);
 }
 
-.body-db-users {
-  z-index: 60;
-}
-
-.body-db-courses {
-  z-index: 50;
-}
-
-.body-db-snacks {
-  z-index: 40;
-}
-
-.body-db-profile {
-  z-index: 30;
-}
-
-.body-db-report {
-  z-index: 20;
-}
-
-.body-view-menu-users {
-  position: absolute;
-  border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-courses {
-  position: absolute;
-  border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-snacks {
-  position: absolute;
-  border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-profile {
-  position: absolute;
-  border-radius: 20px 20px 0 0;
-}
-
-.body-view-menu-report {
-  position: absolute;
-  border-radius: 20px 20px 0 0;
-}
-
-.load-profile {
-  animation: load-profile 1.5s ease-in-out 0.5s 1 alternate forwards;
-}
-
-@keyframes load-profile {
-  0% {
-    top: var(--top);
-    left: var(--left);
-    z-index: var(--zIndex);
-    border-radius: 20px 20px 0 0;
-  }
-  35% {
-    top: var(--topA);
-    left: var(--leftA);
-  }
-  100% {
-    z-index: 80;
-    top: 0;
-    left: 0;
-    border-radius: 0;
-  }
-}
 .header-db {
-  z-index: 10;
   height: 30vh;
   padding: 5%;
   background-color: #1E222F;
@@ -1393,7 +1330,6 @@ footer {
   padding: 10% 5%;
   border-radius: 45px 45px 0 0;
   background-color: #E5E9F6;
-  z-index: 30;
   overflow: hidden;
   box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.15);
 }
@@ -2202,22 +2138,27 @@ footer {
 }
 @media screen and (min-width: 1024px) {
   @font-face {
+    font-display: swap;
     font-family: "Signika-Light";
     src: url("../fonts/Signika/SignikaLight.ttf");
   }
   @font-face {
+    font-display: swap;
     font-family: "Signika-Regular";
     src: url("../fonts/Signika/SignikaSemiBold.ttf");
   }
   @font-face {
+    font-display: swap;
     font-family: "Signika-Medium";
     src: url("../fonts/Signika/SignikaRegular.ttf");
   }
   @font-face {
+    font-display: swap;
     font-family: "Signika-SemiBold";
     src: url("../fonts/Signika/SignikaMedium.ttf");
   }
   @font-face {
+    font-display: swap;
     font-family: "Signika-Bold";
     src: url("../fonts/Signika/SignikaBold.ttf");
   }
@@ -2909,29 +2850,24 @@ footer {
   }
   /* * * Animation Menu * * */
   .first-page {
-    top: 35% !important;
-    left: 66% !important;
     border-radius: 2vw;
+    transform: translate(75%, 40vh) !important;
   }
   .second-page {
-    top: 30% !important;
-    left: 57% !important;
     border-radius: 2vw;
+    transform: translate(67%, 35vh) !important;
   }
   .third-page {
-    top: 25% !important;
-    left: 48% !important;
     border-radius: 2vw;
+    transform: translate(59%, 30vh) !important;
   }
   .fourth-page {
-    top: 20% !important;
-    left: 39% !important;
     border-radius: 2vw;
+    transform: translate(51%, 25vh) !important;
   }
   .fifth-page {
-    top: 15% !important;
-    left: 30% !important;
     border-radius: 2vw;
+    transform: translate(43%, 20vh) !important;
   }
   .header-db {
     padding: 2%;
@@ -3106,6 +3042,10 @@ footer {
     border-radius: 1vw;
     font-size: 1.5vw;
     padding: 1.5vh 1.5vw;
+  }
+  /* * * Create SNACK * * */
+  #selectCoor {
+    border-radius: 1vw;
   }
 }
 @media screen and (min-width: 1200px) {

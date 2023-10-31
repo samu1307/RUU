@@ -12,6 +12,10 @@
     include('./templates.php/head-page.php'); 
 ?>
 <body id="body-login" class="body-login">
+    <?php 
+        $jsPath = './js/modules/preloader.js';
+        include_once('./templates.php/preloader.php')
+    ?>
     <div class="login-right div-form-email">
         <div class="left__head" id="headLeft">
             <div class="left__head-logo">

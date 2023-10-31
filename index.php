@@ -9,7 +9,11 @@
     <script type="module" src="./view/js/index.js" defer></script>
     <link rel="stylesheet" defer href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
-<body id="body-index">
+<body id="body-index" class="loadBody">
+    <?php 
+        $jsPath = './view/js/modules/preloader.js';
+        include_once('./view/templates.php/preloader.php')
+    ?>
     <header id="header-index">
         <nav class="df w100" id="nav-index">
             <div class="nav-nav-index df w100">

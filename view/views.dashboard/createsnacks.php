@@ -20,6 +20,10 @@
 
 ?>
 <body id="body-create">
+    <?php 
+        $jsPath = '../js/modules/preloader.js';
+        include_once('../templates.php/preloader.php')
+    ?>
     <div class="userCreated">
         <div class="uc-p df">Refrigerio creado</div>
         <div class="uc-line"></div>
@@ -68,7 +72,7 @@
         <div class="right__user df w100">
             <div class="right__user-user" style="width: 25%;">
                 <span>Cantidad</span>
-                <input type="number" name="cantSnacks" id="snackCant" style="padding: 1vh 7vw;" value="<?= $data['cantidad'] ?>">
+                <input type="number" name="cantSnacks" id="snackCant" style="padding: 1.5vh 1.5vw;" value="<?= $data['cantidad'] ?>">
             </div>
             <div class="right__snack-coor">
                 <span>Coordinador</span>
@@ -119,7 +123,7 @@
         <div class="right__user df w100">
             <div class="right__user-user" style="width: 25%;">
                 <span>Cantidad</span>
-                <input type="number" name="cantSnacks" id="snackCant" style="padding: 0 7vw; height: 58%;">
+                <input type="number" name="cantSnacks" id="snackCant" style="height: 58%;">
             </div>
             <div class="right__snack-coor">
                 <span>Coordinador</span>

@@ -29,6 +29,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 </head>
 <body id="body-dash">
+    <?php 
+        $jsPath = './js/modules/preloader.js';
+        include_once('./templates.php/preloader.php')
+    ?>
     <div class="cont-delete-confirm">
         <button id="close-delete"><i class="las la-times"></i></button>
         <h3>¿Desea eliminar a este usuario?</h3>
@@ -52,7 +56,7 @@
                     <h4>Inicio</h4>
                 </div>
             </a>
-            <div class="df jc-s btn-menu-menu" id="profileMenu">
+            <div class="df jc-s btn-menu-menu click-sections" id="profileMenu">
                 <div class="icon-img" id="w100">
                     <i class="las la-id-card"></i>
                 </div>
@@ -71,7 +75,7 @@
                 </div>
             </div>
             <?php } if(trim($rol) !== 'Auxiliar'){ ?> 
-            <div class="df jc-s btn-menu-menu click-sections" id="userMenu">
+            <div class="df jc-s btn-menu-menu" id="userMenu">
                 <div class="icon-img" id="w100">
                     <i class="las la-users"></i>
                 </div>

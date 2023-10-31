@@ -184,7 +184,6 @@ setInterval(()=>{
 
         /* Submit */
         if (i == 0) queryFetch(url, formData, (json)=>{
-            console.log(json)
             if(json == 1){
                 btnSend.value = 'Validando...';
                 body.classList.add('bodyLoad')
@@ -200,7 +199,9 @@ setInterval(()=>{
             }else{
                 boxLogin.innerHTML = "Usuario incorrecto";
                 user.classList.add('alert');
+                user.value = "";
                 pass.classList.add('alert');
+                pass.value = "";
                 form.addEventListener('keydown', ()=>{
                     boxLogin.innerHTML = "";
                     user.classList.remove('alert');

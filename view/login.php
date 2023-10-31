@@ -13,6 +13,10 @@
 ?>
 <body id="body-login" class="body-login">
     <?php 
+        $jsPath = './js/modules/preloader.js';
+        include_once('./templates.php/preloader.php')
+    ?>
+    <?php 
         $urlA = '../index.php';
         $urlImg = './img/escudo.png';
         include('./templates.php/slider-form.php'); 

@@ -51,35 +51,59 @@ const sections = d.querySelectorAll('.btn-menu-menu')
 // btnMenus
 const menusBtn = d.querySelectorAll('.menu-icon');
 
+
+/* HEIGHT FOR BODYS */
+function heigthBodys(){
+    bodys.forEach(b=>{
+        
+    })
+}
+
+
+
 //Antes: 200Lineas
 //Ahora: 48Lineas
 
 function addPage(bodys, vari = null){
-    let position = ['first', 'second', 'third', 'fourth', 'fifth']
+    let position = [
+        'first',
+        'second',
+        'third',
+        'fourth',
+        (bodys[2] == null)? 'third' : 'fifth'
+    ]
     bodys.forEach((b, i)=>{
         if(b){
+            html.style.overflow = 'hidden';
             let oldClass1 = b.classList.item(5);
             b.classList.remove(oldClass1)
-            b.classList.add(`${position[i]}-page`)
+            b.classList.toggle(`${position[i]}-page`)
             b.style.pointerEvents = "none";
             if(vari){
                 setTimeout(()=>{
+                    html.style.overflow = 'auto';
                     b.style.pointerEvents = "auto";
                     b.classList.remove(`${position[i]}-page`)
                 }, 1000)
-            }
-        }else i--
+            }   
+        }
     })
 }
 
 function addZi(bodys){
-    let position = ['first', 'second', 'third', 'fourth', 'fifth']
+    let position = [
+        'first',
+        'second',
+        'third',
+        'fourth',
+        (bodys[2] == null)? 'third' : 'fifth'
+    ]
     bodys.forEach((b, i)=>{
         if(b){
             let oldClass2 = b.classList.item(4);
             b.classList.remove(oldClass2)
-            b.classList.toggle(`zi-${position[i]}`)
-        }else i--
+            b.classList.add(`zi-${position[i]}`)
+        }
     })
 }
 
@@ -118,7 +142,6 @@ searchs.forEach(i=> {
             divAux.classList.add('deploy-auxs');
 
             if(c.dataset.name){
-
                 let name = c.dataset.name;
                 
                 if(i.value != ''){
@@ -170,29 +193,29 @@ if(bodyDbUsers && bodyDbCourses){
 
 sections.forEach(sec=>{
     sec.addEventListener('click', ()=>{
-        sections.forEach(s=>{
-            switch (sec.id){
-                case 'userMenu':
-                    addZi([bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport]);    
-                    addPage([bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport], 1);    
-                break;
-                case 'courseMenu':
-                    addZi([bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers]);    
-                    addPage([bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers], 1);    
-                break;
-                case 'snackMenu':
-                    addZi([bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses]);    
-                    addPage([bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses], 1);    
-                break;
-                case 'profileMenu':
-                    addZi([bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks]);    
-                    addPage([bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks], 1);    
-                break;
-                case 'reportMenu':
-                    addZi([bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile]);    
-                    addPage([bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile], 1);    
-                break;
-            }
+        switch (sec.id){
+            case 'userMenu':
+                addPage([bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport], 1);    
+                addZi([bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport]);    
+            break;
+            case 'courseMenu':
+                addPage([bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers], 1);    
+                addZi([bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers]);    
+            break;
+            case 'snackMenu':
+                addPage([bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses], 1);    
+                addZi([bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses]);    
+            break;
+            case 'profileMenu':
+                addPage([bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks], 1);    
+                addZi([bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks]);    
+            break;
+            case 'reportMenu':
+                addPage([bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile], 1);    
+                addZi([bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile]);    
+            break;
+        }
+        sections.forEach((s, i)=>{
             s.classList.toggle('click-sections', sec.id == s.id)
         })
     })

@@ -83,11 +83,12 @@ const refriDescri = d.getElementById('refriDecription');
             cant: formData.get('cantSnacks'),
             descri: formData.get('number'),
             aux: formData.get('aux'),
-            coor: formData.get('coor'),
+            coor: formData.get('coor')
         }
 
         if(a==0){
             if(btnSubmit.value == "Actualizar refrigerio"){
+                console.log(data)
                 queryFetch(urlUpdate, data, (j)=>{
                     btnSubmit.value = 'Actualizando...';
                     cardUpdate.classList.add('cardNew');
@@ -97,7 +98,9 @@ const refriDescri = d.getElementById('refriDecription');
                     }, 5100)
                 });
             }else{
+                console.log(data)
                 queryFetch(urlCreate, data, (j)=>{
+                    console.log(j)
                     btnSubmit.value = 'Insertando...';
                     cardNew.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');
@@ -112,7 +115,6 @@ const refriDescri = d.getElementById('refriDecription');
                     }, 3000)
                 });
             }
-
         }
     })
 

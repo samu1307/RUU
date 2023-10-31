@@ -6,6 +6,10 @@
     include('../templates.php/head-page.php'); 
 ?>
 <body id="body-create">
+    <?php 
+        $jsPath = '../js/modules/preloader.js';
+        include_once('../templates.php/preloader.php')
+    ?>
     <div class="userCreated">
         <div class="uc-p df">Curso creado</div>
         <div class="uc-line"></div>

@@ -696,33 +696,28 @@
 /* * * Animation Menu * * */
 
 .first-page{
-    top: 35% !important;
-    left: 66% !important; 
     border-radius: 2vw;
+    transform: translate(75%, 40vh) !important;
 }
 
 .second-page{
-    top: 30% !important; 
-    left: 57% !important; 
     border-radius: 2vw;
+    transform: translate(67%, 35vh) !important;
 }
 
 .third-page{
-    top: 25% !important; 
-    left: 48% !important; 
     border-radius: 2vw;
+    transform: translate(59%, 30vh) !important;
 }
 
 .fourth-page{
-    top: 20% !important; 
-    left: 39% !important; 
     border-radius: 2vw;
+    transform: translate(51%, 25vh) !important;
 }
 
 .fifth-page{
-    top: 15% !important; 
-    left: 30% !important; 
     border-radius: 2vw;
+    transform: translate(43%, 20vh) !important;
 }
 
 
@@ -894,6 +889,11 @@
 }
 
 
+/* * * Create SNACK * * */
+
+#selectCoor{
+    border-radius: 1vw;
+}
 
 
 
