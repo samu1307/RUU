@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ruu2023-c9fa5"
+  },
+  "hosting":{
+    "public": "view",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      ".github"
+    ]
+  }
+}
