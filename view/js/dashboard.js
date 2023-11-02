@@ -51,16 +51,6 @@ const sections = d.querySelectorAll('.btn-menu-menu')
 // btnMenus
 const menusBtn = d.querySelectorAll('.menu-icon');
 
-
-/* HEIGHT FOR BODYS */
-function heigthBodys(){
-    bodys.forEach(b=>{
-        
-    })
-}
-
-
-
 //Antes: 200Lineas
 //Ahora: 48Lineas
 
@@ -109,6 +99,7 @@ function addZi(bodys){
 
 menusBtn.forEach(btn=>{
     btn.addEventListener('click', ()=>{
+        bodys.forEach(b=>{b.style.height="100vh"})
         switch (btn.id){
             case 'users':
                 addZi([bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport]);    
@@ -195,22 +186,27 @@ sections.forEach(sec=>{
     sec.addEventListener('click', ()=>{
         switch (sec.id){
             case 'userMenu':
+                bodyDbUsers.style.height="auto"
                 addPage([bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport], 1);    
                 addZi([bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport]);    
             break;
             case 'courseMenu':
+                bodyDbCourses.style.height="auto"
                 addPage([bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers], 1);    
                 addZi([bodyDbCourses, bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers]);    
             break;
             case 'snackMenu':
+                bodyDbSnacks.style.height="auto"
                 addPage([bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses], 1);    
                 addZi([bodyDbSnacks, bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses]);    
             break;
             case 'profileMenu':
+                bodyDbProfile.style.height="auto"
                 addPage([bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks], 1);    
                 addZi([bodyDbProfile, bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks]);    
             break;
             case 'reportMenu':
+                bodyDbReport.style.height="auto"
                 addPage([bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile], 1);    
                 addZi([bodyDbReport, bodyDbUsers, bodyDbCourses, bodyDbSnacks, bodyDbProfile]);    
             break;

@@ -4,7 +4,7 @@
             <i class="menu-icon las la-bars" id="profile"></i>
         </div>
         <picture>
-            <img src="./img/iconuser1.png" alt="Imagen de perfil">
+            <img src="./img/iconuser1.png" alt="Imagen de perfil">  
         </picture>
     </header>
     <main id="main-db-users">

@@ -87,7 +87,7 @@
             </div>
             <div class="right__snack-aux">
                 <span>Auxiliar</span>
-                <select id="selectAux" name="aux>
+                <select id="selectAux" name="aux">
                     <?php
                         if(isset($aux)){
                             forEach($aux as $a){ 

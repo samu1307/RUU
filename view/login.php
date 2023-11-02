@@ -1,5 +1,4 @@
 <?php
-
     include_once('../helpers/validations.php');
     validateSession();
 

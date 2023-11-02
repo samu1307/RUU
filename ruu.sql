@@ -64,7 +64,7 @@ CREATE TABLE `coordinador` (
   `idCoordinador` int(11) NOT NULL,
   `nombre` varchar(40) DEFAULT NULL,
   `apellido` varchar(50) DEFAULT NULL,
-  `jornada` varchar(1) DEFAULT NULL,
+  `jornada` varchar(2) DEFAULT NULL,
   `telefono` varchar(10) DEFAULT NULL,
   `correo` varchar(50) DEFAULT NULL,
   `usuario` int(11) DEFAULT NULL
@@ -90,7 +90,7 @@ CREATE TABLE `auxiliar` (
   `idAuxiliar` int(11) NOT NULL,
   `nombre` varchar(40) DEFAULT NULL,
   `apellido` varchar(50) DEFAULT NULL,
-  `jornada` varchar(1) DEFAULT NULL,
+  `jornada` varchar(2) DEFAULT NULL,
   `telefono` varchar(10) DEFAULT NULL,
   `correo` varchar(50) DEFAULT NULL,
   `usuario` int(11) DEFAULT NULL
@@ -102,7 +102,7 @@ CREATE TABLE `auxiliar` (
 
 INSERT INTO `auxiliar` (`idAuxiliar`, `nombre`, `apellido`, `jornada`, `telefono`, `correo`, `usuario`) VALUES
 (1, 'Carolina', 'Sepulveda', 'M', '3126574585', 'caro.03@gmail.com', 3),
-(2, 'Maria Jose', 'T', 'Salazar', '3748652845', 'mariajo34567@gmail.com', 4),
+(2, 'Maria Jose', 'Salazar', 'T', '3748652845', 'mariajo34567@gmail.com', 4),
 (3, 'Karen', 'Escobar', 'M', '3103635793', 'kaes70837@gmail.com', 5),
 (4, 'Juliana', 'Ramirez', 'T', '3245473356', 'julianaramirez54@gmail.com', 6),
 (5, 'Samuel', 'Jimenez', 'M', '3603461854', 'jimenez654@hotmail.com', 7),
@@ -437,20 +437,20 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `auxiliar`
 --
 ALTER TABLE `auxiliar`
-  ADD CONSTRAINT `auxiliar_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `idAuxiliar` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Filtros para la tabla `coordinador`
 --
 ALTER TABLE `coordinador`
-  ADD CONSTRAINT `coordinador_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `idCoordinador` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Filtros para la tabla `curso_refrigerio`
 --
 ALTER TABLE `curso_refrigerio`
-  ADD CONSTRAINT `curso_refrigerio_ibfk_1` FOREIGN KEY (`curso_idCurso`) REFERENCES `curso` (`idCurso`),
-  ADD CONSTRAINT `curso_refrigerio_ibfk_2` FOREIGN KEY (`refrigerio_idRefrigerio`) REFERENCES `refrigerio` (`idRefrigerio`);
+  ADD CONSTRAINT `curso_idCurso` FOREIGN KEY (`curso_idCurso`) REFERENCES `curso` (`idCurso`),
+  ADD CONSTRAINT `refrigerio_idRefrigerio` FOREIGN KEY (`refrigerio_idRefrigerio`) REFERENCES `refrigerio` (`idRefrigerio`);
 
 --
 -- Filtros para la tabla `refrigerio`
@@ -459,6 +459,13 @@ ALTER TABLE `refrigerio`
   ADD CONSTRAINT `refrigerio_ibfk_1` FOREIGN KEY (`auxiliar`) REFERENCES `auxiliar` (`idAuxiliar`),
   ADD CONSTRAINT `refrigerio_ibfk_2` FOREIGN KEY (`coordinador`) REFERENCES `coordinador` (`idCoordinador`);
 COMMIT;
+
+delete from curso_refrigerio;
+delete from refrigerio;
+delete from curso;
+delete from coordinador;
+delete from auxiliar;
+delete from usuario;
 
 
 
@@ -474,11 +481,11 @@ DELIMITER $$
 -- Create or Update
 
 DROP PROCEDURE IF EXISTS `sp_saveUser` $$
-CREATE  PROCEDURE `sp_saveUser` (IN `_id` INT, IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_jornada` VARCHAR(1),  IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11), IN `_idRol` INT, IN `_img` LONGBLOB) 
+CREATE  PROCEDURE `sp_saveUser` (IN `_id` INT, IN `_name` VARCHAR(40), IN `_lastName` VARCHAR(50), IN `_number` VARCHAR(10), IN `_email` VARCHAR(50), IN `_jornada` VARCHAR(1),  IN `_user` VARCHAR(40), IN `_pass` VARCHAR(20), IN `_rol` VARCHAR(11), IN `_state` VARCHAR(1), IN `_idRol` INT) 
 BEGIN
   DECLARE _idQuery INT; 
   IF _id = 0 THEN
-    INSERT INTO usuario (usuario, contrasenia, rol, estado, imgUser) VALUES (_user, _pass, _rol, 'A', _img);
+    INSERT INTO usuario (usuario, contrasenia, rol, estado) VALUES (_user, _pass, _rol, 'A');
     SELECT idUsuario INTO _idQuery FROM usuario WHERE usuario = _user AND contrasenia = _pass AND rol = _rol;
     IF _rol = 'Coordinador' THEN 
       INSERT INTO coordinador (nombre, apellido, jornada, telefono, correo, usuario) VALUES (_name, _lastName, _jornada, _number, _email, _idQuery);
@@ -486,7 +493,7 @@ BEGIN
       INSERT INTO auxiliar (nombre, apellido, jornada, telefono, correo, usuario) VALUES (_name, _lastName, _jornada, _number, _email, _idQuery);
     END IF;
   ELSE 
-    UPDATE usuario SET usuario = _user, contrasenia = _pass WHERE idUsuario = _id;
+    UPDATE usuario SET usuario = _user, contrasenia = _pass, estado = _state WHERE idUsuario = _id;
     IF _rol = 'Coordinador' THEN 
       UPDATE coordinador SET nombre = _name, apellido = _lastName, jornada = _jornada, telefono = _number, correo = _email WHERE idCoordinador = _idRol;
     ELSE
@@ -535,7 +542,7 @@ BEGIN
   IF _id = 0 THEN
     INSERT INTO refrigerio (hora, fecha, cantidad, tipo, descripcion, auxiliar, coordinador) VALUES (_hora, _fecha, _cant, _type, _descri, _aux, _coor);
   ELSE 
-    UPDATE refrigerio SET hora = _hora, fecha = _fecha, cantidad = _cant, tipo = _type, descripcion = _descri, auxiliar = _aux, coordinador = _coor WHERE idUsuario = _id;
+    UPDATE refrigerio SET hora = _hora, fecha = _fecha, cantidad = _cant, tipo = _type, descripcion = _descri, auxiliar = _aux, coordinador = _coor WHERE idRefrigerio = _id;
   END IF;
 END$$
 

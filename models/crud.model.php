@@ -14,10 +14,10 @@
             }
         }
 
-        public function saveUser($idUser, $name, $lastname, $number, $email, $jor, $user, $pass, $rol, $idRol, $img){            
+        public function saveUser($idUser, $name, $lastname, $number, $email, $jor, $user, $pass, $rol, $state, $idRol){            
             try {
 
-                $msg = "CALL sp_saveUser(:Id, :Name, :LastName, :Number, :Email, :Jor, :User, :Pass, :Rol, :IdRol, :Img)";
+                $msg = "CALL sp_saveUser(:Id, :Name, :LastName, :Number, :Email, :Jor, :User, :Pass, :Rol, :State, :IdRol)";
                 $reques = $this->pdo->prepare($msg);
                 $reques->bindParam(':Id', $idUser);
                 $reques->bindParam(':Name', $name);
@@ -28,8 +28,8 @@
                 $reques->bindParam(':User', $user);
                 $reques->bindParam(':Pass', $pass);
                 $reques->bindParam(':Rol', $rol);
+                $reques->bindParam(':State', $state);
                 $reques->bindParam(':IdRol', $idRol);
-                $reques->bindParam(':Img', $img);
                 if($reques->execute()) return true;
                 else return false;
                 

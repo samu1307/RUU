@@ -10,6 +10,7 @@ let idSnackUrl = urlS.searchParams.get('id');
 let urlCreate = '../../controllers/dashboard.controller.php?method=create&create=snack'
 let urlUpdate = `../../controllers/dashboard.controller.php?method=update&create=snack&id=${idSnackUrl}`
 
+const bodyUser = d.querySelector('.body-user')
 const cardNew = d.querySelector('.userCreated');
 const cardUpdate = d.querySelector('.userUpdate');
 
@@ -39,8 +40,6 @@ const refriDescri = d.getElementById('refriDecription');
         e.preventDefault();
 
         let a = 0
-
-        console.log(selectCoor.value)
 
         if(selectCoor.value == '--'){
             a++
@@ -76,26 +75,26 @@ const refriDescri = d.getElementById('refriDecription');
                 i.classList.remove('alert')
             }
         })
-
+        
         let formData = new FormData(form);
         let data = {
-            type: formData.get('name'),
+            type: (leftBtn.classList.contains('rol-btn-active') != false)? 'A': 'B',
             cant: formData.get('cantSnacks'),
-            descri: formData.get('number'),
+            descri: formData.get('refriDecription'),
             aux: formData.get('aux'),
             coor: formData.get('coor')
         }
 
         if(a==0){
             if(btnSubmit.value == "Actualizar refrigerio"){
-                console.log(data)
                 queryFetch(urlUpdate, data, (j)=>{
+                    console.log(j)
                     btnSubmit.value = 'Actualizando...';
                     cardUpdate.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');
-                    setTimeout(()=>{
-                        location.href = '../dashboard.php';
-                    }, 5100)
+                    // setTimeout(()=>{
+                    //     location.href = '../dashboard.php';
+                    // }, 5100)
                 });
             }else{
                 console.log(data)

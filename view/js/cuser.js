@@ -52,6 +52,8 @@ const rolA = d.getElementById('rol-btn-aux');
     form.addEventListener('submit', e=>{
         e.preventDefault();
 
+        const stateA = d.getElementById('rol-btn-active')
+        const stateI = d.getElementById('rol-btn-inactive')
         let a = 0
 
         if(!idUserUrl){
@@ -75,6 +77,20 @@ const rolA = d.getElementById('rol-btn-aux');
             }
         }
 
+        if(idUserUrl){
+
+            /* Logic */
+            let validateState = stateA.classList.length == 3 || stateI.classList.length == 3;
+            
+            if(!validateState){
+                a++
+                stateA.classList.add('alert');
+                stateA.classList.remove('off');
+                stateI.classList.add('alert');
+                stateI.classList.remove('off');
+            }
+        }
+
         /* Validation */
         inputs.forEach(i=>{
             if(i.value.length == 0){
@@ -89,22 +105,37 @@ const rolA = d.getElementById('rol-btn-aux');
             }
         })
 
-        let formData = new FormData(form);
-        let data = {
-            namee: formData.get('name'),
-            lastname: formData.get('lastname'),
-            number: formData.get('number'),
-            email: formData.get('email'),
-            jornada: (jorM.classList.length == 3)? 'M': 'T',
-            user: formData.get('user'),
-            pass: formData.get('pass'),
-            rol: (rolC.classList.length == 3)? 'Coordinador': 'Auxiliar',
-            img: formData.get('img')
+        let formData = new FormData(form);  
+        let data;
+        if(idUserUrl){
+            data = {
+                namee: formData.get('name'),
+                lastname: formData.get('lastname'),
+                number: formData.get('number'),
+                email: formData.get('email'),
+                jornada: (jorM.classList.length == 3)? 'M': 'T',
+                user: formData.get('user'),
+                pass: formData.get('pass'),
+                state: (stateA.classList.length == 3)? 'A': 'I',
+                rol: (rolC.classList.length == 3)? 'Coordinador': 'Auxiliar'
+            }
+        }else{
+            data = {
+                namee: formData.get('name'),
+                lastname: formData.get('lastname'),
+                number: formData.get('number'),
+                email: formData.get('email'),
+                jornada: (jorM.classList.length == 3)? 'M': 'T',
+                user: formData.get('user'),
+                pass: formData.get('pass'),
+                rol: (rolC.classList.length == 3)? 'Coordinador': 'Auxiliar'
+            }
         }
 
         if(a==0){
-            if(btnSubmit.value == "Actualizar usuario"){
+            if(btnSubmit.value == "Actualizar usuario" && idUserUrl){
                 queryFetch(urlUpdate, data, (j)=>{
+                    console.log(j)
                     btnSubmit.value = 'Actualizando...';
                     cardUpdate.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');
@@ -114,6 +145,7 @@ const rolA = d.getElementById('rol-btn-aux');
                 });
             }else{
                 queryFetch(urlCreate, data, (j)=>{
+                    console.log(j)
                     btnSubmit.value = 'Insertando...';
                     cardNew.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');
@@ -140,4 +172,10 @@ const rolA = d.getElementById('rol-btn-aux');
     jorT.addEventListener('click', ()=>{btnSelectRight(jorM, jorT)})
     rolC.addEventListener('click', ()=>{btnSelectLeft(rolC, rolA)})
     rolA.addEventListener('click', ()=>{btnSelectRight(rolC, rolA)})
+    if(idUserUrl){
+        const stateA = d.getElementById('rol-btn-active')
+        const stateI = d.getElementById('rol-btn-inactive')
+        stateA.addEventListener('click', ()=>{btnSelectLeft(stateA, stateI)})
+        stateI.addEventListener('click', ()=>{btnSelectRight(stateA, stateI)})
+    }
 })();

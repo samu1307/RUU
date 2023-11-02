@@ -41,15 +41,15 @@
             </a>
         </div>
     </div>
+    <?php if(isset($res)){ foreach($res as $data){?>
     <div class="right__text info-create w100 df">
-        <h1>Crear Usuario</h1>
+        <h1>Actualizar Usuario</h1>
         <p>
             Como coordinador, podrás crear, editar
             y eliminar usuarios, además de realizar
             una variedad de funciones más
         </p>
     </div>
-    <?php if(isset($res)){ foreach($res as $data){?>
     <form id="createUser" class="right__body form-user w100 df" >
         <div class="right__names df w100">
             <div class="right__name-name">
@@ -73,29 +73,16 @@
         </div>
         <div class="right__jornada-div-btn w100">
             <span>Jornada</span>
-            <?php if($data['jornada'] == 'M'){ ?>
             <div class="right__jornada df w100">
-                <button class="right__jornada-btn off rol-btn-active" id="jor-btn-mañana" type="button" value="coor">
+                <button class="right__jornada-btn off <?php if($data['jornada'] == 'M') echo 'rol-btn-active'; ?>" id="jor-btn-mañana" type="button" value="coor">
                     <div class="right__jornada-cont df cxy"></div>
                     <div>Mañana</div>
                 </button>
-                <button class="right__jornada-btn off" id="jor-btn-tarde" type="button" value="aux">
+                <button class="right__jornada-btn off <?php if($data['jornada'] !== 'M') echo 'rol-btn-active'; ?>" id="jor-btn-tarde" type="button" value="aux">
                     <div class="right__jornada-cont df cxy"></div>
                     <div>Tarde<div>
                 </button>
             </div>
-            <?php }else{ ?>
-            <div class="right__jornada df w100">
-                <button class="right__jornada-btn off" id="jor-btn-mañana" type="button" value="coor">
-                    <div class="right__jornada-cont df cxy"></div>
-                    <div>Mañana</div>
-                </button>
-                <button class="right__jornada-btn off rol-btn-active" id="jor-btn-tarde" type="button" value="aux">
-                    <div class="right__jornada-cont df cxy"></div>
-                    <div>Tarde<div>
-                </button>
-            </div>
-            <?php } ?>
         </div>
         <div class="right__user df w100">
             <div class="right__user-user">
@@ -109,48 +96,54 @@
         </div>
         <div class="right__body-btn w100" style="display:none;">
             <span>Rol</span>
-            <?php if($data['rol'] == 'Coordinador'){ ?>
             <div class="right__body-btn-rols w100">
-                <button class="right__body-btn-rol off rol-btn-active" id="rol-btn-coor" type="button" value="coor">
+                <button class="right__body-btn-rol off <?php if($data['rol'] == 'Coordinador') echo 'rol-btn-active'?>" id="rol-btn-coor" type="button" value="coor">
                     <div class="right__body-cont df cxy"></div>
                     <div>Coordinador</div>
                 </button>
-                <button class="right__body-btn-rol off" id="rol-btn-aux" type="button" value="aux">
+                <button class="right__body-btn-rol off <?php if($data['rol'] !== 'Coordinador') echo 'rol-btn-active'?>" id="rol-btn-aux" type="button" value="aux">
                     <div class="right__body-cont df cxy"></div>
                     <div>Auxiliar<div>
                 </button>
             </div>
-            <?php }else{ ?>
-            <div class="right__body-btn-rols w100">
-                <button class="right__body-btn-rol off" id="rol-btn-coor" type="button" value="coor">
-                    <div class="right__body-cont df cxy"></div>
-                    <div>Coordinador</div>
-                </button>
-                <button class="right__body-btn-rol off rol-btn-active" id="rol-btn-aux" type="button" value="aux">
-                    <div class="right__body-cont df cxy"></div>
-                    <div>Auxiliar<div>
-                </button>
-            </div>
-            <?php } ?>
         </div>
-        <?php if($data['estado'] == 'I'){ ?>
         <div class="right__body-btn w100">
             <span>Estado</span>
             <div class="right__body-btn-rols w100">
-                <button class="right__body-btn-rol off" id="rol-btn-coor" type="button" value="coor">
+                <button class="right__body-btn-rol off <?php if($data['estado'] == 'A') echo 'rol-btn-activ e' ?>" style="width: 49%;" id="rol-btn-active" type="button" value="coor">
                     <div class="right__body-cont df cxy"></div>
                     <div>Activo</div>
                 </button>
-                <button class="right__body-btn-rol off rol-btn-active" id="rol-btn-aux" type="button" value="aux">
+                <button class="right__body-btn-rol off <?php if($data['estado'] == 'I') echo 'rol-btn-active' ?>" style="width: 49%;" id="rol-btn-inactive" type="button" value="aux">
                     <div class="right__body-cont df cxy"></div>
                     <div>Inactivo<div>
                 </button>
             </div>
         </div>
-        <?php }?>
+        <div class="right__body-btn w100" style="display:none;">
+            <span>Rol</span>
+            <div class="right__body-btn-rols w100">
+                <button class="right__body-btn-rol off <?php if($data['rol'] == 'Coordinador') echo 'rol-btn-active' ?>" id="rol-btn-coor" type="button" value="coor">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Coordinador</div>
+                </button>
+                <button class="right__body-btn-rol off <?php if($data['rol'] !== 'Coordinador') echo 'rol-btn-active' ?>" id="rol-btn-aux" type="button" value="aux">
+                    <div class="right__body-cont df cxy"></div>
+                    <div>Auxiliar<div>
+                </button>
+            </div>
+        </div>
         <input class="right__body-btn-send create-btn-user" id="btnSubmit" type="submit" value="Actualizar usuario">
     </form>
     <?php }}else{ ?>
+        <div class="right__text info-create w100 df">
+            <h1>Crear Usuario</h1>
+            <p>
+                Como coordinador, podrás crear, editar
+                y eliminar usuarios, además de realizar
+                una variedad de funciones más
+            </p>
+        </div>
         <form id="createUser" enctype="multipart/form-data" class="right__body form-user w100 df" >
         <div class="right__names df w100">
             <div class="right__name-name">
