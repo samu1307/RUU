@@ -1027,8 +1027,15 @@
   padding: 1.5vh 1.5vw;
 }
 
-/* * * Create SNACK * * */
-#selectCoor {
+/* * * Create Snack * * */
+#selectCoor,
+#selectAux {
+  border-radius: 1vw;
+}
+
+/* * * Create Course * * */
+#selectCoor,
+#selectAux {
   border-radius: 1vw;
 }
 

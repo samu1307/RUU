@@ -2,7 +2,7 @@ export function report(data){
 
     let coor = '';
     data.forEach((e,i)=>{
-        coor += `<div class="db-main-card ${(e.estado == 'A')? 'user-active' : 'user-inactive'} df deploy">
+        coor += `<div class="db-main-card ${(e.estado == 'A')? 'user-active' : 'user-inactive'} df deploy" style="margin-top: 30px;">
         <div style="background: #E5E9F6;" class="main-card-cont">
             <div class="main-card-cont-first df">
                 <div class="cont-main-card-img df cxy">

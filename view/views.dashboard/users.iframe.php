@@ -2,7 +2,7 @@
     $rol = $_SESSION["rol"];
     if(trim($rol) !== 'Auxiliar'){
 ?>
-<div class="body-db-users body-db df cxy" data-id="userMenu">
+<div class="body-db-users body-db df cxy zi-first" data-id="userMenu">
     <header id="header-db-users" class="header-db">
         <div id="menu-icon-div" class="df">
             <i id="users" class='menu-icon la la-bars' ></i>

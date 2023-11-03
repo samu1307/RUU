@@ -59,6 +59,25 @@
             }
         }
 
+        public function saveCourse($grado, $curso, $jornada, $alumnos, $director, $id, $estado){            
+            try {
+                $msg = "CALL sp_saveCourse(:Id, :Grado, :Curso, :Jornada, :Alumnos, :Director, :Estado)";
+                $reques = $this->pdo->prepare($msg);
+                $reques->bindParam(':Id', $id);
+                $reques->bindParam(':Grado', $grado);
+                $reques->bindParam(':Curso', $curso);
+                $reques->bindParam(':Jornada', $jornada);
+                $reques->bindParam(':Alumnos', $alumnos);
+                $reques->bindParam(':Director', $director);
+                $reques->bindParam(':Estado', $estado);
+                if($reques->execute()) return true;
+                else return false;
+                
+            }catch (PDOException $E){
+                return $E;
+            }
+        }
+
         public function read($table){
             $query = 'SELECT * FROM '.$table;
             $request = $this->pdo->prepare($query);
@@ -80,6 +99,13 @@
 
         public function getDataSnack($id){
             $query = 'SELECT * FROM `refrigerio` WHERE idRefrigerio = :id';
+            $reques = $this->pdo->prepare($query);
+            $reques->bindParam(':id', $id);
+            return ($reques->execute()) ? $reques->fetchAll() : false;
+        }
+
+        public function getDataCourse($id){
+            $query = 'SELECT * FROM `curso` WHERE idCurso = :id';
             $reques = $this->pdo->prepare($query);
             $reques->bindParam(':id', $id);
             return ($reques->execute()) ? $reques->fetchAll() : false;

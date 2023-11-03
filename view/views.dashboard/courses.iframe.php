@@ -2,7 +2,7 @@
     $rol = $_SESSION["rol"];
     if(trim($rol) !== 'Auxiliar'){
 ?>
-<div class="body-db-courses body-db df cxy zi-first" data-id="coursesMenu">
+<div class="body-db-courses body-db df cxy zi-second" data-id="coursesMenu">
     <header id="header-db-courses" class="header-db">
         <div id="menu-icon-div" class="df">
             <i class="menu-icon las la-bars" id="courses"></i>
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="main-card-btn df">
-                            <a href="./views.dashboard/createusers.php?id=<?=$date[0]?>" class="card-btn-edit df cxy">
+                            <a href="./views.dashboard/createcourses.php?id=<?=$date[0]?>" class="card-btn-edit df cxy">
                                 <i class="las la-pen c-black"></i>
                             </a>        
                             <button class="card-btn-delete df cxy" data-deleteId="<?=$date[0]?>">

@@ -546,5 +546,17 @@ BEGIN
   END IF;
 END$$
 
+-- Create or Update Course
+
+DROP PROCEDURE IF EXISTS `sp_saveCourse` $$
+CREATE  PROCEDURE `sp_saveCourse` (IN `_id` INT(11), IN `_grado` INT(2), IN `_curso` VARCHAR(1), IN `_jornada` VARCHAR(1), IN `_alum` BIGINT(20), IN `_direct` VARCHAR(20), IN `_estado` VARCHAR(1)) 
+BEGIN
+  IF _id = 0 THEN
+    INSERT INTO curso (grado, curso, jornada, cantAlumnos, profesor, estado) VALUES (_grado, _curso, _jornada, _alum, _direct, _estado);
+  ELSE 
+    UPDATE curso SET grado = _grado, curso = _curso, jornada = _jornada, cantAlumnos = _alum, profesor = _direct, estado = _estado WHERE idCurso = _id;
+  END IF;
+END$$
+
 DELIMITER $$
 

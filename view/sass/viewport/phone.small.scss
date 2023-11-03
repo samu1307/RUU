@@ -1596,10 +1596,6 @@ footer{
     input{width: 100%;}
 }
 
-.#{$r}__user{
-    div{width: 49%;}
-}
-
 .bodyInvalid{
     opacity: .5;
     pointer-events: none;
@@ -1683,9 +1679,9 @@ footer{
 .#{$r}__snack-aux{
     width: 35% !important;
     select{
+        height: 58%;
         outline: none;
         border-radius: 2vw;
-        border: .5px solid $bluedark;
         width: 100%;
         padding: 8%;
     }

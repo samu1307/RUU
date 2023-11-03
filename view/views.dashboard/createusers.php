@@ -110,7 +110,7 @@
         <div class="right__body-btn w100">
             <span>Estado</span>
             <div class="right__body-btn-rols w100">
-                <button class="right__body-btn-rol off <?php if($data['estado'] == 'A') echo 'rol-btn-activ e' ?>" style="width: 49%;" id="rol-btn-active" type="button" value="coor">
+                <button class="right__body-btn-rol off <?php if($data['estado'] == 'A') echo 'rol-btn-active' ?>" style="width: 49%;" id="rol-btn-active" type="button" value="coor">
                     <div class="right__body-cont df cxy"></div>
                     <div>Activo</div>
                 </button>

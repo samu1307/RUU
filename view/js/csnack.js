@@ -88,29 +88,23 @@ const refriDescri = d.getElementById('refriDecription');
         if(a==0){
             if(btnSubmit.value == "Actualizar refrigerio"){
                 queryFetch(urlUpdate, data, (j)=>{
-                    console.log(j)
                     btnSubmit.value = 'Actualizando...';
                     cardUpdate.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');
-                    // setTimeout(()=>{
-                    //     location.href = '../dashboard.php';
-                    // }, 5100)
+                    setTimeout(()=>{
+                        location.href = '../dashboard.php';
+                    }, 5100)
                 });
             }else{
                 console.log(data)
                 queryFetch(urlCreate, data, (j)=>{
-                    console.log(j)
                     btnSubmit.value = 'Insertando...';
                     cardNew.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');
                     setTimeout(()=>{
-                        btnSubmit.value = 'Crear usuario';
-                        setTimeout(()=>{
-                            cardNew.classList.remove('cardNew');
-                            bodyUser.classList.remove('bodyInvalid')
-                        }, 1500)
-                        inputs.forEach(i=>{i.value = ''})
-                        btnSelect.forEach(btn=>{btn.classList.remove('rol-btn-active')})
+                        cardNew.classList.remove('cardNew');
+                        bodyUser.classList.remove('bodyInvalid')
+                        location.href = '../dashboard.php';
                     }, 3000)
                 });
             }

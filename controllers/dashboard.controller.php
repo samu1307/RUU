@@ -56,6 +56,25 @@
             }
         }
 
+        public function saveCourse($id = 0){
+            if(isset($_POST)){
+                $grado = $_POST['grado'];
+                $curso = $_POST['curso'];
+                $jornada = $_POST['jornada'];
+                $alum = $_POST['alumnos'];
+                $direc = $_POST['director'];
+                
+                if ($id != 0){
+                    $estado = $_POST['estado'];
+                    // Edita
+                    return $this->model->saveCourse($grado, $curso, $jornada, $alum, $direc, $id, $estado);
+                }else{
+                    // Crea
+                    return $this->model->saveCourse($grado, $curso, $jornada, $alum, $direc, $id, 'A');
+                }
+            }
+        }
+
         public function delete($id){
             $this->model->delete($id);
             header('Location: ../view/dashboard.php');
@@ -67,18 +86,33 @@
     
         switch ($_GET['method']) {
             case 'create':
+                //CREATE A USER
                 if($_GET['create'] == 'user') echo $class->saveUser();
+                
+                //CREATE A SNACK
                 else if($_GET['create'] == 'snack') echo $class->saveSnack();
+                
+                //CREATE A COURSE
+                else if($_GET['create'] == 'course') echo $class->saveCourse();
             break;
             case 'update':
+                //UPDATE A USER
                 if($_GET['create'] == 'user'){
                     $idRol = $_GET['idRol'];
                     $idUser = $_GET['idUser'];
                     echo $class->saveUser($idUser, $idRol);
                 }
+
+                //UPDATE A SNACK
                 else if($_GET['create'] == 'snack'){
                     $id = $_GET['id'];
                     echo $class->saveSnack($id);
+                }
+
+                //UPDATE A COURSE
+                else if($_GET['create'] == 'course'){
+                    $id = $_GET['id'];
+                    echo $class->saveCourse($id);
                 }
             break;
             case 'delete':

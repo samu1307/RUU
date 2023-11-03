@@ -1828,10 +1828,6 @@ footer {
   width: 100%;
 }
 
-.right__user div {
-  width: 49%;
-}
-
 .bodyInvalid {
   opacity: 0.5;
   pointer-events: none;
@@ -1933,9 +1929,9 @@ footer {
 }
 .right__snack-coor select,
 .right__snack-aux select {
+  height: 58%;
   outline: none;
   border-radius: 2vw;
-  border: 0.5px solid #1E222F;
   width: 100%;
   padding: 8%;
 }

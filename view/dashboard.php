@@ -56,7 +56,7 @@
                     <h4>Inicio</h4>
                 </div>
             </a>
-            <div class="df jc-s btn-menu-menu click-sections" id="profileMenu">
+            <div class="df jc-s btn-menu-menu" id="profileMenu">
                 <div class="icon-img" id="w100">
                     <i class="las la-id-card"></i>
                 </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <?php } if(trim($rol) !== 'Auxiliar'){ ?> 
-            <div class="df jc-s btn-menu-menu" id="userMenu">
+            <div class="df jc-s btn-menu-menu click-sections" id="userMenu">
                 <div class="icon-img" id="w100">
                     <i class="las la-users"></i>
                 </div>

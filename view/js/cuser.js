@@ -135,7 +135,6 @@ const rolA = d.getElementById('rol-btn-aux');
         if(a==0){
             if(btnSubmit.value == "Actualizar usuario" && idUserUrl){
                 queryFetch(urlUpdate, data, (j)=>{
-                    console.log(j)
                     btnSubmit.value = 'Actualizando...';
                     cardUpdate.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');
@@ -145,19 +144,12 @@ const rolA = d.getElementById('rol-btn-aux');
                 });
             }else{
                 queryFetch(urlCreate, data, (j)=>{
-                    console.log(j)
                     btnSubmit.value = 'Insertando...';
                     cardNew.classList.add('cardNew');
                     bodyUser.classList.add('bodyInvalid');
                     setTimeout(()=>{
-                        btnSubmit.value = 'Crear usuario';
-                        setTimeout(()=>{
-                            cardNew.classList.remove('cardNew');
-                            bodyUser.classList.remove('bodyInvalid')
-                        }, 1500)
-                        inputs.forEach(i=>{i.value = ''})
-                        btnSelect.forEach(btn=>{btn.classList.remove('rol-btn-active')})
-                    }, 3000)
+                        location.href = '../dashboard.php';
+                    }, 5100)
                 });
             }
 

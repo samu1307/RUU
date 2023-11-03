@@ -255,3 +255,13 @@ btnReport.addEventListener('click', e=>{
         html2pdf(report(data), opciones);
     });
 })
+
+function heightLoad(){
+    bodys.forEach(b=>{
+        if(!b.classList.contains('body-db-users')){
+            b.style.height = '100vh'
+        }else b.style.height = 'auto';
+    })
+}
+
+window.addEventListener('load', heightLoad)
