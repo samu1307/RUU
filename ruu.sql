@@ -102,7 +102,7 @@ CREATE TABLE `auxiliar` (
 
 INSERT INTO `auxiliar` (`idAuxiliar`, `nombre`, `apellido`, `jornada`, `telefono`, `correo`, `usuario`) VALUES
 (1, 'Carolina', 'Sepulveda', 'M', '3126574585', 'caro.03@gmail.com', 3),
-(2, 'Maria Jose', 'Salazar', 'T', '3748652845', 'mariajo34567@gmail.com', 4),
+(2, 'Maria Jose', 'Salazar', 'T',   '3748652845',  'mariajo34567@gmail.com', 4),
 (3, 'Karen', 'Escobar', 'M', '3103635793', 'kaes70837@gmail.com', 5),
 (4, 'Juliana', 'Ramirez', 'T', '3245473356', 'julianaramirez54@gmail.com', 6),
 (5, 'Samuel', 'Jimenez', 'M', '3603461854', 'jimenez654@hotmail.com', 7),

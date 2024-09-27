@@ -109,20 +109,20 @@ CREATE TABLE IF NOT EXISTS `auxiliar` (
 -- Volcado de datos para la tabla `auxiliar`
 --
 
-INSERT INTO `auxiliar` (`idAuxiliar`, `nombre`, `apellido`, `jornada`, `telefono`, `correo`, `usuario`) VALUES
-(1, 'Carolina', 'Sepulveda', 'M', '3126574585', 'caro.03@gmail.com', 3),
-(2, 'Maria Jose', 'T', 'S', '3748652845', 'mariajo34567@gmail.com', 4),
-(3, 'Karen', 'Escobar', 'M', '3103635793', 'kaes70837@gmail.com', 5),
-(4, 'Juliana', 'Ramirez', 'T', '3245473356', 'julianaramirez54@gmail.com', 6),
-(5, 'Samuel', 'Jimenez', 'M', '3603461854', 'jimenez654@hotmail.com', 7),
-(6, 'Julian', 'Fichas', 'T', '3247685624', 'fichasjulififi@gmail.com', 8),
-(7, 'Gabriela', 'Sanchez', 'T', '3126546534', 'ssgabriela56@gmail.com', 9),
-(8, 'Jimena', 'Mendoza', 'M', '3657668668', 'jimemendojime@gmail.com', 10),
-(9, 'Santiago', 'Pineda', 'T', '3126987257', 'pisantiago456@hotmail.com', 11),
-(10, 'Josefina', 'Michi', 'M', '3654896512', 'josejosemichi5646@gmail.com', 12),
-(11, 'Laura', 'Alvarez', 'T', '3698745521', 'lauraalva876545@gmail.com', 13),
-(45, 'Nuevo', 'Nuevo', 'M', '3124657865', 'rivvas.cs@gmail.com', 61),
-(46, 'Samuel', 'Sarmiento Rivas', 'T', '3124564765', 'samuel123@gmail.com', 63);
+  INSERT INTO `auxiliar` (`idAuxiliar`, `nombre`, `apellido`, `jornada`, `telefono`, `correo`, `usuario`) VALUES
+  (1, 'Carolina', 'Sepulveda', 'M', '3126574585', 'caro.03@gmail.com', 3),
+  (2, 'Maria Jose', 'T', 'S', '3748652845', 'mariajo34567@gmail.com', 4),
+  (3, 'Karen', 'Escobar', 'M', '3103635793', 'kaes70837@gmail.com', 5),
+  (4, 'Juliana', 'Ramirez', 'T', '3245473356', 'julianaramirez54@gmail.com', 6),
+  (5, 'Samuel', 'Jimenez', 'M', '3603461854', 'jimenez654@hotmail.com', 7),
+  (6, 'Julian', 'Fichas', 'T', '3247685624', 'fichasjulififi@gmail.com', 8),
+  (7, 'Gabriela', 'Sanchez', 'T', '3126546534', 'ssgabriela56@gmail.com', 9),
+  (8, 'Jimena', 'Mendoza', 'M', '3657668668', 'jimemendojime@gmail.com', 10),
+  (9, 'Santiago', 'Pineda', 'T', '3126987257', 'pisantiago456@hotmail.com', 11),
+  (10, 'Josefina', 'Michi', 'M', '3654896512', 'josejosemichi5646@gmail.com', 12),
+  (11, 'Laura', 'Alvarez', 'T', '3698745521', 'lauraalva876545@gmail.com', 13),
+  (45, 'Nuevo', 'Nuevo', 'M', '3124657865', 'rivvas.cs@gmail.com', 61),
+  (46, 'Samuel', 'Sarmiento Rivas', 'T', '3124564765', 'samuel123@gmail.com', 63);
 
 -- --------------------------------------------------------
 
@@ -212,11 +212,11 @@ CREATE TABLE IF NOT EXISTS `coordinador` (
 -- Volcado de datos para la tabla `coordinador`
 --
 
-INSERT INTO `coordinador` (`idCoordinador`, `nombre`, `apellido`, `jornada`, `telefono`, `correo`, `usuario`) VALUES
-(0, 'ADMIN', 'ADMIN', 'M', 'ADMIN', 'ADMIN', 0),
-(1, 'Juan Carlos', 'Cadavid', 'M', '3125467897', 'juanca@gmail.com', 1),
-(2, 'Walter', 'Aguirre Bernal', 'T', '3129749743', 'waguirreb@educacionbogota.edu.co', 2),
-(9, 'Nuevo', 'Nuevo', 'M', '1232344323', 'rivvas.cs@gmail.com', 62);
+  INSERT INTO `coordinador` (`idCoordinador`, `nombre`, `apellido`, `jornada`, `telefono`, `correo`, `usuario`) VALUES
+  (0, 'ADMIN', 'ADMIN', 'M', 'ADMIN', 'ADMIN', 0),
+  (1, 'Juan Carlos', 'Cadavid', 'M', '3125467897', 'juanca@gmail.com', 1),
+  (2, 'Walter', 'Aguirre Bernal', 'T', '3129749743', 'waguirreb@educacionbogota.edu.co', 2),
+  (9, 'Nuevo', 'Nuevo', 'M', '1232344323', 'rivvas.cs@gmail.com', 62);
 
 -- --------------------------------------------------------
 
@@ -385,7 +385,7 @@ INSERT INTO `refrigerio` (`idRefrigerio`, `hora`, `fecha`, `cantidad`, `tipo`, `
 (7, '01:13:51', '2023-06-10', 463, 'A', 'Manzana, Yogurt, Rosquitas de Arroz, Mani', 8, 2),
 (8, '01:13:51', '2023-06-10', 316, 'B', 'Manzana, Yogurt, Rosquitas de Arroz, Mani', 8, 2),
 (9, '10:46:13', '2023-06-11', 441, 'A', 'Pera, Yogurt Griego, Mantecada', 3, 1),
-(10, '10:51:13', '2023-06-11', 369, 'B', 'Pera, Yogurt Griego, Mantecada', 3, 1),
+(10, '10:51:13', '2023-06-11', 369, 'B', 'Pera, Yogurt Griego, Mantecada', 3, 1);
 
 -- --------------------------------------------------------
 

@@ -122,7 +122,7 @@
             </div>
         </div>
         <div class="header-logo df cxy">
-            <img src="./view/img/escudo3dFront.png" alt="Escudo en 3d Colegio Rafael Uribe Uribe">
+            <img src="./view/img/escudobg.svg" alt="Escudo en 3d Colegio Rafael Uribe Uribe">
         </div>
     </header>
     <main>
