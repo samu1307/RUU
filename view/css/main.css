@@ -101,11 +101,28 @@ header {
   width: 100%;
 }
 
-iframe, textarea {
+a {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+}
+
+iframe,
+textarea {
   width: 220px;
 }
 
-h1, h2, h3, h4, h5, h6, p, label {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
   color: #1E222F;
   font-family: "Segoe UI";
 }
@@ -123,7 +140,8 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   appearance: none;
-  margin: 0; /* Puedes ajustar el margen si es necesario */
+  margin: 0;
+  /* Puedes ajustar el margen si es necesario */
 }
 
 /* Firefox */
@@ -194,7 +212,6 @@ input[type=number] {
 .btn-home span {
   color: #1E222F;
   margin-left: 0.3rem;
-  line-height: 2rem;
   font-family: "Segoe UI";
   font-size: 2rem;
   font-weight: 800;
@@ -207,7 +224,6 @@ input[type=number] {
 .btn-login {
   color: #E5E9F6;
   padding: 0.8rem 1.5rem;
-  transition: all 0.3s;
   border-radius: 0.7em;
   background: #1E222F;
   font-weight: 500;
@@ -233,28 +249,22 @@ input[type=number] {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .menu-slider-header a {
-  width: 100%;
-  display: flex;
   padding: 0.5rem;
+  color: #1E222F;
   aspect-ratio: 1/1;
   background: #F2E63C;
-  align-items: center;
   border-radius: 1rem;
   flex-direction: column;
   justify-content: center;
-  font-size: 1rem;
-  font-family: "Segoe UI";
-  font-weight: 700;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-.menu-slider-header a img {
-  width: 40%;
-  height: auto;
+.menu-slider-header a svg {
+  width: 3rem;
 }
 .menu-slider-header a span {
-  margin-top: 5%;
-  color: #1E222F;
-  line-height: 100%;
+  font-family: "Segoe UI";
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 /* Class for active */
@@ -305,8 +315,8 @@ section {
 }
 
 .main-head {
-  display: grid;
   gap: 2rem;
+  display: grid;
   padding-top: 15vh;
 }
 
@@ -329,7 +339,7 @@ section {
   text-align: center;
   overflow: visible;
   font-family: "Signika-Bold";
-  font-size: 15vw;
+  font-size: 3.5rem;
   line-height: 90%;
 }
 .main-main h1 span {
@@ -349,7 +359,7 @@ section {
 .main-btn a {
   padding: 1rem 1.5rem;
   border-radius: 1rem;
-  line-height: 1.2rem;
+  border: #4AA163 solid 2px;
   font-family: sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
@@ -366,16 +376,13 @@ section {
 
 .main-btn-contacto {
   color: #1E222F;
-  border: #4AA163 solid 2px;
-}
-.main-btn-contacto:active {
-  scale: 1.1;
 }
 
 /*  SECTION 2  */
-.section-2-map {
+.map {
   gap: 2rem;
   display: flex;
+  justify-content: space-evenly;
   border-radius: 1rem;
   padding: 1.8rem 1rem;
   background: #1E222F;
@@ -387,8 +394,7 @@ section {
 .mapIframe {
   width: 100%;
   height: 50%;
-  overflow: hidden;
-  border-radius: 20px;
+  border-radius: 1rem;
   background-color: #E5E9F6;
   background-image: url("../img/loading.gif");
   background-size: 100px;
@@ -398,12 +404,12 @@ section {
 
 .main-slider {
   width: 100%;
-  height: 50%;
 }
 
 .main-img-slider {
   width: 100%;
-  height: 80%;
+  height: fit-content;
+  aspect-ratio: 4/3;
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -412,16 +418,15 @@ section {
 }
 
 .img-slider {
-  width: 100%;
   gap: 3rem;
-  height: inherit;
+  height: 100%;
   padding: 1rem;
   flex-direction: row;
   justify-content: space-evenly;
   transition: margin-left 0.7s;
 }
 .img-slider img {
-  width: 90%;
+  width: 100%;
   height: auto;
   border-radius: 1rem;
   transition: all 0.2s;
@@ -432,11 +437,11 @@ section {
 }
 
 .moSl2 {
-  margin-left: -44%;
+  margin-left: -80%;
 }
 
 .moSl3 {
-  margin-left: -90%;
+  margin-left: -165%;
 }
 
 .main-btn-slider {
@@ -448,44 +453,31 @@ section {
 
 .btn-slider {
   width: 100%;
-  height: 100%;
+  gap: 1.5rem;
 }
 .btn-slider button {
-  margin: 0 5%;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   font-family: sans-serif;
-  font-size: 4vw;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
 .row-slider-btn {
-  color: white;
+  color: #E5E9F6;
   cursor: pointer;
-  transition: all 0.3s;
   background: transparent;
-}
-.row-slider-btn i {
-  font-size: 7vw;
 }
 .row-slider-btn:hover {
   scale: 1.2;
 }
 
 .dinamic-btn-slider {
-  width: 30%;
-  height: 70%;
-  margin: 0 5%;
+  width: fit-content;
+  gap: 1rem;
 }
-.dinamic-btn-slider span {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.dinamic-btn-slider span button {
-  padding: 9%;
+.dinamic-btn-slider button {
+  padding: 0.6rem;
 }
 
 /* Class for active */
@@ -515,17 +507,17 @@ section {
   background-position: center center;
 }
 
-.about {
+.about-text {
   width: 100%;
   padding: 10% 5%;
   text-align: start;
 }
-.about h4 {
+.about-text h4 {
   margin-bottom: 10px;
   font-family: "Signika-Medium";
   font-size: 8vw;
 }
-.about p {
+.about-text p {
   margin: 0;
   width: 100%;
   text-align: justify;
@@ -834,7 +826,6 @@ footer {
   margin-right: 0.5vw;
 }
 .left__head-logo h3 {
-  line-height: 100%;
   color: #1E222F;
   letter-spacing: 1px;
   font-size: 100%;
@@ -875,7 +866,6 @@ footer {
 }
 .right__text h1 {
   font-size: 10vw;
-  line-height: 105%;
   margin-bottom: 5px;
 }
 .right__text p {
@@ -1300,7 +1290,6 @@ footer {
 }
 #search h3 {
   color: white;
-  line-height: 100%;
   margin-bottom: 3%;
   font-size: calc(12vw - 1rem);
 }
@@ -1490,7 +1479,6 @@ footer {
   width: 100%;
   height: 20%;
   margin-top: 5%;
-  line-height: 100%;
   font-family: "Signika-SemiBold";
   font-size: 4.5vw;
 }
@@ -1516,7 +1504,6 @@ footer {
 }
 .main-card-descri div {
   height: 100%;
-  line-height: 100%;
   word-wrap: break-word;
   font-family: "Segoe UI";
   font-size: 4.75vw;
@@ -1529,10 +1516,6 @@ footer {
   flex-direction: row;
   font-family: Calibri;
   font-size: 5vw;
-}
-.main-card-info span,
-.main-card-info div {
-  line-height: 100%;
 }
 .main-card-info span {
   font-weight: 500;
@@ -1633,9 +1616,6 @@ footer {
 .main-card-email {
   margin-bottom: 10px;
   flex-direction: column;
-}
-.main-card-email div {
-  line-height: 90%;
 }
 .main-card-email span {
   margin-right: 1.5vw;
@@ -1953,10 +1933,6 @@ footer {
   height: calc(100% - 2px);
   border-radius: 0 2vw 2vw 0;
 }
-#viewPass i {
-  line-height: 100%;
-  color: #FFFFFF;
-}
 
 .right__names,
 .right__info,
@@ -2093,29 +2069,31 @@ footer {
 
 @media screen and (min-width: 480px) {
   /* * * * * Index * * * * */
-  .btn-login {
-    padding: 2.5vw 3.5vw;
-    line-height: 100%;
+  html {
+    font-size: 18px;
   }
-  .section-2-index {
-    height: 100vh;
+  .menu-slider-header {
+    width: 75%;
+  }
+  .main-main h1 {
+    font-size: 4.3rem;
   }
   .video-yt {
     height: 40%;
     margin: 0;
     padding-bottom: 10%;
   }
-  .about {
+  .about-text {
     height: 25%;
     margin: 0;
     padding-bottom: 10%;
   }
-  .about h4 {
+  .about-text h4 {
     font-size: 6vw;
     margin: 0;
     padding-bottom: 2%;
   }
-  .about p {
+  .about-text p {
     font-size: 3vw;
   }
   .lema {
@@ -2149,6 +2127,20 @@ footer {
     width: 100%;
   }
 }
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 22px;
+  }
+  #nav-index {
+    padding: 1.5rem 2rem;
+  }
+  .menu-slider-header {
+    width: 60%;
+  }
+  .img-slider {
+    padding: 2rem;
+  }
+}
 @media screen and (min-width: 1024px) {
   @font-face {
     font-display: swap;
@@ -2175,146 +2167,83 @@ footer {
     font-family: "Signika-Bold";
     src: url("../fonts/Signika/SignikaBold.ttf");
   }
+  html {
+    font-size: 18px;
+  }
   /*  INDEX  */
-  #body-index {
-    background: #E5E9F6;
-  }
-  #header-index {
-    height: 90vh;
-    display: flex;
-    padding: 3.5% 5%;
-    flex-direction: column;
-  }
   #nav-index {
-    position: fixed;
+    padding: 1.5rem 2rem;
   }
-  .nav-nav-index {
-    padding: 5vh 5% 2vh;
-    height: 14vh;
-    align-items: center;
-  }
-  .menu-slider-header {
-    display: none;
+  .scrollOn {
+    padding: 0.7rem 1.5rem !important;
   }
   .btn-menu {
     display: none;
   }
-  .btn-home {
-    height: 100%;
-  }
   .btn-home img {
-    width: auto;
-    height: 90%;
+    width: 2rem;
   }
-  .btn-home h3 {
-    height: auto;
-    font-size: 1rem;
-    letter-spacing: 0;
-    font-family: "Segoe UI";
+  .btn-home span {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
   }
-  .n-n-msh {
-    height: 100%;
+  .menu-slider-header {
+    margin: 0;
+    padding: 0;
     display: flex;
+    position: static;
+    box-shadow: none;
+    transition: none;
+    width: fit-content;
+    background: transparent;
+    transform: translate(0);
   }
-  .n-n-msh ul {
+  .menu-slider-header a {
+    gap: 0.5rem;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    aspect-ratio: auto;
     flex-direction: row;
   }
-  .n-n-msh ul li {
-    list-style: none;
-    position: relative;
-    margin: 0 1.5vw;
-  }
-  .n-n-msh a {
-    margin: auto;
-    cursor: pointer;
-    color: #1E222F;
-    font-weight: 500;
-    line-height: 100%;
-    position: relative;
-    display: inline-block;
-    font-family: Calibri;
-    font-size: 1.8vw;
-    transition: all 0.4s;
-  }
-  .n-n-msh a::before, .n-n-msh a::after {
-    left: 0;
-    position: absolute;
-  }
-  .n-n-msh a::before {
-    width: 0;
-    z-index: 10;
-    height: 100%;
-    content: "";
-    background: #E5E9F6;
-    transition: all 0.4s;
-  }
-  .n-n-msh a::after {
-    top: 0;
-    opacity: 0;
-    width: 100%;
-    z-index: 100;
-    height: 100%;
-    display: flex;
-    color: #1E222F;
-    transition: all 0.4s;
-    align-items: center;
-    justify-content: center;
-    content: attr(data-icon);
-    font-family: "Line Awesome Free";
-    font-size: 1.8vw;
-    font-weight: 900;
-  }
-  .n-n-msh a:hover {
-    color: transparent;
-  }
-  .n-n-msh a:hover::before {
-    width: 100%;
-  }
-  .n-n-msh a:hover::after {
-    opacity: 1;
-  }
-  .btns {
-    width: 12%;
-    height: 80%;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .btns .night {
-    width: 46%;
-    height: 100%;
+  .menu-slider-header a svg {
     display: none;
-    position: relative;
-    border-radius: 12px;
-    background: #1E222F;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
   }
-  .btns .night div {
-    top: 0;
+  .menu-slider-header a span {
+    position: relative;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .menu-slider-header a span::after {
+    content: "";
     left: 0;
-    width: 50%;
-    right: auto;
-    height: 100%;
-    bottom: auto;
-    cursor: pointer;
-    background: #FFFFFF;
+    right: 0;
+    width: 5%;
+    opacity: 0;
+    height: 0.05rem;
+    bottom: -0.1rem;
+    margin: 0 auto;
     position: absolute;
-    transition: all 0.5s;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s, transform 0.3s ease-in-out;
+    background: rgba(30, 34, 47, 0.9);
+  }
+  .menu-slider-header a:hover {
+    transform: scale(1.15);
+  }
+  .menu-slider-header a:hover span {
+    transform: translateY(-0.15rem);
+  }
+  .menu-slider-header a:hover span::after {
+    opacity: 1;
+    transform: scaleX(2000%);
   }
   .btn-login {
-    width: 100%;
-    height: 90%;
-    padding: 0;
-    border-radius: 12px;
-    transition: all 0.3s;
-    border: 2px solid #1E222F;
-    font-size: 1.5vw;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
   }
   .btn-login:hover {
-    background: none;
-    color: #1E222F;
+    box-shadow: none;
+    background: rgba(30, 34, 47, 0.7);
   }
   .main-head {
     display: flex;
@@ -2335,116 +2264,41 @@ footer {
   }
   .main-main {
     width: 50%;
-    padding: 0 3% 0 0;
+    padding-right: 2rem;
   }
-  .main-date {
-    position: relative;
-    flex-direction: row;
-    margin-bottom: 3vw;
-    align-items: flex-end;
-  }
-  .main-date svg {
-    width: calc(3.5vw - 1rem);
-  }
-  .main-date div {
-    font-family: Calibri, sans-serif;
-    font-weight: 300;
-    font-size: calc(3vw - 1rem);
-    padding-left: 0.5vw;
-  }
-  .main-p h1 {
-    font-size: 7vw;
-    text-align: start;
-    font-weight: bold;
-    line-height: 0.8em;
-    font-family: "Segoe UI";
-    letter-spacing: -0.2vw;
-  }
-  .main-p h1 span {
-    letter-spacing: 1px;
-  }
-  .main-p h1 div {
-    margin-top: 0.3vw;
+  .main-main h1 {
+    font-size: 4.3rem;
   }
   .main-line {
     width: 100%;
-    margin: 5% auto;
-  }
-  .main-btn {
-    display: flex;
-    flex-direction: row;
+    margin: 0;
   }
   .main-btn a {
-    margin: 0 2%;
-    padding: 1.3vw 2vw;
-    transition: all 0.3s;
-    border-radius: 0 -12px;
-    font-size: 2vw;
-    border: 2px solid #4AA163;
+    padding: 0.7rem 1.1rem;
+    border-radius: 0.7rem;
   }
-  .main-btn a[id=ingresar]:hover {
-    background: none;
-    color: #1E222F;
-    box-shadow: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  .main-btn a[id=contacto]:hover {
-    color: #FFFFFF;
-    background-color: #4AA163;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  /* Main */
   #main-index {
-    padding: 2.5% 5%;
-  }
-  .section-1-index {
-    padding: 5%;
-    height: 65vh;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+    padding: 2rem 3rem;
   }
   .map {
     height: 90%;
-    white-space: nowrap;
-    border: 0.5vw solid #4AA163;
+    padding: 2rem;
+    flex-direction: row;
+    border: 0.3rem solid #4AA163;
+  }
+  .mapIframe {
+    width: 50%;
+    height: auto;
+    border-radius: 0.5rem;
   }
   .main-slider {
-    height: 90%;
-    padding: 0 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .main-img-slider {
-    align-items: center;
-    flex-wrap: nowrap;
-  }
-  .img-slider {
-    height: 80%;
-  }
-  .img-slider div {
-    width: 100%;
-    min-width: 0;
+    width: 50%;
   }
   .img-slider img {
-    width: auto;
     height: 100%;
-  }
-  .main-btn-slider {
-    height: 15%;
   }
   .main-btn-slider button {
-    font-size: 1.3vw;
-  }
-  .row-slider-btn i {
-    font-size: 2vw;
-  }
-  .dinamic-btn-slider {
-    height: 100%;
-  }
-  .dinamic-btn-slider span button {
-    padding: 5%;
+    font-size: 1rem;
   }
   /* Section 2 */
   .cont-about {
@@ -3068,6 +2922,9 @@ footer {
   }
 }
 @media screen and (min-width: 1200px) {
+  html {
+    font-size: 28px;
+  }
   /* * * * * Index * * * * */
   /* Class for active */
   .scrollOn {
@@ -3089,8 +2946,8 @@ footer {
   .main-head {
     padding-top: 15vh;
   }
-  .main-main {
-    font-size: 6.5vw;
+  .main-main h1 {
+    font-size: 4rem;
   }
   .main-btn a {
     padding: 1vw 1.5vw;

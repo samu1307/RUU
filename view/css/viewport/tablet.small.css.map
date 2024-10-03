@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"tablet.small.css"}
+{"version":3,"sourceRoot":"","sources":["../../sass/viewport/tablet.small.scss"],"names":[],"mappings":"AAAA;EAAK;;;AAEL;EAAW;;;AACX;EAAoB;;;AAEpB;EAAa","file":"tablet.small.css"}

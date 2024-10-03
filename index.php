@@ -28,26 +28,26 @@
             </a>
             <ul class="menu-slider-header cxy">
                 <li>
-                    <a href="#header-index" id="home" class="a-sections">
-                        <i class="las la-home"></i>
+                    <a href="#home" class="a-sections">
+                        <?php include './view/svg/home.php'; ?>
                         <span>Inicio</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#section-1-index" id="ubi" class="a-sections">
-                        <i class="las la-map-marker"></i>
+                    <a href="#map" class="a-sections">
+                        <?php include './view/svg/map.php'; ?>
                         <span>Ubicación</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#section-2-index" id="about" class="a-sections">
-                        <i class="las la-users-cog"></i>
+                    <a href="#about" class="a-sections">
+                        <?php include './view/svg/about.php'; ?>
                         <span>Nosotros</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#form-contact" id="contact" class="a-sections">
-                        <i class="las la-id-car"></i>
+                    <a href="#form-contact" class="a-sections">
+                        <?php include './view/svg/contact.php'; ?>
                         <span>Contactar</span>
                     </a>
                 </li>
@@ -56,7 +56,7 @@
         </nav>
     </header>
     <main id="main-index">
-        <section class="main-head w100">
+        <section class="main-head w100" id="home">
             <picture class="main-img df cxy">
                 <img src="./view/img/escudobg.svg" alt="Escudo editado del Colegio Rafael Uribe Uribe">
             </picture>
@@ -69,16 +69,15 @@
                 </h1>
                 <div class="main-line"></div>
                 <div class="main-btn df w100">
-                    <a class="main-btn-ingresar di" id="ingresar" href="./view/login.php">Ingresar</a>
-                    <a class="main-btn-contacto di" id="contacto" href="#form-contact">Contacto</a>
+                    <a class="main-btn-ingresar" id="ingresar" href="./view/login.php">Ingresar</a>
+                    <a class="main-btn-contacto" id="contacto" href="#form-contact">Contacto</a>
                 </div>
             </div>
         </section>
-        <section class="section-2-map" id="section-2-map">
-            <iframe class="mapIframe w100 "
+        <section class="map" id="map">
+            <iframe class="mapIframe"
                 data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.261302140725!2d-74.15205568570643!3d4.5469303442389215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa1dfc765d443%3A0x755db7df8764399e!2sIED%20Colegio%20Rafael%20Uribe%20Uribe%20Localidad%2019!5e0!3m2!1ses!2sco!4v1669464605207!5m2!1ses!2sco"
-                width="400" height="300" style="border:0;" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
+                width="400" height="300" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
             <article class="main-slider">
                 <div class="main-img-slider">
@@ -93,31 +92,33 @@
                 </div>
                 <div class="main-btn-slider">
                     <div class="btn-slider df cxy">
-                        <button class="di row-slider-btn" id="row-btn-l">
-                            <i class="las la-arrow-left"></i>
+                        <button class="df cxy row-slider-btn" id="row-btn-l">
+                            <?php $rotate = 0;
+                            $size = '2rem';
+                            include './view/svg/arrow.php'; ?>
                         </button>
-                        <span class="dinamic-btn-slider">
-                            <span>
-                                <button class="di" data-img="1">01</button>
-                                <button class="di" data-img="2">02</button>
-                                <button class="di" data-img="3">03</button>
-                            </span>
+                        <span class="dinamic-btn-slider df">
+                            <button class="di" data-img="1">01</button>
+                            <button class="di" data-img="2">02</button>
+                            <button class="di" data-img="3">03</button>
                         </span>
-                        <button class="di row-slider-btn" id="row-btn-r">
-                            <i class="las la-arrow-right"></i>
+                        <button class="df cxy row-slider-btn" id="row-btn-r">
+                            <?php $rotate = 180;
+                            $size = '2rem';
+                            include './view/svg/arrow.php'; ?>
                         </button>
                     </div>
                 </div>
             </article>
         </section>
-        <section class="section-2-index" id="section-2-index">
+        <section class="about" id="about">
             <div class="cont-about">
                 <div class="video-yt"><iframe class="videoIframe lazy-load" width="560" height="315"
                         data-src="https://www.youtube.com/embed/MUxwDDh-gbw" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                 </div>
-                <div class="about">
+                <div class="about-text">
                     <h4>¿Quiénes somos?</h4>
                     <p> <b>RUU</b> inicio en septiembre de 2022 como una idea para gestionar, mas rapida y
                         adecuadamente, los distintos refrigerios que llegan al Colegio Rafael Uribe Uribe mediante una
